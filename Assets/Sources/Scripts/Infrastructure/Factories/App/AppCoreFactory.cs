@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Sources.Scripts.App.Core;
 using Sources.Scripts.ControllersInterfaces.Scenes;
+using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes;
 using Sources.Scripts.Infrastructure.Services.SceneServices;
 using UnityEngine;
 using Zenject;
@@ -23,6 +24,10 @@ namespace Sources.Scripts.Infrastructure.Factories.App
             Dictionary<string, Func<object, SceneContext, UniTask<IScene>>> sceneFactories =
                 new Dictionary<string, Func<object, SceneContext, UniTask<IScene>>>();
             SceneService sceneService = new SceneService(sceneFactories);
+            projectContext.Container.BindInterfacesAndSelfTo<SceneService>().FromInstance(sceneService);
+            
+            sceneFactories["MainMenu"] = (payload, sceneContext) =>
+                sceneContext.Container.Resolve<MainMenuSceneFactory>().Create(payload);
 
             return appCore;
         }

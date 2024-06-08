@@ -6,5 +6,8 @@ namespace Sources.Scripts.Domain.Models.Data
     {
         //[JsonProperty("audioValue")]
         public int AudioValue { get; set; }
+        
+        //[JsonProperty("id")]
+        public string Id { get; set; }
     }
 }

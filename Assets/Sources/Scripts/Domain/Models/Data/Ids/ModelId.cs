@@ -8,6 +8,7 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
         public const string PlayerWallet = "PlayerWallet";
         public const string KillEnemyCounter = "KillEnemyCounter";
         public const string MainMenu = "MainMenu";
+        public const string CurrentLevel = "CurrentLevel";
         public const string Volume = "Volume";
         public const string GameData = "GameData";
         public const string Tutorial = "Tutorial";
@@ -27,10 +28,13 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
         public static IReadOnlyList<string> ModelsIds = new List<string>()
         {
             GameData,
+            CurrentLevel,
             Gameplay,
             Gameplay2,
             Gameplay3,
             Gameplay4,
+            Gameplay5,
+            Gameplay6,
             Volume,
             PlayerWallet,
             KillEnemyCounter,
@@ -42,6 +46,7 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
             //[KillEnemyCounter] = typeof(KillEnemyCounterDto),
             [Tutorial] = typeof(TutorialDto),
             [GameData] = typeof(GameDataDto),
+            [CurrentLevel] = typeof(CurrentLevelDto),
             [Volume] = typeof(VolumeDto),
             [Gameplay] = typeof(LevelDto),
             [Gameplay2] = typeof(LevelDto),
@@ -49,7 +54,7 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
             [Gameplay4] = typeof(LevelDto),
             [Gameplay5] = typeof(LevelDto),
             [Gameplay6] = typeof(LevelDto),
-            //[PlayerWallet] = typeof(PlayerWalletDto),
+            [PlayerWallet] = typeof(PlayerWalletDto),
         };
     }
 }

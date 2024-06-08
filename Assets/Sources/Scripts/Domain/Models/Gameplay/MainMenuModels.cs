@@ -14,7 +14,8 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             Level sixthLevel,
             LevelAvailability levelAvailability,
             GameData gameData,
-            Tutorial tutorial)
+            Tutorial tutorial,
+            CurrentLevel currentLevel)
         {
             Volume = volume;
             FirstLevel = firstLevel;
@@ -26,6 +27,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             LevelAvailability = levelAvailability;
             GameData = gameData;
             Tutorial = tutorial;
+            CurrentLevel = currentLevel;
         }
 
         public Volume Volume { get; }
@@ -38,5 +40,6 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         public LevelAvailability LevelAvailability { get; }
         public GameData GameData { get; }
         public Tutorial Tutorial { get; }
+        public CurrentLevel CurrentLevel { get; }
     }
 }

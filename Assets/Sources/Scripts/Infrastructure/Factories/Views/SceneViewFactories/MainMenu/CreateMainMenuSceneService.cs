@@ -51,6 +51,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             GameData gameData = new GameData(ModelId.GameData, true);
             _entityRepository.Add(gameData);
             
+            CurrentLevel currentLevel = new CurrentLevel(ModelId.CurrentLevel, ModelId.Gameplay);
+            _entityRepository.Add(currentLevel);
+            
             Level firstLevel = new Level(ModelId.Gameplay, false);
             _entityRepository.Add(firstLevel);
             Level secondLevel = new Level(ModelId.Gameplay2, false);
@@ -87,7 +90,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 sixthLevel,
                 levelAvailability,
                 gameData,
-                tutorial);
+                tutorial,
+                currentLevel);
         }
 
         private Volume CreateVolume()

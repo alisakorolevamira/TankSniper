@@ -2,9 +2,14 @@
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.MainMenu;
+using Sources.Scripts.Infrastructure.Services.PauseServices;
+using Sources.Scripts.InfrastructureInterfaces.Services.PauseServices;
+using Sources.Scripts.InfrastructureInterfaces.Services.Upgrades;
 using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.Presentations.Views;
 using Sources.Scripts.UIFramework.Presentations.Views;
+using Sources.Scripts.UIFramework.Services.Focus;
+using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;
 using UnityEngine;
 using Zenject;
 
@@ -29,10 +34,11 @@ namespace Sources.Scripts.Infrastructure.DIContainers.MainMenu
         
         private void BindServices()
         {
-            //Container.Bind<IPauseService>().To<PauseService>().AsSingle();
+            Container.Bind<IPauseService>().To<PauseService>().AsSingle();
             //Container.Bind<IEnemySpawnerConfigCollectionService>().To<EnemySpawnerConfigCollectionService>().AsSingle();
             //Container.Bind<IStickyService>().To<StickyService>().AsSingle();
-            //Container.Bind<IFocusService>().To<FocusService>().AsSingle();
+            //Container.Bind<IUpgradeConfigCollectionService>().To<UpgradeConfigCollectionService>().AsSingle();
+            Container.Bind<IFocusService>().To<FocusService>().AsSingle();
         }
 
         private void BindMainMenuLoadService()

@@ -1,24 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using Sources.Scripts.Domain.Models.Data;
 using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
-using Sources.Scripts.Domain.Models.Upgrades;
+using Sources.Scripts.Domain.Models.Spawners;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Cameras;
+using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Domain.Data;
+using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.Cameras;
+using Sources.Scripts.InfrastructureInterfaces.Services.GameOver;
+using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
+using Sources.Scripts.InfrastructureInterfaces.Services.Saves;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
-using Sources.Scripts.InfrastructureInterfaces.Services.Volumes;
+using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.Presentations.Views.RootGameObjects;
 using Sources.Scripts.UIFramework.Infrastructure.Factories.Services.Collectors;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Forms;
-using UnityEngine.TextCore.Text;
 
 namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Gameplay
 {
@@ -30,7 +32,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
         //private readonly IEnemySpawnerDtoMapper _enemySpawnerDtoMapper;
 
         public CreateGameplaySceneService(
-            //GameplayHud gameplayHud,
+            GameplayHud gameplayHud,
             UICollectorFactory uiCollectorFactory,
             //CharacterViewFactory characterViewFactory,
             ILoadService loadService,
@@ -40,36 +42,35 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             //ItemSpawnerViewFactory itemSpawnerViewFactory,
             IUpgradeDtoMapper upgradeDtoMapper,
             //CustomCollection<Upgrader> upgradeCollection,
-            //KillEnemyCounterViewFactory killEnemyCounterViewFactory,
+            KilledEnemiesCounterViewFactory killedEnemiesCounterViewFactory,
             //BackgroundMusicViewFactory backgroundMusicViewFactory,
-            //IGameOverService gameOverService,
+            IGameOverService gameOverService,
             CameraViewFactory cameraViewFactory,
             ICameraService cameraService,
             VolumeViewFactory volumeViewFactory,
             IVolumeService volumeService,
-            //ISaveService saveService,
-            //ILevelCompletedService levelCompletedService,
-            ITutorialService tutorialService,
+            ISaveService saveService,
+            ILevelCompletedService levelCompletedService,
             //IEnemySpawnerDtoMapper enemySpawnerDtoMapper,
             //IAdvertisingService advertisingService,
             IFormService formService)
             : base(
-                //gameplayHud,
+                gameplayHud,
                 uiCollectorFactory,
                 //characterViewFactory,
                 rootGameObject,
                 //enemySpawnViewFactory,
                 //itemSpawnerViewFactory,
                 //upgradeCollection,
-                //killEnemyCounterViewFactory,
+                killedEnemiesCounterViewFactory,
                 //backgroundMusicViewFactory,
-                //gameOverService,
+                gameOverService,
                 cameraViewFactory,
                 cameraService,
                 volumeViewFactory,
                 volumeService,
-                //saveService,
-                //levelCompletedService,
+                saveService,
+                levelCompletedService,
                 //tutorialService,
                 //advertisingService,
                 formService)
@@ -92,12 +93,11 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             PlayerWallet playerWallet = new PlayerWallet(0, ModelId.PlayerWallet);
             _entityRepository.Add(playerWallet);
 
-            //KillEnemyCounter killEnemyCounter = new KillEnemyCounter(ModelId.KillEnemyCounter, 0);
-            //_entityRepository.Add(killEnemyCounter);
+            KilledEnemiesCounter killedEnemiesCounter = new KilledEnemiesCounter();
 
-            //EnemySpawner enemySpawner = CreateEnemySpawner(scenePayload.SceneId);
+            EnemySpawner enemySpawner = CreateEnemySpawner(scenePayload.SceneId);
             
-            //CharacterHealth characterHealth = new CharacterHealth(characterHealthUpgrader);
+            PlayerHealth playerHealth = new PlayerHealth();
             //Character character = new Character(
             //    playerWallet,
             //    characterHealth,
@@ -114,9 +114,12 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             //    });
 
             return new GameModels(
+                playerHealth,
                 playerWallet,
                 volume,
                 level,
+                killedEnemiesCounter,
+                //enemySpawner,
                 currentLevel);
         }
 
@@ -142,14 +145,15 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
         //    return upgrader;
         //}
 
-        //private EnemySpawner CreateEnemySpawner(string sceneId)
-        //{
-        //    EnemySpawnerDto enemySpawnerDto = _enemySpawnerDtoMapper.MapIdToDto(sceneId);
-        //    EnemySpawner enemySpawner = _enemySpawnerDtoMapper.MapDtoToModel(enemySpawnerDto);
-        //    _entityRepository.Add(enemySpawner);
-//
-        //    return enemySpawner;
-        //}
+        private EnemySpawner CreateEnemySpawner(string sceneId)
+        {
+            //EnemySpawnerDto enemySpawnerDto = _enemySpawnerDtoMapper.MapIdToDto(sceneId);
+            //EnemySpawner enemySpawner = _enemySpawnerDtoMapper.MapDtoToModel(enemySpawnerDto);
+            //_entityRepository.Add(enemySpawner);
+            EnemySpawner enemySpawner = new();
+
+            return enemySpawner;
+        }
 
         //private Tutorial CreateTutorial() перенести в мейн меню
         //{

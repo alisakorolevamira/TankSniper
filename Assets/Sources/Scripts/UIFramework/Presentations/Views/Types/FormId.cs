@@ -8,6 +8,6 @@
         GameOver = 3,
         LevelCompleted = 4,
         GreetingTutorial = 5,
-        Aim = 6,
+        Shoot = 6,
     }
 }

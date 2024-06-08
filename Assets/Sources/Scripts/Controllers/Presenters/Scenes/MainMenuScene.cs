@@ -3,7 +3,7 @@ using Cysharp.Threading.Tasks;
 using Sources.Scripts.ControllersInterfaces.Scenes;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactories;
-using Sources.Scripts.InfrastructureInterfaces.Services.Volumes;
+using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.Presentations.UI.Curtain;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;

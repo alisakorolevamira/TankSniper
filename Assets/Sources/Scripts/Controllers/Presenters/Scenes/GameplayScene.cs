@@ -1,9 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using Sources.Scripts.ControllersInterfaces.Scenes;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactories;
+using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
+using Sources.Scripts.InfrastructureInterfaces.Services.GameOver;
+using Sources.Scripts.InfrastructureInterfaces.Services.InputServices;
+using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
+using Sources.Scripts.InfrastructureInterfaces.Services.Saves;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
-using Sources.Scripts.InfrastructureInterfaces.Services.Volumes;
+using Sources.Scripts.InfrastructureInterfaces.Services.UpdateServices;
+using Sources.Scripts.Presentations.UI.Curtain;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
+using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
+using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;
 
 namespace Sources.Scripts.Controllers.Presenters.Scenes
 {
@@ -12,79 +22,76 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         //private readonly IUpdateService _updateService;
         //private readonly IInputServiceUpdater _inputServiceUpdater;
         private readonly ILoadSceneService _loadSceneService;
-        //private readonly IGameOverService _gameOverService;
+        private readonly IGameOverService _gameOverService;
         private readonly IVolumeService _volumeService;
-        //private readonly ISaveService _saveService;
-        //private readonly ILevelCompletedService _levelCompletedService;
+        private readonly ISaveService _saveService;
+        private readonly ILevelCompletedService _levelCompletedService;
         private readonly ITutorialService _tutorialService;
-        //private readonly CustomCollection<IEnemyView> _enemyCollection;
-        //private readonly IAudioService _audioService;
-        //private readonly IFocusService _focusService;
+        private List<IEnemyView> _enemiesViews;
+        private readonly IAudioService _audioService;
+        private readonly IFocusService _focusService;
         //private readonly IAdvertisingService _advertisingService;
-        //private readonly CurtainView _curtainView;
+        private readonly LoadingCurtainView _curtainView;
 
         public GameplayScene(
             //IUpdateService updateService,
             //IInputServiceUpdater inputServiceUpdater,
             ILoadSceneService loadSceneService,
-            //IGameOverService gameOverService,
+            IGameOverService gameOverService,
             IVolumeService volumeService,
-            //ISaveService saveService,
-            //ILevelCompletedService levelCompletedService,
-            ITutorialService tutorialService)
-            //CustomCollection<IEnemyView> enemyCollection,
-            //CurtainView curtainView,
-            //IAudioService audioService,
-            //IFocusService focusService,
+            ISaveService saveService,
+            ILevelCompletedService levelCompletedService,
+            ITutorialService tutorialService,
+            List<IEnemyView> enemiesViews,
+            LoadingCurtainView curtainView,
+            IAudioService audioService,
+            IFocusService focusService)
             //IAdvertisingService advertisingService)
         {
             //_updateService = updateService ?? throw new ArgumentNullException(nameof(updateService));
             //_inputServiceUpdater = inputServiceUpdater ??
-            //                       throw new ArgumentNullException(nameof(inputServiceUpdater));
+                                   //throw new ArgumentNullException(nameof(inputServiceUpdater));
             _loadSceneService = loadSceneService ?? throw new ArgumentNullException(nameof(loadSceneService));
-            //_localizationService = localizationService ??
-            //                       throw new ArgumentNullException(nameof(localizationService));
-            //_gameOverService = gameOverService ?? throw new ArgumentNullException(nameof(gameOverService));
+            _gameOverService = gameOverService ?? throw new ArgumentNullException(nameof(gameOverService));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
-            //_saveService = saveService ?? throw new ArgumentNullException(nameof(saveService));
-            //_levelCompletedService = levelCompletedService ??
-            //                         throw new ArgumentNullException(nameof(levelCompletedService));
+            _saveService = saveService ?? throw new ArgumentNullException(nameof(saveService));
+            _levelCompletedService = levelCompletedService ??
+                                     throw new ArgumentNullException(nameof(levelCompletedService));
             _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
-            //_enemyCollection = enemyCollection ??
-            //                   throw new ArgumentNullException(nameof(enemyCollection));
-            //_audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
-            //_focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
+            _enemiesViews = enemiesViews ??
+                                   throw new ArgumentNullException(nameof(enemiesViews));
+            _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
+            _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             //_advertisingService = advertisingService ??
             //                      throw new ArgumentNullException(nameof(advertisingService));
-            //_curtainView = curtainView ? curtainView : throw new ArgumentNullException(nameof(curtainView));
+            _curtainView = curtainView ? curtainView : throw new ArgumentNullException(nameof(curtainView));
         }
 
         public async void Enter(object payload = null)
         {
-            //_focusService.Enable();
+            _focusService.Enable();
             _loadSceneService.Load(payload as IScenePayload);
             //_advertisingService.Enable();
-            //_localizationService.Translate();
             _volumeService.Enter();
-            //_gameOverService.Enter();
-            //_saveService.Enter();
-            //_levelCompletedService.Enable();
-            //_audioService.Enter();
-            //await _curtainView.HideCurtain();
+            _gameOverService.Enter();
+            _saveService.Enter();
+            _levelCompletedService.Enable();
+            _audioService.Enter();
+            await _curtainView.HideCurtain();
             _tutorialService.Enable();
         }
 
         public void Exit()
         {
-            //_focusService.Disable();
+            _focusService.Disable();
             //_advertisingService.Disable();
             //_updateService.UnregisterAll();
-            //_gameOverService.Exit();
+            _gameOverService.Exit();
             _volumeService.Exit();
-            //_saveService.Exit();
-            //_levelCompletedService.Disable();
-            //_audioService.Exit();
-            //_enemyCollection.Clear();
+            _saveService.Exit();
+            _levelCompletedService.Disable();
+            _audioService.Exit();
+            _enemiesViews.Clear();
         }
 
         public void Update(float deltaTime)

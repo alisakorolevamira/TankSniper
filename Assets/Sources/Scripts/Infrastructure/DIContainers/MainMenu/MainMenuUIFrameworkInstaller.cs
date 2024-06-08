@@ -8,7 +8,7 @@ using Zenject;
 
 namespace Sources.Scripts.Infrastructure.DIContainers.MainMenu
 {
-    public class MainMenuUIInstaller : MonoInstaller
+    public class MainMenuUIFrameworkInstaller : MonoInstaller
     {
         public override void InstallBindings()
         {

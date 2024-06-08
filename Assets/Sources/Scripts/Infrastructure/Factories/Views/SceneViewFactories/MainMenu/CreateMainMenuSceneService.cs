@@ -6,9 +6,9 @@ using Sources.Scripts.Domain.Models.Settings;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
+using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
-using Sources.Scripts.InfrastructureInterfaces.Services.Volumes;
 using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.UIFramework.Infrastructure.Factories.Services.Collectors;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Forms;
@@ -51,20 +51,20 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             GameData gameData = new GameData(ModelId.GameData, true);
             _entityRepository.Add(gameData);
             
-            CurrentLevel currentLevel = new CurrentLevel(ModelId.CurrentLevel, ModelId.Gameplay);
+            CurrentLevel currentLevel = new CurrentLevel(ModelId.CurrentLevel, ModelId.FirstLevel);
             _entityRepository.Add(currentLevel);
             
-            Level firstLevel = new Level(ModelId.Gameplay, false);
+            Level firstLevel = new Level(ModelId.FirstLevel, false);
             _entityRepository.Add(firstLevel);
-            Level secondLevel = new Level(ModelId.Gameplay2, false);
+            Level secondLevel = new Level(ModelId.SecondLevel, false);
             _entityRepository.Add(secondLevel);
-            Level thirdLevel = new Level(ModelId.Gameplay3, false);
+            Level thirdLevel = new Level(ModelId.ThirdLevel, false);
             _entityRepository.Add(thirdLevel);
-            Level fourthLevel = new Level(ModelId.Gameplay4, false);
+            Level fourthLevel = new Level(ModelId.FourthLevel, false);
             _entityRepository.Add(fourthLevel);
-            Level fifthLevel = new Level(ModelId.Gameplay5, false);
+            Level fifthLevel = new Level(ModelId.FifthLevel, false);
             _entityRepository.Add(fifthLevel);
-            Level sixthLevel = new Level(ModelId.Gameplay6, false);
+            Level sixthLevel = new Level(ModelId.SixthLevel, false);
             _entityRepository.Add(sixthLevel);
 
             LevelAvailability levelAvailability = new LevelAvailability(

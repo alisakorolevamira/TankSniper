@@ -4,7 +4,7 @@ using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactories;
-using Sources.Scripts.InfrastructureInterfaces.Services.Volumes;
+using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.UIFramework.Infrastructure.Factories.Services.Collectors;
 using Sources.Scripts.UIFramework.Presentations.Views.Types;
@@ -41,6 +41,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
         public void Load(IScenePayload scenePayload)
         {
             MainMenuModels models = LoadModels(scenePayload);
+            
+            //CurrentLevel currentLevel = models.CurrentLevel;
             
             _volumeViewFactory.Create(models.Volume, _mainMenuHud.VolumeView);
             _volumeService.Register(models.Volume);

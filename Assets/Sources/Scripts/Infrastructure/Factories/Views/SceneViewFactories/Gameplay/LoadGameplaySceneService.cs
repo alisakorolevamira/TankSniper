@@ -7,11 +7,17 @@ using Sources.Scripts.Domain.Models.Settings;
 using Sources.Scripts.Domain.Models.Upgrades;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Cameras;
+using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
+using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.Cameras;
+using Sources.Scripts.InfrastructureInterfaces.Services.GameOver;
+using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
-using Sources.Scripts.InfrastructureInterfaces.Services.Volumes;
+using Sources.Scripts.InfrastructureInterfaces.Services.Saves;
+using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
+using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.Presentations.Views.RootGameObjects;
 using Sources.Scripts.UIFramework.Infrastructure.Factories.Services.Collectors;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Forms;
@@ -24,7 +30,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
         private readonly IEntityRepository _entityRepository;
         
         public LoadGameplaySceneService(
-            //GameplayHud gameplayHud, 
+            GameplayHud gameplayHud, 
             UICollectorFactory uiCollectorFactory, 
             //CharacterViewFactory characterViewFactory, 
             ILoadService loadService, 
@@ -33,20 +39,20 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             //EnemySpawnViewFactory enemySpawnViewFactory, 
             //ItemSpawnerViewFactory itemSpawnerViewFactory, 
             //CustomCollection<Upgrader> upgradeCollection, 
-            //KillEnemyCounterViewFactory killEnemyCounterViewFactory, 
+            KilledEnemiesCounterViewFactory killedEnemiesCounterViewFactory, 
             //BackgroundMusicViewFactory backgroundMusicViewFactory, 
-            //IGameOverService gameOverService, 
+            IGameOverService gameOverService, 
             CameraViewFactory cameraViewFactory, 
             ICameraService cameraService, 
             VolumeViewFactory volumeViewFactory, 
             IVolumeService volumeService,
-            //ISaveService saveService,
-            //ILevelCompletedService levelCompletedService,
-            //ITutorialService tutorialService,
+            ISaveService saveService,
+            ILevelCompletedService levelCompletedService,
+            ITutorialService tutorialService,
             //IAdvertisingService advertisingService,
             IFormService formService) 
             : base(
-                //gameplayHud, 
+                gameplayHud, 
                 uiCollectorFactory, 
                 //characterViewFactory, 
                 //bearViewFactory, 
@@ -55,16 +61,15 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 //enemySpawnViewFactory, 
                 //itemSpawnerViewFactory,
                 //upgradeCollection, 
-                //killEnemyCounterViewFactory, 
+                killedEnemiesCounterViewFactory, 
                 //backgroundMusicViewFactory, 
-                //gameOverService, 
+                gameOverService, 
                 cameraViewFactory, 
                 cameraService, 
                 volumeViewFactory, 
                 volumeService,
-                //saveService,
-                //levelCompletedService,
-                //tutorialService,
+                saveService,
+                levelCompletedService,
                 //advertisingService,
                 formService)
         {
@@ -76,8 +81,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
         {
             _loadService.LoadAll();
             
-            Tutorial tutorial = _entityRepository.Get<Tutorial>(ModelId.Tutorial);
-            
             Volume volume = _entityRepository.Get<Volume>(ModelId.Volume);
 
             Level level = _entityRepository.Get<Level>(scenePayload.SceneId);
@@ -88,14 +91,14 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
             //UpgradeController upgradeController = new UpgradeController();
 //
-            //KillEnemyCounter killEnemyCounter = _entityRepository.Get<KillEnemyCounter>(ModelId.KillEnemyCounter);
+            KilledEnemiesCounter killedEnemiesCounter = new KilledEnemiesCounter();
             //EnemySpawner enemySpawner = _entityRepository.Get<EnemySpawner>(ModelId.GameplayEnemySpawner);
 //
             //ScoreCounter scoreCounter = _entityRepository.Get<ScoreCounter>(ModelId.ScoreCounter);
             //
             //MiniGun miniGun = new MiniGun(miniGunAttackUpgrader, WeaponConst.AttackCooldown);
 //
-            //CharacterHealth characterHealth = new CharacterHealth(characterHealthUpgrader);
+            PlayerHealth playerHealth = new PlayerHealth();
 
             //Character character = new Character(
             //    playerWallet,
@@ -115,9 +118,11 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
 
             return new GameModels(
+                playerHealth,
                 playerWallet,
                 volume,
                 level,
+                killedEnemiesCounter,
                 currentLevel);
         }
     }

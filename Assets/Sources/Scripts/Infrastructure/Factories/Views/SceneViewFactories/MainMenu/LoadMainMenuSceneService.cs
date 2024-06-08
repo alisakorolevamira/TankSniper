@@ -6,9 +6,9 @@ using Sources.Scripts.Domain.Models.Settings;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
+using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
-using Sources.Scripts.InfrastructureInterfaces.Services.Volumes;
 using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.UIFramework.Infrastructure.Factories.Services.Collectors;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Forms;
@@ -20,7 +20,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
         private readonly ILoadService _loadService;
         
         public LoadMainMenuSceneService(
-            IEntityRepository entityRepository,
+            //IEntityRepository entityRepository,
             ILoadService loadService,
             MainMenuHud mainMenuHud,
             LevelAvailabilityViewFactory levelAvailabilityViewFactory,
@@ -49,12 +49,12 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             
             CurrentLevel currentLevel = _loadService.Load<CurrentLevel>(ModelId.CurrentLevel);
             
-            Level firstLevel = _loadService.Load<Level>(ModelId.Gameplay);
-            Level secondLevel = _loadService.Load<Level>(ModelId.Gameplay2);
-            Level thirdLevel = _loadService.Load<Level>(ModelId.Gameplay3);
-            Level fourthLevel = _loadService.Load<Level>(ModelId.Gameplay4);
-            Level fifthLevel = _loadService.Load<Level>(ModelId.Gameplay5);
-            Level sixthLevel = _loadService.Load<Level>(ModelId.Gameplay6);
+            Level firstLevel = _loadService.Load<Level>(ModelId.FirstLevel);
+            Level secondLevel = _loadService.Load<Level>(ModelId.SecondLevel);
+            Level thirdLevel = _loadService.Load<Level>(ModelId.ThirdLevel);
+            Level fourthLevel = _loadService.Load<Level>(ModelId.FourthLevel);
+            Level fifthLevel = _loadService.Load<Level>(ModelId.FifthLevel);
+            Level sixthLevel = _loadService.Load<Level>(ModelId.SixthLevel);
             
             LevelAvailability levelAvailability = new LevelAvailability(
                 new List<Level>()

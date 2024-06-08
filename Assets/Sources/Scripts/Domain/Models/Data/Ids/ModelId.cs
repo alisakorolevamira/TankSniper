@@ -6,54 +6,50 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
     public class ModelId
     {
         public const string PlayerWallet = "PlayerWallet";
-        public const string KillEnemyCounter = "KillEnemyCounter";
         public const string MainMenu = "MainMenu";
         public const string CurrentLevel = "CurrentLevel";
         public const string Volume = "Volume";
         public const string GameData = "GameData";
         public const string Tutorial = "Tutorial";
-        public const string Gameplay = "Gameplay";
-        public const string Gameplay2 = "GamePlay2";
-        public const string Gameplay3 = "GamePlay3";
-        public const string Gameplay4 = "GamePlay4";
-        public const string Gameplay5 = "GamePlay5";
-        public const string Gameplay6 = "GamePlay6";
+        public const string FirstLevel = "FirstLevel";
+        public const string SecondLevel = "SecondLevel";
+        public const string ThirdLevel = "ThirdLevel";
+        public const string FourthLevel = "FourthLevel";
+        public const string FifthLevel = "FifthLevel";
+        public const string SixthLevel = "SixthLevel";
         
         public static IReadOnlyList<string> DeletedModelsIds = new List<string>()
         {
-            PlayerWallet,
-            KillEnemyCounter,
+            PlayerWallet
         };
         
         public static IReadOnlyList<string> ModelsIds = new List<string>()
         {
             GameData,
             CurrentLevel,
-            Gameplay,
-            Gameplay2,
-            Gameplay3,
-            Gameplay4,
-            Gameplay5,
-            Gameplay6,
+            FirstLevel,
+            SecondLevel,
+            ThirdLevel,
+            FourthLevel,
+            FifthLevel,
+            SixthLevel,
             Volume,
             PlayerWallet,
-            KillEnemyCounter,
             Tutorial,
         };
 
         public static IReadOnlyDictionary<string, Type> DtoTypes = new Dictionary<string, Type>()
         {
-            //[KillEnemyCounter] = typeof(KillEnemyCounterDto),
             [Tutorial] = typeof(TutorialDto),
             [GameData] = typeof(GameDataDto),
             [CurrentLevel] = typeof(CurrentLevelDto),
             [Volume] = typeof(VolumeDto),
-            [Gameplay] = typeof(LevelDto),
-            [Gameplay2] = typeof(LevelDto),
-            [Gameplay3] = typeof(LevelDto),
-            [Gameplay4] = typeof(LevelDto),
-            [Gameplay5] = typeof(LevelDto),
-            [Gameplay6] = typeof(LevelDto),
+            [FirstLevel] = typeof(LevelDto),
+            [SecondLevel] = typeof(LevelDto),
+            [ThirdLevel] = typeof(LevelDto),
+            [FourthLevel] = typeof(LevelDto),
+            [FifthLevel] = typeof(LevelDto),
+            [SixthLevel] = typeof(LevelDto),
             [PlayerWallet] = typeof(PlayerWalletDto),
         };
     }

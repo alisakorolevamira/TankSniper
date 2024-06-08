@@ -8,5 +8,6 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Cameras
     {
         PositionId Id { get; }
         Vector3 Position { get; }
+        Quaternion Rotation { get; }
     }
 }

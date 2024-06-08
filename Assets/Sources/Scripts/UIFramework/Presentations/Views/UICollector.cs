@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Sources.Scripts.Presentations.Views;
+using Sources.Scripts.UIFramework.Presentations.AudioSources;
 using Sources.Scripts.UIFramework.Presentations.Buttons;
+using Sources.Scripts.UIFramework.PresentationsInterfaces.AudioSources;
 using UnityEngine;
 
 namespace Sources.Scripts.UIFramework.Presentations.Views
@@ -9,8 +11,10 @@ namespace Sources.Scripts.UIFramework.Presentations.Views
     {
         [SerializeField] private List<UIView> _uiContainers;
         [SerializeField] private List<UIButton> _uiFormButtons;
+        [SerializeField] private List<UIAudioSource> _uiAudioSources;
         
         public IReadOnlyList<UIButton> UIFormButtons => _uiFormButtons;
-        public IReadOnlyList<UIView> UIContainers => _uiContainers;
+        public IReadOnlyList<UIView> UIContainers => _uiContainers; //сделать интерфейсы как у аудиосорса??
+        public IReadOnlyList<IUIAudioSource> UIAudioSources => _uiAudioSources;
     }
 }

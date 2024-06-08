@@ -28,7 +28,9 @@ namespace Sources.Scripts.Infrastructure.Factories.App
             
             sceneFactories["MainMenu"] = (payload, sceneContext) =>
                 sceneContext.Container.Resolve<MainMenuSceneFactory>().Create(payload);
-
+            sceneFactories["FirstLevel"] = (payload, sceneContext) =>
+                sceneContext.Container.Resolve<GameplaySceneFactory>().Create(payload);
+            
             return appCore;
         }
     }

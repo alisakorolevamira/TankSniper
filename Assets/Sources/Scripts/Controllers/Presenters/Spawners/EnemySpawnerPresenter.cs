@@ -54,7 +54,7 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
                 {
                     foreach (IEnemySpawnPoint spawnPoint in _enemySpawnerView.SpawnPoints)
                     {
-                        //SpawnEnemy(spawnPoint.Position, _enemySpawnerView.PlayerView);
+                        SpawnEnemy(spawnPoint.Position, _enemySpawnerView.PlayerView);
                         //SpawnBoss(spawnPoint.Position, _enemySpawnerView.PlayerView);
                     }
                 }

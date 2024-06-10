@@ -36,6 +36,12 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
 
             CurrentLevel currentLevel = _entityRepository.Get<CurrentLevel>(ModelId.CurrentLevel);
 
+            if (currentLevel == null)
+            {
+                _sceneService.ChangeSceneAsync(ModelId.FirstLevel, new ScenePayload(ModelId.FirstLevel, true, false));
+                return;
+            }
+
             _sceneService.ChangeSceneAsync(
                 currentLevel.CurrentLevelId,
                 new ScenePayload(currentLevel.CurrentLevelId, true, false));

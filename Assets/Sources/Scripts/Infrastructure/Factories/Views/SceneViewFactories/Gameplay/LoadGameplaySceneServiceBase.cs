@@ -109,7 +109,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 gameModels.KilledEnemiesCounter, gameModels.EnemySpawner, _gameplayHud.KilledEnemiesCounterView);
             
 
-            Debug.Log("camera");
             _cameraService.AddPosition(_rootGameObject.CameraPosition);
             _cameraService.SetPosition(PositionId.MainPosition);
             _cameraViewFactory.Create(_gameplayHud.CinemachineCameraView);

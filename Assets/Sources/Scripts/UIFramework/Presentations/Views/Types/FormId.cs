@@ -9,5 +9,6 @@
         LevelCompleted = 4,
         GreetingTutorial = 5,
         Shoot = 6,
+        Shop = 7,
     }
 }

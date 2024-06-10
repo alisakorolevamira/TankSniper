@@ -10,7 +10,7 @@ namespace Sources.Scripts.UIFramework.Services.Forms
     public class FormService : IFormService
     {
         private readonly ContainerView _containerView;
-        private readonly Dictionary<FormId, IUIView> _forms = new Dictionary<FormId, IUIView>();
+        private readonly Dictionary<FormId, IUIView> _forms = new ();
 
         public FormService(UICollector uiCollector)
         {

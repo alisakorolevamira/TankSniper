@@ -5,10 +5,12 @@ using Sources.Scripts.UIFramework.Infrastructure.Factories.Views.Buttons;
 using Sources.Scripts.UIFramework.Infrastructure.Factories.Views.Forms;
 using Sources.Scripts.UIFramework.Services.AudioSources;
 using Sources.Scripts.UIFramework.Services.Buttons;
+using Sources.Scripts.UIFramework.Services.Focus;
 using Sources.Scripts.UIFramework.Services.Forms;
 using Sources.Scripts.UIFramework.Services.Views;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Buttons;
+using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Views;
 using Zenject;
 
@@ -32,6 +34,8 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Common
             Container.Bind<IUIButtonService>().To<UIButtonService>().AsSingle();
             
             Container.Bind<IUIViewService>().To<UIViewService>().AsSingle();
+
+            Container.Bind<IFocusService>().To<FocusService>().AsSingle();
         }
     }
 }

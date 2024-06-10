@@ -1,4 +1,5 @@
-﻿using Sources.Scripts.Domain.Models.Players;
+﻿using Sources.Scripts.Domain.Models.Common;
+using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
 using Sources.Scripts.Domain.Models.Spawners;
 using Sources.Scripts.Domain.Models.Upgrades;
@@ -9,33 +10,32 @@ namespace Sources.Scripts.Domain.Models.Gameplay
     public class GameModels
     {
         public GameModels(
-            PlayerHealth playerHealth,
+            CharacterHealth characterHealth,
             PlayerWallet playerWallet,
             Volume volume,
             Level level,
-            //Character character,
+            Player player,
             KilledEnemiesCounter killedEnemiesCounter,
-            //EnemySpawner enemySpawner,
+            EnemySpawner enemySpawner,
             CurrentLevel currentLevel)
-            //UpgradeController upgradeController)
         {
-            PlayerHealth = playerHealth;
+            CharacterHealth = characterHealth;
             PlayerWallet = playerWallet;
             Volume = volume;
             Level = level;
-            //Character = character;
+            Player = player;
             KilledEnemiesCounter = killedEnemiesCounter;
-            //EnemySpawner = enemySpawner;
+            EnemySpawner = enemySpawner;
             CurrentLevel = currentLevel;
         }
 
-        public PlayerHealth PlayerHealth { get; }
+        public CharacterHealth CharacterHealth { get; }
         public PlayerWallet PlayerWallet { get; }
         public Volume Volume { get; }
         public Level Level { get; }
-        //public Character Character { get; }
+        public Player Player { get; }
         public KilledEnemiesCounter KilledEnemiesCounter { get; }
-        //public EnemySpawner EnemySpawner { get; }
+        public EnemySpawner EnemySpawner { get; }
         public CurrentLevel CurrentLevel { get; }
     }
 }

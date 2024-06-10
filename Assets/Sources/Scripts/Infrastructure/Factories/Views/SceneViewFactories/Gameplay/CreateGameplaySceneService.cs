@@ -1,4 +1,5 @@
 ﻿using System;
+using Sources.Scripts.Domain.Models.Common;
 using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Players;
@@ -7,7 +8,9 @@ using Sources.Scripts.Domain.Models.Spawners;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Cameras;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
+using Sources.Scripts.Infrastructure.Factories.Views.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
+using Sources.Scripts.Infrastructure.Factories.Views.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Domain.Data;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.Cameras;
@@ -28,19 +31,18 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
     {
         private readonly ILoadService _loadService;
         private readonly IEntityRepository _entityRepository;
-        private readonly IUpgradeDtoMapper _upgradeDtoMapper;
+        //private readonly IUpgradeDtoMapper _upgradeDtoMapper;
         //private readonly IEnemySpawnerDtoMapper _enemySpawnerDtoMapper;
 
         public CreateGameplaySceneService(
             GameplayHud gameplayHud,
             UICollectorFactory uiCollectorFactory,
-            //CharacterViewFactory characterViewFactory,
+            PlayerViewFactory playerViewFactory,
             ILoadService loadService,
             IEntityRepository entityRepository,
             RootGameObject rootGameObject,
-            //EnemySpawnViewFactory enemySpawnViewFactory,
-            //ItemSpawnerViewFactory itemSpawnerViewFactory,
-            IUpgradeDtoMapper upgradeDtoMapper,
+            EnemySpawnerViewFactory enemySpawnerViewFactory,
+            //IUpgradeDtoMapper upgradeDtoMapper,
             //CustomCollection<Upgrader> upgradeCollection,
             KilledEnemiesCounterViewFactory killedEnemiesCounterViewFactory,
             //BackgroundMusicViewFactory backgroundMusicViewFactory,
@@ -57,10 +59,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             : base(
                 gameplayHud,
                 uiCollectorFactory,
-                //characterViewFactory,
+                playerViewFactory,
                 rootGameObject,
-                //enemySpawnViewFactory,
-                //itemSpawnerViewFactory,
+                enemySpawnerViewFactory,
                 //upgradeCollection,
                 killedEnemiesCounterViewFactory,
                 //backgroundMusicViewFactory,
@@ -71,13 +72,12 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 volumeService,
                 saveService,
                 levelCompletedService,
-                //tutorialService,
                 //advertisingService,
                 formService)
         {
             _loadService = loadService;
             _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
-            _upgradeDtoMapper = upgradeDtoMapper ?? throw new ArgumentNullException(nameof(upgradeDtoMapper));
+            //_upgradeDtoMapper = upgradeDtoMapper ?? throw new ArgumentNullException(nameof(upgradeDtoMapper));
         }
 
         protected override GameModels LoadModels(IScenePayload scenePayload)
@@ -95,31 +95,20 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
             KilledEnemiesCounter killedEnemiesCounter = new KilledEnemiesCounter();
 
-            EnemySpawner enemySpawner = CreateEnemySpawner(scenePayload.SceneId);
+            EnemySpawner enemySpawner = new EnemySpawner();
             
-            PlayerHealth playerHealth = new PlayerHealth();
-            //Character character = new Character(
-            //    playerWallet,
-            //    characterHealth,
-            //    new CharacterMovement(),
-            //    new CharacterAttacker(minigun),
-            //    minigun,
-            //    new SawLauncherAbility(sawLauncherAbilityUpgrader),
-            //    new List<SawLauncher>()
-            //    {
-            //        new SawLauncher(sawLauncherUpgrader),
-            //        new SawLauncher(sawLauncherUpgrader),
-            //        new SawLauncher(sawLauncherUpgrader),
-            //        new SawLauncher(sawLauncherUpgrader),
-            //    });
+            CharacterHealth characterHealth = new CharacterHealth();
+
+            Player player = new Player(playerWallet, characterHealth);
 
             return new GameModels(
-                playerHealth,
+                characterHealth,
                 playerWallet,
                 volume,
                 level,
+                player,
                 killedEnemiesCounter,
-                //enemySpawner,
+                enemySpawner,
                 currentLevel);
         }
 

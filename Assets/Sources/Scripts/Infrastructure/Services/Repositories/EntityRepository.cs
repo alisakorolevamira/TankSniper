@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using Sources.Scripts.DomainInterfaces.Models.Entities;
 using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
+using UnityEngine;
 
 namespace Sources.Scripts.Infrastructure.Services.Repositories
 {
     public class EntityRepository : IEntityRepository
     {
-        private readonly Dictionary<string, IEntity> _entities = new Dictionary<string, IEntity>();
+        private readonly Dictionary<string, IEntity> _entities = new ();
 
         public IReadOnlyDictionary<string, IEntity> Entities => _entities;
         

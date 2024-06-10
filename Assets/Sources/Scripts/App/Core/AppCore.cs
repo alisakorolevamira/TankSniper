@@ -20,7 +20,7 @@ namespace Sources.Scripts.App.Core
                 await _sceneService.ChangeSceneAsync(
                     //ModelId.MainMenu,
                     ModelId.FirstLevel,
-                    new ScenePayload(ModelId.MainMenu, false, false));
+                    new ScenePayload(ModelId.FirstLevel, false, false));
             }
             catch(ArgumentNullException)
             {

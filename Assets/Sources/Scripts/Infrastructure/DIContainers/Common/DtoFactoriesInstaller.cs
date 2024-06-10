@@ -12,9 +12,8 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Common
         {
             Container.Bind<IMapperCollector>().To<MapperCollector>().AsSingle();
 
-            Container.Bind<IUpgradeDtoMapper>().To<UpgradeDtoMapper>().AsSingle();
-            Container.Bind<IPlayerWalletDtoMapper>()
-                .To<PlayerWalletDtoMapper>().AsSingle();
+            //Container.Bind<IUpgradeDtoMapper>().To<UpgradeDtoMapper>().AsSingle();
+            Container.Bind<IPlayerWalletDtoMapper>().To<PlayerWalletDtoMapper>().AsSingle();
             Container.Bind<ILevelDtoMapper>().To<LevelDtoMapper>().AsSingle();
             Container.Bind<IVolumeDtoMapper>().To<VolumeDtoMapper>().AsSingle();
             Container.Bind<ITutorialDtoMapper>().To<TutorialDtoMapper>().AsSingle();

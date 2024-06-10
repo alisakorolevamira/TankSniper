@@ -37,18 +37,6 @@ namespace Sources.Scripts.UIFramework.Services.Forms
             _forms[formId].Hide();
         }
 
-        public void ShowAll()
-        {
-            foreach (IUIView form in _forms.Values)
-                form.Show();
-        }
-
-        public void HideAll()
-        {
-            foreach (IUIView form in _forms.Values)
-                form.Hide();
-        }
-
         public bool IsActive(FormId formId)
         {
             if (_forms.ContainsKey(formId) == false)

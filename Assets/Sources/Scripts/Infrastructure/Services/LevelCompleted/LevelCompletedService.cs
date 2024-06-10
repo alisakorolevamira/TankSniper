@@ -1,11 +1,13 @@
 ﻿using System;
 using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Domain.Models.Gameplay;
+using Sources.Scripts.Domain.Models.Spawners;
 using Sources.Scripts.DomainInterfaces.Models.Gameplay;
 using Sources.Scripts.DomainInterfaces.Models.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
+using Sources.Scripts.PresentationsInterfaces.Views.Items;
 using Sources.Scripts.UIFramework.Presentations.Views.Types;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Forms;
 
@@ -19,7 +21,7 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
         //private readonly IInterstitialAdService _interstitialAdService;
         private IKilledEnemiesCounter _killedEnemiesCounter;
         private IEnemySpawner _enemySpawner;
-
+        
         public LevelCompletedService(
             IFormService formService,
             IEntityRepository entityRepository,
@@ -42,13 +44,13 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
         public void Register(IKilledEnemiesCounter killedEnemiesCounter, IEnemySpawner enemySpawner)
         {
             _killedEnemiesCounter = killedEnemiesCounter ?? throw new ArgumentNullException(nameof(killedEnemiesCounter));
-            _enemySpawner = enemySpawner ?? throw new ArgumentNullException(nameof(enemySpawner));
+            //_enemySpawner = enemySpawner ?? throw new ArgumentNullException(nameof(enemySpawner));
         }
 
         private void OnKillZombiesCountChanged()
         {
-            if (_killedEnemiesCounter.KilledEnemies < _enemySpawner.AllEnemies)
-                return;
+            //if (_killedEnemiesCounter.KilledEnemies < _enemySpawner.SpawnedEnemies)
+                //return;
 
             CurrentLevel currentLevel = _entityRepository.Get<CurrentLevel>(ModelId.CurrentLevel);
             Level level = _entityRepository.Get<Level>(currentLevel.CurrentLevelId);

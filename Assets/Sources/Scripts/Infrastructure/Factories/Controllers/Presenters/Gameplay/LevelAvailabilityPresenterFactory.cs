@@ -19,7 +19,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Gamepl
             LevelAvailability levelAvailability,
             ILevelAvailabilityView levelAvailabilityView)
         {
-            return new LevelAvailabilityPresenter(levelAvailability, levelAvailabilityView);
+            return new LevelAvailabilityPresenter(levelAvailability, levelAvailabilityView, _sceneService);
         }
     }
 }

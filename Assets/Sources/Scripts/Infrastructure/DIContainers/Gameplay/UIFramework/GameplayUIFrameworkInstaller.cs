@@ -15,7 +15,6 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay.UIFramework
             Container.Bind<IButtonCommandHandler>().To<GameplayButtonCommandHandler>().AsSingle();
             
             Container.Bind<ShowFormCommand>().AsSingle();
-            Container.Bind<CompleteTutorialCommand>().AsSingle();
             Container.Bind<LoadMainMenuSceneCommand>().AsSingle(); 
             Container.Bind<LoadGameCommand>().AsSingle();
             Container.Bind<UnPauseButtonCommand>().AsSingle();

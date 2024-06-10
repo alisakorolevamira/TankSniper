@@ -9,6 +9,7 @@ using Sources.Scripts.Infrastructure.Factories.Views.Settings;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
+using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.UIFramework.Infrastructure.Factories.Services.Collectors;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Forms;
@@ -20,21 +21,23 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
         private readonly ILoadService _loadService;
         
         public LoadMainMenuSceneService(
-            //IEntityRepository entityRepository,
+            IEntityRepository entityRepository,
             ILoadService loadService,
             MainMenuHud mainMenuHud,
             LevelAvailabilityViewFactory levelAvailabilityViewFactory,
             VolumeViewFactory volumeViewFactory, 
             IVolumeService volumeService,
             UICollectorFactory uiCollectorFactory,
-            IFormService formService) 
+            IFormService formService,
+            ITutorialService tutorialService) 
             : base(
                 mainMenuHud, 
                 levelAvailabilityViewFactory,
                 volumeViewFactory, 
                 volumeService, 
                 uiCollectorFactory,
-                formService)
+                formService,
+                tutorialService)
         {
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
         }

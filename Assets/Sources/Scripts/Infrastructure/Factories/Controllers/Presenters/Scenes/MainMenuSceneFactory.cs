@@ -8,6 +8,7 @@ using Sources.Scripts.InfrastructureInterfaces.Factories.Controllers.Scenes;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactories;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
+using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.Presentations.UI.Curtain;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;
@@ -23,6 +24,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
         //private readonly IStickyService _stickyService;
         private readonly IAudioService _audioService;
         private readonly IFocusService _focusService;
+        private readonly ITutorialService _tutorialService;
         private readonly LoadingCurtainView _curtainView;
 
         public MainMenuSceneFactory(
@@ -33,6 +35,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             LoadingCurtainView curtainView,
             //IStickyService stickyService,
             IAudioService audioService,
+            ITutorialService tutorialService,
             IFocusService focusService)
         {
             _createMainMenuSceneService = createMainMenuSceneService ?? 
@@ -43,6 +46,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
             //_stickyService = stickyService ?? throw new ArgumentNullException(nameof(stickyService));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
+            _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
             _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             _curtainView = curtainView ? curtainView : throw new ArgumentNullException(nameof(curtainView));
         }
@@ -55,6 +59,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
                 _curtainView,
                 //_stickyService,
                 _audioService,
+                _tutorialService,
                 _focusService);
         }
         

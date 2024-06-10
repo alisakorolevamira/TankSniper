@@ -1,5 +1,4 @@
 ﻿using System;
-using JetBrains.Annotations;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.DomainInterfaces.Models.Spawners;
 using Sources.Scripts.PresentationsInterfaces.Views.Gameplay;
@@ -35,7 +34,7 @@ namespace Sources.Scripts.Controllers.Presenters.Gameplay
 
         private void OnKilledEnemiesCountChanged()
         {
-            string killedEnemies = $"{_killedEnemiesCounter.KilledEnemies}/{_enemySpawner.AllEnemies}";
+            string killedEnemies = $"{_killedEnemiesCounter.KilledEnemies}/{_enemySpawner.SpawnedEnemies}";
             _killedEnemiesCounterView.KilledEnemiesUIText.SetText(killedEnemies);
         }
     }

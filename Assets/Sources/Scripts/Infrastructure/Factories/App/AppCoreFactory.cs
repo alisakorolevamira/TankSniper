@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Sources.Scripts.App.Core;
 using Sources.Scripts.ControllersInterfaces.Scenes;
+using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes;
 using Sources.Scripts.Infrastructure.Services.SceneServices;
@@ -23,7 +24,7 @@ namespace Sources.Scripts.Infrastructure.Factories.App
             ProjectContext projectContext = Object.FindObjectOfType<ProjectContext>();
             
             LoadingCurtainView curtainView =
-                Object.Instantiate(Resources.Load<LoadingCurtainView>("LoadingCurtain")) ??
+                Object.Instantiate(Resources.Load<LoadingCurtainView>(PrefabPath.Curtain)) ??
                 throw new NullReferenceException(nameof(LoadingCurtainView));
             
             projectContext.Container.Bind<LoadingCurtainView>().FromInstance(curtainView);

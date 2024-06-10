@@ -1,6 +1,7 @@
 ﻿using System;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Data;
+using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.DomainInterfaces.Models.Entities;
 
 namespace Sources.Scripts.Domain.Models.Settings
@@ -10,18 +11,19 @@ namespace Sources.Scripts.Domain.Models.Settings
         private int _audioVolume;
         
         public Volume(VolumeDto volumeDto)
-            : this(volumeDto.AudioValue)
+            : this(volumeDto.AudioValue, volumeDto.Id)
         {
         }
         
         public Volume()
-            : this(VolumeConst.BaseAudioValue)
+            : this(VolumeConst.BaseAudioValue, ModelId.Volume)
         {
         }
 
-        private Volume(int audioVolume)
+        private Volume(int audioVolume, string id)
         {
             _audioVolume = audioVolume;
+            Id = id;
         }
         
         public event Action AudioVolumeChanged;

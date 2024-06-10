@@ -13,7 +13,6 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons.Handlers
         
         public GameplayButtonCommandHandler(
             ShowFormCommand showFormCommand,
-            CompleteTutorialCommand completeTutorialCommand,
             LoadMainMenuSceneCommand loadMainMenuSceneCommand,
             UnPauseButtonCommand unPauseButtonCommand,
             HideFormCommand hideFormCommand,
@@ -23,7 +22,6 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons.Handlers
             SetCameraToMainPositionCommand setCameraToMainPositionCommand)
         {
             _commands[showFormCommand.Id] = showFormCommand;
-            _commands[completeTutorialCommand.Id] = completeTutorialCommand;
             _commands[loadMainMenuSceneCommand.Id] = loadMainMenuSceneCommand;
             _commands[unPauseButtonCommand.Id] = unPauseButtonCommand;
             _commands[hideFormCommand.Id] = hideFormCommand;

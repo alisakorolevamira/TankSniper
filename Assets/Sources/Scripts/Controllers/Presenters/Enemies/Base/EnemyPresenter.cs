@@ -1,0 +1,34 @@
+﻿using System;
+using Sources.Scripts.ControllersInterfaces.Presenters;
+using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines;
+using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.States;
+using Sources.Scripts.InfrastructureInterfaces.Services.UpdateServices;
+
+namespace Sources.Scripts.Controllers.Presenters.Enemies.Base
+{
+    public class EnemyPresenter : FiniteStateMachine, IPresenter
+    {
+        private readonly FiniteState _firstState;
+        private readonly IUpdateRegister _updateRegister;
+
+        public EnemyPresenter(
+            FiniteState firstState,
+            IUpdateRegister updateRegister)
+        {
+            _firstState = firstState ?? throw new ArgumentNullException(nameof(firstState));
+            _updateRegister = updateRegister ?? throw new ArgumentNullException(nameof(updateRegister));
+        }
+
+        public void Enable()
+        {
+            Start(_firstState);
+            _updateRegister.UpdateChanged += Update;
+        }
+
+        public void Disable()
+        {
+            Stop();
+            _updateRegister.UpdateChanged -= Update;
+        }
+    }
+}

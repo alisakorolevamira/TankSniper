@@ -23,15 +23,14 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
 {
     public class GameplaySceneFactory : ISceneFactory
     {
-        //private readonly IUpdateService _updateService;
-        //private readonly IInputServiceUpdater _inputServiceUpdater;
+        private readonly IUpdateService _updateService;
+        private readonly IInputServiceUpdater _inputServiceUpdater;
         private readonly IGameOverService _gameOverService;
         private readonly IVolumeService _volumeService;
         private readonly LoadGameplaySceneService _loadGameplaySceneService;
         private readonly CreateGameplaySceneService _createGameplaySceneService;
         private readonly ISaveService _saveService;
         private readonly ILevelCompletedService _levelCompletedService;
-        private readonly ITutorialService _tutorialService;
         private readonly List<IEnemyView> _enemiesViews;
         private readonly IAudioService _audioService;
         private readonly IFocusService _focusService;
@@ -39,23 +38,22 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
         private readonly LoadingCurtainView _curtainView;
 
         public GameplaySceneFactory(
-            //IUpdateService updateService,
-            //IInputServiceUpdater inputServiceUpdater,
+            IUpdateService updateService,
+            IInputServiceUpdater inputServiceUpdater,
             IGameOverService gameOverService,
             IVolumeService volumeService,
             LoadGameplaySceneService loadGameplaySceneService,
             CreateGameplaySceneService createGameplaySceneService,
             ISaveService saveService,
             ILevelCompletedService levelCompletedService,
-            ITutorialService tutorialService,
             List<IEnemyView> enemiesViews,
             LoadingCurtainView curtainView,
             IAudioService audioService,
             IFocusService focusService)
             //IAdvertisingService advertisingService) 
         {
-            //_updateService = updateService ?? throw new ArgumentNullException(nameof(updateService));
-            //_inputServiceUpdater = inputServiceUpdater ?? throw new ArgumentNullException(nameof(inputServiceUpdater));
+            _updateService = updateService ?? throw new ArgumentNullException(nameof(updateService));
+            _inputServiceUpdater = inputServiceUpdater ?? throw new ArgumentNullException(nameof(inputServiceUpdater));
             _gameOverService = gameOverService ?? throw new ArgumentNullException(nameof(gameOverService));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
             _loadGameplaySceneService = loadGameplaySceneService ?? 
@@ -65,7 +63,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             _saveService = saveService ?? throw new ArgumentNullException(nameof(saveService));
             _levelCompletedService = levelCompletedService ?? 
                                      throw new ArgumentNullException(nameof(levelCompletedService));
-            _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
             _enemiesViews = enemiesViews ?? throw new ArgumentNullException(nameof(enemiesViews));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
@@ -76,18 +73,17 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
         public async UniTask<IScene> Create(object payload)
         {
             return new GameplayScene(
-                //_updateService,
-                //_inputServiceUpdater,
+                _updateService,
+                _inputServiceUpdater,
                 CreateLoadSceneService(payload),
                 _gameOverService,
                 _volumeService,
                 _saveService,
                 _levelCompletedService,
-                _tutorialService,
                 _enemiesViews,
-                _curtainView,
                 _audioService,
-                _focusService);
+                _focusService,
+                _curtainView);
             //_advertisingService);
         }
 

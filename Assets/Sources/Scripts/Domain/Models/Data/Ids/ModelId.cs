@@ -5,6 +5,7 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
 {
     public class ModelId
     {
+        public const string GameplayEnemySpawner = "GameplayEnemySpawner";
         public const string PlayerWallet = "PlayerWallet";
         public const string MainMenu = "MainMenu";
         public const string CurrentLevel = "CurrentLevel";
@@ -17,10 +18,13 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
         public const string FourthLevel = "FourthLevel";
         public const string FifthLevel = "FifthLevel";
         public const string SixthLevel = "SixthLevel";
+        public const string KilledEnemiesCounter = "KilledEnemiesCounter";
         
         public static IReadOnlyList<string> DeletedModelsIds = new List<string>()
         {
-            PlayerWallet
+            GameplayEnemySpawner,
+            PlayerWallet,
+            KilledEnemiesCounter,
         };
         
         public static IReadOnlyList<string> ModelsIds = new List<string>()
@@ -35,6 +39,12 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
             SixthLevel,
             Volume,
             PlayerWallet,
+            Tutorial,
+            GameplayEnemySpawner,
+            GameData,
+            Volume,
+            PlayerWallet,
+            KilledEnemiesCounter,
             Tutorial,
         };
 

@@ -4,6 +4,7 @@ using Sources.Scripts.ControllersInterfaces.Scenes;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactories;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
+using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.Presentations.UI.Curtain;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;
@@ -17,6 +18,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         //private readonly IStickyService _stickyService;
         private readonly IAudioService _audioService;
         private readonly IFocusService _focusService;
+        private readonly ITutorialService _tutorialService;
         private readonly LoadingCurtainView _curtainView;
 
         public MainMenuScene(
@@ -25,6 +27,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             LoadingCurtainView curtainView,
             //IStickyService stickyService,
             IAudioService audioService,
+            ITutorialService tutorialService,
             IFocusService focusService)
         {
             _loadSceneService = loadSceneService ?? throw new ArgumentNullException(nameof(loadSceneService));
@@ -32,6 +35,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             //_stickyService = stickyService ?? throw new ArgumentNullException(nameof(stickyService));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
+            _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
             _curtainView = curtainView ? curtainView : throw new ArgumentNullException(nameof(curtainView));
         }
 
@@ -44,6 +48,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _audioService.Enter();
             await _curtainView.HideCurtain();
             await GameReady(payload as IScenePayload);
+            _tutorialService.Enable();
         }
 
         public void Exit()

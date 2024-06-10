@@ -1,4 +1,5 @@
 ﻿using System;
+using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.DomainInterfaces.Models.Players;
 using Sources.Scripts.PresentationsInterfaces.Views.Players;
 
@@ -6,25 +7,16 @@ namespace Sources.Scripts.Controllers.Presenters.Players
 {
     public class PlayerWalletPresenter : PresenterBase
     {
-        private readonly IPlayerWallet _playerWallet;
-        private readonly IPlayerWalletView _playerWalletView;
+        private readonly PlayerWallet _playerWallet;
 
-        public PlayerWalletPresenter(IPlayerWallet playerWallet, IPlayerWalletView playerWalletView)
+        public PlayerWalletPresenter(PlayerWallet playerWallet)
         {
             _playerWallet = playerWallet ?? throw new ArgumentNullException(nameof(playerWallet));
-            _playerWalletView = playerWalletView ?? throw new ArgumentNullException(nameof(playerWalletView));
         }
 
-        public override void Enable()
+        public void AddMoney(int amount)
         {
-            OnMoneyChanged();
-            _playerWallet.MoneyChanged += OnMoneyChanged;
+            _playerWallet.AddMoney(amount);
         }
-
-        public override void Disable() =>
-            _playerWallet.MoneyChanged -= OnMoneyChanged;
-
-        private void OnMoneyChanged() =>
-            _playerWalletView.MoneyUIText.SetText(_playerWallet.Money.ToString());
     }
 }

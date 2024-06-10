@@ -10,7 +10,7 @@ namespace Sources.Scripts.Presentations.UI.Curtain
     public class LoadingCurtainView : View
     {
         [SerializeField] private CanvasGroup _canvasGroup;
-        [SerializeField] private float _duration = 1f;
+        [SerializeField] private float _duration = 3f;
 
         private TimeSpan _delay = TimeSpan.FromMilliseconds(LoadingCurtainConst.Delay);
         private CancellationTokenSource _cancellationTokenSource;

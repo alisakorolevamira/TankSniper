@@ -10,11 +10,18 @@ namespace Sources.Scripts.UIFramework.Presentations.Buttons
 {
     public class UIButton : PresentableUIButton<UIButtonPresenter>, IUIButton
     {
-        [field: SerializeField] public FormId FormId { get; }
-        [field: SerializeField] public UseButtonType UseButtonType { get; }
-        [field: SerializeField] public float Delay { get; }
-        [field: SerializeField] public List<ButtonCommandId> OnClickCommandId { get; }
-        [field: SerializeField] public List<ButtonCommandId> EnableCommandId { get; }
-        [field: SerializeField] public List<ButtonCommandId> DisableCommandId { get; }
+        [SerializeField] private FormId _formId;
+        [SerializeField] private UseButtonType _useButtonType;
+        [SerializeField] private float _delay;
+        [SerializeField] private List<ButtonCommandId> _onClickCommandId;
+        [SerializeField] private List<ButtonCommandId> _enableCommandId;
+        [SerializeField] private List<ButtonCommandId> _disableCommandId;
+
+        public float Delay => _delay;
+        public List<ButtonCommandId> OnClickCommandId => _onClickCommandId;
+        public List<ButtonCommandId> EnableCommandId => _enableCommandId;
+        public List<ButtonCommandId> DisableCommandId => _disableCommandId;
+        public UseButtonType UseButtonType => _useButtonType;
+        public FormId FormId => _formId;
     }
 }

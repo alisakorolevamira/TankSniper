@@ -2,6 +2,6 @@
 {
     public interface IEnemySpawner
     {
-        int AllEnemies { get; }
+        int SpawnedEnemies { get; }
     }
 }

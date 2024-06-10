@@ -19,14 +19,13 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
 {
     public class GameplayScene : IScene
     {
-        //private readonly IUpdateService _updateService;
-        //private readonly IInputServiceUpdater _inputServiceUpdater;
+        private readonly IUpdateService _updateService;
+        private readonly IInputServiceUpdater _inputServiceUpdater;
         private readonly ILoadSceneService _loadSceneService;
         private readonly IGameOverService _gameOverService;
         private readonly IVolumeService _volumeService;
         private readonly ISaveService _saveService;
         private readonly ILevelCompletedService _levelCompletedService;
-        private readonly ITutorialService _tutorialService;
         private List<IEnemyView> _enemiesViews;
         private readonly IAudioService _audioService;
         private readonly IFocusService _focusService;
@@ -34,30 +33,28 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         private readonly LoadingCurtainView _curtainView;
 
         public GameplayScene(
-            //IUpdateService updateService,
-            //IInputServiceUpdater inputServiceUpdater,
+            IUpdateService updateService,
+            IInputServiceUpdater inputServiceUpdater,
             ILoadSceneService loadSceneService,
             IGameOverService gameOverService,
             IVolumeService volumeService,
             ISaveService saveService,
             ILevelCompletedService levelCompletedService,
-            ITutorialService tutorialService,
             List<IEnemyView> enemiesViews,
-            LoadingCurtainView curtainView,
             IAudioService audioService,
-            IFocusService focusService)
+            IFocusService focusService,
             //IAdvertisingService advertisingService)
+            LoadingCurtainView curtainView)
         {
-            //_updateService = updateService ?? throw new ArgumentNullException(nameof(updateService));
-            //_inputServiceUpdater = inputServiceUpdater ??
-                                   //throw new ArgumentNullException(nameof(inputServiceUpdater));
+            _updateService = updateService ?? throw new ArgumentNullException(nameof(updateService));
+            _inputServiceUpdater = inputServiceUpdater ??
+                                   throw new ArgumentNullException(nameof(inputServiceUpdater));
             _loadSceneService = loadSceneService ?? throw new ArgumentNullException(nameof(loadSceneService));
             _gameOverService = gameOverService ?? throw new ArgumentNullException(nameof(gameOverService));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
             _saveService = saveService ?? throw new ArgumentNullException(nameof(saveService));
             _levelCompletedService = levelCompletedService ??
                                      throw new ArgumentNullException(nameof(levelCompletedService));
-            _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
             _enemiesViews = enemiesViews ??
                                    throw new ArgumentNullException(nameof(enemiesViews));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
@@ -77,15 +74,14 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _saveService.Enter();
             _levelCompletedService.Enable();
             _audioService.Enter();
-            await _curtainView.HideCurtain();
-            _tutorialService.Enable();
+            await _curtainView.HideCurtain(); 
         }
 
         public void Exit()
         {
             _focusService.Disable();
             //_advertisingService.Disable();
-            //_updateService.UnregisterAll();
+            _updateService.UnregisterAll();
             _gameOverService.Exit();
             _volumeService.Exit();
             _saveService.Exit();
@@ -96,8 +92,8 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
 
         public void Update(float deltaTime)
         {
-            //_updateService.Update(deltaTime);
-            //_inputServiceUpdater.Update(deltaTime);
+            _updateService.Update(deltaTime);
+            _inputServiceUpdater.Update(deltaTime);
         }
 
         public void UpdateLate(float deltaTime)

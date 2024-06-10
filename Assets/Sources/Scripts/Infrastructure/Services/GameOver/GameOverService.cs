@@ -1,4 +1,5 @@
 ﻿using System;
+using Sources.Scripts.DomainInterfaces.Models.Common;
 using Sources.Scripts.DomainInterfaces.Models.Players;
 using Sources.Scripts.InfrastructureInterfaces.Services.GameOver;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
@@ -12,7 +13,7 @@ namespace Sources.Scripts.Infrastructure.Services.GameOver
         private readonly IFormService _formService;
         private readonly ILoadService _loadService;
         //private readonly IInterstitialAdService _interstitialAdService;
-        private IPlayerHealth _playerHealth;
+        private ICharacterHealth characterHealth;
         private bool _isGameOver;
 
         public GameOverService(
@@ -28,19 +29,19 @@ namespace Sources.Scripts.Infrastructure.Services.GameOver
 
         public void Enter(object payload = null)
         {
-            if (_playerHealth == null)
-                throw new ArgumentNullException(nameof(_playerHealth));
+            if (characterHealth == null)
+                throw new ArgumentNullException(nameof(characterHealth));
 
-            _playerHealth.PlayerDie += OnPlayerDie;
+            characterHealth.Die += OnCharacterDie;
         }
 
         public void Exit() =>
-            _playerHealth.PlayerDie -= OnPlayerDie;
+            characterHealth.Die -= OnCharacterDie;
 
-        public void Register(IPlayerHealth playerHealth) =>
-            _playerHealth = playerHealth ?? throw new ArgumentNullException(nameof(playerHealth));
+        public void Register(ICharacterHealth characterHealth) =>
+            this.characterHealth = characterHealth ?? throw new ArgumentNullException(nameof(characterHealth));
 
-        private void OnPlayerDie()
+        private void OnCharacterDie()
         {
             if (_isGameOver)
                 return;

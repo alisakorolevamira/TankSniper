@@ -1,5 +1,4 @@
 ﻿using System;
-using Agava.WebUtility;
 using Sources.Scripts.InfrastructureInterfaces.Services.PauseServices;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;
 using UnityEngine;
@@ -17,23 +16,23 @@ namespace Sources.Scripts.UIFramework.Services.Focus
 
         public void Enable()
         {
-            if (WebApplication.IsRunningOnWebGL == false)
-                return;
+           // if (WebApplication.IsRunningOnWebGL == false)
+                //return;
 
-            OnInBackgroundChangeWeb(WebApplication.InBackground);
+            //OnInBackgroundChangeWeb(WebApplication.InBackground);
             OnInBackgroundChangeApp(Application.isFocused);
 
             Application.focusChanged += OnInBackgroundChangeApp;
-            WebApplication.InBackgroundChangeEvent += OnInBackgroundChangeWeb;
+            //WebApplication.InBackgroundChangeEvent += OnInBackgroundChangeWeb;
         }
 
         public void Disable()
         {
-            if (WebApplication.IsRunningOnWebGL == false)
-                return;
+            //if (WebApplication.IsRunningOnWebGL == false)
+                //return;
 
             Application.focusChanged -= OnInBackgroundChangeApp;
-            WebApplication.InBackgroundChangeEvent -= OnInBackgroundChangeWeb;
+            //WebApplication.InBackgroundChangeEvent -= OnInBackgroundChangeWeb;
         }
 
         private void OnInBackgroundChangeApp(bool inApp)

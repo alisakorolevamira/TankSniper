@@ -15,13 +15,13 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Cameras
             _presenterFactory = presenterFactory ?? throw new ArgumentNullException(nameof(presenterFactory));
         }
 
-        public ICinemachineCameraView Create(CinemachineCameraView cinemachineCameraView)
+        public ICameraView Create(CameraView cameraView)
         {
-            CameraPresenter presenter = _presenterFactory.Create(cinemachineCameraView);
+            CameraPresenter presenter = _presenterFactory.Create(cameraView);
             
-            cinemachineCameraView.Construct(presenter);
+            cameraView.Construct(presenter);
             
-            return cinemachineCameraView;
+            return cameraView;
         }
     }
 }

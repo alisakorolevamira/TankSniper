@@ -24,7 +24,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
     public class GameplaySceneFactory : ISceneFactory
     {
         private readonly IUpdateService _updateService;
-        private readonly IInputServiceUpdater _inputServiceUpdater;
+        //private readonly IInputServiceUpdater _inputServiceUpdater;
         private readonly IGameOverService _gameOverService;
         private readonly IVolumeService _volumeService;
         private readonly LoadGameplaySceneService _loadGameplaySceneService;
@@ -33,13 +33,13 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
         private readonly ILevelCompletedService _levelCompletedService;
         private readonly List<IEnemyView> _enemiesViews;
         private readonly IAudioService _audioService;
-        private readonly IFocusService _focusService;
+        //private readonly IFocusService _focusService;
         //private readonly IAdvertisingService _advertisingService;
         private readonly LoadingCurtainView _curtainView;
 
         public GameplaySceneFactory(
             IUpdateService updateService,
-            IInputServiceUpdater inputServiceUpdater,
+            //IInputServiceUpdater inputServiceUpdater,
             IGameOverService gameOverService,
             IVolumeService volumeService,
             LoadGameplaySceneService loadGameplaySceneService,
@@ -48,12 +48,12 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             ILevelCompletedService levelCompletedService,
             List<IEnemyView> enemiesViews,
             LoadingCurtainView curtainView,
-            IAudioService audioService,
-            IFocusService focusService)
+            IAudioService audioService)
+            //IFocusService focusService)
             //IAdvertisingService advertisingService) 
         {
             _updateService = updateService ?? throw new ArgumentNullException(nameof(updateService));
-            _inputServiceUpdater = inputServiceUpdater ?? throw new ArgumentNullException(nameof(inputServiceUpdater));
+            //_inputServiceUpdater = inputServiceUpdater ?? throw new ArgumentNullException(nameof(inputServiceUpdater));
             _gameOverService = gameOverService ?? throw new ArgumentNullException(nameof(gameOverService));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
             _loadGameplaySceneService = loadGameplaySceneService ?? 
@@ -65,7 +65,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
                                      throw new ArgumentNullException(nameof(levelCompletedService));
             _enemiesViews = enemiesViews ?? throw new ArgumentNullException(nameof(enemiesViews));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
-            _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
+            //_focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             //_advertisingService = advertisingService ?? throw new ArgumentNullException(nameof(advertisingService));
             _curtainView = curtainView ? curtainView : throw new ArgumentNullException(nameof(curtainView));
         }
@@ -74,7 +74,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
         {
             return new GameplayScene(
                 _updateService,
-                _inputServiceUpdater,
+                //_inputServiceUpdater,
                 CreateLoadSceneService(payload),
                 _gameOverService,
                 _volumeService,
@@ -82,7 +82,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
                 _levelCompletedService,
                 _enemiesViews,
                 _audioService,
-                _focusService,
+                //_focusService,
                 _curtainView);
             //_advertisingService);
         }

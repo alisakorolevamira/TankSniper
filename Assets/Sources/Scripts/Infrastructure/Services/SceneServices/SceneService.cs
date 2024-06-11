@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks;
 using Sources.Scripts.ControllersInterfaces.Scenes;
 using Sources.Scripts.Infrastructure.StateMachines.SceneStateMachines;
 using Sources.Scripts.InfrastructureInterfaces.Services.SceneServices;
+using UnityEngine;
 using Zenject;
 using Object = UnityEngine.Object;
 

@@ -15,6 +15,7 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Saves;
 using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.Presentations.Views.Cameras;
 using Sources.Scripts.Presentations.Views.Cameras.Types;
+using Sources.Scripts.Presentations.Views.Gameplay;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.Presentations.Views.RootGameObjects;
 using Sources.Scripts.Presentations.Views.Spawners;
@@ -96,28 +97,28 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             _volumeService.Register(gameModels.Volume);
             _volumeViewFactory.Create(gameModels.Volume, _gameplayHud.VolumeView);
             
-            //_saveService.Register(gameModels.EnemySpawner);
+            _saveService.Register(gameModels.EnemySpawner);
 
             PlayerView playerView = _playerViewFactory.Create(gameModels.Player);
 
 
             _gameOverService.Register(gameModels.CharacterHealth);;
 
-            EnemySpawnerView enemySpawnerView = _rootGameObject.EnemySpawnerView;
-            _enemySpawnerViewFactory.Create(gameModels.EnemySpawner, gameModels.KilledEnemiesCounter, enemySpawnerView);
-            
-            _killedEnemiesCounterViewFactory.Create(
-                gameModels.KilledEnemiesCounter, gameModels.EnemySpawner, _gameplayHud.KilledEnemiesCounterView);
-            
+            //EnemySpawnerView enemySpawnerView = _rootGameObject.EnemySpawnerView;
+            //_enemySpawnerViewFactory.Create(gameModels.EnemySpawner, gameModels.KilledEnemiesCounter, enemySpawnerView);
+            //
+
+            foreach (KilledEnemiesCounterView view in _gameplayHud.KilledEnemiesCounterViews)
+                _killedEnemiesCounterViewFactory.Create(gameModels.KilledEnemiesCounter, gameModels.EnemySpawner, view);
 
             foreach (CameraPositionView cameraPosition in _rootGameObject.CameraPositions)
                 _cameraService.AddPosition(cameraPosition);
             
-            _cameraService.SetPosition(PositionId.MainPosition);
-            _cameraViewFactory.Create(_gameplayHud.CinemachineCameraView);
-            
             _uiCollectorFactory.Create();
-            _formService.Show(FormId.Hud);
+            _cameraService.SetPosition(PositionId.MainPosition);
+            _cameraViewFactory.Create(_gameplayHud.CameraView);
+            
+            _formService.Show(FormId.Entry);
         }
 
         protected abstract GameModels LoadModels(IScenePayload scenePayload);

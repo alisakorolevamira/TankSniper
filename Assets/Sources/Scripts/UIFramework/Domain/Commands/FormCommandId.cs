@@ -6,5 +6,7 @@
         UnPause = 1,
         SaveVolume = 2,
         ClearSaves = 3,
+        SetCameraToShootPosition = 4,
+        SetCameraToMainPosition = 5,
     }
 }

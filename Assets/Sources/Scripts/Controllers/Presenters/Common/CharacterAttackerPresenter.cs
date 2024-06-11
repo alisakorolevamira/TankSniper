@@ -38,10 +38,7 @@ namespace Sources.Scripts.Controllers.Presenters.Common
 
         private void OnUpdate(float deltaTime)
         {
-            if (_inputService.InputData.IsAttacking)
-                _characterAttacker.Attack(_cancellationTokenSource.Token);
-            else
-                _characterAttacker.EndAttack();
+            
         }
     }
 }

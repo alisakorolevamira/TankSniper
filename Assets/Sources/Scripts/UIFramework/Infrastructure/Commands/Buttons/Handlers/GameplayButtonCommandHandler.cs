@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Sources.Scripts.UIFramework.Domain.Commands;
+using Sources.Scripts.UIFramework.Infrastructure.Commands.Forms;
 using Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Buttons;
 using Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Buttons.Handlers;
 using Sources.Scripts.UIFramework.PresentationsInterfaces.Buttons;
@@ -27,8 +28,6 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons.Handlers
             _commands[hideFormCommand.Id] = hideFormCommand;
             //_commands[showRewardedAdvertisingButtonCommand.Id] = showRewardedAdvertisingButtonCommand;
             //_commands[clearSavesButtonCommand.Id] = clearSavesButtonCommand;
-            _commands[setCameraToShootPositionCommand.Id] = setCameraToShootPositionCommand;
-            _commands[setCameraToMainPositionCommand.Id] = setCameraToMainPositionCommand;
         }
 
         public void Handle(IUIButton uiButton, ButtonCommandId buttonCommandId)

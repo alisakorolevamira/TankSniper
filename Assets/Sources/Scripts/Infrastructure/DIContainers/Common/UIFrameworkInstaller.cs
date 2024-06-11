@@ -35,7 +35,7 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Common
             
             Container.Bind<IUIViewService>().To<UIViewService>().AsSingle();
 
-            Container.Bind<IFocusService>().To<FocusService>().AsSingle();
+            //Container.Bind<IFocusService>().To<FocusService>().AsSingle();
         }
     }
 }

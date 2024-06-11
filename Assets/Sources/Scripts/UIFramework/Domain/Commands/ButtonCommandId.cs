@@ -8,7 +8,5 @@
         LoadGame = 3,
         UnPause = 4,
         HideForm = 5,
-        SetCameraToShootPosition = 6,
-        SetCameraToMainPosition = 7,
     }
 }

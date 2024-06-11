@@ -1,9 +1,11 @@
-﻿using Sources.Scripts.Domain.Models.Inputs;
+﻿using System;
+using Sources.Scripts.Domain.Models.Inputs;
+using UnityEngine;
 
 namespace Sources.Scripts.InfrastructureInterfaces.Services.InputServices
 {
     public interface IInputService
     {
-        InputData InputData { get; }
+        event Action<Vector2> RotationInputReceived;
     }
 }

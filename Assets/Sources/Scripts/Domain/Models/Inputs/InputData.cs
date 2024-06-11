@@ -1,9 +1,6 @@
-﻿using Sources.Scripts.InfrastructureInterfaces.StateMachines.ContextStateMachines.Contexts;
-using UnityEngine;
-
-namespace Sources.Scripts.Domain.Models.Inputs
+﻿namespace Sources.Scripts.Domain.Models.Inputs
 {
-    public class InputData : IContext
+    public class InputData
     {
         public bool IsAttacking { get; set; }
     }

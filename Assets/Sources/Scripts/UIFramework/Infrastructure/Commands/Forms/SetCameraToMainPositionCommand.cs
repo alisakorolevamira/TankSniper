@@ -3,11 +3,12 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Cameras;
 using Sources.Scripts.Presentations.Views.Cameras.Types;
 using Sources.Scripts.UIFramework.Domain.Commands;
 using Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Buttons;
+using Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Views;
 using Sources.Scripts.UIFramework.PresentationsInterfaces.Buttons;
 
 namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons.Handlers
 {
-    public class SetCameraToMainPositionCommand : IButtonCommand
+    public class SetCameraToMainPositionCommand : IViewCommand
     {
         private readonly ICameraService _cameraService;
 
@@ -16,9 +17,9 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons.Handlers
             _cameraService = cameraService ?? throw new ArgumentNullException(nameof(cameraService));
         }
 
-        public ButtonCommandId Id => ButtonCommandId.SetCameraToMainPosition;
+        public FormCommandId Id => FormCommandId.SetCameraToMainPosition;
         
-        public void Handle(IUIButton uiButton) =>
+        public void Handle() => 
             _cameraService.SetPosition(PositionId.MainPosition);
     }
 }

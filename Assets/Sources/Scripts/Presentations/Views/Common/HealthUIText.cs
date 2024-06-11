@@ -9,8 +9,8 @@ namespace Sources.Scripts.Presentations.Views.Common
 {
     public class HealthUIText : PresentableView<HealthUITextPresenter>, IHealthUIText
     {
-        [SerializeField] private List<UIText> _damageTexts;
+        [SerializeField] private UIText _damageText;
 
-        public IReadOnlyList<IUIText> DamageTexts => _damageTexts;
+        public IUIText DamageText => _damageText;
     }
 }

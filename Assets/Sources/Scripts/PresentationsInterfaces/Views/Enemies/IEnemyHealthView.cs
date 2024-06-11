@@ -9,7 +9,5 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Enemies
         float CurrentHealth { get; }
 
         void TakeDamage(float damage);
-
-        public void PlayBloodParticle();
     }
 }

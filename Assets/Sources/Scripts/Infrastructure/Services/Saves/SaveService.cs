@@ -15,6 +15,7 @@ namespace Sources.Scripts.Infrastructure.Services.Saves
         private readonly IFormService _formService; 
         private readonly TimeSpan _showedFormDelay = TimeSpan.FromSeconds(5f); //вынести в константу
         
+        private IEnemySpawner _enemySpawner;
         private CancellationTokenSource _cancellationTokenSource;
 
         public SaveService(
@@ -34,5 +35,8 @@ namespace Sources.Scripts.Infrastructure.Services.Saves
         {
             _cancellationTokenSource.Cancel();
         }
+        
+        public void Register(IEnemySpawner enemySpawner) =>
+            _enemySpawner = enemySpawner ?? throw new ArgumentNullException(nameof(enemySpawner));
     }
 }

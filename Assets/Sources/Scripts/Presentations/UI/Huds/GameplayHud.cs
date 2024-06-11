@@ -13,21 +13,21 @@ namespace Sources.Scripts.Presentations.UI.Huds
     public class GameplayHud : View, IHud
     {
         [SerializeField] private UICollector _uiCollector;
-        [SerializeField] private CinemachineCameraView _cinemachineCameraView;
+        [FormerlySerializedAs("_cinemachineCameraView")] [SerializeField] private CameraView cameraView;
         [SerializeField] private WalletUI _walletUI;
-        [SerializeField] private KilledEnemiesCounterView _killedEnemiesCounterView;
-        [SerializeField] private HealthBarUI _playerHealthBarUI;
+        [SerializeField] private KilledEnemiesCounterView [] _killedEnemiesCounterViews;
+        [SerializeField] private HealthBarUI [] _playerHealthBarUIs;
         [SerializeField] private VolumeView _volumeView;
         
         public UICollector UICollector => _uiCollector;
         
-        public CinemachineCameraView CinemachineCameraView => _cinemachineCameraView;
+        public CameraView CameraView => cameraView;
         
         public WalletUI WalletUI => _walletUI;
 
-        public KilledEnemiesCounterView KilledEnemiesCounterView => _killedEnemiesCounterView;
+        public KilledEnemiesCounterView [] KilledEnemiesCounterViews => _killedEnemiesCounterViews;
         
-        public HealthBarUI PlayerHealthBarUI => _playerHealthBarUI;
+        public HealthBarUI [] PlayerHealthBarUIs => _playerHealthBarUIs;
         
         public VolumeView VolumeView => _volumeView;
     }

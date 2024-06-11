@@ -2,12 +2,12 @@
 using Sources.Scripts.InfrastructureInterfaces.Services.Cameras;
 using Sources.Scripts.Presentations.Views.Cameras.Types;
 using Sources.Scripts.UIFramework.Domain.Commands;
-using Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Buttons;
+using Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Views;
 using Sources.Scripts.UIFramework.PresentationsInterfaces.Buttons;
 
-namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
+namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Forms
 {
-    public class SetCameraToShootPositionCommand : IButtonCommand
+    public class SetCameraToShootPositionCommand : IViewCommand
     {
         private readonly ICameraService _cameraService;
 
@@ -16,9 +16,9 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
             _cameraService = cameraService ?? throw new ArgumentNullException(nameof(cameraService));
         }
 
-        public ButtonCommandId Id => ButtonCommandId.SetCameraToShootPosition;
+        public FormCommandId Id => FormCommandId.SetCameraToShootPosition;
         
-        public void Handle(IUIButton uiButton) =>
+        public void Handle() => 
             _cameraService.SetPosition(PositionId.ShootPosition);
     }
 }

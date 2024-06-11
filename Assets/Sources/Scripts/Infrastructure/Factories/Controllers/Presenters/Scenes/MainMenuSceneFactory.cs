@@ -23,7 +23,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
         private readonly ILoadService _loadService;
         //private readonly IStickyService _stickyService;
         private readonly IAudioService _audioService;
-        private readonly IFocusService _focusService;
+        //private readonly IFocusService _focusService;
         private readonly ITutorialService _tutorialService;
         private readonly LoadingCurtainView _curtainView;
 
@@ -35,8 +35,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             LoadingCurtainView curtainView,
             //IStickyService stickyService,
             IAudioService audioService,
-            ITutorialService tutorialService,
-            IFocusService focusService)
+            ITutorialService tutorialService)
+            //IFocusService focusService)
         {
             _createMainMenuSceneService = createMainMenuSceneService ?? 
                                           throw new ArgumentNullException(nameof(createMainMenuSceneService));
@@ -47,7 +47,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             //_stickyService = stickyService ?? throw new ArgumentNullException(nameof(stickyService));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
-            _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
+            //_focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             _curtainView = curtainView ? curtainView : throw new ArgumentNullException(nameof(curtainView));
         }
         
@@ -59,8 +59,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
                 _curtainView,
                 //_stickyService,
                 _audioService,
-                _tutorialService,
-                _focusService);
+                _tutorialService);
+            //_focusService);
         }
         
         private ILoadSceneService CreateLoadSceneService(object payload)

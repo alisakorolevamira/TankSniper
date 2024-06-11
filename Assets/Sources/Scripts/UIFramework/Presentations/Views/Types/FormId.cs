@@ -10,5 +10,6 @@
         GreetingTutorial = 5,
         Shoot = 6,
         Shop = 7,
+        Entry = 8,
     }
 }

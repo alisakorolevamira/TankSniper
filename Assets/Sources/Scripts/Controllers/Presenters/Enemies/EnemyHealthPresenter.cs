@@ -20,7 +20,6 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies
         public void TakeDamage(float damage)
         {
             _enemyHealth.TakeDamage(damage);
-            _enemyHealthView.PlayBloodParticle();
         }
     }
 }

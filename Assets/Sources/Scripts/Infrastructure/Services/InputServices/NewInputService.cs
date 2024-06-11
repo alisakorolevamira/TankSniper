@@ -1,39 +1,37 @@
 ﻿using System;
+using Sources.Scripts.ControllersInterfaces.ControllerLifetimes;
 using Sources.Scripts.Domain.Models.Inputs;
+using Sources.Scripts.InfrastructureInterfaces.Services.Cameras;
 using Sources.Scripts.InfrastructureInterfaces.Services.InputServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.PauseServices;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Sources.Scripts.Infrastructure.Services.InputServices
 {
-    public class NewInputService : IInputService, IInputServiceUpdater
+    public class NewInputService : IInputService, IEnable, IDisable
     {
-        private readonly IPauseService _pauseService;
-        //private InputManager _inputManager;
+        private InputMap _inputMap;
 
-        public NewInputService(IPauseService pauseService)
+        public event Action<Vector2> RotationInputReceived;
+
+        public void Enable()
         {
-            _pauseService = pauseService ?? throw new ArgumentNullException(nameof(pauseService));
-            //_inputManager = new InputManager();
-            InputData = new InputData();
+            _inputMap = new ();
+        
+            _inputMap.Enable();
 
-            //_inputManager.Enable();
+            _inputMap.Touchscreen.TouchDelta.performed += OnTouchDeltaPreformed;
         }
 
-        public InputData InputData { get; }
-
-        public void Update(float deltaTime)
+        public void Disable()
         {
-            if (_pauseService.IsPaused)
-                return;
-            
-            UpdateAttack();
+            _inputMap.Touchscreen.TouchDelta.performed -= OnTouchDeltaPreformed;
         }
-
-        private void UpdateAttack()
+        
+        private void OnTouchDeltaPreformed(InputAction.CallbackContext context)
         {
-            
-            //InputData.IsAttacking = _inputManager.Gameplay.Attack.IsPressed();
+            RotationInputReceived?.Invoke(context.ReadValue<Vector2>());
         }
     }
 }

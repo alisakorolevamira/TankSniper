@@ -6,5 +6,6 @@ namespace Sources.Scripts.Presentations.Views.Spawners
     public class PlayerSpawnPoint : View, IPlayerSpawnPoint
     {
         public Vector3 Position => transform.position;
+        public Quaternion Rotation => transform.rotation;
     }
 }

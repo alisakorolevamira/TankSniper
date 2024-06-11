@@ -14,13 +14,14 @@ using Sources.Scripts.Presentations.UI.Curtain;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;
+using UnityEngine;
 
 namespace Sources.Scripts.Controllers.Presenters.Scenes
 {
     public class GameplayScene : IScene
     {
         private readonly IUpdateService _updateService;
-        private readonly IInputServiceUpdater _inputServiceUpdater;
+        //private readonly IInputServiceUpdater _inputServiceUpdater;
         private readonly ILoadSceneService _loadSceneService;
         private readonly IGameOverService _gameOverService;
         private readonly IVolumeService _volumeService;
@@ -28,13 +29,13 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         private readonly ILevelCompletedService _levelCompletedService;
         private List<IEnemyView> _enemiesViews;
         private readonly IAudioService _audioService;
-        private readonly IFocusService _focusService;
+        //private readonly IFocusService _focusService;
         //private readonly IAdvertisingService _advertisingService;
         private readonly LoadingCurtainView _curtainView;
 
         public GameplayScene(
             IUpdateService updateService,
-            IInputServiceUpdater inputServiceUpdater,
+            //IInputServiceUpdater inputServiceUpdater,
             ILoadSceneService loadSceneService,
             IGameOverService gameOverService,
             IVolumeService volumeService,
@@ -42,13 +43,13 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             ILevelCompletedService levelCompletedService,
             List<IEnemyView> enemiesViews,
             IAudioService audioService,
-            IFocusService focusService,
+            //IFocusService focusService,
             //IAdvertisingService advertisingService)
             LoadingCurtainView curtainView)
         {
             _updateService = updateService ?? throw new ArgumentNullException(nameof(updateService));
-            _inputServiceUpdater = inputServiceUpdater ??
-                                   throw new ArgumentNullException(nameof(inputServiceUpdater));
+            //_inputServiceUpdater = inputServiceUpdater ??
+                                   //throw new ArgumentNullException(nameof(inputServiceUpdater));
             _loadSceneService = loadSceneService ?? throw new ArgumentNullException(nameof(loadSceneService));
             _gameOverService = gameOverService ?? throw new ArgumentNullException(nameof(gameOverService));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
@@ -58,7 +59,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _enemiesViews = enemiesViews ??
                                    throw new ArgumentNullException(nameof(enemiesViews));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
-            _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
+            //_focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             //_advertisingService = advertisingService ??
             //                      throw new ArgumentNullException(nameof(advertisingService));
             _curtainView = curtainView ? curtainView : throw new ArgumentNullException(nameof(curtainView));
@@ -66,7 +67,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
 
         public async void Enter(object payload = null)
         {
-            _focusService.Enable();
+            //_focusService.Enable();
             _loadSceneService.Load(payload as IScenePayload);
             //_advertisingService.Enable();
             _volumeService.Enter();
@@ -79,7 +80,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
 
         public void Exit()
         {
-            _focusService.Disable();
+            //_focusService.Disable();
             //_advertisingService.Disable();
             _updateService.UnregisterAll();
             _gameOverService.Exit();
@@ -93,7 +94,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         public void Update(float deltaTime)
         {
             _updateService.Update(deltaTime);
-            _inputServiceUpdater.Update(deltaTime);
+            //_inputServiceUpdater.Update(deltaTime);
         }
 
         public void UpdateLate(float deltaTime)

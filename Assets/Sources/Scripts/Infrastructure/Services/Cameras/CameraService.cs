@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using Sources.Scripts.InfrastructureInterfaces.Services.Cameras;
 using Sources.Scripts.Presentations.Views.Cameras.Types;
 using Sources.Scripts.PresentationsInterfaces.Views.Cameras;
+using UnityEngine;
 
 namespace Sources.Scripts.Infrastructure.Services.Cameras
 {
@@ -18,6 +21,8 @@ namespace Sources.Scripts.Infrastructure.Services.Cameras
         {
             if (_cameraPositions.ContainsKey(positionId) == false)
                 throw new InvalidOperationException(nameof(positionId));
+            
+            ChangePosition(_cameraPositions[positionId].Position);
             
             CurrentPosition = _cameraPositions[positionId];
             PositionChanged?.Invoke();
@@ -37,6 +42,15 @@ namespace Sources.Scripts.Infrastructure.Services.Cameras
                 throw new InvalidOperationException(nameof(positionId));
 
             return _cameraPositions[positionId];
+        }
+
+        private async void ChangePosition(Vector3 toPosition)
+        {
+            while (Vector3.Distance(CurrentPosition.Position, toPosition) > 0.001f)
+            {
+                CurrentPosition.Move(toPosition);
+                await UniTask.Yield();
+            }
         }
     }
 }

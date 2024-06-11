@@ -13,6 +13,7 @@ using Sources.Scripts.InfrastructureInterfaces.Services.GameOver;
 using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
 using Sources.Scripts.InfrastructureInterfaces.Services.Saves;
 using Sources.Scripts.Presentations.UI.Huds;
+using Sources.Scripts.Presentations.Views.Cameras;
 using Sources.Scripts.Presentations.Views.Cameras.Types;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.Presentations.Views.RootGameObjects;
@@ -109,7 +110,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 gameModels.KilledEnemiesCounter, gameModels.EnemySpawner, _gameplayHud.KilledEnemiesCounterView);
             
 
-            _cameraService.AddPosition(_rootGameObject.CameraPosition);
+            foreach (CameraPositionView cameraPosition in _rootGameObject.CameraPositions)
+                _cameraService.AddPosition(cameraPosition);
+            
             _cameraService.SetPosition(PositionId.MainPosition);
             _cameraViewFactory.Create(_gameplayHud.CinemachineCameraView);
             

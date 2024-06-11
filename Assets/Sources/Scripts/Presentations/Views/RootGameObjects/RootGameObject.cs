@@ -7,11 +7,11 @@ namespace Sources.Scripts.Presentations.Views.RootGameObjects
 {
     public class RootGameObject : View
     {
-        [SerializeField] private CameraPositionView _cameraPosition;
+        [SerializeField] private CameraPositionView [] _cameraPositions;
         [SerializeField] private PlayerSpawnPoint _playerSpawnPoint;
         [SerializeField] private EnemySpawnerView _enemySpawnerView;
 
-        public CameraPositionView CameraPosition => _cameraPosition;
+        public CameraPositionView [] CameraPositions => _cameraPositions;
         public PlayerSpawnPoint PlayerSpawnPoint => _playerSpawnPoint;
         public EnemySpawnerView EnemySpawnerView => _enemySpawnerView;
     }

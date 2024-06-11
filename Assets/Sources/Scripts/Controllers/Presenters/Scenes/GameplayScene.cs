@@ -4,6 +4,7 @@ using Sources.Scripts.ControllersInterfaces.Scenes;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactories;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
+using Sources.Scripts.InfrastructureInterfaces.Services.Cameras;
 using Sources.Scripts.InfrastructureInterfaces.Services.GameOver;
 using Sources.Scripts.InfrastructureInterfaces.Services.InputServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
@@ -22,6 +23,8 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
     {
         private readonly IUpdateService _updateService;
         //private readonly IInputServiceUpdater _inputServiceUpdater;
+        private readonly IInputService _inputService;
+        private readonly ICameraService _cameraService;
         private readonly ILoadSceneService _loadSceneService;
         private readonly IGameOverService _gameOverService;
         private readonly IVolumeService _volumeService;
@@ -35,6 +38,8 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
 
         public GameplayScene(
             IUpdateService updateService,
+            IInputService inputService,
+            ICameraService cameraService,
             //IInputServiceUpdater inputServiceUpdater,
             ILoadSceneService loadSceneService,
             IGameOverService gameOverService,
@@ -48,6 +53,8 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             LoadingCurtainView curtainView)
         {
             _updateService = updateService ?? throw new ArgumentNullException(nameof(updateService));
+            _inputService = inputService ?? throw new ArgumentNullException(nameof(inputService));
+            _cameraService = cameraService ?? throw new ArgumentNullException(nameof(cameraService));
             //_inputServiceUpdater = inputServiceUpdater ??
                                    //throw new ArgumentNullException(nameof(inputServiceUpdater));
             _loadSceneService = loadSceneService ?? throw new ArgumentNullException(nameof(loadSceneService));
@@ -75,6 +82,8 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _saveService.Enter();
             _levelCompletedService.Enable();
             _audioService.Enter();
+            _inputService.Enter();
+            _cameraService.Enter();
             await _curtainView.HideCurtain(); 
         }
 
@@ -88,6 +97,8 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _saveService.Exit();
             _levelCompletedService.Disable();
             _audioService.Exit();
+            _inputService.Exit();
+            _cameraService.Exit();
             _enemiesViews.Clear();
         }
 

@@ -8,6 +8,7 @@ using Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Gameplay
 using Sources.Scripts.InfrastructureInterfaces.Factories.Controllers.Scenes;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactories;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
+using Sources.Scripts.InfrastructureInterfaces.Services.Cameras;
 using Sources.Scripts.InfrastructureInterfaces.Services.GameOver;
 using Sources.Scripts.InfrastructureInterfaces.Services.InputServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
@@ -24,6 +25,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
     public class GameplaySceneFactory : ISceneFactory
     {
         private readonly IUpdateService _updateService;
+        private readonly IInputService _inputService;
+        private readonly ICameraService _cameraService;
         //private readonly IInputServiceUpdater _inputServiceUpdater;
         private readonly IGameOverService _gameOverService;
         private readonly IVolumeService _volumeService;
@@ -39,6 +42,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
 
         public GameplaySceneFactory(
             IUpdateService updateService,
+            IInputService inputService,
+            ICameraService cameraService,
             //IInputServiceUpdater inputServiceUpdater,
             IGameOverService gameOverService,
             IVolumeService volumeService,
@@ -53,6 +58,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             //IAdvertisingService advertisingService) 
         {
             _updateService = updateService ?? throw new ArgumentNullException(nameof(updateService));
+            _inputService = inputService ?? throw new ArgumentNullException(nameof(inputService));
+            _cameraService = cameraService ?? throw new ArgumentNullException(nameof(cameraService));
             //_inputServiceUpdater = inputServiceUpdater ?? throw new ArgumentNullException(nameof(inputServiceUpdater));
             _gameOverService = gameOverService ?? throw new ArgumentNullException(nameof(gameOverService));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
@@ -74,6 +81,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
         {
             return new GameplayScene(
                 _updateService,
+                _inputService,
+                _cameraService,
                 //_inputServiceUpdater,
                 CreateLoadSceneService(payload),
                 _gameOverService,

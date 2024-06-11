@@ -65,6 +65,7 @@ namespace Sources.Scripts.Controllers.Presenters.Cameras
             _horizontal += _sensitivity * delta.x * time;
 
             _vertical = Mathf.Clamp(_vertical, _minVerticalAngle, _maxVerticalAngle);
+            _horizontal = Mathf.Clamp(_horizontal, -25, 25);
 
             Vector3 rotation = new Vector3(_vertical, _horizontal, 0);
             

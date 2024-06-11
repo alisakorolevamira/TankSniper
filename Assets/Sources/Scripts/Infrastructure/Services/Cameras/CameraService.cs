@@ -13,7 +13,7 @@ using UnityEngine;
 
 namespace Sources.Scripts.Infrastructure.Services.Cameras
 {
-    public class CameraService : ICameraService, IEnable, IDisable
+    public class CameraService : ICameraService
     {
         private readonly IInputService _inputService;
         private Dictionary<PositionId, ICameraPosition> _cameraPositions = new ();
@@ -52,12 +52,12 @@ namespace Sources.Scripts.Infrastructure.Services.Cameras
             return _cameraPositions[positionId];
         }
 
-        public void Enable()
+        public void Enter(object payload = null)
         {
             _inputService.RotationInputReceived += SetRotation;
         }
 
-        public void Disable()
+        public void Exit()
         {
             _inputService.RotationInputReceived -= SetRotation;
         }

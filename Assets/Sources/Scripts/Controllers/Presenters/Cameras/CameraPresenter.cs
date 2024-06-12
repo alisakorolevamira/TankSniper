@@ -18,6 +18,9 @@ namespace Sources.Scripts.Controllers.Presenters.Cameras
         private float _sensitivity = 15;
         private float _minVerticalAngle = -15;
         private float _maxVerticalAngle = 15;
+        private float _minHorizontalAngle = -15;
+        private float _maxHorizontalAngle = 15;
+        private PositionId _currentPosition;
         
         private CancellationTokenSource _cancellationTokenSource;
         
@@ -45,6 +48,8 @@ namespace Sources.Scripts.Controllers.Presenters.Cameras
         {
             try
             {
+                _currentPosition = position.Id;
+                
                 while (Vector3.Distance(_cameraView.CurrentPosition, position.Position) > 0.001f)
                 {
                     _cameraView.SetPosition(position.Position);
@@ -64,8 +69,24 @@ namespace Sources.Scripts.Controllers.Presenters.Cameras
             _vertical -= _sensitivity * delta.y * time;
             _horizontal += _sensitivity * delta.x * time;
 
+            if (_currentPosition == PositionId.MainPosition)
+            {
+                _minVerticalAngle = -15;
+                _maxVerticalAngle = 15;
+                _minHorizontalAngle = -15;
+                _maxHorizontalAngle = 15;
+            }
+
+            else
+            {
+                _minVerticalAngle = -20;
+                _maxVerticalAngle = 60;
+                _minHorizontalAngle = -40;
+                _maxHorizontalAngle = 40;
+            }
+            
             _vertical = Mathf.Clamp(_vertical, _minVerticalAngle, _maxVerticalAngle);
-            _horizontal = Mathf.Clamp(_horizontal, -25, 25);
+            _horizontal = Mathf.Clamp(_horizontal, _minHorizontalAngle, _maxHorizontalAngle);
 
             Vector3 rotation = new Vector3(_vertical, _horizontal, 0);
             

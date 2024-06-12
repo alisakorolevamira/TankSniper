@@ -1,14 +1,12 @@
-﻿using System.Collections.Generic;
-using Sources.Scripts.Controllers.Presenters.Enemies.Base;
+﻿using Sources.Scripts.Controllers.Presenters.Enemies.Base;
 using Sources.Scripts.Infrastructure.Services.ObjectPool;
 using Sources.Scripts.InfrastructureInterfaces.Services.ObjectPool;
 using Sources.Scripts.Presentations.Views.Common;
 using Sources.Scripts.Presentations.Views.NavMeshAgents;
+using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.PresentationsInterfaces.Views.Common;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
-using Sources.Scripts.PresentationsInterfaces.Views.Players;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Sources.Scripts.Presentations.Views.Enemies.Base
 {
@@ -27,7 +25,7 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Base
 
         public HealthUIText HealthUIText => _healthUIText;
         
-        public ICharacterHealthView CharacterHealthView { get; private set; }
+        public PlayerView PlayerView { get; private set; }
 
         public override void Destroy()
         {
@@ -35,8 +33,8 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Base
             DestroyPresenter();
         }
 
-        public void SetCharacterHealth(ICharacterHealthView characterHealthView) =>
-            CharacterHealthView = characterHealthView;
+        public void SetPlayerView(PlayerView playerView) =>
+            PlayerView = playerView;
 
         public void EnableNavmeshAgent() =>
             NavMeshAgent.enabled = true;

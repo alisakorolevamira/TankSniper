@@ -53,7 +53,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Players
             
             //_characterAttackerViewFactory.Create(character.CharacterAttacker, characterView.CharacterAttackerView);
 
-            characterHealthViewFactory.Create(player.CharacterHealth, playerView.CharacterHealthView);
+            characterHealthViewFactory.Create(player.CharacterHealth, playerView.PlayerHealthView);
             _playerWalletViewFactory.Create(player.PlayerWallet, playerView.PlayerWalletView);
             _walletUIFactory.Create(player.PlayerWallet, _gameplayHud.WalletUI);
 

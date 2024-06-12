@@ -2,6 +2,8 @@
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Common;
 using Sources.Scripts.Infrastructure.Factories.Views.Players;
+using Sources.Scripts.Infrastructure.Services.Players;
+using Sources.Scripts.InfrastructureInterfaces.Services.Players;
 using Zenject;
 
 namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
@@ -12,8 +14,10 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
         {
             Container.Bind<PlayerViewFactory>().AsSingle();
 
-            Container.Bind<CharacterAttackerPresenterFactory>().AsSingle();
-            Container.Bind<CharacterAttackerViewFactory>().AsSingle();
+            Container.Bind<IPlayerAttackService>().To<PlayerAttackService>().AsSingle();
+
+            Container.Bind<PlayerAttackerPresenterFactory>().AsSingle();
+            Container.Bind<PlayerAttackerViewFactory>().AsSingle();
 
             Container.Bind<CharacterHealthPresenterFactory>().AsSingle();
             Container.Bind<CharacterHealthViewFactory>().AsSingle();

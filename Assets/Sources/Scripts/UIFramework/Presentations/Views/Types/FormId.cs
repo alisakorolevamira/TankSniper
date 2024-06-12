@@ -11,5 +11,6 @@
         Shoot = 6,
         Shop = 7,
         Entry = 8,
+        ReloadWeapon = 9,
     }
 }

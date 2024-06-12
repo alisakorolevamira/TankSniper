@@ -8,6 +8,8 @@ namespace Sources.Scripts.Presentations.Views.Players
 {
     public class PlayerWalletView : PresentableView<PlayerWalletPresenter>, IPlayerWalletView
     {
-        
+        [SerializeField] private UIText _moneyText;
+
+        public IUIText MoneyText => _moneyText;
     }
 }

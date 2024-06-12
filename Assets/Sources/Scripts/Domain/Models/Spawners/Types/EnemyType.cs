@@ -4,5 +4,6 @@
     {
         Standing = 0,
         Tank = 1,
+        Boss = 2,
     }
 }

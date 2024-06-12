@@ -12,14 +12,12 @@ namespace Sources.Scripts.Presentations.Views.NavMeshAgents
 
         public Vector3 Position => transform.position;
 
-        public float StoppingDistance => _navMeshAgent.stoppingDistance;
-
         protected NavMeshAgent NavMeshAgent => _navMeshAgent;
 
-        public void Move(Vector3 position) =>
+        public void Move(Vector3 position)
+        {
+            Debug.Log("moving");
             _navMeshAgent.SetDestination(position);
-
-        public void SetStoppingDistance(float stoppingDistance) =>
-            _navMeshAgent.stoppingDistance = stoppingDistance;
+        }
     }
 }

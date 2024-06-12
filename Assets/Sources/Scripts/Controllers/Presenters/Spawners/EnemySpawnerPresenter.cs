@@ -4,7 +4,9 @@ using Cysharp.Threading.Tasks;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
+using Sources.Scripts.Presentations.Views.Common;
 using Sources.Scripts.Presentations.Views.Players;
+using Sources.Scripts.PresentationsInterfaces.Views.Common;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Spawners;
@@ -46,17 +48,14 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
         public override void Disable() =>
             _cancellationTokenSource.Cancel();
 
-        private async void Spawn(CancellationToken cancellationToken)
+        private void Spawn(CancellationToken cancellationToken)
         {
             try
             {
-                while (_cancellationTokenSource.IsCancellationRequested == false)
+                foreach (IEnemySpawnPoint spawnPoint in _enemySpawnerView.SpawnPoints)
                 {
-                    foreach (IEnemySpawnPoint spawnPoint in _enemySpawnerView.SpawnPoints)
-                    {
-                        SpawnEnemy(spawnPoint.Position, _enemySpawnerView.PlayerView);
-                        //SpawnBoss(spawnPoint.Position, _enemySpawnerView.PlayerView);
-                    }
+                    SpawnEnemy(spawnPoint, _enemySpawnerView.PlayerView);
+                    //SpawnBoss(spawnPoint.Position, _enemySpawnerView.PlayerView);
                 }
             }
             catch (OperationCanceledException)
@@ -64,13 +63,10 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
             }
         }
 
-        private void SpawnEnemy(Vector3 position, PlayerView playerView)
+        private void SpawnEnemy(IEnemySpawnPoint spawnPoint, PlayerView playerView)
         {
-            Debug.Log("spawnenemy");
-            return;
-            
-            IEnemyView enemyView = _enemySpawnerService.Spawn(_killedEnemiesCounter, position);
-            enemyView.SetCharacterHealth(playerView.CharacterHealthView);
+            IEnemyView enemyView = _enemySpawnerService.Spawn(_killedEnemiesCounter, spawnPoint);
+            enemyView.SetPlayerView(playerView);
 
             _enemySpawner.SpawnedEnemies++;
         }

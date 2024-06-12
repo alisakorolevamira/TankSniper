@@ -6,11 +6,10 @@ namespace Sources.Scripts.Presentations.Views.Players
 {
     public class PlayerView : View
     {
-        [FormerlySerializedAs("_playerHealthView")] [SerializeField] private CharacterHealthView characterHealthView;
+        [SerializeField] private CharacterHealthView _playerHealthView;
         [SerializeField] private PlayerWalletView _playerWalletView;
 
-        public CharacterHealthView CharacterHealthView => characterHealthView;
+        public CharacterHealthView PlayerHealthView => _playerHealthView;
         public PlayerWalletView PlayerWalletView => _playerWalletView;
-        public Transform Transform => transform;
     }
 }

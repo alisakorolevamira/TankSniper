@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Sources.Scripts.Controllers.Presenters.Spawners;
+using Sources.Scripts.Presentations.Views.Common;
 using Sources.Scripts.Presentations.Views.Players;
+using Sources.Scripts.PresentationsInterfaces.Views.Common;
 using Sources.Scripts.PresentationsInterfaces.Views.Spawners;
 using UnityEngine;
 
@@ -17,8 +19,7 @@ namespace Sources.Scripts.Presentations.Views.Spawners
 
         public void SetPlayerView (PlayerView playerView)
         {
-            PlayerView = playerView ? playerView :
-                throw new ArgumentNullException(nameof(playerView));
+            PlayerView = playerView;
         }
     }
 }

@@ -4,6 +4,6 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Players
 {
     public interface IPlayerWalletView
     {
-        
+        IUIText MoneyText { get; }
     }
 }

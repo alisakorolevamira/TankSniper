@@ -17,5 +17,10 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Boss
 
         public void SetAgentSpeed(float speed) =>
             NavMeshAgent.speed = speed;
+
+        public void Move()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -24,54 +24,15 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Boss
         private readonly HealthBarUIFactory _healthBarUIFactory;
         private readonly HealthUITextViewFactory _healthUITextViewFactory;
 
-        public BossEnemyViewFactory(
-            BossEnemyPresenterFactory bossEnemyPresenterFactory,
-            //IObjectPool<BossEnemyView> bossEnemyPool,
-            EnemyHealthViewFactory enemyHealthViewFactory,
-            HealthBarUIFactory healthBarUIFactory,
-            HealthUITextViewFactory healthUITextViewFactory)
-        {
-            _bossEnemyPresenterFactory = bossEnemyPresenterFactory ??
-                                         throw new ArgumentNullException(nameof(bossEnemyPresenterFactory));
-            //_bossEnemyPool = bossEnemyPool ?? throw new ArgumentNullException(nameof(bossEnemyPool));
-            _enemyHealthViewFactory = enemyHealthViewFactory ??
-                                      throw new ArgumentNullException(nameof(enemyHealthViewFactory));
-            _healthBarUIFactory = healthBarUIFactory ?? throw new ArgumentNullException(nameof(healthBarUIFactory));
-            _healthUITextViewFactory = healthUITextViewFactory ??
-                                       throw new ArgumentNullException(nameof(healthUITextViewFactory));
-        }
 
         public IBossEnemyView Create(BossEnemy bossEnemy, KilledEnemiesCounter killedEnemiesCounter)
         {
-            BossEnemyView bossEnemyView = CreateView();
-
-            return Create(bossEnemy, killedEnemiesCounter, bossEnemyView);
+            throw new NotImplementedException();
         }
 
-        public IBossEnemyView Create(
-            BossEnemy bossEnemy,
-            KilledEnemiesCounter killedEnemiesCounter,
-            BossEnemyView bossEnemyView)
+        public IBossEnemyView Create(BossEnemy bossEnemy, KilledEnemiesCounter killedEnemiesCounter, BossEnemyView bossEnemyView)
         {
-            EnemyPresenter enemyPresenter = _bossEnemyPresenterFactory.Create(
-                bossEnemy, killedEnemiesCounter, bossEnemyView, bossEnemyView.BossEnemyAnimation);
-
-            bossEnemyView.Construct(enemyPresenter);
-
-            _enemyHealthViewFactory.Create(bossEnemy.EnemyHealth, bossEnemyView.EnemyHealthView);
-            _healthBarUIFactory.Create(bossEnemy.EnemyHealth, bossEnemyView.HealthBarUI);
-            _healthUITextViewFactory.Create(bossEnemy.EnemyHealth, bossEnemyView.HealthUIText);
-
-            return bossEnemyView;
-        }
-
-        private BossEnemyView CreateView()
-        {
-            BossEnemyView bossEnemyView = Object.Instantiate(Resources.Load<BossEnemyView>(PrefabPath.BossEnemy));
-
-            //bossEnemyView.AddComponent<PoolableObject>().SetPool(_bossEnemyPool);
-
-            return bossEnemyView;
+            throw new NotImplementedException();
         }
     }
 }

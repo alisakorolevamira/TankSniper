@@ -1,4 +1,5 @@
 ﻿using Sources.Scripts.Domain.Models.Enemies.Base;
+using Sources.Scripts.Domain.Models.Spawners.Types;
 
 namespace Sources.Scripts.Domain.Models.Enemies.Boss
 {
@@ -7,12 +8,14 @@ namespace Sources.Scripts.Domain.Models.Enemies.Boss
         public BossEnemy(
             EnemyHealth enemyHealth,
             EnemyAttacker enemyAttacker,
+            EnemyType enemyType,
             float stunTime,
             float walkSpeed,
             float runSpeed)
             : base(
                 enemyHealth,
-                enemyAttacker)
+                enemyAttacker,
+                enemyType)
         {
             StunTime = stunTime;
             WalkSpeed = walkSpeed;

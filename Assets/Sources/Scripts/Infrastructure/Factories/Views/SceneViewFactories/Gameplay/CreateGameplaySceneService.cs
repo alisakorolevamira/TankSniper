@@ -45,7 +45,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             //IUpgradeDtoMapper upgradeDtoMapper,
             //CustomCollection<Upgrader> upgradeCollection,
             KilledEnemiesCounterViewFactory killedEnemiesCounterViewFactory,
-            //BackgroundMusicViewFactory backgroundMusicViewFactory,
             IGameOverService gameOverService,
             CameraViewFactory cameraViewFactory,
             ICameraService cameraService,

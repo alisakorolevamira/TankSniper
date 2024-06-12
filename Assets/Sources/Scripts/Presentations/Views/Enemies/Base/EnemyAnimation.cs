@@ -12,6 +12,9 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Base
         private static int s_isWalk = Animator.StringToHash("IsWalk");
         private static int s_isAttack = Animator.StringToHash("IsAttack");
 
+        [SerializeField] private ParticleSystem _idleAnimation;
+        [SerializeField] private ParticleSystem _attackParticle;
+
         public event Action Attacking;
 
         private void Awake()
@@ -25,19 +28,22 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Base
         public void PlayWalk()
         {
             ExceptAnimation(StopWalk);
-            Animator.SetBool(s_isWalk, true);
+            //Animator.SetBool(s_isWalk, true);
+            _idleAnimation.Play();
         }
 
         public void PlayIdle()
         {
             ExceptAnimation(StopIdle);
-            Animator.SetBool(s_isIdle, true);
+            //Animator.SetBool(s_isIdle, true);
+            _idleAnimation.Play();
         }
 
         public void PlayAttack()
         {
             ExceptAnimation(StopAttack);
-            Animator.SetBool(s_isAttack, true);
+            //Animator.SetBool(s_isAttack, true);
+            _attackParticle.Play();
         }
 
         protected virtual void OnAfterAwake()
@@ -50,26 +56,26 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Base
 
         private void StopWalk()
         {
-            if (Animator.GetBool(s_isWalk) == false)
-                return;
-
-            Animator.SetBool(s_isWalk, false);
+            //if (Animator.GetBool(s_isWalk) == false)
+            //    return;
+//
+            //Animator.SetBool(s_isWalk, false);
         }
 
         private void StopIdle()
         {
-            if (Animator.GetBool(s_isIdle) == false)
-                return;
-
-            Animator.SetBool(s_isIdle, false);
+            //if (Animator.GetBool(s_isIdle) == false)
+            //    return;
+//
+            //Animator.SetBool(s_isIdle, false);
         }
 
         private void StopAttack()
         {
-            if (Animator.GetBool(s_isAttack) == false)
-                return;
-
-            Animator.SetBool(s_isAttack, false);
+            //if (Animator.GetBool(s_isAttack) == false)
+            //    return;
+//
+            //Animator.SetBool(s_isAttack, false);
         }
     }
 }

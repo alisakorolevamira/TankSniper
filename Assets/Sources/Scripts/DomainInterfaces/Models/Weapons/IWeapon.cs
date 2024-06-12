@@ -9,10 +9,6 @@ namespace Sources.Scripts.DomainInterfaces.Models.Weapons
 
         float Damage { get; }
 
-        bool IsReady { get; }
-
-        void AttackAsync(CancellationToken cancellationToken);
-
-        void EndAttack();
+        void Attack();
     }
 }

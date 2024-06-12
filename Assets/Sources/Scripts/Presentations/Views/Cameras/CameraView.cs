@@ -1,6 +1,4 @@
-﻿using Cinemachine;
-using Cysharp.Threading.Tasks;
-using Sources.Scripts.Controllers.Presenters.Cameras;
+﻿using Sources.Scripts.Controllers.Presenters.Cameras;
 using Sources.Scripts.PresentationsInterfaces.Views.Cameras;
 using UnityEngine;
 

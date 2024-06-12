@@ -3,6 +3,7 @@ using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Enemies;
 using Sources.Scripts.Domain.Models.Enemies.Boss;
 using Sources.Scripts.Domain.Models.Gameplay;
+using Sources.Scripts.Domain.Models.Spawners.Types;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.Enemies;
 using Sources.Scripts.InfrastructureInterfaces.Services.ObjectPool.Generic;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
@@ -32,6 +33,7 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners
             BossEnemy bossEnemy = new BossEnemy(
                 new EnemyHealth(BossEnemyConst.Health),
                 new EnemyAttacker(BossEnemyConst.Damage),
+                EnemyType.Boss,
                 BossEnemyConst.StunTime,
                 BossEnemyConst.WalkSpeed,
                 BossEnemyConst.RunSpeed);

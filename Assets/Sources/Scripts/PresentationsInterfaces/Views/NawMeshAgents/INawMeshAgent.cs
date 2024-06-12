@@ -6,10 +6,6 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.NawMeshAgents
     {
         public Vector3 Position { get; }
 
-        public float StoppingDistance { get; }
-
         void Move(Vector3 position);
-
-        void SetStoppingDistance(float stoppingDistance);
     }
 }

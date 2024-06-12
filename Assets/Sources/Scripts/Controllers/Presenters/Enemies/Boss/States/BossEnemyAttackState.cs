@@ -4,7 +4,6 @@ using Cysharp.Threading.Tasks;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base.States;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Enemies.Boss;
-using Sources.Scripts.InfrastructureInterfaces.Services.Enemies;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Boss;
 
 namespace Sources.Scripts.Controllers.Presenters.Enemies.Boss.States
@@ -13,7 +12,6 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Boss.States
     {
         private readonly BossEnemy _enemy;
         private readonly IBossEnemyView _enemyView;
-        private readonly IEnemyAttackService _enemyAttackService;
 
         private CancellationTokenSource _cancellationTokenSource;
         private TimeSpan _massAttackDelay;
@@ -21,8 +19,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Boss.States
         public BossEnemyAttackState(
             BossEnemy enemy,
             IBossEnemyView enemyView,
-            IBossEnemyAnimation enemyAnimation,
-            IEnemyAttackService enemyAttackService)
+            IBossEnemyAnimation enemyAnimation)
             : base(
                 enemy,
                 enemyView,
@@ -30,7 +27,6 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Boss.States
         {
             _enemy = enemy ?? throw new ArgumentNullException(nameof(enemy));
             _enemyView = enemyView ?? throw new ArgumentNullException(nameof(enemyView));
-            _enemyAttackService = enemyAttackService ?? throw new ArgumentNullException(nameof(enemyAttackService));
         }
 
         public override void Enter()
@@ -68,7 +64,6 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Boss.States
         private void ApplyAttack()
         {
             _enemyView.PlayAttackParticle();
-            _enemyAttackService.TryAttack(_enemyView.Position, EnemyConst.MassAttackDamage);
         }
 
         private void CheckIsRun()

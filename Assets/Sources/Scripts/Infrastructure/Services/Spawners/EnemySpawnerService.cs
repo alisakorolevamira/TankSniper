@@ -9,45 +9,33 @@ using Sources.Scripts.InfrastructureInterfaces.Services.ObjectPool.Generic;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.Presentations.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
+using Sources.Scripts.PresentationsInterfaces.Views.Spawners;
 using UnityEngine;
 
 namespace Sources.Scripts.Infrastructure.Services.Spawners
 {
     public class EnemySpawnerService : IEnemySpawnerService
     {
-        //private readonly IObjectPool<EnemyView> _enemyPool;
         private readonly IEnemyViewFactory _enemyViewFactory;
 
         public EnemySpawnerService(
-            //IObjectPool<EnemyView> enemyPool,
             IEnemyViewFactory enemyViewFactory)
         {
-            //_enemyPool = enemyPool ?? throw new ArgumentNullException(nameof(enemyPool));
             _enemyViewFactory = enemyViewFactory ?? throw new ArgumentNullException(nameof(enemyViewFactory));
         }
 
-        public IEnemyView Spawn(KilledEnemiesCounter killedEnemiesCounter, Vector3 position)
+        public IEnemyView Spawn(KilledEnemiesCounter killedEnemiesCounter, IEnemySpawnPoint spawnPoint)
         {
-            Enemy enemy = new Enemy(new EnemyHealth(EnemyConst.Health), new EnemyAttacker(EnemyConst.Damage));
+            Enemy enemy = new Enemy(new EnemyHealth(EnemyConst.Health), new EnemyAttacker(EnemyConst.Damage), spawnPoint.EnemyType);
 
-            IEnemyView enemyView = _enemyViewFactory.Create(enemy, killedEnemiesCounter);
+            IEnemyView enemyView = _enemyViewFactory.Create(enemy, killedEnemiesCounter, spawnPoint);
 
             enemyView.DisableNavmeshAgent();
-            enemyView.SetPosition(position);
+            enemyView.SetPosition(spawnPoint.Position);
             enemyView.EnableNavmeshAgent();
             enemyView.Show();
 
             return enemyView;
         }
-
-        //private IEnemyView SpawnFromPool(Enemy enemy, KilledEnemiesCounter killedEnemiesCounter)
-        //{
-        //    EnemyView enemyView = _enemyPool.Get<EnemyView>();
-//
-        //    if (enemyView == null)
-        //        return null;
-//
-        //    return _enemyViewFactory.Create(enemy, killedEnemiesCounter, enemyView);
-        //}
     }
 }

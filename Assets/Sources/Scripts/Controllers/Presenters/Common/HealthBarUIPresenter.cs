@@ -2,7 +2,6 @@
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.DomainInterfaces.Models.Healths;
 using Sources.Scripts.PresentationsInterfaces.Views.Common;
-using Sources.Scripts.PresentationsInterfaces.Views.Players;
 using Sources.Scripts.Utils.Extentions;
 
 namespace Sources.Scripts.Controllers.Presenters.Common

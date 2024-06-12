@@ -31,6 +31,6 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Base.States
             _enemyAnimation.Attacking -= OnAttack;
 
         private void OnAttack() =>
-            _enemyView.PlayerView.PlayerHealthView.TakeDamage(_enemy.EnemyAttacker.Damage);
+            _enemyView.PlayerHealthView.TakeDamage(_enemy.EnemyAttacker.Damage);
     }
 }

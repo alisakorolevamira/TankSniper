@@ -7,9 +7,9 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base
 {
     public interface IEnemyViewBase : INavMeshAgent
     {
-        PlayerView PlayerView { get; }
+        ICharacterHealthView PlayerHealthView { get; }
 
-        void SetPlayerView(PlayerView playerView);
+        void SetPlayerHealthView(ICharacterHealthView playerHealthView);
 
         void EnableNavmeshAgent();
 

@@ -66,7 +66,7 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
         private void SpawnEnemy(IEnemySpawnPoint spawnPoint, PlayerView playerView)
         {
             IEnemyView enemyView = _enemySpawnerService.Spawn(_killedEnemiesCounter, spawnPoint);
-            enemyView.SetPlayerView(playerView);
+            enemyView.SetPlayerHealthView(playerView.PlayerHealthView);
 
             _enemySpawner.SpawnedEnemies++;
         }

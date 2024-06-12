@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Linq;
 using System.Threading;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.DomainInterfaces.Models.Healths;
-using Sources.Scripts.PresentationsInterfaces.UI.Texts;
 using Sources.Scripts.PresentationsInterfaces.Views.Common;
 
 namespace Sources.Scripts.Controllers.Presenters.Common

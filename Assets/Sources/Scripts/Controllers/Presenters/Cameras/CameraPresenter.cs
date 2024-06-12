@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.InfrastructureInterfaces.Services.Cameras;
 using Sources.Scripts.Presentations.Views.Cameras.Types;
 using Sources.Scripts.PresentationsInterfaces.Views.Cameras;
@@ -15,7 +16,6 @@ namespace Sources.Scripts.Controllers.Presenters.Cameras
         
         private float _horizontal = 0;
         private float _vertical = 0;
-        private float _sensitivity = 15;
         private float _minVerticalAngle = -15;
         private float _maxVerticalAngle = 15;
         private float _minHorizontalAngle = -15;
@@ -66,27 +66,20 @@ namespace Sources.Scripts.Controllers.Presenters.Cameras
         {
             float time = Time.deltaTime;
 
-            _vertical -= _sensitivity * delta.y * time;
-            _horizontal += _sensitivity * delta.x * time;
+            _vertical -= CameraConst.Sensitivity * delta.y * time;
+            _horizontal += CameraConst.Sensitivity * delta.x * time;
 
             if (_currentPosition == PositionId.MainPosition)
             {
-                _minVerticalAngle = -15;
-                _maxVerticalAngle = 15;
-                _minHorizontalAngle = -15;
-                _maxHorizontalAngle = 15;
+                _vertical = Mathf.Clamp(_vertical, CameraConst.MinVerticalAngle, CameraConst.MaxVerticalAngle);
+                _horizontal = Mathf.Clamp(_horizontal, CameraConst.MinHorizontalAngle, CameraConst.MaxHorizontalAngle);
             }
 
             else
             {
-                _minVerticalAngle = -20;
-                _maxVerticalAngle = 60;
-                _minHorizontalAngle = -40;
-                _maxHorizontalAngle = 40;
+                _vertical = Mathf.Clamp(_vertical, CameraConst.MinVerticalAimAngle, CameraConst.MaxVerticalAimAngle);
+                _horizontal = Mathf.Clamp(_horizontal, CameraConst.MinHorizontalAimAngle, CameraConst.MaxHorizontalAimAngle);
             }
-            
-            _vertical = Mathf.Clamp(_vertical, _minVerticalAngle, _maxVerticalAngle);
-            _horizontal = Mathf.Clamp(_horizontal, _minHorizontalAngle, _maxHorizontalAngle);
 
             Vector3 rotation = new Vector3(_vertical, _horizontal, 0);
             

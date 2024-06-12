@@ -104,7 +104,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             _gameOverService.Register(gameModels.CharacterHealth);;
 
             EnemySpawnerView enemySpawnerView = _rootGameObject.EnemySpawnerView;
-            //enemySpawnerView.SetPlayerView(playerView);
+            enemySpawnerView.SetPlayerView(playerView);
             _enemySpawnerViewFactory.Create(gameModels.EnemySpawner, gameModels.KilledEnemiesCounter, enemySpawnerView);
             
             foreach (KilledEnemiesCounterView view in _gameplayHud.KilledEnemiesCounterViews)

@@ -25,7 +25,7 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Base
 
         public HealthUIText HealthUIText => _healthUIText;
         
-        public PlayerView PlayerView { get; private set; }
+        public ICharacterHealthView PlayerHealthView { get; private set; }
 
         public override void Destroy()
         {
@@ -33,8 +33,8 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Base
             DestroyPresenter();
         }
 
-        public void SetPlayerView(PlayerView playerView) =>
-            PlayerView = playerView;
+        public void SetPlayerHealthView(ICharacterHealthView playerHealthView) =>
+            PlayerHealthView = playerHealthView;
 
         public void EnableNavmeshAgent() =>
             NavMeshAgent.enabled = true;

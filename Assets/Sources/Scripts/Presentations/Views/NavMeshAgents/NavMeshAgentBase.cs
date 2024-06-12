@@ -16,7 +16,6 @@ namespace Sources.Scripts.Presentations.Views.NavMeshAgents
 
         public void Move(Vector3 position)
         {
-            Debug.Log("moving");
             _navMeshAgent.SetDestination(position);
         }
     }

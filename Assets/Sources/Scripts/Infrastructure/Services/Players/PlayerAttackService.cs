@@ -1,6 +1,4 @@
-﻿using System;
-using Sources.Scripts.InfrastructureInterfaces.Services.Players;
-using Sources.Scripts.PresentationsInterfaces.Views.Players;
+﻿using Sources.Scripts.InfrastructureInterfaces.Services.Players;
 
 namespace Sources.Scripts.Infrastructure.Services.Players
 {

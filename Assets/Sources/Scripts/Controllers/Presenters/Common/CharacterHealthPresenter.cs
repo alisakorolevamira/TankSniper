@@ -1,9 +1,7 @@
 ﻿using System;
 using Sources.Scripts.Domain.Models.Common;
-using Sources.Scripts.Domain.Models.Players;
-using Sources.Scripts.PresentationsInterfaces.Views.Players;
 
-namespace Sources.Scripts.Controllers.Presenters.Players
+namespace Sources.Scripts.Controllers.Presenters.Common
 {
     public class CharacterHealthPresenter : PresenterBase
     {

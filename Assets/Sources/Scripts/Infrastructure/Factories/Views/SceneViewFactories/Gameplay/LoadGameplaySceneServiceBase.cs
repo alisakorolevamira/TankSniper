@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Cameras;
@@ -31,6 +32,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
         private readonly GameplayHud _gameplayHud;
         private readonly UICollectorFactory _uiCollectorFactory;
         private readonly PlayerViewFactory _playerViewFactory;
+        private readonly PlayerAttackerViewFactory _playerAttackerViewFactory;
         private readonly RootGameObject _rootGameObject;
         private readonly EnemySpawnerViewFactory _enemySpawnerViewFactory;
         private readonly KilledEnemiesCounterViewFactory _killedEnemiesCounterViewFactory;
@@ -48,6 +50,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             GameplayHud gameplayHud,
             UICollectorFactory uiCollectorFactory,
             PlayerViewFactory playerViewFactory,
+            PlayerAttackerViewFactory playerAttackerViewFactory,
             RootGameObject rootGameObject,
             EnemySpawnerViewFactory enemySpawnerViewFactory,
             KilledEnemiesCounterViewFactory killedEnemiesCounterViewFactory,
@@ -64,6 +67,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             _gameplayHud = gameplayHud ? gameplayHud : throw new ArgumentNullException(nameof(gameplayHud));
             _uiCollectorFactory = uiCollectorFactory ?? throw new ArgumentNullException(nameof(uiCollectorFactory));
             _playerViewFactory = playerViewFactory ?? throw new ArgumentNullException(nameof(playerViewFactory));
+            _playerAttackerViewFactory = playerAttackerViewFactory ?? throw new ArgumentNullException(nameof(playerAttackerViewFactory));
             _rootGameObject = rootGameObject 
                 ? rootGameObject 
                 : throw new ArgumentNullException(nameof(rootGameObject));
@@ -100,6 +104,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             _saveService.Register(gameModels.EnemySpawner);
 
             PlayerView playerView = _playerViewFactory.Create(gameModels.Player);
+
+            PlayerAttackerView playerAttackerView = _rootGameObject.PlayerAttackerView;
+            _playerAttackerViewFactory.Create(gameModels.PlayerAttacker, playerAttackerView);
             
             _gameOverService.Register(gameModels.CharacterHealth);;
 

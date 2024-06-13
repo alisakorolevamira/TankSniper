@@ -30,7 +30,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         private readonly IVolumeService _volumeService;
         private readonly ISaveService _saveService;
         private readonly ILevelCompletedService _levelCompletedService;
-        private List<IEnemyView> _enemiesViews;
+        private List<ITankEnemyView> _enemiesViews;
         private readonly IAudioService _audioService;
         //private readonly IFocusService _focusService;
         //private readonly IAdvertisingService _advertisingService;
@@ -46,7 +46,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             IVolumeService volumeService,
             ISaveService saveService,
             ILevelCompletedService levelCompletedService,
-            List<IEnemyView> enemiesViews,
+            List<ITankEnemyView> enemiesViews,
             IAudioService audioService,
             //IFocusService focusService,
             //IAdvertisingService advertisingService)

@@ -34,7 +34,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
         private readonly CreateGameplaySceneService _createGameplaySceneService;
         private readonly ISaveService _saveService;
         private readonly ILevelCompletedService _levelCompletedService;
-        private readonly List<IEnemyView> _enemiesViews;
+        private readonly List<ITankEnemyView> _enemiesViews;
         private readonly IAudioService _audioService;
         //private readonly IFocusService _focusService;
         //private readonly IAdvertisingService _advertisingService;
@@ -51,7 +51,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             CreateGameplaySceneService createGameplaySceneService,
             ISaveService saveService,
             ILevelCompletedService levelCompletedService,
-            List<IEnemyView> enemiesViews,
+            List<ITankEnemyView> enemiesViews,
             LoadingCurtainView curtainView,
             IAudioService audioService)
             //IFocusService focusService)

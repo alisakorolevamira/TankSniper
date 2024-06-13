@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
@@ -65,8 +67,8 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
 
         private void SpawnEnemy(IEnemySpawnPoint spawnPoint, PlayerView playerView)
         {
-            IEnemyView enemyView = _enemySpawnerService.Spawn(_killedEnemiesCounter, spawnPoint);
-            enemyView.SetPlayerHealthView(playerView.PlayerHealthView);
+            ITankEnemyView tankEnemyView = _enemySpawnerService.Spawn(_killedEnemiesCounter, spawnPoint);
+            tankEnemyView.SetPlayerHealthView(playerView.PlayerHealthView);
 
             _enemySpawner.SpawnedEnemies++;
         }

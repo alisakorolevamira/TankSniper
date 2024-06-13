@@ -14,12 +14,8 @@ namespace Sources.Scripts.Controllers.Presenters.Cameras
         private readonly ICameraView _cameraView;
         private readonly ICameraService _cameraService;
         
-        private float _horizontal = 0;
-        private float _vertical = 0;
-        private float _minVerticalAngle = -15;
-        private float _maxVerticalAngle = 15;
-        private float _minHorizontalAngle = -15;
-        private float _maxHorizontalAngle = 15;
+        private float _horizontal;
+        private float _vertical;
         private PositionId _currentPosition;
         
         private CancellationTokenSource _cancellationTokenSource;

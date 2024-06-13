@@ -8,12 +8,12 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Base.States
     public class EnemyAttackState : FiniteState
     {
         private readonly Enemy _enemy;
-        private readonly IEnemyView _enemyView;
+        private readonly IEnemyViewBase _enemyView;
         private readonly IEnemyAnimation _enemyAnimation;
 
         public EnemyAttackState(
             Enemy enemy,
-            IEnemyView enemyView,
+            IEnemyViewBase enemyView,
             IEnemyAnimation enemyAnimation)
         {
             _enemy = enemy ?? throw new ArgumentNullException(nameof(enemy));

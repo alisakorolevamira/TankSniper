@@ -12,6 +12,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         public GameModels(
             CharacterHealth characterHealth,
             PlayerWallet playerWallet,
+            PlayerAttacker playerAttacker,
             Volume volume,
             Level level,
             Player player,
@@ -21,6 +22,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         {
             CharacterHealth = characterHealth;
             PlayerWallet = playerWallet;
+            PlayerAttacker = playerAttacker;
             Volume = volume;
             Level = level;
             Player = player;
@@ -31,6 +33,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
 
         public CharacterHealth CharacterHealth { get; }
         public PlayerWallet PlayerWallet { get; }
+        public PlayerAttacker PlayerAttacker { get; }
         public Volume Volume { get; }
         public Level Level { get; }
         public Player Player { get; }

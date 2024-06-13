@@ -27,8 +27,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Player
 
         public PlayerAttackerPresenter Create(PlayerAttacker playerAttacker, IPlayerAttackerView view)
         {
-            return new PlayerAttackerPresenter(
-                playerAttacker, view, _playerAttackService, _inputService, _formService);
+            return new PlayerAttackerPresenter(playerAttacker, view, _playerAttackService, _inputService, _formService);
         }
     }
 }

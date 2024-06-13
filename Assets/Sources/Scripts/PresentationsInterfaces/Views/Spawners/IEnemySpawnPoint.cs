@@ -8,7 +8,7 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Spawners
     public interface IEnemySpawnPoint
     {
         EnemyType EnemyType { get; }
-        EnemyView EnemyView { get; }
+        TankTankEnemyView TankTankEnemyView { get; }
 
         Vector3 Position { get; }
         

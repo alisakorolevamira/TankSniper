@@ -6,6 +6,7 @@ using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
 using Sources.Scripts.Domain.Models.Spawners;
+using Sources.Scripts.Domain.Models.Weapons;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Cameras;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
@@ -34,7 +35,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
         public LoadGameplaySceneService(
             GameplayHud gameplayHud, 
             UICollectorFactory uiCollectorFactory, 
-            PlayerViewFactory playerViewFactory, 
+            PlayerViewFactory playerViewFactory,
+            PlayerAttackerViewFactory playerAttackerViewFactory,
             ILoadService loadService, 
             IEntityRepository entityRepository, 
             RootGameObject rootGameObject, 
@@ -52,7 +54,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             : base(
                 gameplayHud, 
                 uiCollectorFactory, 
-                playerViewFactory, 
+                playerViewFactory,
+                playerAttackerViewFactory,
                 rootGameObject, 
                 enemySpawnerViewFactory, 
                 killedEnemiesCounterViewFactory, 
@@ -89,6 +92,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             CharacterHealth characterHealth = new CharacterHealth();
 
             Player player = new Player(playerWallet, characterHealth);
+            PlayerAttacker playerAttacker = new PlayerAttacker(new Weapon(10)); //переделать на загрузку данных
 
             //Character character = new Character(
             //    playerWallet,
@@ -110,6 +114,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             return new GameModels(
                 characterHealth,
                 playerWallet,
+                playerAttacker,
                 volume,
                 level,
                 player,

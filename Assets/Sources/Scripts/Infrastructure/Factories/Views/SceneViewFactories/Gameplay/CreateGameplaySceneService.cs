@@ -5,6 +5,7 @@ using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
 using Sources.Scripts.Domain.Models.Spawners;
+using Sources.Scripts.Domain.Models.Weapons;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Cameras;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
@@ -38,6 +39,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             GameplayHud gameplayHud,
             UICollectorFactory uiCollectorFactory,
             PlayerViewFactory playerViewFactory,
+            PlayerAttackerViewFactory playerAttackerViewFactory,
             ILoadService loadService,
             IEntityRepository entityRepository,
             RootGameObject rootGameObject,
@@ -59,6 +61,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 gameplayHud,
                 uiCollectorFactory,
                 playerViewFactory,
+                playerAttackerViewFactory,
                 rootGameObject,
                 enemySpawnerViewFactory,
                 //upgradeCollection,
@@ -100,9 +103,12 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
             Player player = new Player(playerWallet, characterHealth);
 
+            PlayerAttacker playerAttacker = new PlayerAttacker(new Weapon(10)); //переделать
+
             return new GameModels(
                 characterHealth,
                 playerWallet,
+                playerAttacker,
                 volume,
                 level,
                 player,

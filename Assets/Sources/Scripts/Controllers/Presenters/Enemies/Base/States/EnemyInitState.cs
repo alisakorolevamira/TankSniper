@@ -10,18 +10,18 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Base.States
     {
         private readonly Enemy _enemy;
         private readonly IEnemyAnimation _enemyAnimation;
-        private readonly IEnemyView _enemyView;
-        private readonly List<IEnemyView> _enemyCollection;
+        private readonly ITankEnemyView tankEnemyView;
+        private readonly List<ITankEnemyView> _enemyCollection;
 
         public EnemyInitState(
             Enemy enemy,
             IEnemyAnimation enemyAnimation,
-            IEnemyView enemyView,
-            List<IEnemyView> enemyCollection)
+            ITankEnemyView tankEnemyView,
+            List<ITankEnemyView> enemyCollection)
         {
             _enemy = enemy ?? throw new ArgumentNullException(nameof(enemy));
             _enemyAnimation = enemyAnimation;
-            _enemyView = enemyView ?? throw new ArgumentNullException(nameof(enemyView));
+            this.tankEnemyView = tankEnemyView ?? throw new ArgumentNullException(nameof(tankEnemyView));
             _enemyCollection = enemyCollection ?? throw new ArgumentNullException(nameof(enemyCollection));
         }
 
@@ -29,7 +29,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Base.States
         {
             _enemy.IsInitialized = true;
             _enemyAnimation.PlayIdle();
-            _enemyCollection.Add(_enemyView);
+            _enemyCollection.Add(tankEnemyView);
         }
     }
 }

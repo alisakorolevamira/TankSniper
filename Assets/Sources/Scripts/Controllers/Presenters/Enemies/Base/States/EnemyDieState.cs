@@ -10,28 +10,28 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Base.States
     public class EnemyDieState : FiniteState
     {
         private readonly KilledEnemiesCounter _killedEnemiesCounter;
-        private readonly IEnemyView _enemyView;
-        private readonly List<IEnemyView> _enemyCollection;
+        private readonly ITankEnemyView tankEnemyView;
+        private readonly List<ITankEnemyView> _enemyCollection;
 
         public EnemyDieState(
             KilledEnemiesCounter killedEnemiesCounter,
-            IEnemyView enemyView,
-            List<IEnemyView> enemyCollection)
+            ITankEnemyView tankEnemyView,
+            List<ITankEnemyView> enemyCollection)
         {
             _killedEnemiesCounter =
                 killedEnemiesCounter ?? throw new ArgumentNullException(nameof(killedEnemiesCounter));
-            _enemyView = enemyView ?? throw new ArgumentNullException(nameof(enemyView));
+            this.tankEnemyView = tankEnemyView ?? throw new ArgumentNullException(nameof(tankEnemyView));
             _enemyCollection = enemyCollection ?? throw new ArgumentNullException(nameof(enemyCollection));
         }
 
         public override void Enter()
         {
-            if (_enemyView == null)
+            if (tankEnemyView == null)
                 return;
 
             _killedEnemiesCounter.IncreaseKilledEnemiesCount();
-            _enemyCollection.Remove(_enemyView);
-            _enemyView.Destroy();
+            _enemyCollection.Remove(tankEnemyView);
+            tankEnemyView.Destroy();
         }
     }
 }

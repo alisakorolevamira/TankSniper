@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 using Sources.Scripts.DomainInterfaces.Models.Weapons;
 
 namespace Sources.Scripts.Domain.Models.Players

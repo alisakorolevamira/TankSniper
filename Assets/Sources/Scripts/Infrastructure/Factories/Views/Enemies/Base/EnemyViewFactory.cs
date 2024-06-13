@@ -36,32 +36,32 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Base
                                        throw new ArgumentNullException(nameof(healthUITextViewFactory));
         }
 
-        public IEnemyView Create(Enemy enemy, KilledEnemiesCounter killedEnemiesCounter, IEnemySpawnPoint spawnPoint)
+        public ITankEnemyView Create(Enemy enemy, KilledEnemiesCounter killedEnemiesCounter, IEnemySpawnPoint spawnPoint)
         {
-            EnemyView enemyView = CreateView(spawnPoint);
+            TankTankEnemyView tankTankEnemyView = CreateView(spawnPoint);
 
-            return Create(enemy, killedEnemiesCounter, enemyView, spawnPoint);
+            return Create(enemy, killedEnemiesCounter, tankTankEnemyView, spawnPoint);
         }
 
-        public IEnemyView Create(Enemy enemy, KilledEnemiesCounter killedEnemiesCounter, EnemyView enemyView, IEnemySpawnPoint spawnPoint)
+        public ITankEnemyView Create(Enemy enemy, KilledEnemiesCounter killedEnemiesCounter, TankTankEnemyView tankTankEnemyView, IEnemySpawnPoint spawnPoint)
         {
             EnemyPresenter enemyPresenter = _enemyPresenterFactory.Create(
-                enemy, killedEnemiesCounter, enemyView, enemyView.EnemyAnimation, spawnPoint);
+                enemy, killedEnemiesCounter, tankTankEnemyView, tankTankEnemyView.EnemyAnimation, spawnPoint);
 
-            enemyView.Construct(enemyPresenter);
+            tankTankEnemyView.Construct(enemyPresenter);
 
-            _enemyHealthViewFactory.Create(enemy.EnemyHealth, enemyView.EnemyHealthView);
-            _healthBarUIFactory.Create(enemy.EnemyHealth, enemyView.HealthBarUI);
-            _healthUITextViewFactory.Create(enemy.EnemyHealth, enemyView.HealthUIText);
+            _enemyHealthViewFactory.Create(enemy.EnemyHealth, tankTankEnemyView.EnemyHealthView);
+            _healthBarUIFactory.Create(enemy.EnemyHealth, tankTankEnemyView.HealthBarUI);
+            _healthUITextViewFactory.Create(enemy.EnemyHealth, tankTankEnemyView.HealthUIText);
 
-            return enemyView;
+            return tankTankEnemyView;
         }
 
-        private EnemyView CreateView(IEnemySpawnPoint spawnPoint)
+        private TankTankEnemyView CreateView(IEnemySpawnPoint spawnPoint)
         {
-            EnemyView enemyView = spawnPoint.EnemyView;
+            TankTankEnemyView tankTankEnemyView = spawnPoint.TankTankEnemyView;
 
-            return enemyView;
+            return tankTankEnemyView;
         }
     }
 }

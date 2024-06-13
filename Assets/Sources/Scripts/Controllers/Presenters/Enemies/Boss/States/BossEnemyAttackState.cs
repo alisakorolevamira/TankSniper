@@ -11,7 +11,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Boss.States
     public class BossEnemyAttackState : EnemyAttackState
     {
         private readonly BossEnemy _enemy;
-        private readonly IBossEnemyView _enemyView;
+        private readonly IBossEnemyView enemyView;
 
         private CancellationTokenSource _cancellationTokenSource;
         private TimeSpan _massAttackDelay;
@@ -26,7 +26,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Boss.States
                 enemyAnimation)
         {
             _enemy = enemy ?? throw new ArgumentNullException(nameof(enemy));
-            _enemyView = enemyView ?? throw new ArgumentNullException(nameof(enemyView));
+            this.enemyView = enemyView ?? throw new ArgumentNullException(nameof(enemyView));
         }
 
         public override void Enter()
@@ -63,7 +63,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Boss.States
 
         private void ApplyAttack()
         {
-            _enemyView.PlayAttackParticle();
+            enemyView.PlayAttackParticle();
         }
 
         private void CheckIsRun()

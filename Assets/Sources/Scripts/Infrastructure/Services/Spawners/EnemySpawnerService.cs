@@ -24,18 +24,18 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners
             _enemyViewFactory = enemyViewFactory ?? throw new ArgumentNullException(nameof(enemyViewFactory));
         }
 
-        public IEnemyView Spawn(KilledEnemiesCounter killedEnemiesCounter, IEnemySpawnPoint spawnPoint)
+        public ITankEnemyView Spawn(KilledEnemiesCounter killedEnemiesCounter, IEnemySpawnPoint spawnPoint)
         {
             Enemy enemy = new Enemy(new EnemyHealth(EnemyConst.Health), new EnemyAttacker(EnemyConst.Damage), spawnPoint.EnemyType);
 
-            IEnemyView enemyView = _enemyViewFactory.Create(enemy, killedEnemiesCounter, spawnPoint);
+            ITankEnemyView tankEnemyView = _enemyViewFactory.Create(enemy, killedEnemiesCounter, spawnPoint);
 
-            enemyView.DisableNavmeshAgent();
-            enemyView.SetPosition(spawnPoint.Position);
-            enemyView.EnableNavmeshAgent();
-            enemyView.Show();
+            tankEnemyView.DisableNavmeshAgent();
+            tankEnemyView.SetPosition(spawnPoint.Position);
+            tankEnemyView.EnableNavmeshAgent();
+            tankEnemyView.Show();
 
-            return enemyView;
+            return tankEnemyView;
         }
     }
 }

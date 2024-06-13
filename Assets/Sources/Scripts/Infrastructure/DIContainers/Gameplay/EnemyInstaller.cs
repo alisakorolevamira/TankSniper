@@ -19,7 +19,7 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
     {
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<List<IEnemyView>>().AsSingle();
+            Container.BindInterfacesAndSelfTo<List<ITankEnemyView>>().AsSingle();
 
             Container.Bind<IEnemySpawnerService>().To<EnemySpawnerService>().AsSingle();
             Container.Bind<IBossEnemySpawnerService>().To<BossEnemySpawnerService>().AsSingle();

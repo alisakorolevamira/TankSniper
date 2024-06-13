@@ -15,10 +15,19 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "TouchUp",
+                    "name": "TouchPress",
                     "type": "Button",
                     "id": "0c6045f1-11f5-40e6-adcb-aee23c877edd",
                     "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TouchPosition",
+                    "type": "PassThrough",
+                    "id": "4690e889-b9a3-410f-92f0-d0854bbeeb4b",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -43,7 +52,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "TouchUp",
+                    "action": "TouchPress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b06a23cd-2af9-45a7-8129-ccb6d030aed2",
+                    "path": "<Touchscreen>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchPosition",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

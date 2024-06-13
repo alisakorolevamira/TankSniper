@@ -2,7 +2,7 @@
 
 namespace Sources.Scripts.PresentationsInterfaces.Views.Enemies.Boss
 {
-    public interface IBossEnemyView : IEnemyView
+    public interface IBossEnemyView : IEnemyViewBase
     {
         void PlayAttackParticle();
 

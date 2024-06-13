@@ -9,6 +9,7 @@ using Sources.Scripts.PresentationsInterfaces.Views.Bullets;
 using Sources.Scripts.PresentationsInterfaces.Views.Players;
 using Sources.Scripts.UIFramework.Presentations.Views.Types;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Forms;
+using UnityEngine;
 
 namespace Sources.Scripts.Controllers.Presenters.Players
 {
@@ -49,13 +50,14 @@ namespace Sources.Scripts.Controllers.Presenters.Players
 
         private void OnAttackInputReceived()
         {
-            IBulletView bullet = _playerAttackerView.BulletViews.First(x => x.IsShowed == true);
+            Debug.Log("OnAttackInputReceived");
+            IBulletView bullet = _playerAttackerView.BulletViews.First(x => x.IsShowed);
             bullet.Hide();
             _amountOfShoots--;
             
             _playerAttacker.Attack();
             _attackService.Attack();
-            _playerAttackerView.ShootEffect.Play();
+            _playerAttackerView.ShootEffect?.Play();
 
             CheckShoots();
         }

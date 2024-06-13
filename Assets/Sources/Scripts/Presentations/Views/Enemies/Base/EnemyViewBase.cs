@@ -32,6 +32,13 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Base
             _poolableObjectDestroyerService.Destroy(this);
             DestroyPresenter();
         }
+        
+        public void SetLookAtPlayer()
+        {
+            Debug.Log("lookatcamera");
+            Quaternion rotation = Camera.main.transform.rotation;
+            transform.LookAt(transform.position + rotation * Vector3.back, rotation * Vector3.up);
+        }
 
         public void SetPlayerHealthView(ICharacterHealthView playerHealthView) =>
             PlayerHealthView = playerHealthView;

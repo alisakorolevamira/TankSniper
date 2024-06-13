@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Sources.Scripts.Domain.Models.Spawners.Types;
-using Sources.Scripts.Presentations.Views.Enemies.Base;
+using Sources.Scripts.Presentations.Views.Enemies.Tank;
 using UnityEngine;
 
 namespace Sources.Scripts.PresentationsInterfaces.Views.Spawners
@@ -8,7 +8,6 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Spawners
     public interface IEnemySpawnPoint
     {
         EnemyType EnemyType { get; }
-        TankTankEnemyView TankTankEnemyView { get; }
 
         Vector3 Position { get; }
         

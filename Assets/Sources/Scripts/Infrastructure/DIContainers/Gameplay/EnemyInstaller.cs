@@ -3,14 +3,15 @@ using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Common;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Base;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Boss;
+using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Tank;
 using Sources.Scripts.Infrastructure.Factories.Views.Common;
 using Sources.Scripts.Infrastructure.Factories.Views.Enemies;
-using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Base;
 using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Boss;
+using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Tank;
 using Sources.Scripts.Infrastructure.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.Enemies;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
-using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tank;
 using Zenject;
 
 namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
@@ -21,7 +22,7 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
         {
             Container.BindInterfacesAndSelfTo<List<ITankEnemyView>>().AsSingle();
 
-            Container.Bind<IEnemySpawnerService>().To<EnemySpawnerService>().AsSingle();
+            Container.Bind<ITankEnemySpawnerService>().To<TankEnemySpawnerService>().AsSingle();
             Container.Bind<IBossEnemySpawnerService>().To<BossEnemySpawnerService>().AsSingle();
             
             Container.Bind<HealthUITextPresenterFactory>().AsSingle();
@@ -33,7 +34,10 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
             Container.Bind<EnemyHealthPresenterFactory>().AsSingle();
             Container.Bind<EnemyHealthViewFactory>().AsSingle();
             Container.Bind<EnemyPresenterFactory>().AsSingle();
-            Container.Bind<IEnemyViewFactory>().To<EnemyViewFactory>().AsSingle();
+            //Container.Bind<IEnemyViewFactory>().To<EnemyViewFactory>().AsSingle();
+
+            Container.Bind<TankPresenterFactory>().AsSingle();
+            Container.Bind<ITankEnemyViewFactory>().To<TankEnemyViewFactory>().AsSingle();
         }
     }
 }

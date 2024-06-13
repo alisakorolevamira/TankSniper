@@ -14,5 +14,6 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base
         void EnableNavmeshAgent();
 
         void DisableNavmeshAgent();
+        void SetLookAtPlayer();
     }
 }

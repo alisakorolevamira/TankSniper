@@ -2,6 +2,7 @@
 using Sources.Scripts.Domain.Models.Enemies.Base;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.States;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
+using UnityEngine;
 
 namespace Sources.Scripts.Controllers.Presenters.Enemies.Base.States
 {
@@ -30,7 +31,11 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Base.States
         public override void Exit() =>
             _enemyAnimation.Attacking -= OnAttack;
 
-        private void OnAttack() =>
+        private void OnAttack()
+        {
+            Debug.Log("enemyOnAttack");
+            _enemyView.SetLookAtPlayer();
             _enemyView.PlayerHealthView.TakeDamage(_enemy.EnemyAttacker.Damage);
+        }
     }
 }

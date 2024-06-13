@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Sources.Scripts.Domain.Models.Enemies.Base;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.States;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tank;
 
 namespace Sources.Scripts.Controllers.Presenters.Enemies.Base.States
 {

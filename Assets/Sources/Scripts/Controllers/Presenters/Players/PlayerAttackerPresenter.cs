@@ -50,7 +50,6 @@ namespace Sources.Scripts.Controllers.Presenters.Players
 
         private void OnAttackInputReceived()
         {
-            Debug.Log("OnAttackInputReceived");
             IBulletView bullet = _playerAttackerView.BulletViews.First(x => x.IsShowed);
             bullet.Hide();
             _amountOfShoots--;

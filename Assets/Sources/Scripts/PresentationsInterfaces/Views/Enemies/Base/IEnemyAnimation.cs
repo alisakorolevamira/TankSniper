@@ -6,8 +6,6 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base
     {
         event Action Attacking;
 
-        void PlayWalk();
-
         void PlayIdle();
 
         void PlayAttack();

@@ -2,8 +2,8 @@
 {
     public enum EnemyType
     {
-        Standing = 0,
         Tank = 1,
-        Boss = 2,
+        Standing = 2,
+        Boss = 3,
     }
 }

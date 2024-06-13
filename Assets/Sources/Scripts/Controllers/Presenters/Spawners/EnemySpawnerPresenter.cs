@@ -5,12 +5,14 @@ using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Spawners;
+using Sources.Scripts.Domain.Models.Spawners.Types;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.Presentations.Views.Common;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.PresentationsInterfaces.Views.Common;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tank;
 using Sources.Scripts.PresentationsInterfaces.Views.Spawners;
 using UnityEngine;
 
@@ -21,7 +23,7 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
         private readonly EnemySpawner _enemySpawner;
         private readonly KilledEnemiesCounter _killedEnemiesCounter;
         private readonly IEnemySpawnerView _enemySpawnerView;
-        private readonly IEnemySpawnerService _enemySpawnerService;
+        private readonly ITankEnemySpawnerService tankEnemySpawnerService;
         private readonly IBossEnemySpawnerService _bossEnemySpawnerService;
 
         private CancellationTokenSource _cancellationTokenSource;
@@ -30,13 +32,13 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
             KilledEnemiesCounter killedEnemiesCounter,
             EnemySpawner enemySpawner,
             IEnemySpawnerView enemySpawnerView,
-            IEnemySpawnerService enemySpawnerService,
+            ITankEnemySpawnerService tankEnemySpawnerService,
             IBossEnemySpawnerService bossEnemySpawnerService)
         {
             _killedEnemiesCounter = killedEnemiesCounter ?? throw new ArgumentNullException(nameof(killedEnemiesCounter));
             _enemySpawner = enemySpawner ?? throw new ArgumentNullException(nameof(enemySpawner));
             _enemySpawnerView = enemySpawnerView ?? throw new ArgumentNullException(nameof(enemySpawnerView));
-            _enemySpawnerService = enemySpawnerService ?? throw new ArgumentNullException(nameof(enemySpawnerService));
+            this.tankEnemySpawnerService = tankEnemySpawnerService ?? throw new ArgumentNullException(nameof(tankEnemySpawnerService));
             _bossEnemySpawnerService = bossEnemySpawnerService ??
                                      throw new ArgumentNullException(nameof(bossEnemySpawnerService));
         }
@@ -67,8 +69,11 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
 
         private void SpawnEnemy(IEnemySpawnPoint spawnPoint, PlayerView playerView)
         {
-            ITankEnemyView tankEnemyView = _enemySpawnerService.Spawn(_killedEnemiesCounter, spawnPoint);
-            tankEnemyView.SetPlayerHealthView(playerView.PlayerHealthView);
+            if (spawnPoint.EnemyType == EnemyType.Tank)
+            {
+                ITankEnemyView tankEnemyView = tankEnemySpawnerService.Spawn(_killedEnemiesCounter, spawnPoint);
+                tankEnemyView.SetPlayerHealthView(playerView.PlayerHealthView);
+            }
 
             _enemySpawner.SpawnedEnemies++;
         }

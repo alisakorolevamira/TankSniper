@@ -18,5 +18,10 @@ namespace Sources.Scripts.Presentations.Views.NavMeshAgents
         {
             _navMeshAgent.SetDestination(position);
         }
+
+        public void Stop()
+        {
+            _navMeshAgent.isStopped = true;
+        }
     }
 }

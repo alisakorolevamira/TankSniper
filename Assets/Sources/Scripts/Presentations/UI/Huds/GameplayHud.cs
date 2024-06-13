@@ -1,4 +1,5 @@
-﻿using Sources.Scripts.Presentations.Views;
+﻿using System.Collections.Generic;
+using Sources.Scripts.Presentations.Views;
 using Sources.Scripts.Presentations.Views.Cameras;
 using Sources.Scripts.Presentations.Views.Common;
 using Sources.Scripts.Presentations.Views.Gameplay;
@@ -13,10 +14,10 @@ namespace Sources.Scripts.Presentations.UI.Huds
     public class GameplayHud : View, IHud
     {
         [SerializeField] private UICollector _uiCollector;
-        [FormerlySerializedAs("_cinemachineCameraView")] [SerializeField] private CameraView cameraView;
+        [SerializeField] private CameraView cameraView;
         [SerializeField] private WalletUI _walletUI;
-        [SerializeField] private KilledEnemiesCounterView [] _killedEnemiesCounterViews;
-        [SerializeField] private HealthBarUI [] _playerHealthBarUIs;
+        [SerializeField] private List<KilledEnemiesCounterView> _killedEnemiesCounterViews;
+        [SerializeField] private List<HealthBarUI> _playerHealthBars;
         [SerializeField] private VolumeView _volumeView;
         
         public UICollector UICollector => _uiCollector;
@@ -25,9 +26,9 @@ namespace Sources.Scripts.Presentations.UI.Huds
         
         public WalletUI WalletUI => _walletUI;
 
-        public KilledEnemiesCounterView [] KilledEnemiesCounterViews => _killedEnemiesCounterViews;
+        public IReadOnlyList<KilledEnemiesCounterView> KilledEnemiesCounterViews => _killedEnemiesCounterViews;
         
-        public HealthBarUI [] PlayerHealthBarUIs => _playerHealthBarUIs;
+        public IReadOnlyList<HealthBarUI> PlayerHealthBarUIs => _playerHealthBars;
         
         public VolumeView VolumeView => _volumeView;
     }

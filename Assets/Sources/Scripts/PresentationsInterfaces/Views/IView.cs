@@ -9,6 +9,7 @@ namespace Sources.Scripts.PresentationsInterfaces.Views
         void SetParent(Transform parent);
         void SetPosition(Vector3 position);
         void SetRotation(Vector3 rotation);
+        void SetRotation(Quaternion rotation);
         void Destroy();
     }
 }

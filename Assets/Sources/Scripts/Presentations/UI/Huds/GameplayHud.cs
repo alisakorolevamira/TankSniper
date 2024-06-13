@@ -15,21 +15,23 @@ namespace Sources.Scripts.Presentations.UI.Huds
     {
         [SerializeField] private UICollector _uiCollector;
         [SerializeField] private CameraView cameraView;
-        [SerializeField] private WalletUI _walletUI;
+        [SerializeField] private List<WalletUI> _walletsUI;
         [SerializeField] private List<KilledEnemiesCounterView> _killedEnemiesCounterViews;
         [SerializeField] private List<HealthBarUI> _playerHealthBars;
         [SerializeField] private VolumeView _volumeView;
+        [SerializeField] private AttackerUIView _attackerUIView;
         
         public UICollector UICollector => _uiCollector;
         
         public CameraView CameraView => cameraView;
         
-        public WalletUI WalletUI => _walletUI;
+        public IReadOnlyList<WalletUI> WalletsUI => _walletsUI;
 
         public IReadOnlyList<KilledEnemiesCounterView> KilledEnemiesCounterViews => _killedEnemiesCounterViews;
         
         public IReadOnlyList<HealthBarUI> PlayerHealthBarUIs => _playerHealthBars;
         
         public VolumeView VolumeView => _volumeView;
+        public AttackerUIView AttackerUIView => _attackerUIView;
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Sources.Scripts.Presentations.Views.Enemies.Base;
-using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tank;
 using UnityEngine;
 

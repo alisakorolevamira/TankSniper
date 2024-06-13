@@ -30,6 +30,9 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
 
             Container.Bind<WalletUIPresenterFactory>().AsSingle();
             Container.Bind<WalletUIFactory>().AsSingle();
+
+            Container.Bind<AttackerUIPresenterFactory>().AsSingle();
+            Container.Bind<AttackerUIViewFactory>().AsSingle();
         }
     }
 }

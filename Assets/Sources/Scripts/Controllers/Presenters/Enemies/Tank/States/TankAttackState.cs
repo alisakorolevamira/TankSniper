@@ -2,12 +2,9 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sources.Scripts.Domain.Models.Constants;
-using Sources.Scripts.Domain.Models.Enemies.Base;
 using Sources.Scripts.Domain.Models.Enemies.Tank;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.States;
-using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tank;
-using UnityEngine;
 
 namespace Sources.Scripts.Controllers.Presenters.Enemies.Tank.States
 {
@@ -39,11 +36,9 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Tank.States
             SetTimer(_cancellationTokenSource.Token);
         }
 
-        public override void Exit()
-        {
+        public override void Exit() => 
             _cancellationTokenSource.Cancel();
-        }
-        
+
         private async void SetTimer(CancellationToken cancellationToken)
         {
             try

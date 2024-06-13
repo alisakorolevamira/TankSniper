@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 327714316622023648}
   - component: {fileID: 3048037136509105126}
   - component: {fileID: 4110512460711393863}
-  - component: {fileID: 3884646162961830274}
+  - component: {fileID: -2579662288539658095}
   m_Layer: 0
   m_Name: PlayerView
   m_TagString: Untagged
@@ -183,8 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerHealthView: {fileID: 4110512460711393863}
-  _number: 3
-  _playerWalletView: {fileID: 3884646162961830274}
+  _playerAttackerView: {fileID: -2579662288539658095}
 --- !u!114 &4110512460711393863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e09d9ae8c0d941c0b9699c2c9bc70ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3884646162961830274
+--- !u!114 &-2579662288539658095
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,6 +205,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5164724530927718643}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20777e4f094d40efa490051109ae76bd, type: 3}
+  m_Script: {fileID: 11500000, guid: bdf292b2fd0645698c9f5ae28f03da7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bullets: []
+  _lightnings: []
+  _shootEffect: {fileID: 0}

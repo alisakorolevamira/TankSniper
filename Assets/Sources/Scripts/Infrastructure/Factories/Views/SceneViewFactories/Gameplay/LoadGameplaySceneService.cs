@@ -91,26 +91,10 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
             CharacterHealth characterHealth = new CharacterHealth();
 
-            Player player = new Player(playerWallet, characterHealth);
             PlayerAttacker playerAttacker = new PlayerAttacker(new Weapon(10)); //переделать на загрузку данных
-
-            //Character character = new Character(
-            //    playerWallet,
-            //    characterHealth,
-            //    new CharacterMovement(),
-            //    new CharacterAttacker(miniGun),
-            //    miniGun,
-            //    new SawLauncherAbility(sawLauncherAbilityUpgrader),
-            //    new List<SawLauncher>()
-            //    {
-            //        new SawLauncher(sawLauncherUpgrader),
-            //        new SawLauncher(sawLauncherUpgrader),
-            //        new SawLauncher(sawLauncherUpgrader),
-            //        new SawLauncher(sawLauncherUpgrader),
-            //    });
-
-
-
+            
+            Player player = new Player(playerWallet, characterHealth, playerAttacker);
+            
             return new GameModels(
                 characterHealth,
                 playerWallet,

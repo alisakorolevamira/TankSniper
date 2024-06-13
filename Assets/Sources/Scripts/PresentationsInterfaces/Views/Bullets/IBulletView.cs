@@ -1,10 +1,9 @@
-﻿using Sources.Scripts.PresentationsInterfaces.UI.Images;
+﻿using Sources.Scripts.PresentationsInterfaces.Views.Constructions;
+using Sources.Scripts.PresentationsInterfaces.Views.Weapons;
 
 namespace Sources.Scripts.PresentationsInterfaces.Views.Bullets
 {
-    public interface IBulletView : IView
+    public interface IBulletView : IConstruct<IWeaponView>, IView
     {
-        IImageView Icon { get; }
-        bool IsShowed { get; }
     }
 }

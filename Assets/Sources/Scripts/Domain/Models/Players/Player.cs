@@ -8,18 +8,18 @@ namespace Sources.Scripts.Domain.Models.Players
     {
         public Player(
             PlayerWallet playerWallet,
-            CharacterHealth characterHealth)
-        //CharacterAttacker characterAttacker)
+            CharacterHealth characterHealth,
+            PlayerAttacker playerAttacker)
         {
             PlayerWallet = playerWallet ?? throw new ArgumentNullException(nameof(playerWallet));
             CharacterHealth = characterHealth ?? throw new ArgumentNullException(nameof(characterHealth));
-            //CharacterAttacker = characterAttacker ?? throw new ArgumentNullException(nameof(characterAttacker));
+            PlayerAttacker = playerAttacker ?? throw new ArgumentNullException(nameof(playerAttacker));
         }
 
         public PlayerWallet PlayerWallet { get; }
 
         public CharacterHealth CharacterHealth { get; }
         
-        //public CharacterAttacker CharacterAttacker { get; }
+        public PlayerAttacker PlayerAttacker { get; }
     }
 }

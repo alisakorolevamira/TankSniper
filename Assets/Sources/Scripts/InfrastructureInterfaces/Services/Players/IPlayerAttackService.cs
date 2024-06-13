@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Sources.Scripts.InfrastructureInterfaces.Services.Players
+﻿namespace Sources.Scripts.InfrastructureInterfaces.Services.Players
 {
     public interface IPlayerAttackService
     {

@@ -2,6 +2,7 @@
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Common;
+using Sources.Scripts.Infrastructure.Factories.Views.Weapons;
 using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.Presentations.Views.Common;
 using Sources.Scripts.Presentations.Views.Players;
@@ -15,32 +16,38 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Players
     {
         private readonly GameplayHud _gameplayHud;
         private readonly RootGameObject _rootGameObject;
-        //private readonly CharacterAttackerViewFactory _characterAttackerViewFactory;
-        private readonly CharacterHealthViewFactory characterHealthViewFactory;
+        private readonly PlayerAttackerViewFactory _playerAttackerViewFactory;
+        private readonly CharacterHealthViewFactory _characterHealthViewFactory;
         private readonly PlayerWalletViewFactory _playerWalletViewFactory;
         private readonly WalletUIFactory _walletUIFactory;
         private readonly HealthBarUIFactory _healthBarUIFactory;
+        private readonly WeaponViewFactory _weaponViewFactory;
+        private readonly AttackerUIViewFactory _attackerUIViewFactory;
 
         public PlayerViewFactory(
             RootGameObject rootGameObject,
             GameplayHud gameplayHud,
-            //CharacterAttackerViewFactory characterAttackerViewFactory,
+            PlayerAttackerViewFactory playerAttackerViewFactory,
             CharacterHealthViewFactory characterHealthViewFactory,
             PlayerWalletViewFactory playerWalletViewFactory,
             HealthBarUIFactory healthBarUIFactory,
-            WalletUIFactory walletUIFactory)
+            WalletUIFactory walletUIFactory,
+            WeaponViewFactory weaponViewFactory,
+            AttackerUIViewFactory attackerUIViewFactory)
         {
             _gameplayHud = gameplayHud ? gameplayHud : throw new ArgumentNullException(nameof(gameplayHud));
             _rootGameObject = rootGameObject ?? throw new ArgumentNullException(nameof(rootGameObject));
-            //_characterAttackerViewFactory = characterAttackerViewFactory ??
-             //                               throw new ArgumentNullException(nameof(characterAttackerViewFactory));
+            _playerAttackerViewFactory = playerAttackerViewFactory ??
+                                         throw new ArgumentNullException(nameof(playerAttackerViewFactory));
             _healthBarUIFactory = healthBarUIFactory ?? throw new ArgumentNullException(nameof(healthBarUIFactory));
             _walletUIFactory = walletUIFactory ?? throw new ArgumentNullException(nameof(walletUIFactory));
-            this.characterHealthViewFactory = characterHealthViewFactory ??
+            _characterHealthViewFactory = characterHealthViewFactory ??
                                               throw new ArgumentNullException(nameof(characterHealthViewFactory));
             _playerWalletViewFactory = playerWalletViewFactory ??
                                        throw new ArgumentNullException(nameof(playerWalletViewFactory));
-
+            _weaponViewFactory = weaponViewFactory ?? throw new ArgumentNullException(nameof(weaponViewFactory));
+            _attackerUIViewFactory = attackerUIViewFactory ??
+                                     throw new ArgumentNullException(nameof(attackerUIViewFactory));
         }
 
         public PlayerView Create(Player player)
@@ -51,14 +58,17 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Players
                     _rootGameObject.PlayerSpawnPoint.Position,
                     _rootGameObject.PlayerSpawnPoint.Rotation);
             
-            //_characterAttackerViewFactory.Create(character.CharacterAttacker, characterView.CharacterAttackerView);
+            _playerAttackerViewFactory.Create(player.PlayerAttacker, playerView.PlayerAttackerView);
 
-            characterHealthViewFactory.Create(player.CharacterHealth, playerView.PlayerHealthView);
-            _playerWalletViewFactory.Create(player.PlayerWallet, playerView.PlayerWalletView);
-            _walletUIFactory.Create(player.PlayerWallet, _gameplayHud.WalletUI);
+            _characterHealthViewFactory.Create(player.CharacterHealth, playerView.PlayerHealthView);
+
+            foreach (WalletUI wallet in _gameplayHud.WalletsUI) 
+                _walletUIFactory.Create(player.PlayerWallet, wallet);
 
             foreach (HealthBarUI healthBar in _gameplayHud.PlayerHealthBarUIs) 
                 _healthBarUIFactory.Create(player.CharacterHealth, healthBar);
+
+            _attackerUIViewFactory.Create(_gameplayHud.AttackerUIView);
             
             return playerView;
         }

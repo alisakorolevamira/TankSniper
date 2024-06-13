@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.States;
-using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tank;
 using Sources.Scripts.PresentationsInterfaces.Views.Spawners;
 using UnityEngine;
@@ -32,10 +31,8 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Tank.States
             ChangeCurrentTargetPoint();
         }
 
-        public override void Exit()
-        {
+        public override void Exit() => 
             _enemyView.Stop();
-        }
 
         public override void Update(float deltaTime)
         {

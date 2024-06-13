@@ -100,10 +100,10 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             EnemySpawner enemySpawner = new EnemySpawner();
             
             CharacterHealth characterHealth = new CharacterHealth();
-
-            Player player = new Player(playerWallet, characterHealth);
-
+            
             PlayerAttacker playerAttacker = new PlayerAttacker(new Weapon(10)); //переделать
+            
+            Player player = new Player(playerWallet, characterHealth, playerAttacker);
 
             return new GameModels(
                 characterHealth,

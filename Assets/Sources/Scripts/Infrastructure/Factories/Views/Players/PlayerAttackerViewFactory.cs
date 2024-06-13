@@ -19,7 +19,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Players
 
         public IPlayerAttackerView Create(PlayerAttacker playerAttacker, PlayerAttackerView view)
         {
-            PlayerAttackerPresenter presenter = _presenterFactory.Create(playerAttacker, view);
+            PlayerAttackerPresenter presenter = _presenterFactory.Create(playerAttacker);
 
             view.Construct(presenter);
 

@@ -104,7 +104,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             
             CharacterHealth characterHealth = new CharacterHealth();
 
-            Weapon weapon = new Weapon(10);
+            Weapon weapon = new Weapon(50);
             
             PlayerAttacker playerAttacker = new PlayerAttacker(weapon); //переделать
             

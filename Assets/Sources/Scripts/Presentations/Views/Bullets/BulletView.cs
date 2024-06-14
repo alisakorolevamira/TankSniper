@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using Cysharp.Threading.Tasks;
 using Sources.Scripts.Infrastructure.Services.ObjectPool;
 using Sources.Scripts.InfrastructureInterfaces.Services.ObjectPool;
 using Sources.Scripts.Presentations.Triggers;
@@ -23,9 +25,6 @@ namespace Sources.Scripts.Presentations.Views.Bullets
         private bool _isDisposed;
 
         public Rigidbody Rigidbody => _rigidbody;
-        
-        private void OnParticleSystemStopped() =>
-            _poolableObjectDestroyerService.Destroy(this);
 
         public void Construct(IWeaponView weaponView) =>
             _weaponView = weaponView ?? throw new ArgumentNullException(nameof(weaponView));
@@ -35,23 +34,20 @@ namespace Sources.Scripts.Presentations.Views.Bullets
             if(_isDisposed)
                 return;
 
-            if (collision.gameObject.TryGetComponent(out ITankEnemyView enemyHealthView))
+            if(collision.gameObject.TryGetComponent(out IEnemyViewBase enemyHealthView))
             {
-                //_weaponView.DealDamage(enemyHealthView);
-                SpawnEffectOnDestroy();
-                //DisposeBullet();
+                //DealDamage(enemyHealthView);
             }
+            
+            SpawnEffectOnDestroy();
+            _poolableObjectDestroyerService.Destroy(this);
         }
         
         private void SpawnEffectOnDestroy()
         {
-            if (_onDestroyEffect == false)
-                return;
-
-            //var effect = Instantiate(_onDestroyEffect, transform.position, Quaternion.identity);
-            _onDestroyEffect.Play();
-            
-            //Destroy(_onDestroyEffect.gameObject, _effectDestroyLifetime);
+            ParticleSystem effect = Instantiate(_onDestroyEffect, transform.position, Quaternion.identity);
+            effect.Play();
+            Destroy(effect.gameObject, 3);
         }
     }
 }

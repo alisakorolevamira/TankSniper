@@ -30,7 +30,7 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners
             bulletView.SetRotation(weaponView.BulletSpawnPoint.Transform.rotation);
             bulletView.Show();
             
-            int force = 50;
+            int force = 10;
             bulletView.Rigidbody.AddForce(weaponView.BulletSpawnPoint.Transform.forward * force, ForceMode.Impulse);
             
             return bulletView;

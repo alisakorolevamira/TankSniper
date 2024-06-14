@@ -40,7 +40,6 @@ namespace Sources.Scripts.Controllers.Presenters.Weapons
 
         private async void StartTimer(CancellationToken cancellationToken)
         {
-            
             try
             {
                 while(_view.ImageView.FillAmount < ImageConst.Max)

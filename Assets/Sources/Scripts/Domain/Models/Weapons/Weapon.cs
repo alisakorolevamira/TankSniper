@@ -1,6 +1,7 @@
 ﻿using System;
 using Sources.Scripts.Domain.Models.Upgrades;
 using Sources.Scripts.DomainInterfaces.Models.Weapons;
+using UnityEngine;
 
 namespace Sources.Scripts.Domain.Models.Weapons
 {
@@ -17,9 +18,7 @@ namespace Sources.Scripts.Domain.Models.Weapons
         
         public float Damage { get; private set; }
         
-        public void Attack( )
-        {
+        public void Attack( ) => 
             Attacked?.Invoke();
-        }
     }
 }

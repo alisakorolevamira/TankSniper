@@ -91,9 +91,11 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
             CharacterHealth characterHealth = new CharacterHealth();
 
-            PlayerAttacker playerAttacker = new PlayerAttacker(new Weapon(10)); //переделать на загрузку данных
+            Weapon weapon = new Weapon(10);
+
+            PlayerAttacker playerAttacker = new PlayerAttacker(weapon); //переделать на загрузку данных
             
-            Player player = new Player(playerWallet, characterHealth, playerAttacker);
+            Player player = new Player(playerWallet, characterHealth, playerAttacker, weapon);
             
             return new GameModels(
                 characterHealth,

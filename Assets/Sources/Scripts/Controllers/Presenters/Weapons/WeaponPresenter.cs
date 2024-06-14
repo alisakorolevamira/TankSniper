@@ -4,6 +4,7 @@ using Sources.Scripts.Domain.Models.Weapons;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies;
 using Sources.Scripts.PresentationsInterfaces.Views.Weapons;
+using UnityEngine;
 
 namespace Sources.Scripts.Controllers.Presenters.Weapons
 {
@@ -20,23 +21,19 @@ namespace Sources.Scripts.Controllers.Presenters.Weapons
             _bulletSpawnService = bulletSpawnService ?? throw new ArgumentNullException(nameof(bulletSpawnService));
         }
 
-        public override void Enable()
-        {
+        public override void Enable() => 
             _weapon.Attacked += OnAttack;
-        }
 
-        public override void Disable()
-        {
+        public override void Disable() => 
             _weapon.Attacked -= OnAttack;
-        }
-        
+
         public void DealDamage(IEnemyHealthView enemyHealthView) =>
             enemyHealthView.TakeDamage(_weapon.Damage);
 
         private void OnAttack()
         {
+            Debug.Log("weaponattack");
             _bulletSpawnService.Spawn(_weaponView);
-            _weaponView.PlayShootParticle();
         }
     }
 }

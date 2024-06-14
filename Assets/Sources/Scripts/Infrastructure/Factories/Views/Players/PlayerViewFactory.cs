@@ -69,6 +69,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Players
                 _healthBarUIFactory.Create(player.CharacterHealth, healthBar);
 
             _attackerUIViewFactory.Create(_gameplayHud.AttackerUIView);
+            _weaponViewFactory.Create(player.Weapon, _rootGameObject.WeaponView);
             
             return playerView;
         }

@@ -8,6 +8,5 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Weapons
         IBulletSpawnPoint BulletSpawnPoint { get; }
         
         void DealDamage(IEnemyHealthView enemyHealthView);
-        void PlayShootParticle();
     }
 }

@@ -10,14 +10,10 @@ namespace Sources.Scripts.Presentations.Views.Weapons
     public class WeaponView : PresentableView<WeaponPresenter>, IWeaponView
     {
         [SerializeField] private BulletSpawnPoint _bulletSpawnPoint;
-        [SerializeField] private ParticleSystem _bulletParticleSystem;
         
         public IBulletSpawnPoint BulletSpawnPoint => _bulletSpawnPoint;
         
         public void DealDamage(IEnemyHealthView enemyHealthView) =>
             Presenter.DealDamage(enemyHealthView);
-
-        public void PlayShootParticle() => 
-            _bulletParticleSystem.Play();
     }
 }

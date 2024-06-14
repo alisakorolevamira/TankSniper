@@ -32,7 +32,6 @@ namespace Sources.Scripts.Controllers.Presenters.Players
 
         public override void Enable()
         {
-            Debug.Log("подписка");
             _inputService.AttackInputReceived += OnAttackInputReceived;
             _amountOfShoots = AttackConst.MaxShoots;
         }
@@ -44,7 +43,6 @@ namespace Sources.Scripts.Controllers.Presenters.Players
 
         private void OnAttackInputReceived()
         {
-            Debug.Log("onattackinputreceived");
             IBulletUIView bulletUI = _uiAttackerView.BulletViews.First(x => x.IsShowed);
             bulletUI.Hide();
             _amountOfShoots--;

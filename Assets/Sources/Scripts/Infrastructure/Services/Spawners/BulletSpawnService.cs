@@ -5,6 +5,7 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.Presentations.Views.Bullets;
 using Sources.Scripts.PresentationsInterfaces.Views.Bullets;
 using Sources.Scripts.PresentationsInterfaces.Views.Weapons;
+using UnityEngine;
 
 namespace Sources.Scripts.Infrastructure.Services.Spawners
 {
@@ -28,6 +29,9 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners
             bulletView.SetPosition(weaponView.BulletSpawnPoint.Transform.position);
             bulletView.SetRotation(weaponView.BulletSpawnPoint.Transform.rotation);
             bulletView.Show();
+            
+            int force = 50;
+            bulletView.Rigidbody.AddForce(weaponView.BulletSpawnPoint.Transform.forward * force, ForceMode.Impulse);
             
             return bulletView;
         }

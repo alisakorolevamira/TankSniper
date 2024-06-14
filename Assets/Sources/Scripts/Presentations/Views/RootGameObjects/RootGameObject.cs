@@ -10,10 +10,15 @@ namespace Sources.Scripts.Presentations.Views.RootGameObjects
 {
     public class RootGameObject : View
     {
+        [Header("Camera")]
         [SerializeField] private List<CameraPositionView> _cameraPositions;
+        
+        [Header("Enemy")]
         [SerializeField] private List<Transform> _enemyMovementPoints;
-        [SerializeField] private PlayerSpawnPoint _playerSpawnPoint;
         [SerializeField] private EnemySpawnerView _enemySpawnerView;
+        
+        [Header("Player")]
+        [SerializeField] private PlayerSpawnPoint _playerSpawnPoint;
         [SerializeField] private WeaponView _weaponView;
 
         public IReadOnlyList<CameraPositionView> CameraPositions => _cameraPositions;

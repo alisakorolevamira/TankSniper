@@ -7,19 +7,27 @@ using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.Presentations.Views.Settings;
 using Sources.Scripts.UIFramework.Presentations.Views;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Sources.Scripts.Presentations.UI.Huds
 {
     public class GameplayHud : View, IHud
     {
+        [Header("UI Collector")]
         [SerializeField] private UICollector _uiCollector;
+        
+        [Header("Camera")]
         [SerializeField] private CameraView cameraView;
-        [SerializeField] private List<WalletUI> _walletsUI;
-        [SerializeField] private List<KilledEnemiesCounterView> _killedEnemiesCounterViews;
-        [SerializeField] private List<HealthBarUI> _playerHealthBars;
+        
+        [Header("Audio")]
         [SerializeField] private VolumeView _volumeView;
+        
+        [Header("Player")]
+        [SerializeField] private List<WalletUI> _walletsUI;
+        [SerializeField] private List<HealthBarUI> _playerHealthBars;
         [SerializeField] private AttackerUIView _attackerUIView;
+        
+        [Header("Enemy")]
+        [SerializeField] private List<KilledEnemiesCounterView> _killedEnemiesCounterViews;
         
         public UICollector UICollector => _uiCollector;
         

@@ -22,7 +22,7 @@ namespace Sources.Scripts.Controllers.Presenters.Common
         public override void Enable()
         {
             _cancellationTokenSource = new CancellationTokenSource();
-            //HideAllTexts();
+            
             _healthUIText.DamageText.SetText(string.Empty);
             _health.DamageReceived += OnDamageReceived;
         }
@@ -35,34 +35,10 @@ namespace Sources.Scripts.Controllers.Presenters.Common
 
         private void OnDamageReceived(float damage)
         {
-            //IUIText uiText = _healthUIText.DamageTexts
-            //    .FirstOrDefault(text => text.IsHide);
-//
-            //if (uiText == null)
-            //{
-            //    _cancellationTokenSource.Cancel();
-            //    
-            //    foreach (IUIText text in _healthUIText.DamageTexts)
-            //    {
-            //        text.SetIsHide(true);
-            //        text.SetTextColor(DamageTextConst.HiddenColor);
-            //    }
-//
-            //    _cancellationTokenSource = new CancellationTokenSource();
-            //    uiText = _healthUIText.DamageTexts
-            //        .FirstOrDefault(text => text.IsHide);
-            //}
-
             _healthUIText.DamageText.SetTextColor(DamageTextConst.ShowedColor);
             _healthUIText.DamageText.SetIsHide(false);
             _healthUIText.DamageText.SetText(damage.ToString());
             _healthUIText.DamageText.SetClearColorAsync(_cancellationTokenSource.Token);
         }
-
-        //private void HideAllTexts()
-        //{
-        //    foreach (IUIText text in _healthUIText.DamageTexts) 
-        //        text.SetText(string.Empty);
-        //}
     }
 }

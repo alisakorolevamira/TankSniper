@@ -1,4 +1,5 @@
 ﻿using System;
+using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.Bullets;
 using Sources.Scripts.InfrastructureInterfaces.Services.ObjectPool.Generic;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
@@ -30,8 +31,7 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners
             bulletView.SetRotation(weaponView.BulletSpawnPoint.Transform.rotation);
             bulletView.Show();
             
-            int force = 10;
-            bulletView.Rigidbody.AddForce(weaponView.BulletSpawnPoint.Transform.forward * force, ForceMode.Impulse);
+            bulletView.Rigidbody.AddForce(weaponView.BulletSpawnPoint.Transform.forward * BulletConst.Force, ForceMode.Impulse);
             
             return bulletView;
         }

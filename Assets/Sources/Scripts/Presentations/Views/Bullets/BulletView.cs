@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Cysharp.Threading.Tasks;
+using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Infrastructure.Services.ObjectPool;
 using Sources.Scripts.InfrastructureInterfaces.Services.ObjectPool;
 using Sources.Scripts.Presentations.Triggers;
@@ -34,10 +35,8 @@ namespace Sources.Scripts.Presentations.Views.Bullets
             if(_isDisposed)
                 return;
 
-            if(collision.gameObject.TryGetComponent(out IEnemyViewBase enemyHealthView))
-            {
-                //DealDamage(enemyHealthView);
-            }
+            if(collision.gameObject.TryGetComponent(out IEnemyHealthView enemyHealthView)) 
+                _weaponView.DealDamage(enemyHealthView);
             
             SpawnEffectOnDestroy();
             _poolableObjectDestroyerService.Destroy(this);
@@ -47,7 +46,7 @@ namespace Sources.Scripts.Presentations.Views.Bullets
         {
             ParticleSystem effect = Instantiate(_onDestroyEffect, transform.position, Quaternion.identity);
             effect.Play();
-            Destroy(effect.gameObject, 3);
+            Destroy(effect.gameObject, BulletConst.EffectDelay);
         }
     }
 }

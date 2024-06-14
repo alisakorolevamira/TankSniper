@@ -29,8 +29,8 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Base
 
         public override void Destroy()
         {
-            _poolableObjectDestroyerService.Destroy(this);
-            DestroyPresenter();
+            //_poolableObjectDestroyerService.Destroy(this);
+            //DestroyPresenter();
         }
         
         public void SetLookAtPlayer()

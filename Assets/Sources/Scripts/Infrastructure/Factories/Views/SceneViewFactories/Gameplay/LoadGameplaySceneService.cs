@@ -13,6 +13,7 @@ using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
 using Sources.Scripts.Infrastructure.Factories.Views.Spawners;
+using Sources.Scripts.Infrastructure.Factories.Views.Weapons;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.Cameras;
 using Sources.Scripts.InfrastructureInterfaces.Services.GameOver;
@@ -41,7 +42,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             IEntityRepository entityRepository, 
             RootGameObject rootGameObject, 
             EnemySpawnerViewFactory enemySpawnerViewFactory, 
-            KilledEnemiesCounterViewFactory killedEnemiesCounterViewFactory, 
+            KilledEnemiesCounterViewFactory killedEnemiesCounterViewFactory,
+            ReloadWeaponViewFactory reloadWeaponViewFactory,
             IGameOverService gameOverService, 
             CameraViewFactory cameraViewFactory, 
             ICameraService cameraService, 
@@ -58,7 +60,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 playerAttackerViewFactory,
                 rootGameObject, 
                 enemySpawnerViewFactory, 
-                killedEnemiesCounterViewFactory, 
+                killedEnemiesCounterViewFactory,
+                reloadWeaponViewFactory,
                 gameOverService, 
                 cameraViewFactory, 
                 cameraService, 

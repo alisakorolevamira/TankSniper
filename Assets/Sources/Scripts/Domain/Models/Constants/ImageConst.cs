@@ -2,6 +2,7 @@
 {
     public static class ImageConst
     {
-        public const float Max = 1.0f;
+        public const float Max = 1;
+        public const float Min = 0;
     }
 }

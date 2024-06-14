@@ -9486,7 +9486,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9446964610a54bf899bc6e5d40718539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyHealthParticleCollision: {fileID: 1662554922406525538}
   _rigidbody: {fileID: 36702984801543344}
   _onDestroyEffect: {fileID: 5128702614795497397}
 --- !u!114 &1662554922406525538
@@ -23631,7 +23630,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6022001236001464311}
@@ -24191,7 +24190,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: -90, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Scale: {x: 0.1, y: 0.1, z: 0.1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -24270,7 +24269,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.5
+      value: 0.1
       mode: 0
       spread: 0
       speed:

@@ -23,6 +23,9 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
             Container.Bind<WeaponViewFactory>().AsSingle();
 
             Container.Bind<IBulletViewFactory>().To<BulletViewFactory>().AsSingle();
+
+            Container.Bind<ReloadWeaponPresenterFactory>().AsSingle();
+            Container.Bind<ReloadWeaponViewFactory>().AsSingle();
         }
     }
 }

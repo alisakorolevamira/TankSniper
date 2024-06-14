@@ -7,6 +7,7 @@ using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
 using Sources.Scripts.Infrastructure.Factories.Views.Spawners;
+using Sources.Scripts.Infrastructure.Factories.Views.Weapons;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactories;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.Cameras;
@@ -36,6 +37,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
         private readonly RootGameObject _rootGameObject;
         private readonly EnemySpawnerViewFactory _enemySpawnerViewFactory;
         private readonly KilledEnemiesCounterViewFactory _killedEnemiesCounterViewFactory;
+        private readonly ReloadWeaponViewFactory _reloadWeaponViewFactory;
         private readonly IGameOverService _gameOverService;
         private readonly CameraViewFactory _cameraViewFactory;
         private readonly ICameraService _cameraService;
@@ -54,6 +56,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             RootGameObject rootGameObject,
             EnemySpawnerViewFactory enemySpawnerViewFactory,
             KilledEnemiesCounterViewFactory killedEnemiesCounterViewFactory,
+            ReloadWeaponViewFactory reloadWeaponViewFactory,
             IGameOverService gameOverService,
             CameraViewFactory cameraViewFactory,
             ICameraService cameraService,
@@ -75,6 +78,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                                        throw new ArgumentNullException(nameof(enemySpawnerViewFactory));
             _killedEnemiesCounterViewFactory = killedEnemiesCounterViewFactory ?? 
                                                throw new ArgumentNullException(nameof(killedEnemiesCounterViewFactory));
+            _reloadWeaponViewFactory = reloadWeaponViewFactory ?? throw new ArgumentNullException(nameof(reloadWeaponViewFactory));
             _gameOverService = gameOverService ?? throw new ArgumentNullException(nameof(gameOverService));
             _cameraViewFactory = cameraViewFactory ?? throw new ArgumentNullException(nameof(cameraViewFactory));
             _cameraService = cameraService ?? throw new ArgumentNullException(nameof(cameraService));
@@ -119,6 +123,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
             foreach (CameraPositionView cameraPosition in _rootGameObject.CameraPositions)
                 _cameraService.AddPosition(cameraPosition);
+
+            _reloadWeaponViewFactory.Create(_gameplayHud.ReloadWeaponView);
             
             _uiCollectorFactory.Create();
             _cameraService.SetPosition(PositionId.MainPosition);

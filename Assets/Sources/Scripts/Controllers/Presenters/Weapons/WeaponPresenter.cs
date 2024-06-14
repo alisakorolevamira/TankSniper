@@ -30,10 +30,7 @@ namespace Sources.Scripts.Controllers.Presenters.Weapons
         public void DealDamage(IEnemyHealthView enemyHealthView) =>
             enemyHealthView.TakeDamage(_weapon.Damage);
 
-        private void OnAttack()
-        {
-            Debug.Log("weaponattack");
-            IBulletView bullet = _bulletSpawnService.Spawn(_weaponView);
-        }
+        private void OnAttack() => 
+            _bulletSpawnService.Spawn(_weaponView);
     }
 }

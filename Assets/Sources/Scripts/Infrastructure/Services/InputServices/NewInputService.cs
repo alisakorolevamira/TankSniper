@@ -62,7 +62,6 @@ namespace Sources.Scripts.Infrastructure.Services.InputServices
         {
             AttackInputReceived?.Invoke();
             _inputMap.Touchscreen.TouchPress.canceled -= OnTouchPressPerformedEnded;
-            _formService.Show(FormId.Hud);
         }
     }
 }

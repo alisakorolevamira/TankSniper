@@ -12,6 +12,7 @@ using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
 using Sources.Scripts.Infrastructure.Factories.Views.Spawners;
+using Sources.Scripts.Infrastructure.Factories.Views.Weapons;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Domain.Data;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.Cameras;
@@ -47,6 +48,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             //IUpgradeDtoMapper upgradeDtoMapper,
             //CustomCollection<Upgrader> upgradeCollection,
             KilledEnemiesCounterViewFactory killedEnemiesCounterViewFactory,
+            ReloadWeaponViewFactory reloadWeaponViewFactory,
             IGameOverService gameOverService,
             CameraViewFactory cameraViewFactory,
             ICameraService cameraService,
@@ -66,6 +68,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 enemySpawnerViewFactory,
                 //upgradeCollection,
                 killedEnemiesCounterViewFactory,
+                reloadWeaponViewFactory,
                 //backgroundMusicViewFactory,
                 gameOverService,
                 cameraViewFactory,

@@ -6,9 +6,7 @@ namespace Sources.Scripts.Infrastructure.Services.Players
     {
         public bool PlayerAttacked { get; private set; }
         
-        public void Attack()
-        {
+        public void Attack() => 
             PlayerAttacked = true;
-        }
     }
 }

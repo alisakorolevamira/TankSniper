@@ -52,19 +52,13 @@ namespace Sources.Scripts.Infrastructure.Services.Cameras
             return _cameraPositions[positionId];
         }
 
-        public void Enter(object payload = null)
-        {
+        public void Enter(object payload = null) => 
             _inputService.RotationInputReceived += SetRotation;
-        }
 
-        public void Exit()
-        {
+        public void Exit() => 
             _inputService.RotationInputReceived -= SetRotation;
-        }
 
-        private void SetRotation(Vector2 delta)
-        {
+        private void SetRotation(Vector2 delta) => 
             RotationChanged?.Invoke(delta);
-        }
     }
 }

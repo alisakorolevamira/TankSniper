@@ -18,7 +18,7 @@ namespace Sources.Scripts.Controllers.Presenters.Players
         private readonly IFormService _formService;
 
         private CancellationTokenSource _cancellationTokenSource;
-        private int _amountOfShoots;
+        private int _amountOfShoots = AttackConst.DefaultShoots;
 
         public AttackerUIPresenter(
             IAttackerUIView uiAttackerView,
@@ -33,7 +33,6 @@ namespace Sources.Scripts.Controllers.Presenters.Players
         public override void Enable()
         {
             _inputService.AttackInputReceived += OnAttackInputReceived;
-            _amountOfShoots = AttackConst.MaxShoots;
         }
 
         public override void Disable()
@@ -45,16 +44,16 @@ namespace Sources.Scripts.Controllers.Presenters.Players
         {
             IBulletUIView bulletUI = _uiAttackerView.BulletViews.First(x => x.IsShowed);
             bulletUI.Hide();
-            _amountOfShoots--;
+            _amountOfShoots++;
 
             CheckShoots();
         }
 
         private void CheckShoots()
         {
-            if (_amountOfShoots == 0)
+            if (_amountOfShoots == AttackConst.MaxShoots)
             {
-                _amountOfShoots = AttackConst.MaxShoots;
+                _amountOfShoots = AttackConst.DefaultShoots;
                 _formService.Show(FormId.ReloadWeapon);
 
                 foreach (IBulletUIView bulletView in _uiAttackerView.BulletViews) 

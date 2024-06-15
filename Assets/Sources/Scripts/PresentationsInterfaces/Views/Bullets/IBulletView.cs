@@ -6,6 +6,6 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Bullets
 {
     public interface IBulletView : IConstruct<IWeaponView>, IView
     {
-        Rigidbody Rigidbody { get; }
+        void Move(Vector3 direction);
     }
 }

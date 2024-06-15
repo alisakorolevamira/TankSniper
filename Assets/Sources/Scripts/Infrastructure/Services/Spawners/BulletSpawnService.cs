@@ -31,7 +31,8 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners
             bulletView.SetRotation(weaponView.BulletSpawnPoint.Transform.rotation);
             bulletView.Show();
             
-            bulletView.Rigidbody.AddForce(weaponView.BulletSpawnPoint.Transform.forward * BulletConst.Force, ForceMode.Impulse);
+            //bulletView.Rigidbody.AddForce(weaponView.BulletSpawnPoint.Transform.forward * BulletConst.Force, ForceMode.Impulse);
+            bulletView.Move(weaponView.BulletSpawnPoint.Transform.forward);
             
             return bulletView;
         }

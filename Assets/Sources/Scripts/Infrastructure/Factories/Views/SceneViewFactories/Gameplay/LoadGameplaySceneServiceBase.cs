@@ -34,7 +34,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
         private readonly UICollectorFactory _uiCollectorFactory;
         private readonly PlayerViewFactory _playerViewFactory;
         private readonly PlayerAttackerViewFactory _playerAttackerViewFactory;
-        private readonly RootGameObject _rootGameObject;
+        private readonly GameplayRootGameObject gameplayRootGameObject;
         private readonly EnemySpawnerViewFactory _enemySpawnerViewFactory;
         private readonly KilledEnemiesCounterViewFactory _killedEnemiesCounterViewFactory;
         private readonly ReloadWeaponViewFactory _reloadWeaponViewFactory;
@@ -53,7 +53,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             UICollectorFactory uiCollectorFactory,
             PlayerViewFactory playerViewFactory,
             PlayerAttackerViewFactory playerAttackerViewFactory,
-            RootGameObject rootGameObject,
+            GameplayRootGameObject gameplayRootGameObject,
             EnemySpawnerViewFactory enemySpawnerViewFactory,
             KilledEnemiesCounterViewFactory killedEnemiesCounterViewFactory,
             ReloadWeaponViewFactory reloadWeaponViewFactory,
@@ -71,9 +71,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             _uiCollectorFactory = uiCollectorFactory ?? throw new ArgumentNullException(nameof(uiCollectorFactory));
             _playerViewFactory = playerViewFactory ?? throw new ArgumentNullException(nameof(playerViewFactory));
             _playerAttackerViewFactory = playerAttackerViewFactory ?? throw new ArgumentNullException(nameof(playerAttackerViewFactory));
-            _rootGameObject = rootGameObject 
-                ? rootGameObject 
-                : throw new ArgumentNullException(nameof(rootGameObject));
+            this.gameplayRootGameObject = gameplayRootGameObject 
+                ? gameplayRootGameObject 
+                : throw new ArgumentNullException(nameof(gameplayRootGameObject));
             _enemySpawnerViewFactory = enemySpawnerViewFactory ?? 
                                        throw new ArgumentNullException(nameof(enemySpawnerViewFactory));
             _killedEnemiesCounterViewFactory = killedEnemiesCounterViewFactory ?? 
@@ -114,14 +114,14 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             
             _gameOverService.Register(gameModels.CharacterHealth);;
 
-            EnemySpawnerView enemySpawnerView = _rootGameObject.EnemySpawnerView;
+            EnemySpawnerView enemySpawnerView = gameplayRootGameObject.EnemySpawnerView;
             enemySpawnerView.SetPlayerView(playerView);
             _enemySpawnerViewFactory.Create(gameModels.EnemySpawner, gameModels.KilledEnemiesCounter, enemySpawnerView);
             
             foreach (KilledEnemiesCounterView view in _gameplayHud.KilledEnemiesCounterViews)
                 _killedEnemiesCounterViewFactory.Create(gameModels.KilledEnemiesCounter, gameModels.EnemySpawner, view);
 
-            foreach (CameraPositionView cameraPosition in _rootGameObject.CameraPositions)
+            foreach (CameraPositionView cameraPosition in gameplayRootGameObject.CameraPositions)
                 _cameraService.AddPosition(cameraPosition);
 
             _reloadWeaponViewFactory.Create(_gameplayHud.ReloadWeaponView);

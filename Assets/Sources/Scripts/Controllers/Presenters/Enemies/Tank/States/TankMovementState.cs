@@ -20,7 +20,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Tank.States
             ITankEnemyView enemyView,
             IEnemySpawnPoint spawnPoint)
         {
-            _enemyAnimation = enemyAnimation;
+            _enemyAnimation = enemyAnimation ?? throw new ArgumentNullException(nameof(enemyAnimation));
             _enemyView = enemyView ?? throw new ArgumentNullException(nameof(enemyView));
             _spawnPoint = spawnPoint ?? throw new ArgumentNullException(nameof(spawnPoint));
         }

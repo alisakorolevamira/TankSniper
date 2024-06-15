@@ -8,6 +8,9 @@ namespace Sources.Scripts.InfrastructureInterfaces.Factories.Views.Enemies
 {
     public interface ITankEnemyViewFactory
     {
-        ITankEnemyView Create(TankEnemy tankEnemy, KilledEnemiesCounter killedEnemiesCounter, IEnemySpawnPoint spawnPoint);
+        ITankEnemyView Create(
+            TankEnemy tankEnemy,
+            KilledEnemiesCounter killedEnemiesCounter,
+            IEnemySpawnPoint spawnPoint);
     }
 }

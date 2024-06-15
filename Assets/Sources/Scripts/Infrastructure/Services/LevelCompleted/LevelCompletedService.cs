@@ -24,7 +24,7 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
         private IKilledEnemiesCounter _killedEnemiesCounter;
         private IEnemySpawner _enemySpawner;
         private CancellationTokenSource _cancellationTokenSource;
-        private readonly TimeSpan _delay = TimeSpan.FromSeconds(2);
+        private readonly TimeSpan _delay = TimeSpan.FromSeconds(6);
         
         public LevelCompletedService(
             IFormService formService,
@@ -62,12 +62,12 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
                 return;
 
             AllEnemiesKilled = true;
-            SavedLevel savedLevel = _entityRepository.Get<SavedLevel>(ModelId.CurrentLevel);
+            SavedLevel savedLevel = _entityRepository.Get<SavedLevel>(ModelId.SavedLevel);
             Level level = _entityRepository.Get<Level>(savedLevel.CurrentLevelId);
             level.Complete();
             _loadService.Save(level);
             _loadService.ClearAll();
-            //StartTimer(_cancellationTokenSource.Token);
+            StartTimer(_cancellationTokenSource.Token);
             //_interstitialAdService.ShowInterstitial();
         }
 

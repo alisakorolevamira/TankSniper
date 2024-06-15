@@ -15,7 +15,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             PlayerAttacker playerAttacker,
             Volume volume,
             Level level,
-            Player player,
+            GameplayPlayer player,
             KilledEnemiesCounter killedEnemiesCounter,
             EnemySpawner enemySpawner,
             SavedLevel savedLevel)
@@ -36,7 +36,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         public PlayerAttacker PlayerAttacker { get; }
         public Volume Volume { get; }
         public Level Level { get; }
-        public Player Player { get; }
+        public GameplayPlayer Player { get; }
         public KilledEnemiesCounter KilledEnemiesCounter { get; }
         public EnemySpawner EnemySpawner { get; }
         public SavedLevel SavedLevel { get; }

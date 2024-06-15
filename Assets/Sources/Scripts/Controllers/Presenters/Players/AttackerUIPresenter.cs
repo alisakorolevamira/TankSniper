@@ -78,7 +78,7 @@ namespace Sources.Scripts.Controllers.Presenters.Players
         {
             if (_levelCompletedService.AllEnemiesKilled)
             {
-                _formService.Show(FormId.LevelCompleted);
+                _formService.Show(FormId.Hud);
                 return;
             }
             

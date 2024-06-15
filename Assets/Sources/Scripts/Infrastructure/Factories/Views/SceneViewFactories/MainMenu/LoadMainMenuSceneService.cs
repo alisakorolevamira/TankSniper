@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Domain.Models.Gameplay;
+using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
+using Sources.Scripts.Infrastructure.Factories.Views.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
@@ -19,6 +21,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
     public class LoadMainMenuSceneService : LoadMainMenuSceneServiceBase
     {
         private readonly ILoadService _loadService;
+        private readonly IEntityRepository _entityRepository;
         
         public LoadMainMenuSceneService(
             IEntityRepository entityRepository,
@@ -29,7 +32,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             IVolumeService volumeService,
             UICollectorFactory uiCollectorFactory,
             IFormService formService,
-            ITutorialService tutorialService) 
+            ITutorialService tutorialService,
+            MainMenuPlayerViewFactory playerViewFactory) 
             : base(
                 mainMenuHud, 
                 levelAvailabilityViewFactory,
@@ -37,9 +41,11 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 volumeService, 
                 uiCollectorFactory,
                 formService,
-                tutorialService)
+                tutorialService,
+                playerViewFactory)
         {
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
+            _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
         }
 
         protected override MainMenuModels LoadModels(IScenePayload scenePayload)
@@ -50,7 +56,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             
             GameData gameData = _loadService.Load<GameData>(ModelId.GameData);
             
-            SavedLevel savedLevel = _loadService.Load<SavedLevel>(ModelId.CurrentLevel);
+            SavedLevel savedLevel = _loadService.Load<SavedLevel>(ModelId.SavedLevel);
             
             Level firstLevel = _loadService.Load<Level>(ModelId.FirstLevel);
             Level secondLevel = _loadService.Load<Level>(ModelId.SecondLevel);
@@ -70,6 +76,10 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                     sixthLevel
                 });
             
+            PlayerWallet playerWallet = _loadService.Load<PlayerWallet>(ModelId.PlayerWallet);
+
+            Player player = new Player(playerWallet);
+            
             return new MainMenuModels(
                 volume,
                 firstLevel, 
@@ -81,6 +91,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 levelAvailability,
                 gameData,
                 tutorial,
+                player,
                 savedLevel);
         }
     }

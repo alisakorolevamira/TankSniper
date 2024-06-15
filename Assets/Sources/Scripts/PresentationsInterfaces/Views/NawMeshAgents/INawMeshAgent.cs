@@ -8,5 +8,8 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.NawMeshAgents
 
         void Move(Vector3 position);
         void Stop();
+        void EnableNavmeshAgent();
+
+        void DisableNavmeshAgent();
     }
 }

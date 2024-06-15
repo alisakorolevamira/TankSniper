@@ -30,7 +30,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Base.States
 
             _killedEnemiesCounter.IncreaseKilledEnemiesCount();
             _enemyCollection.Remove(_enemyView);
-            _enemyView.Destroy();
+            //_enemyView.Destroy();
         }
     }
 }

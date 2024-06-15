@@ -1,4 +1,5 @@
-﻿using Sources.Scripts.Domain.Models.Settings;
+﻿using Sources.Scripts.Domain.Models.Players;
+using Sources.Scripts.Domain.Models.Settings;
 
 namespace Sources.Scripts.Domain.Models.Gameplay
 {
@@ -15,6 +16,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             LevelAvailability levelAvailability,
             GameData gameData,
             Tutorial tutorial,
+            Player player,
             SavedLevel savedLevel)
         {
             Volume = volume;
@@ -27,6 +29,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             LevelAvailability = levelAvailability;
             GameData = gameData;
             Tutorial = tutorial;
+            Player = player;
             SavedLevel = savedLevel;
         }
 
@@ -40,6 +43,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         public LevelAvailability LevelAvailability { get; }
         public GameData GameData { get; }
         public Tutorial Tutorial { get; }
+        public Player Player { get; }
         public SavedLevel SavedLevel { get; }
     }
 }

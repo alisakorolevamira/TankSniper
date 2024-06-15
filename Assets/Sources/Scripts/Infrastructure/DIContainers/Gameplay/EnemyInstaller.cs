@@ -3,10 +3,12 @@ using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Common;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Base;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Boss;
+using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Standing;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Tank;
 using Sources.Scripts.Infrastructure.Factories.Views.Common;
 using Sources.Scripts.Infrastructure.Factories.Views.Enemies;
 using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Boss;
+using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Standing;
 using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Tank;
 using Sources.Scripts.Infrastructure.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.Enemies;
@@ -24,6 +26,7 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
 
             Container.Bind<ITankEnemySpawnerService>().To<TankEnemySpawnerService>().AsSingle();
             Container.Bind<IBossEnemySpawnerService>().To<BossEnemySpawnerService>().AsSingle();
+            Container.Bind<IStandingEnemySpawnerService>().To<StandingEnemySpawnerService>().AsSingle();
             
             Container.Bind<HealthUITextPresenterFactory>().AsSingle();
             Container.Bind<HealthUITextViewFactory>().AsSingle();
@@ -38,6 +41,9 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
 
             Container.Bind<TankPresenterFactory>().AsSingle();
             Container.Bind<ITankEnemyViewFactory>().To<TankEnemyViewFactory>().AsSingle();
+
+            Container.Bind<StandingEnemyPresenterFactory>().AsSingle();
+            Container.Bind<IStandingEnemyViewFactory>().To<StandingEnemyViewFactory>().AsSingle();
         }
     }
 }

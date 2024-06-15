@@ -40,6 +40,8 @@ namespace Sources.Scripts.Infrastructure.Factories.App
                 sceneContext.Container.Resolve<MainMenuSceneFactory>().Create(payload);
             sceneFactories[ModelId.FirstLevel] = (payload, sceneContext) =>
                 sceneContext.Container.Resolve<GameplaySceneFactory>().Create(payload);
+            sceneFactories[ModelId.SecondLevel] = (payload, sceneContext) =>
+                sceneContext.Container.Resolve<GameplaySceneFactory>().Create(payload);
             
             sceneService.AddBeforeSceneChangeHandler(async _ => await curtainView.ShowCurtain());
             

@@ -39,11 +39,5 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Base
 
         public void SetPlayerHealthView(ICharacterHealthView playerHealthView) =>
             PlayerHealthView = playerHealthView;
-
-        public void EnableNavmeshAgent() =>
-            NavMeshAgent.enabled = true;
-
-        public void DisableNavmeshAgent() =>
-            NavMeshAgent.enabled = false;
     }
 }

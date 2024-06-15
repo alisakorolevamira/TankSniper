@@ -20,7 +20,7 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Boss
 
         public void Move()
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
         }
     }
 }

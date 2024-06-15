@@ -11,14 +11,18 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Spawne
 {
     public class EnemySpawnerPresenterFactory
     {
-        private readonly ITankEnemySpawnerService tankEnemySpawnerService;
+        private readonly ITankEnemySpawnerService _tankEnemySpawnerService;
         private readonly IBossEnemySpawnerService _bossEnemySpawnerService;
+        private readonly IStandingEnemySpawnerService _standingEnemySpawnerService;
 
         public EnemySpawnerPresenterFactory(
             ITankEnemySpawnerService tankEnemySpawnerService,
-            IBossEnemySpawnerService bossEnemySpawnerService)
+            IBossEnemySpawnerService bossEnemySpawnerService,
+            IStandingEnemySpawnerService standingEnemySpawnerService)
         {
-            this.tankEnemySpawnerService = tankEnemySpawnerService ?? throw new ArgumentNullException(nameof(tankEnemySpawnerService));
+            _tankEnemySpawnerService = tankEnemySpawnerService ?? throw new ArgumentNullException(nameof(tankEnemySpawnerService));
+            _standingEnemySpawnerService = standingEnemySpawnerService ??
+                                           throw new ArgumentNullException(nameof(standingEnemySpawnerService));
             _bossEnemySpawnerService = bossEnemySpawnerService ??
                                      throw new ArgumentNullException(nameof(bossEnemySpawnerService));
         }
@@ -32,7 +36,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Spawne
                 killedEnemiesCounter,
                 enemySpawner,
                 enemySpawnerView,
-                tankEnemySpawnerService,
+                _tankEnemySpawnerService,
+                _standingEnemySpawnerService,
                 _bossEnemySpawnerService);
         }
     }

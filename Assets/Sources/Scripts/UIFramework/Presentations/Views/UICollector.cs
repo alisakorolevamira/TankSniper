@@ -18,12 +18,8 @@ namespace Sources.Scripts.UIFramework.Presentations.Views
         [Header("Audio")]
         [SerializeField] private List<UIAudioSource> _uiAudioSources;
         
-        [Header("Input")]
-        [SerializeField] private RectTransform _shootZone;
-        
         public IReadOnlyList<UIButton> UIFormButtons => _uiFormButtons;
         public IReadOnlyList<UIView> UIContainers => _uiContainers;
         public IReadOnlyList<IUIAudioSource> UIAudioSources => _uiAudioSources;
-        public RectTransform ShootZone => _shootZone;
     }
 }

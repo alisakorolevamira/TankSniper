@@ -40,7 +40,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             PlayerAttackerViewFactory playerAttackerViewFactory,
             ILoadService loadService, 
             IEntityRepository entityRepository, 
-            RootGameObject rootGameObject, 
+            GameplayRootGameObject gameplayRootGameObject, 
             EnemySpawnerViewFactory enemySpawnerViewFactory, 
             KilledEnemiesCounterViewFactory killedEnemiesCounterViewFactory,
             ReloadWeaponViewFactory reloadWeaponViewFactory,
@@ -58,7 +58,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 uiCollectorFactory, 
                 playerViewFactory,
                 playerAttackerViewFactory,
-                rootGameObject, 
+                gameplayRootGameObject, 
                 enemySpawnerViewFactory, 
                 killedEnemiesCounterViewFactory,
                 reloadWeaponViewFactory,
@@ -84,7 +84,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
             Level level = _entityRepository.Get<Level>(scenePayload.SceneId);
             
-            SavedLevel savedLevel = _entityRepository.Get<SavedLevel>(ModelId.CurrentLevel);
+            SavedLevel savedLevel = _entityRepository.Get<SavedLevel>(ModelId.SavedLevel);
             
             PlayerWallet playerWallet = _entityRepository.Get<PlayerWallet>(ModelId.PlayerWallet);
 
@@ -98,7 +98,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
             PlayerAttacker playerAttacker = new PlayerAttacker(weapon); //переделать на загрузку данных
             
-            Player player = new Player(playerWallet, characterHealth, playerAttacker, weapon);
+            GameplayPlayer player = new GameplayPlayer(playerWallet, characterHealth, playerAttacker, weapon);
             
             return new GameModels(
                 characterHealth,

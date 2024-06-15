@@ -8,6 +8,7 @@ using Sources.Scripts.InfrastructureInterfaces.Services.SceneServices;
 using Sources.Scripts.UIFramework.Domain.Commands;
 using Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Buttons;
 using Sources.Scripts.UIFramework.PresentationsInterfaces.Buttons;
+using UnityEngine;
 
 namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
 {
@@ -31,11 +32,11 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
         
         public void Handle(IUIButton uiButton)
         {
-            if (_loadService.HasKey(ModelId.PlayerWallet) == false)
-                return;
+            //if (_loadService.HasKey(ModelId.PlayerWallet) == false)
+                //return;
 
-            SavedLevel savedLevel = _entityRepository.Get<SavedLevel>(ModelId.CurrentLevel);
-
+            SavedLevel savedLevel = _entityRepository.Get<SavedLevel>(ModelId.SavedLevel);
+            
             if (savedLevel == null)
             {
                 _sceneService.ChangeSceneAsync(ModelId.FirstLevel, new ScenePayload(ModelId.FirstLevel, true, false));

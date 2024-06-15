@@ -6,12 +6,10 @@ using Sources.Scripts.Infrastructure.Services.PauseServices;
 using Sources.Scripts.Infrastructure.Services.Tutorials;
 using Sources.Scripts.InfrastructureInterfaces.Services.PauseServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
-using Sources.Scripts.InfrastructureInterfaces.Services.Upgrades;
 using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.Presentations.Views;
+using Sources.Scripts.Presentations.Views.RootGameObjects;
 using Sources.Scripts.UIFramework.Presentations.Views;
-using Sources.Scripts.UIFramework.Services.Focus;
-using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;
 using UnityEngine;
 using Zenject;
 
@@ -19,6 +17,7 @@ namespace Sources.Scripts.Infrastructure.DIContainers.MainMenu
 {
     public class MainMenuInstaller : MonoInstaller
     {
+        [SerializeField] private MainMenuRootGameObjects _mainMenuRoot;
         [SerializeField] private MainMenuHud _mainMenuHud;
         [SerializeField] private ContainerView _containerView;
 
@@ -27,6 +26,7 @@ namespace Sources.Scripts.Infrastructure.DIContainers.MainMenu
             Container.BindInterfacesAndSelfTo<MainMenuHud>().FromInstance(_mainMenuHud).AsSingle();
             Container.Bind<ContainerView>().FromInstance(_containerView).AsSingle();
             Container.Bind<UICollector>().FromInstance(_mainMenuHud.UICollector).AsSingle();
+            Container.Bind<MainMenuRootGameObjects>().FromInstance(_mainMenuRoot).AsSingle();
             Container.BindInterfacesAndSelfTo<MainMenuSceneFactory>().AsSingle();
             
             BindServices();

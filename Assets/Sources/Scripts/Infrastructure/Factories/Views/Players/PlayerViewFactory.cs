@@ -15,7 +15,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Players
     public class PlayerViewFactory
     {
         private readonly GameplayHud _gameplayHud;
-        private readonly RootGameObject _rootGameObject;
+        private readonly GameplayRootGameObject _gameplayRootGameObject;
         private readonly PlayerAttackerViewFactory _playerAttackerViewFactory;
         private readonly CharacterHealthViewFactory _characterHealthViewFactory;
         private readonly PlayerWalletViewFactory _playerWalletViewFactory;
@@ -25,7 +25,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Players
         private readonly AttackerUIViewFactory _attackerUIViewFactory;
 
         public PlayerViewFactory(
-            RootGameObject rootGameObject,
+            GameplayRootGameObject gameplayRootGameObject,
             GameplayHud gameplayHud,
             PlayerAttackerViewFactory playerAttackerViewFactory,
             CharacterHealthViewFactory characterHealthViewFactory,
@@ -36,7 +36,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Players
             AttackerUIViewFactory attackerUIViewFactory)
         {
             _gameplayHud = gameplayHud ? gameplayHud : throw new ArgumentNullException(nameof(gameplayHud));
-            _rootGameObject = rootGameObject ?? throw new ArgumentNullException(nameof(rootGameObject));
+            this._gameplayRootGameObject = gameplayRootGameObject ?? throw new ArgumentNullException(nameof(gameplayRootGameObject));
             _playerAttackerViewFactory = playerAttackerViewFactory ??
                                          throw new ArgumentNullException(nameof(playerAttackerViewFactory));
             _healthBarUIFactory = healthBarUIFactory ?? throw new ArgumentNullException(nameof(healthBarUIFactory));
@@ -50,13 +50,13 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Players
                                      throw new ArgumentNullException(nameof(attackerUIViewFactory));
         }
 
-        public PlayerView Create(Player player)
+        public PlayerView Create(GameplayPlayer player)
         {
             PlayerView playerView =
                 Object.Instantiate(
                     Resources.Load<PlayerView>(PrefabPath.Player),
-                    _rootGameObject.PlayerSpawnPoint.Position,
-                    _rootGameObject.PlayerSpawnPoint.Rotation);
+                    _gameplayRootGameObject.PlayerSpawnPoint.Position,
+                    _gameplayRootGameObject.PlayerSpawnPoint.Rotation);
             
             _playerAttackerViewFactory.Create(player.PlayerAttacker, playerView.PlayerAttackerView);
 
@@ -69,7 +69,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Players
                 _healthBarUIFactory.Create(player.CharacterHealth, healthBar);
 
             _attackerUIViewFactory.Create(_gameplayHud.AttackerUIView);
-            _weaponViewFactory.Create(player.Weapon, _rootGameObject.WeaponView);
+            _weaponViewFactory.Create(player.Weapon, _gameplayRootGameObject.WeaponView);
             
             return playerView;
         }

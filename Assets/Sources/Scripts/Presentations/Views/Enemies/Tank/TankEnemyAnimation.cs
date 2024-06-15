@@ -12,7 +12,7 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Tank
     {
         [SerializeField] private ParticleSystem _movementParticle;
         [SerializeField] private ParticleSystem _attackParticle;
-        [SerializeField] private List<Rigidbody> _peaces;
+        [SerializeField] private ParticleSystem _dieParticle;
         
         public event Action Attacking;
         
@@ -32,13 +32,7 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Tank
         {
             _movementParticle.Stop();
             _attackParticle.Stop();
-
-            foreach (var peace in _peaces)
-            {
-                Debug.Log("add force");
-                //peace.isKinematic = false;
-                peace.AddForce(transform.up * 20);
-            }
+            _dieParticle.Play();
         }
     }
 }

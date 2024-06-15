@@ -14,14 +14,16 @@ namespace Sources.Scripts.Presentations.Views.NavMeshAgents
 
         protected NavMeshAgent NavMeshAgent => _navMeshAgent;
 
-        public void Move(Vector3 position)
-        {
+        public void Move(Vector3 position) => 
             _navMeshAgent.SetDestination(position);
-        }
 
-        public void Stop()
-        {
+        public void Stop() => 
             _navMeshAgent.isStopped = true;
-        }
+
+        public void EnableNavmeshAgent() => 
+            NavMeshAgent.enabled = true;
+
+        public void DisableNavmeshAgent() => 
+            NavMeshAgent.enabled = false;
     }
 }

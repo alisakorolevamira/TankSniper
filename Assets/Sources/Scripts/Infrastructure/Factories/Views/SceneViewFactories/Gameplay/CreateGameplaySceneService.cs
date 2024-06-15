@@ -43,7 +43,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             PlayerAttackerViewFactory playerAttackerViewFactory,
             ILoadService loadService,
             IEntityRepository entityRepository,
-            RootGameObject rootGameObject,
+            GameplayRootGameObject gameplayRootGameObject,
             EnemySpawnerViewFactory enemySpawnerViewFactory,
             //IUpgradeDtoMapper upgradeDtoMapper,
             //CustomCollection<Upgrader> upgradeCollection,
@@ -64,7 +64,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 uiCollectorFactory,
                 playerViewFactory,
                 playerAttackerViewFactory,
-                rootGameObject,
+                gameplayRootGameObject,
                 enemySpawnerViewFactory,
                 //upgradeCollection,
                 killedEnemiesCounterViewFactory,
@@ -92,7 +92,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             Level level = CreateLevel(scenePayload.SceneId);
 
             SavedLevel savedLevel = new SavedLevel(
-                ModelId.CurrentLevel, scenePayload.SceneId);
+                ModelId.SavedLevel, scenePayload.SceneId);
             _entityRepository.Add(savedLevel);
 
             PlayerWallet playerWallet = new PlayerWallet(0, ModelId.PlayerWallet);
@@ -108,7 +108,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             
             PlayerAttacker playerAttacker = new PlayerAttacker(weapon); //переделать
             
-            Player player = new Player(playerWallet, characterHealth, playerAttacker, weapon);
+            GameplayPlayer player = new GameplayPlayer(playerWallet, characterHealth, playerAttacker, weapon);
 
             return new GameModels(
                 characterHealth,

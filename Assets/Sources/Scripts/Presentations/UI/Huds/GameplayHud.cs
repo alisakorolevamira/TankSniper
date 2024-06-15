@@ -32,10 +32,12 @@ namespace Sources.Scripts.Presentations.UI.Huds
 
         [Header("Weapon")]
         [SerializeField] private ReloadWeaponView _reloadWeaponView;
+        [SerializeField] private RectTransform _shootZone;
         
         public UICollector UICollector => _uiCollector;
         
         public CameraView CameraView => cameraView;
+        public RectTransform ShootZone => _shootZone;
         
         public IReadOnlyList<WalletUI> WalletsUI => _walletsUI;
 

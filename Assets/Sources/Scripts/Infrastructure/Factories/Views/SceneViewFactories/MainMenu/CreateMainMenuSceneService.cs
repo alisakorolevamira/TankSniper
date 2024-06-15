@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Domain.Models.Gameplay;
+using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
+using Sources.Scripts.Infrastructure.Factories.Views.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
@@ -26,6 +28,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             IEntityRepository entityRepository,
             MainMenuHud mainMenuHud,
             LevelAvailabilityViewFactory levelAvailabilityViewFactory,
+            MainMenuPlayerViewFactory playerViewFactory,
             VolumeViewFactory volumeViewFactory,
             IVolumeService volumeService,
             UICollectorFactory uiCollectorFactory,
@@ -38,7 +41,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 volumeService,
                 uiCollectorFactory,
                 formService,
-                tutorialService)
+                tutorialService,
+                playerViewFactory)
         {
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
             _entityRepository = entityRepository;
@@ -54,7 +58,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             GameData gameData = new GameData(ModelId.GameData, true);
             _entityRepository.Add(gameData);
             
-            SavedLevel savedLevel = new SavedLevel(ModelId.CurrentLevel, ModelId.FirstLevel);
+            SavedLevel savedLevel = new SavedLevel(ModelId.SavedLevel, ModelId.FirstLevel);
             _entityRepository.Add(savedLevel);
             
             Level firstLevel = new Level(ModelId.FirstLevel, false);
@@ -69,6 +73,11 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             _entityRepository.Add(fifthLevel);
             Level sixthLevel = new Level(ModelId.SixthLevel, false);
             _entityRepository.Add(sixthLevel);
+            
+            PlayerWallet playerWallet = new PlayerWallet(0, ModelId.PlayerWallet);
+            _entityRepository.Add(playerWallet);
+            
+            Player player = new Player(playerWallet);
 
             LevelAvailability levelAvailability = new LevelAvailability(
                 new List<Level>()
@@ -94,6 +103,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 levelAvailability,
                 gameData,
                 tutorial,
+                player,
                 savedLevel);
         }
 

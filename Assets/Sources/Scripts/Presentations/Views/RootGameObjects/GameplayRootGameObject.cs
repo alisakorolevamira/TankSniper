@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Sources.Scripts.Presentations.Views.RootGameObjects
 {
-    public class RootGameObject : View
+    public class GameplayRootGameObject : View
     {
         [Header("Camera")]
         [SerializeField] private List<CameraPositionView> _cameraPositions;

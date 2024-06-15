@@ -7,6 +7,7 @@ using Sources.Scripts.Presentations.Views;
 using Sources.Scripts.Presentations.Views.RootGameObjects;
 using Sources.Scripts.UIFramework.Presentations.Views;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
@@ -14,14 +15,14 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
     public class GameplayInstaller : MonoInstaller
     {
         [SerializeField] private GameplayHud _gameplayHud;
-        [SerializeField] private RootGameObject _rootGameObject;
+        [SerializeField] private GameplayRootGameObject _gameplayRootGameObject;
         [SerializeField] private ContainerView _containerView;
         
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<GameplayHud>().FromInstance(_gameplayHud).AsSingle();
             Container.Bind<UICollector>().FromInstance(_gameplayHud.UICollector).AsSingle();
-            Container.Bind<RootGameObject>().FromInstance(_rootGameObject).AsSingle();
+            Container.Bind<GameplayRootGameObject>().FromInstance(_gameplayRootGameObject).AsSingle();
             Container.Bind<ContainerView>().FromInstance(_containerView).AsSingle();
             Container.BindInterfacesAndSelfTo<GameplaySceneFactory>().AsSingle();
             
@@ -31,7 +32,7 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
         private void BindServices()
         {
             Container.BindInterfacesAndSelfTo<UpdateService>().AsSingle();
-            Container.BindInterfacesAndSelfTo<NewInputService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameplayInputService>().AsSingle();
             //Container.Bind<LinecastService>().AsSingle();
             //Container.Bind<IOverlapService>().To<OverlapService>().AsSingle();
             Container.Bind<LoadGameplaySceneService>().AsSingle();

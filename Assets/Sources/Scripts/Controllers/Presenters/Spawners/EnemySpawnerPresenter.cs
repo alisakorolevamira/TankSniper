@@ -12,6 +12,7 @@ using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.PresentationsInterfaces.Views.Common;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Standing;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tank;
 using Sources.Scripts.PresentationsInterfaces.Views.Spawners;
 using UnityEngine;
@@ -23,7 +24,8 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
         private readonly EnemySpawner _enemySpawner;
         private readonly KilledEnemiesCounter _killedEnemiesCounter;
         private readonly IEnemySpawnerView _enemySpawnerView;
-        private readonly ITankEnemySpawnerService tankEnemySpawnerService;
+        private readonly ITankEnemySpawnerService _tankEnemySpawnerService;
+        private readonly IStandingEnemySpawnerService _standingEnemySpawnerService;
         private readonly IBossEnemySpawnerService _bossEnemySpawnerService;
 
         private CancellationTokenSource _cancellationTokenSource;
@@ -33,12 +35,15 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
             EnemySpawner enemySpawner,
             IEnemySpawnerView enemySpawnerView,
             ITankEnemySpawnerService tankEnemySpawnerService,
+            IStandingEnemySpawnerService standingEnemySpawnerService,
             IBossEnemySpawnerService bossEnemySpawnerService)
         {
             _killedEnemiesCounter = killedEnemiesCounter ?? throw new ArgumentNullException(nameof(killedEnemiesCounter));
             _enemySpawner = enemySpawner ?? throw new ArgumentNullException(nameof(enemySpawner));
             _enemySpawnerView = enemySpawnerView ?? throw new ArgumentNullException(nameof(enemySpawnerView));
-            this.tankEnemySpawnerService = tankEnemySpawnerService ?? throw new ArgumentNullException(nameof(tankEnemySpawnerService));
+            _tankEnemySpawnerService = tankEnemySpawnerService ?? throw new ArgumentNullException(nameof(tankEnemySpawnerService));
+            _standingEnemySpawnerService = standingEnemySpawnerService ??
+                                           throw new ArgumentNullException(nameof(standingEnemySpawnerService));
             _bossEnemySpawnerService = bossEnemySpawnerService ??
                                      throw new ArgumentNullException(nameof(bossEnemySpawnerService));
         }
@@ -71,8 +76,16 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
         {
             if (spawnPoint.EnemyType == EnemyType.Tank)
             {
-                ITankEnemyView tankEnemyView = tankEnemySpawnerService.Spawn(_killedEnemiesCounter, spawnPoint);
+                ITankEnemyView tankEnemyView = _tankEnemySpawnerService.Spawn(_killedEnemiesCounter, spawnPoint);
                 tankEnemyView.SetPlayerHealthView(playerView.PlayerHealthView);
+            }
+            
+            else if (spawnPoint.EnemyType == EnemyType.Standing)
+            {
+                IStandingEnemyView standingEnemyView =
+                    _standingEnemySpawnerService.Spawn(_killedEnemiesCounter, spawnPoint);
+                
+                standingEnemyView.SetPlayerHealthView(playerView.PlayerHealthView);
             }
 
             _enemySpawner.SpawnedEnemies++;

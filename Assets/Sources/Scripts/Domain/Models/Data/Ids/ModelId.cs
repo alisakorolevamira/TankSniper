@@ -8,7 +8,7 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
         public const string GameplayEnemySpawner = "GameplayEnemySpawner";
         public const string PlayerWallet = "PlayerWallet";
         public const string MainMenu = "MainMenu";
-        public const string CurrentLevel = "CurrentLevel";
+        public const string SavedLevel = "SavedLevel";
         public const string Volume = "Volume";
         public const string GameData = "GameData";
         public const string Tutorial = "Tutorial";
@@ -30,7 +30,7 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
         public static IReadOnlyList<string> ModelsIds = new List<string>()
         {
             GameData,
-            CurrentLevel,
+            SavedLevel,
             FirstLevel,
             SecondLevel,
             ThirdLevel,
@@ -52,7 +52,7 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
         {
             [Tutorial] = typeof(TutorialDto),
             [GameData] = typeof(GameDataDto),
-            [CurrentLevel] = typeof(SavedLevelDto),
+            [SavedLevel] = typeof(SavedLevelDto),
             [Volume] = typeof(VolumeDto),
             [FirstLevel] = typeof(LevelDto),
             [SecondLevel] = typeof(LevelDto),

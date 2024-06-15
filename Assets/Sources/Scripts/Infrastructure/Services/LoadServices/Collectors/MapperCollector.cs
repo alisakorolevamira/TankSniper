@@ -24,7 +24,7 @@ namespace Sources.Scripts.Infrastructure.Services.LoadServices.Collectors
             ILevelDtoMapper levelDtoMapper,
             IGameDataDtoMapper gameDataDtoMapper,
             ITutorialDtoMapper tutorialDtoMapper,
-            ICurrentLevelDtoMapper currentLevelDtoMapper)
+            ISavedLevelDtoMapper savedLevelDtoMapper)
         {
             _toDtoMappers = new Dictionary<Type, Func<IEntity, IDto>>();
             //_toDtoMappers[typeof(Upgrader)] =
@@ -39,8 +39,8 @@ namespace Sources.Scripts.Infrastructure.Services.LoadServices.Collectors
                 model => gameDataDtoMapper.MapModelToDto(model as GameData);
             _toDtoMappers[typeof(Tutorial)] =
                 model => tutorialDtoMapper.MapModelToDto(model as Tutorial);
-            _toDtoMappers[typeof(CurrentLevel)] =
-                model => currentLevelDtoMapper.MapModelToDto(model as CurrentLevel);
+            _toDtoMappers[typeof(SavedLevel)] =
+                model => savedLevelDtoMapper.MapModelToDto(model as SavedLevel);
 
             _toModelMappers = new Dictionary<Type, Func<IDto, IEntity>>();
             //_toModelMappers[typeof(UpgradeDto)] =
@@ -55,8 +55,8 @@ namespace Sources.Scripts.Infrastructure.Services.LoadServices.Collectors
                 dto => gameDataDtoMapper.MapDtoToModel(dto as GameDataDto);
             _toModelMappers[typeof(TutorialDto)] =
                 dto => tutorialDtoMapper.MapDtoToModel(dto as TutorialDto);
-            _toModelMappers[typeof(CurrentLevelDto)] =
-                dto => currentLevelDtoMapper.MapDtoToModel(dto as CurrentLevelDto);
+            _toModelMappers[typeof(SavedLevelDto)] =
+                dto => savedLevelDtoMapper.MapDtoToModel(dto as SavedLevelDto);
         }
 
         public Func<IEntity, IDto> GetToDtoMapper(Type type)

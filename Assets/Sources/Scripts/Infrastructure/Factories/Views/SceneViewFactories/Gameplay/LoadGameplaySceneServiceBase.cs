@@ -99,8 +99,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             
             _levelCompletedService.Register(gameModels.KilledEnemiesCounter, gameModels.EnemySpawner);
 
-            CurrentLevel currentLevel = gameModels.CurrentLevel;
-            gameModels.CurrentLevel.CurrentLevelId = scenePayload.SceneId;
+            SavedLevel savedLevel = gameModels.SavedLevel;
+            gameModels.SavedLevel.CurrentLevelId = scenePayload.SceneId;
             
             _volumeService.Register(gameModels.Volume);
             _volumeViewFactory.Create(gameModels.Volume, _gameplayHud.VolumeView);

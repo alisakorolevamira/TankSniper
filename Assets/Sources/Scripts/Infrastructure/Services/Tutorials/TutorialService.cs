@@ -13,7 +13,7 @@ namespace Sources.Scripts.Infrastructure.Services.Tutorials
         private readonly IFormService _formService;
         private readonly ILoadService _loadService;
         private Tutorial _tutorial;
-        private CurrentLevel _currentLevel;
+        private SavedLevel savedLevel;
 
         public TutorialService(
             IFormService formService,
@@ -28,16 +28,16 @@ namespace Sources.Scripts.Infrastructure.Services.Tutorials
             if (_tutorial.HasCompleted)
                 return;
 
-            if (_currentLevel.CurrentLevelId != ModelId.MainMenu)
+            if (savedLevel.CurrentLevelId != ModelId.MainMenu)
                 return;
 
             _formService.Show(FormId.GreetingTutorial);
         }
 
-        public void Construct(Tutorial tutorial, CurrentLevel currentLevel)
+        public void Construct(Tutorial tutorial, SavedLevel savedLevel)
         {
             _tutorial = tutorial ?? throw new ArgumentNullException(nameof(tutorial));
-            _currentLevel = currentLevel ?? throw new ArgumentNullException(nameof(currentLevel));
+            this.savedLevel = savedLevel ?? throw new ArgumentNullException(nameof(savedLevel));
         }
 
         public void Complete()

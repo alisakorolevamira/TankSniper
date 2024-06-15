@@ -36,13 +36,13 @@ namespace Sources.Scripts.Presentations.Views.Bullets
             {
                 Vector3 endPoint = hitInfo.point;
 
-                Moving(endPoint);
+                ChangePosition(endPoint);
             }
             
             _cancellationTokenSource.Cancel();
         }
 
-        private async void Moving(Vector3 endPoint)
+        private async void ChangePosition(Vector3 endPoint)
         {
             float step =  BulletConst.Step * Time.deltaTime;
             

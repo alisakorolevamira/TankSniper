@@ -91,9 +91,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
             Level level = CreateLevel(scenePayload.SceneId);
 
-            CurrentLevel currentLevel = new CurrentLevel(
+            SavedLevel savedLevel = new SavedLevel(
                 ModelId.CurrentLevel, scenePayload.SceneId);
-            _entityRepository.Add(currentLevel);
+            _entityRepository.Add(savedLevel);
 
             PlayerWallet playerWallet = new PlayerWallet(0, ModelId.PlayerWallet);
             _entityRepository.Add(playerWallet);
@@ -119,7 +119,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 player,
                 killedEnemiesCounter,
                 enemySpawner,
-                currentLevel);
+                savedLevel);
         }
 
         //private ScoreCounter CreateScoreCounter()

@@ -34,17 +34,17 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
             if (_loadService.HasKey(ModelId.PlayerWallet) == false)
                 return;
 
-            CurrentLevel currentLevel = _entityRepository.Get<CurrentLevel>(ModelId.CurrentLevel);
+            SavedLevel savedLevel = _entityRepository.Get<SavedLevel>(ModelId.CurrentLevel);
 
-            if (currentLevel == null)
+            if (savedLevel == null)
             {
                 _sceneService.ChangeSceneAsync(ModelId.FirstLevel, new ScenePayload(ModelId.FirstLevel, true, false));
                 return;
             }
 
             _sceneService.ChangeSceneAsync(
-                currentLevel.CurrentLevelId,
-                new ScenePayload(currentLevel.CurrentLevelId, true, false));
+                savedLevel.CurrentLevelId,
+                new ScenePayload(savedLevel.CurrentLevelId, true, false));
         }
     }
 }

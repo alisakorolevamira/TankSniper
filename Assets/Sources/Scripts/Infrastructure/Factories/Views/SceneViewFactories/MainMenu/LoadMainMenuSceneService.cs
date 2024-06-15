@@ -50,7 +50,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             
             GameData gameData = _loadService.Load<GameData>(ModelId.GameData);
             
-            CurrentLevel currentLevel = _loadService.Load<CurrentLevel>(ModelId.CurrentLevel);
+            SavedLevel savedLevel = _loadService.Load<SavedLevel>(ModelId.CurrentLevel);
             
             Level firstLevel = _loadService.Load<Level>(ModelId.FirstLevel);
             Level secondLevel = _loadService.Load<Level>(ModelId.SecondLevel);
@@ -81,7 +81,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 levelAvailability,
                 gameData,
                 tutorial,
-                currentLevel);
+                savedLevel);
         }
     }
 }

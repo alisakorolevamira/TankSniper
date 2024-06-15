@@ -18,7 +18,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             Player player,
             KilledEnemiesCounter killedEnemiesCounter,
             EnemySpawner enemySpawner,
-            CurrentLevel currentLevel)
+            SavedLevel savedLevel)
         {
             CharacterHealth = characterHealth;
             PlayerWallet = playerWallet;
@@ -28,7 +28,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             Player = player;
             KilledEnemiesCounter = killedEnemiesCounter;
             EnemySpawner = enemySpawner;
-            CurrentLevel = currentLevel;
+            SavedLevel = savedLevel;
         }
 
         public CharacterHealth CharacterHealth { get; }
@@ -39,6 +39,6 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         public Player Player { get; }
         public KilledEnemiesCounter KilledEnemiesCounter { get; }
         public EnemySpawner EnemySpawner { get; }
-        public CurrentLevel CurrentLevel { get; }
+        public SavedLevel SavedLevel { get; }
     }
 }

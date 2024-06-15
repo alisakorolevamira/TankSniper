@@ -2,12 +2,12 @@
 
 namespace Sources.Scripts.Domain.Models.Data
 {
-    public class CurrentLevelDto : IDto
+    public class SavedLevelDto : IDto
     {
         //[JsonProperty("id")]
         public string Id { get; set; }
         
         //[JsonProperty("savedLevelId")]
-        public string CurrentLevelId { get; set; }
+        public string SavedLevelId { get; set; }
     }
 }

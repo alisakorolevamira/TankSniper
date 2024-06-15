@@ -27,9 +27,9 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
         
         public void Handle(IUIButton uiButton)
         {
-            CurrentLevel currentLevel = _entityRepository.Get<CurrentLevel>(ModelId.CurrentLevel);
+            SavedLevel savedLevel = _entityRepository.Get<SavedLevel>(ModelId.CurrentLevel);
             _sceneService.ChangeSceneAsync(
-                ModelId.MainMenu, new ScenePayload(currentLevel.CurrentLevelId, false, true));
+                ModelId.MainMenu, new ScenePayload(savedLevel.CurrentLevelId, false, true));
         }
     }
 }

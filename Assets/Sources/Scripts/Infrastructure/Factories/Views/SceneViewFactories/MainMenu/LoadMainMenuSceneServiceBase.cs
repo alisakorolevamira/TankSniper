@@ -46,7 +46,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
         {
             MainMenuModels models = LoadModels(scenePayload);
             
-            CurrentLevel currentLevel = models.CurrentLevel;
+            SavedLevel savedLevel = models.SavedLevel;
             
             _volumeViewFactory.Create(models.Volume, _mainMenuHud.VolumeView);
             _volumeService.Register(models.Volume);
@@ -54,7 +54,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             _levelAvailabilityViewFactory.Create(models.LevelAvailability, _mainMenuHud.LevelAvailabilityView);
             
             _uiCollectorFactory.Create();
-            _tutorialService.Construct(models.Tutorial, currentLevel);
+            _tutorialService.Construct(models.Tutorial, savedLevel);
             _formService.Show(FormId.Hud);
         }
         

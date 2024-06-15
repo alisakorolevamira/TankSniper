@@ -4,15 +4,15 @@ using Sources.Scripts.DomainInterfaces.Models.Entities;
 
 namespace Sources.Scripts.Domain.Models.Gameplay
 {
-    public class CurrentLevel : IEntity
+    public class SavedLevel : IEntity
     {
-        public CurrentLevel(CurrentLevelDto currentLevelDto)
+        public SavedLevel(SavedLevelDto savedLevelDto)
         {
-            Id = currentLevelDto.Id;
-            CurrentLevelId = currentLevelDto.CurrentLevelId;
+            Id = savedLevelDto.Id;
+            CurrentLevelId = savedLevelDto.SavedLevelId;
         }
 
-        public CurrentLevel(string id, string currentLevelId)
+        public SavedLevel(string id, string currentLevelId)
         {
             Id = id;
             CurrentLevelId = currentLevelId;

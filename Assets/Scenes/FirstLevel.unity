@@ -1693,10 +1693,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button: {fileID: 144119654}
   _audioSource: {fileID: 252788925}
-  _formId: 0
+  _formId: 4
   _useButtonType: 0
   _delay: 0
-  _onClickCommandId: 00000000
+  _onClickCommandId: 0500000002000000
   _enableCommandId: 
   _disableCommandId: 
 --- !u!114 &144119654
@@ -6489,8 +6489,8 @@ MonoBehaviour:
   _onEnableDisabledForms: 080000000000000006000000030000000400000002000000
   _onDisableEnabledForms: 
   _onDisableDisabledForms: 
-  _enabledFormCommands: 
-  _disabledFormCommands: 
+  _enabledFormCommands: 00000000
+  _disabledFormCommands: 01000000
   _enabledGameObject: 0
   _enabledCanvasGroup: 0
 --- !u!1 &807131964
@@ -6776,8 +6776,8 @@ MonoBehaviour:
   _onEnableDisabledForms: 080000000000000006000000030000000100000004000000
   _onDisableEnabledForms: 
   _onDisableDisabledForms: 
-  _enabledFormCommands: 
-  _disabledFormCommands: 02000000
+  _enabledFormCommands: 00000000
+  _disabledFormCommands: 0200000001000000
   _enabledGameObject: 0
   _enabledCanvasGroup: 0
 --- !u!224 &835337973
@@ -7813,8 +7813,8 @@ MonoBehaviour:
   _onEnableDisabledForms: 080000000000000006000000010000000400000002000000
   _onDisableEnabledForms: 
   _onDisableDisabledForms: 
-  _enabledFormCommands: 
-  _disabledFormCommands: 
+  _enabledFormCommands: 00000000
+  _disabledFormCommands: 01000000
   _enabledGameObject: 0
   _enabledCanvasGroup: 0
 --- !u!1 &1002332664
@@ -14780,10 +14780,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button: {fileID: 1832397639}
   _audioSource: {fileID: 252788925}
-  _formId: 0
+  _formId: 1
   _useButtonType: 0
   _delay: 0
-  _onClickCommandId: 00000000
+  _onClickCommandId: 0500000003000000
   _enableCommandId: 
   _disableCommandId: 
 --- !u!114 &1832397639
@@ -15370,8 +15370,8 @@ MonoBehaviour:
   _onEnableDisabledForms: 080000000000000006000000030000000100000002000000
   _onDisableEnabledForms: 
   _onDisableDisabledForms: 
-  _enabledFormCommands: 
-  _disabledFormCommands: 
+  _enabledFormCommands: 00000000
+  _disabledFormCommands: 01000000
   _enabledGameObject: 0
   _enabledCanvasGroup: 0
 --- !u!1 &1863302492
@@ -16085,7 +16085,7 @@ MonoBehaviour:
   - {fileID: 1832397638}
   _uiAudioSources:
   - {fileID: 252788924}
-  _shootZone: {fileID: 2132589958}
+  _shootZone: {fileID: 114647205}
 --- !u!114 &1917701915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17068,10 +17068,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button: {fileID: 2039016706}
   _audioSource: {fileID: 252788925}
-  _formId: 0
+  _formId: 3
   _useButtonType: 0
   _delay: 0
-  _onClickCommandId: 00000000
+  _onClickCommandId: 0500000002000000
   _enableCommandId: 
   _disableCommandId: 
 --- !u!114 &2039016706

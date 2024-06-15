@@ -52,7 +52,7 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
         {
             [Tutorial] = typeof(TutorialDto),
             [GameData] = typeof(GameDataDto),
-            [CurrentLevel] = typeof(CurrentLevelDto),
+            [CurrentLevel] = typeof(SavedLevelDto),
             [Volume] = typeof(VolumeDto),
             [FirstLevel] = typeof(LevelDto),
             [SecondLevel] = typeof(LevelDto),

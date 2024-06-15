@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Spawners;
@@ -21,6 +23,8 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
         //private readonly IInterstitialAdService _interstitialAdService;
         private IKilledEnemiesCounter _killedEnemiesCounter;
         private IEnemySpawner _enemySpawner;
+        private CancellationTokenSource _cancellationTokenSource;
+        private readonly TimeSpan _delay = TimeSpan.FromSeconds(2);
         
         public LevelCompletedService(
             IFormService formService,
@@ -35,8 +39,13 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
             //                         throw new ArgumentNullException(nameof(interstitialAdService));
         }
         
-        public void Enable() =>
+        public bool AllEnemiesKilled { get; private set; }
+
+        public void Enable()
+        {
+            _cancellationTokenSource = new CancellationTokenSource();
             _killedEnemiesCounter.KilledEnemiesCountChanged += OnKillZombiesCountChanged;
+        }
 
         public void Disable() =>
             _killedEnemiesCounter.KilledEnemiesCountChanged -= OnKillZombiesCountChanged;
@@ -44,21 +53,35 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
         public void Register(IKilledEnemiesCounter killedEnemiesCounter, IEnemySpawner enemySpawner)
         {
             _killedEnemiesCounter = killedEnemiesCounter ?? throw new ArgumentNullException(nameof(killedEnemiesCounter));
-            //_enemySpawner = enemySpawner ?? throw new ArgumentNullException(nameof(enemySpawner));
+            _enemySpawner = enemySpawner ?? throw new ArgumentNullException(nameof(enemySpawner));
         }
 
         private void OnKillZombiesCountChanged()
         {
-            //if (_killedEnemiesCounter.KilledEnemies < _enemySpawner.SpawnedEnemies)
-                //return;
+            if (_killedEnemiesCounter.KilledEnemies < _enemySpawner.SpawnedEnemies)
+                return;
 
-            CurrentLevel currentLevel = _entityRepository.Get<CurrentLevel>(ModelId.CurrentLevel);
-            Level level = _entityRepository.Get<Level>(currentLevel.CurrentLevelId);
+            AllEnemiesKilled = true;
+            SavedLevel savedLevel = _entityRepository.Get<SavedLevel>(ModelId.CurrentLevel);
+            Level level = _entityRepository.Get<Level>(savedLevel.CurrentLevelId);
             level.Complete();
             _loadService.Save(level);
             _loadService.ClearAll();
-            _formService.Show(FormId.LevelCompleted);
+            //StartTimer(_cancellationTokenSource.Token);
             //_interstitialAdService.ShowInterstitial();
+        }
+
+        private async void StartTimer(CancellationToken cancellationToken)
+        {
+            try
+            {
+                await UniTask.Delay(_delay, cancellationToken: cancellationToken);
+                
+                _formService.Show(FormId.LevelCompleted);
+            }
+            catch (OperationCanceledException)
+            {
+            }
         }
     }
 }

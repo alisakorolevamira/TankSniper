@@ -84,7 +84,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
             Level level = _entityRepository.Get<Level>(scenePayload.SceneId);
             
-            CurrentLevel currentLevel = _entityRepository.Get<CurrentLevel>(ModelId.CurrentLevel);
+            SavedLevel savedLevel = _entityRepository.Get<SavedLevel>(ModelId.CurrentLevel);
             
             PlayerWallet playerWallet = _entityRepository.Get<PlayerWallet>(ModelId.PlayerWallet);
 
@@ -109,7 +109,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 player,
                 killedEnemiesCounter,
                 enemySpawner,
-                currentLevel);
+                savedLevel);
         }
     }
 }

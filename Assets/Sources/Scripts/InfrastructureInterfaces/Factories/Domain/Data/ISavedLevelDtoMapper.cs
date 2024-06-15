@@ -3,9 +3,9 @@ using Sources.Scripts.Domain.Models.Gameplay;
 
 namespace Sources.Scripts.InfrastructureInterfaces.Factories.Domain.Data
 {
-    public interface ICurrentLevelDtoMapper
+    public interface ISavedLevelDtoMapper
     {
-        CurrentLevelDto MapModelToDto(CurrentLevel savedLevel);
-        CurrentLevel MapDtoToModel(CurrentLevelDto savedLevelDto);
+        SavedLevelDto MapModelToDto(SavedLevel savedLevel);
+        SavedLevel MapDtoToModel(SavedLevelDto savedLevelDto);
     }
 }

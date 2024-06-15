@@ -4,18 +4,18 @@ using Sources.Scripts.InfrastructureInterfaces.Factories.Domain.Data;
 
 namespace Sources.Scripts.Infrastructure.Factories.Domain.Data
 {
-    public class CurrentLevelDtoMapper : ICurrentLevelDtoMapper
+    public class SavedLevelDtoMapper : ISavedLevelDtoMapper
     {
-        public CurrentLevelDto MapModelToDto(CurrentLevel savedLevel)
+        public SavedLevelDto MapModelToDto(SavedLevel savedLevel)
         {
-            return new CurrentLevelDto()
+            return new SavedLevelDto()
             {
                 Id = savedLevel.Id,
-                CurrentLevelId = savedLevel.CurrentLevelId,
+                SavedLevelId = savedLevel.CurrentLevelId,
             };
         }
 
-        public CurrentLevel MapDtoToModel(CurrentLevelDto savedLevelDto) =>
+        public SavedLevel MapDtoToModel(SavedLevelDto savedLevelDto) =>
             new(savedLevelDto);
     }
 }

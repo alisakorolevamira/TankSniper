@@ -18,7 +18,7 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Common
             Container.Bind<IVolumeDtoMapper>().To<VolumeDtoMapper>().AsSingle();
             Container.Bind<ITutorialDtoMapper>().To<TutorialDtoMapper>().AsSingle();
             Container.Bind<IGameDataDtoMapper>().To<GameDataDtoMapper>().AsSingle();
-            Container.Bind<ICurrentLevelDtoMapper>().To<CurrentLevelDtoMapper>().AsSingle();
+            Container.Bind<ISavedLevelDtoMapper>().To<SavedLevelDtoMapper>().AsSingle();
         }
     }
 }

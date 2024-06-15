@@ -5002,6 +5002,7 @@ GameObject:
   - component: {fileID: 7156100378018083020}
   - component: {fileID: 2877286913087843249}
   - component: {fileID: -6992140198625087401}
+  - component: {fileID: 5603888627108447582}
   m_Layer: 0
   m_Name: TankEnemyView
   m_TagString: Untagged
@@ -5062,7 +5063,7 @@ MonoBehaviour:
   _animator: {fileID: 7156100378018083020}
   _movementParticle: {fileID: 7236627467101324163}
   _attackParticle: {fileID: 6481385483407539891}
-  _dieParticle: {fileID: 2026942116447047970}
+  _destructible: {fileID: 5603888627108447582}
 --- !u!114 &4448993006042269001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5166,6 +5167,94 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5603888627108447582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4803285134344883011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _totalHitPoints: 1
+  _currentHitPoints: 1
+  damageLevels:
+  - maxHitPoints: 1
+    minHitPoints: 0.9
+    healthPercent: 100
+    hasError: 0
+    visibleDamageLevel: 0
+  - maxHitPoints: 0.79999995
+    minHitPoints: 0.7
+    healthPercent: 80
+    hasError: 0
+    visibleDamageLevel: 2
+  - maxHitPoints: 0.59999996
+    minHitPoints: 0.5
+    healthPercent: 60
+    hasError: 0
+    visibleDamageLevel: 4
+  - maxHitPoints: 0.39999998
+    minHitPoints: 0.3
+    healthPercent: 40
+    hasError: 0
+    visibleDamageLevel: 6
+  - maxHitPoints: 0.19999999
+    minHitPoints: 0
+    healthPercent: 20
+    hasError: 0
+    visibleDamageLevel: 8
+  destroyedPrefab: {fileID: 0}
+  destroyedPrefabParent: {fileID: 0}
+  fallbackParticle: {fileID: 19800004, guid: 6b46cad447c64dd48b8b715df6e3d2ad, type: 3}
+  fallbackParticleMatOption: 2
+  damageEffects:
+  - TriggeredAt: 5
+    Offset: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0}
+    Scale: {x: 1, y: 1, z: 1}
+    Prefab: {fileID: 8385311542164336476, guid: 94d78ada3a24f464184e7f138585dd12, type: 3}
+    GameObject: {fileID: 0}
+    HasStarted: 0
+    HasTagDependency: 0
+    TagDependency: 0
+    UnparentOnDestroy: 1
+    StopEmittingOnDestroy: 0
+  velocityReduction: 0.5
+  limitDamage: 0
+  minDamage: 10
+  maxDamage: 100
+  minDamageTime: 0
+  ignoreCollisionsUnder: 2
+  unparentOnDestroy: []
+  disableKinematicOnUparentedChildren: 1
+  replaceMaterials: []
+  replaceParticleMats:
+  - SourceMaterial: {fileID: 2100000, guid: 3f1003b33ee2eef4b8569e9555dab0b9, type: 2}
+    ReplacementMaterial: {fileID: 2100000, guid: c893f8dcfea1014448523d7642ed6f55, type: 2}
+  canBeDestroyed: 1
+  canBeRepaired: 0
+  debrisToReParentByName: []
+  debrisToReParentIsKinematic: 0
+  childrenToReParentByName: []
+  isDebrisChipAway: 0
+  chipAwayDebrisMass: 1
+  chipAwayDebrisDrag: 0
+  chipAwayDebrisAngularDrag: 0.05
+  autoPoolDestroyedPrefab: 1
+  useFallbackParticle: 1
+  centerPointOverride: {x: 0, y: 0, z: 0}
+  fallbackParticleScale: {x: 1, y: 1, z: 1}
+  fallbackParticleParent: {fileID: 0}
+  sinkWhenDestroyed: 0
+  shouldDeactivate: 0
+  isTerrainTree: 0
+  destroyedSound: {fileID: 0}
+  damagedSound: {fileID: 0}
+  repairedSound: {fileID: 0}
 --- !u!1 &5190467752496510945
 GameObject:
   m_ObjectHideFlags: 0
@@ -15248,11 +15337,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1d8cda2840ab8e49bb4fc622d99dacb, type: 3}
---- !u!198 &2026942116447047970 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7625281305379781959, guid: b1d8cda2840ab8e49bb4fc622d99dacb, type: 3}
-  m_PrefabInstance: {fileID: 8499231409994230885}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5221897273784347575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4432863683251750866, guid: b1d8cda2840ab8e49bb4fc622d99dacb, type: 3}

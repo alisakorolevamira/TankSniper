@@ -1,4 +1,5 @@
 ﻿using System;
+using DestroyIt;
 using JetBrains.Annotations;
 using Sources.Scripts.Presentations.Views.Animations;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Standing;
@@ -9,6 +10,7 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Standing
     public class StandingEnemyAnimation : AnimationViewBase, IStandingEnemyAnimation
     {
         [SerializeField] private ParticleSystem _gunShoot;
+        [SerializeField] private Destructible _destructible; 
         public event Action Attacking;
         
         private void Awake()
@@ -35,7 +37,7 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Standing
 
         public void PlayDying()
         {
-            Animator.SetBool("Dying", true);
+            _destructible.Destroy();
         }
 
         private void StopIdle()

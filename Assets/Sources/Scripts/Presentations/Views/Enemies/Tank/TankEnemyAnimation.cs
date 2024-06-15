@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DestroyIt;
 using Sources.Scripts.Presentations.Views.Animations;
 using Sources.Scripts.Presentations.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tank;
@@ -12,7 +13,7 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Tank
     {
         [SerializeField] private ParticleSystem _movementParticle;
         [SerializeField] private ParticleSystem _attackParticle;
-        [SerializeField] private ParticleSystem _dieParticle;
+        [SerializeField] private Destructible _destructible;
         
         public event Action Attacking;
         
@@ -32,7 +33,7 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Tank
         {
             _movementParticle.Stop();
             _attackParticle.Stop();
-            _dieParticle.Play();
+            _destructible.Destroy();
         }
     }
 }

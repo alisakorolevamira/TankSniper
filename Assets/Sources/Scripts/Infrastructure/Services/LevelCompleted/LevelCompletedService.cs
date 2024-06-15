@@ -3,13 +3,11 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Domain.Models.Gameplay;
-using Sources.Scripts.Domain.Models.Spawners;
 using Sources.Scripts.DomainInterfaces.Models.Gameplay;
 using Sources.Scripts.DomainInterfaces.Models.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
-using Sources.Scripts.PresentationsInterfaces.Views.Items;
 using Sources.Scripts.UIFramework.Presentations.Views.Types;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Forms;
 

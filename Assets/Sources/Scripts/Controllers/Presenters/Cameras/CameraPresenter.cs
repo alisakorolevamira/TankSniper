@@ -67,15 +67,16 @@ namespace Sources.Scripts.Controllers.Presenters.Cameras
 
             if (_currentPosition == PositionId.MainPosition)
             {
-                _vertical = Mathf.Clamp(_vertical, CameraConst.MinVerticalAngle, CameraConst.MaxVerticalAngle);
-                _horizontal = Mathf.Clamp(_horizontal, CameraConst.MinHorizontalAngle, CameraConst.MaxHorizontalAngle);
             }
 
             else
             {
-                _vertical = Mathf.Clamp(_vertical, CameraConst.MinVerticalAimAngle, CameraConst.MaxVerticalAimAngle);
-                _horizontal = Mathf.Clamp(_horizontal, CameraConst.MinHorizontalAimAngle, CameraConst.MaxHorizontalAimAngle);
+               // _vertical = Mathf.Clamp(_vertical, CameraConst.MinVerticalAimAngle, CameraConst.MaxVerticalAimAngle);
+               // _horizontal = Mathf.Clamp(_horizontal, CameraConst.MinHorizontalAimAngle, CameraConst.MaxHorizontalAimAngle);
             }
+            
+            _vertical = Mathf.Clamp(_vertical, CameraConst.MinVerticalAngle, CameraConst.MaxVerticalAngle);
+            _horizontal = Mathf.Clamp(_horizontal, CameraConst.MinHorizontalAngle, CameraConst.MaxHorizontalAngle);
 
             Vector3 rotation = new Vector3(_vertical, _horizontal, 0);
             

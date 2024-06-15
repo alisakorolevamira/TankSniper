@@ -38,7 +38,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
         {
             TankMovementState movementState = new TankMovementState(enemyAnimation, tankEnemyView, spawnPoint);
             TankAttackState attackState = new TankAttackState(enemy, tankEnemyView, enemyAnimation);
-            TankDieState dieState = new TankDieState(killedEnemiesCounter, tankEnemyView, _enemyCollection);
+            TankDieState dieState = new TankDieState(killedEnemiesCounter, tankEnemyView, _enemyCollection, enemyAnimation);
             
             FiniteTransitionBase toAttackTransition = new FiniteTransitionBase(
                 attackState, () => _playerAttackService.PlayerAttacked);

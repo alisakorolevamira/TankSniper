@@ -42,6 +42,11 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Base
             //Animator.SetBool(s_isAttack, true);
         }
 
+        public void PlayDying()
+        {
+            
+        }
+
         protected virtual void OnAfterAwake()
         {
         }

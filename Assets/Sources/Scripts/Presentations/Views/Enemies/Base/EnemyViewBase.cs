@@ -16,9 +16,6 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Base
         [SerializeField] private HealthBarUI _healthBarUI;
         [SerializeField] private HealthUIText _healthUIText;
 
-        private IPoolableObjectDestroyerService _poolableObjectDestroyerService =
-            new PoolableObjectDestroyerService();
-
         public EnemyHealthView EnemyHealthView => _healthView;
 
         public HealthBarUI HealthBarUI => _healthBarUI;
@@ -31,6 +28,7 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Base
         {
             //_poolableObjectDestroyerService.Destroy(this);
             //DestroyPresenter();
+            Hide();
         }
         
         public void SetLookAtPlayer()

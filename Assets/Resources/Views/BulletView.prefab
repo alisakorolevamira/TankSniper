@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 8408881450823237212}
-  _onDestroyEffect: {fileID: 2597863420193932767, guid: e8628fc23afced044bf32aa674fbc84f, type: 3}
+  _onDestroyEffect: {fileID: 7625281305379781959, guid: b1d8cda2840ab8e49bb4fc622d99dacb, type: 3}
 --- !u!54 &8408881450823237212
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -110,7 +110,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -146,5 +146,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.2398933
-  m_Center: {x: 0.08447136, y: 0.0000002682209, z: -0.00000014901161}
+  m_Radius: 0.8867162
+  m_Center: {x: 0.0004028678, y: 0.00000023841858, z: -0.00000011920929}

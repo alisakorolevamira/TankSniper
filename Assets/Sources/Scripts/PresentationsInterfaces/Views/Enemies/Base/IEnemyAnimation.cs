@@ -9,5 +9,7 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base
         void PlayIdle();
 
         void PlayAttack();
+
+        void PlayDying();
     }
 }

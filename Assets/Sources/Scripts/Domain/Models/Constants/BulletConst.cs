@@ -2,7 +2,7 @@
 {
     public static class BulletConst
     {
-        public const int Force = 10;
+        public const int Force = 20;
         public const int EffectDelay = 3;
     }
 }

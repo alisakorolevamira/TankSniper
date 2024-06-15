@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading;
+using Cysharp.Threading.Tasks;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.InfrastructureInterfaces.Services.InputServices;
 using Sources.Scripts.PresentationsInterfaces.Views.Bullets;
@@ -19,6 +20,7 @@ namespace Sources.Scripts.Controllers.Presenters.Players
 
         private CancellationTokenSource _cancellationTokenSource;
         private int _amountOfShoots = AttackConst.DefaultShoots;
+        private readonly TimeSpan _delay = TimeSpan.FromSeconds(1);
 
         public AttackerUIPresenter(
             IAttackerUIView uiAttackerView,
@@ -33,6 +35,7 @@ namespace Sources.Scripts.Controllers.Presenters.Players
         public override void Enable()
         {
             _inputService.AttackInputReceived += OnAttackInputReceived;
+            _cancellationTokenSource = new CancellationTokenSource();
         }
 
         public override void Disable()
@@ -46,7 +49,7 @@ namespace Sources.Scripts.Controllers.Presenters.Players
             bulletUI.Hide();
             _amountOfShoots++;
 
-            CheckShoots();
+            StartTimer();
         }
 
         private void CheckShoots()
@@ -62,6 +65,22 @@ namespace Sources.Scripts.Controllers.Presenters.Players
 
             else
                 _formService.Show(FormId.Hud);
+        }
+
+        private async void StartTimer()
+        {
+            _cancellationTokenSource.Cancel();
+            _cancellationTokenSource = new CancellationTokenSource();
+            
+            try
+            {
+                await UniTask.Delay(_delay, cancellationToken: _cancellationTokenSource.Token, ignoreTimeScale: true);
+                
+                CheckShoots();
+            }
+            catch (OperationCanceledException)
+            {
+            }
         }
     }
 }

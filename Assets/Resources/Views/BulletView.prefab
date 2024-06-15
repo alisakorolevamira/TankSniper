@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4867586294123792465}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 8408881450823237212}
-  _onDestroyEffect: {fileID: 7625281305379781959, guid: b1d8cda2840ab8e49bb4fc622d99dacb, type: 3}
+  _onDestroyEffect: {fileID: 3511866582047362458, guid: f9f1cc695382033459a017f6c4125998, type: 3}
 --- !u!54 &8408881450823237212
 Rigidbody:
   m_ObjectHideFlags: 0

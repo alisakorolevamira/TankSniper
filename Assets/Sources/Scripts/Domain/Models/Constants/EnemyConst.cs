@@ -2,8 +2,10 @@
 {
     public static class EnemyConst
     {
-        public const float TankAttackDelay = 5f;
-        public const int Health = 100;
-        public const int Damage = 5;
+        public const float AttackDelay = 5f;
+        public const int Health = 1000;
+        public const int TankDamage = 25;
+        public const int StandingDamage = 10;
+        public const int HelicopterDamage = 40;
     }
 }

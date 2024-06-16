@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Threading;
+using Cysharp.Threading.Tasks;
+using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Enemies.Base;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.States;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
-using UnityEngine;
 
 namespace Sources.Scripts.Controllers.Presenters.Enemies.Base.States
 {
@@ -11,6 +13,9 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Base.States
         private readonly Enemy _enemy;
         private readonly IEnemyViewBase _enemyView;
         private readonly IEnemyAnimation _enemyAnimation;
+        
+        private CancellationTokenSource _cancellationTokenSource;
+        private TimeSpan _attackDelay;
 
         public EnemyAttackState(
             Enemy enemy,
@@ -24,18 +29,36 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Base.States
 
         public override void Enter()
         {
-            _enemyAnimation.PlayAttack();
-            _enemyAnimation.Attacking += OnAttack;
+            _cancellationTokenSource = new CancellationTokenSource();
+            _attackDelay = TimeSpan.FromSeconds(EnemyConst.AttackDelay);
+            
+            _enemyView.SetLookAtPlayer();
+            SetTimer(_cancellationTokenSource.Token);
         }
 
-        public override void Exit() =>
-            _enemyAnimation.Attacking -= OnAttack;
+        public override void Exit() => 
+            _cancellationTokenSource.Cancel();
 
-        private void OnAttack()
+        private async void SetTimer(CancellationToken cancellationToken)
         {
-            Debug.Log("enemyOnAttack");
-            _enemyView.SetLookAtPlayer();
+            try
+            {
+                while (cancellationToken.IsCancellationRequested == false)
+                {
+                    await UniTask.Delay(_attackDelay, cancellationToken: cancellationToken);
+
+                    Attack();
+                }
+            }
+            catch (OperationCanceledException)
+            {
+            }
+        }
+
+        private void Attack()
+        {
             _enemyView.PlayerHealthView.TakeDamage(_enemy.EnemyAttacker.Damage);
+            _enemyAnimation.PlayAttack();
         }
     }
 }

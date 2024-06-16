@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base;
+using Sources.Scripts.Controllers.Presenters.Enemies.Base.States;
 using Sources.Scripts.Controllers.Presenters.Enemies.Standing.States;
 using Sources.Scripts.Domain.Models.Enemies.Standing;
 using Sources.Scripts.Domain.Models.Gameplay;
@@ -37,8 +38,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
             IEnemySpawnPoint spawnPoint)
         {
             StandingEnemyIdleState idleState = new StandingEnemyIdleState(enemyAnimation, enemyView);
-            StandingEnemyAttackState attackState = new StandingEnemyAttackState(enemy, enemyView, enemyAnimation);
-            StandingEnemyDieState dieState = new StandingEnemyDieState(killedEnemiesCounter, enemyView, _enemyCollection, enemyAnimation);
+            EnemyAttackState attackState = new EnemyAttackState(enemy, enemyView, enemyAnimation);
+            EnemyDieState dieState = new EnemyDieState(killedEnemiesCounter, enemyView, _enemyCollection, enemyAnimation);
             
             FiniteTransitionBase toAttackTransition = new FiniteTransitionBase(
                 attackState, () => _playerAttackService.PlayerAttacked);

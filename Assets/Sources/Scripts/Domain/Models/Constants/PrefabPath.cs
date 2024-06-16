@@ -7,6 +7,7 @@
         public const string BossEnemy = "Views/BossEnemyView";
         public const string TankEnemy = "Views/TankEnemyView";
         public const string StandingEnemy = "Views/StandingEnemyView";
+        public const string HelicopterEnemy = "Views/HelicopterEnemyView";
         public const string Enemy = "Views/EnemyView";
         public const string Bullet = "Views/BulletView";
     }

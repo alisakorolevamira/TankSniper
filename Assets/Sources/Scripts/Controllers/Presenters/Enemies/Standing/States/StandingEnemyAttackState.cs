@@ -30,7 +30,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Standing.States
         public override void Enter()
         {
             _cancellationTokenSource = new CancellationTokenSource();
-            _attackDelay = TimeSpan.FromSeconds(EnemyConst.TankAttackDelay);
+            _attackDelay = TimeSpan.FromSeconds(EnemyConst.AttackDelay);
             
             _enemyView.SetLookAtPlayer();
             SetTimer(_cancellationTokenSource.Token);

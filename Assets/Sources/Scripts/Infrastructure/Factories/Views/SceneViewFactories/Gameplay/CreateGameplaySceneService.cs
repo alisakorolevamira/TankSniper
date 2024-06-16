@@ -1,5 +1,6 @@
 ﻿using System;
 using Sources.Scripts.Domain.Models.Common;
+using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Players;
@@ -104,7 +105,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             
             CharacterHealth characterHealth = new CharacterHealth();
 
-            Weapon weapon = new Weapon(50);
+            Weapon weapon = new Weapon(PlayerConst.Damage);
             
             PlayerAttacker playerAttacker = new PlayerAttacker(weapon); //переделать
             

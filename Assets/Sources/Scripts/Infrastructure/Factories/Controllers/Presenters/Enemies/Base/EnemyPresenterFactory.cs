@@ -37,14 +37,14 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
         {
             //EnemyInitState initState = new EnemyInitState(enemy, enemyAnimation, enemyView, _enemyCollection);
             EnemyAttackState attackState = new EnemyAttackState(enemy, enemyView, enemyAnimation);
-            EnemyDieState dieState = new EnemyDieState(killedEnemiesCounter, enemyView, _enemyCollection);
+            //EnemyDieState dieState = new EnemyDieState(killedEnemiesCounter, enemyView, _enemyCollection);
             
             FiniteTransitionBase toAttackTransition = new FiniteTransitionBase(
                 attackState, () => _playerAttackService.PlayerAttacked);
 
-            FiniteTransition toDieTransition = new FiniteTransitionBase(
-                dieState, () => enemy.EnemyHealth.CurrentHealth <= 0);
-            attackState.AddTransition(toDieTransition);
+           // FiniteTransition toDieTransition = new FiniteTransitionBase(
+           //     dieState, () => enemy.EnemyHealth.CurrentHealth <= 0);
+           // attackState.AddTransition(toDieTransition);
 
             return new EnemyPresenter(attackState, _updateRegister);
         }

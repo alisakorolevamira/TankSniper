@@ -17,7 +17,6 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Tank.States
         private readonly ITankEnemyAnimation _enemyAnimation;
         
         private CancellationTokenSource _cancellationTokenSource;
-        private TimeSpan _animationDelay = TimeSpan.FromSeconds(6);
 
         public TankDieState(
             KilledEnemiesCounter killedEnemiesCounter,
@@ -42,7 +41,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Tank.States
             Die(_cancellationTokenSource.Token);
         }
 
-        private async void Die(CancellationToken cancellationToken)
+        private void Die(CancellationToken cancellationToken)
         {
             try
             {
@@ -51,9 +50,6 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Tank.States
                     _killedEnemiesCounter.IncreaseKilledEnemiesCount();
                     _enemyCollection.Remove(_tankEnemyView);
                     _enemyAnimation.PlayDying();
-                    
-                    await UniTask.Delay(_animationDelay, cancellationToken: cancellationToken);
-
                     _tankEnemyView.Destroy();
                 }
             }

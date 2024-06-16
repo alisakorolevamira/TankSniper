@@ -23,7 +23,7 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners
 
         public IStandingEnemyView Spawn(KilledEnemiesCounter killedEnemiesCounter, IEnemySpawnPoint spawnPoint)
         {
-            StandingEnemy enemy = new StandingEnemy(new EnemyHealth(EnemyConst.Health), new EnemyAttacker(EnemyConst.Damage));
+            StandingEnemy enemy = new StandingEnemy(new EnemyHealth(EnemyConst.Health), new EnemyAttacker(EnemyConst.StandingDamage));
 
             IStandingEnemyView enemyView = _viewFactory.Create(enemy, killedEnemiesCounter, spawnPoint);
             

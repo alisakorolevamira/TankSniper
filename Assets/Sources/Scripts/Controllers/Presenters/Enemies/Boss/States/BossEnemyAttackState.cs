@@ -34,7 +34,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Boss.States
             base.Enter();
 
             _cancellationTokenSource = new CancellationTokenSource();
-            _massAttackDelay = TimeSpan.FromSeconds(EnemyConst.TankAttackDelay);
+            _massAttackDelay = TimeSpan.FromSeconds(EnemyConst.AttackDelay);
 
             StartAttackTimer(_cancellationTokenSource.Token);
         }

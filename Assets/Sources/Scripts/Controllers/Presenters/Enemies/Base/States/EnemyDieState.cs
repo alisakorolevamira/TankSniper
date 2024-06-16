@@ -12,15 +12,18 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Base.States
         private readonly KilledEnemiesCounter _killedEnemiesCounter;
         private readonly IEnemyViewBase _enemyView;
         private readonly List<IEnemyViewBase> _enemyCollection;
+        private readonly IEnemyAnimation _enemyAnimation;
 
         public EnemyDieState(
             KilledEnemiesCounter killedEnemiesCounter,
             IEnemyViewBase enemyView,
-            List<IEnemyViewBase> enemyCollection)
+            List<IEnemyViewBase> enemyCollection,
+            IEnemyAnimation enemyAnimation)
         {
             _killedEnemiesCounter = killedEnemiesCounter ?? throw new ArgumentNullException(nameof(killedEnemiesCounter));
             _enemyView = enemyView ?? throw new ArgumentNullException(nameof(enemyView));
             _enemyCollection = enemyCollection ?? throw new ArgumentNullException(nameof(enemyCollection));
+            _enemyAnimation = enemyAnimation ?? throw new ArgumentNullException(nameof(enemyAnimation));
         }
 
         public override void Enter()
@@ -30,6 +33,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Base.States
 
             _killedEnemiesCounter.IncreaseKilledEnemiesCount();
             _enemyCollection.Remove(_enemyView);
+            _enemyAnimation.PlayDying();
             //_enemyView.Destroy();
         }
     }

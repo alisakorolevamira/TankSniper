@@ -3,7 +3,7 @@ using Sources.Scripts.PresentationsInterfaces.Views.NawMeshAgents;
 
 namespace Sources.Scripts.PresentationsInterfaces.Views.Enemies.Boss
 {
-    public interface IBossEnemyView : IEnemyViewBase, INavMeshAgent
+    public interface IBossEnemyView : IEnemyViewBase
     {
         void PlayAttackParticle();
     }

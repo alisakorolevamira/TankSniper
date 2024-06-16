@@ -23,7 +23,7 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners
 
         public ITankEnemyView Spawn(KilledEnemiesCounter killedEnemiesCounter, IEnemySpawnPoint spawnPoint)
         {
-            TankEnemy tank = new TankEnemy(new EnemyHealth(EnemyConst.Health), new EnemyAttacker(EnemyConst.Damage));
+            TankEnemy tank = new TankEnemy(new EnemyHealth(EnemyConst.Health), new EnemyAttacker(EnemyConst.TankDamage));
 
             ITankEnemyView tankEnemyView = _viewFactory.Create(tank, killedEnemiesCounter, spawnPoint);
 

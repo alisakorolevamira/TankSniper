@@ -2,7 +2,7 @@
 
 namespace Sources.Scripts.PresentationsInterfaces.Views.Enemies.Standing
 {
-    public interface IStandingEnemyView : IEnemyViewBase, IView
+    public interface IStandingEnemyView : IEnemyViewBase
     {
     }
 }

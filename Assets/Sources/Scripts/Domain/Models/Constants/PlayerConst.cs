@@ -2,6 +2,7 @@
 {
     public static class PlayerConst
     {
-        public const int MaxHealth = 100;
+        public const int MaxHealth = 5000;
+        public const int Damage = 500;
     }
 }

@@ -8,10 +8,12 @@ using Sources.Scripts.Domain.Models.Spawners;
 using Sources.Scripts.Domain.Models.Spawners.Types;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.Presentations.Views.Common;
+using Sources.Scripts.Presentations.Views.Enemies.Helicopter;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.PresentationsInterfaces.Views.Common;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopter;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Standing;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tank;
 using Sources.Scripts.PresentationsInterfaces.Views.Spawners;
@@ -26,6 +28,7 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
         private readonly IEnemySpawnerView _enemySpawnerView;
         private readonly ITankEnemySpawnerService _tankEnemySpawnerService;
         private readonly IStandingEnemySpawnerService _standingEnemySpawnerService;
+        private readonly IHelicopterEnemySpawnerService _helicopterEnemySpawnerService;
         private readonly IBossEnemySpawnerService _bossEnemySpawnerService;
 
         private CancellationTokenSource _cancellationTokenSource;
@@ -36,6 +39,7 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
             IEnemySpawnerView enemySpawnerView,
             ITankEnemySpawnerService tankEnemySpawnerService,
             IStandingEnemySpawnerService standingEnemySpawnerService,
+            IHelicopterEnemySpawnerService helicopterEnemySpawnerService,
             IBossEnemySpawnerService bossEnemySpawnerService)
         {
             _killedEnemiesCounter = killedEnemiesCounter ?? throw new ArgumentNullException(nameof(killedEnemiesCounter));
@@ -44,6 +48,8 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
             _tankEnemySpawnerService = tankEnemySpawnerService ?? throw new ArgumentNullException(nameof(tankEnemySpawnerService));
             _standingEnemySpawnerService = standingEnemySpawnerService ??
                                            throw new ArgumentNullException(nameof(standingEnemySpawnerService));
+            _helicopterEnemySpawnerService = helicopterEnemySpawnerService ??
+                                            throw new ArgumentNullException(nameof(helicopterEnemySpawnerService));
             _bossEnemySpawnerService = bossEnemySpawnerService ??
                                      throw new ArgumentNullException(nameof(bossEnemySpawnerService));
         }
@@ -88,12 +94,15 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
                 standingEnemyView.SetPlayerHealthView(playerView.PlayerHealthView);
             }
 
-            _enemySpawner.SpawnedEnemies++;
-        }
+            else if (spawnPoint.EnemyType == EnemyType.Helicopter)
+            {
+                IHelicopterEnemyView helicopterEnemyView =
+                    _helicopterEnemySpawnerService.Spawn(_killedEnemiesCounter, spawnPoint);
+                
+                helicopterEnemyView.SetPlayerHealthView(playerView.PlayerHealthView);
+            }
 
-        private void SpawnBoss(Vector3 position, PlayerView playerView)
-        {
-            
+            _enemySpawner.SpawnedEnemies++;
         }
     }
 }

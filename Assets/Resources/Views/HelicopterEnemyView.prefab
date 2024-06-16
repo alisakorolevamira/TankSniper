@@ -1147,10 +1147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6318796341398952710}
   - component: {fileID: 2139564264125966131}
-  - component: {fileID: 1172895594204776497}
   - component: {fileID: 3748769131238687909}
-  - component: {fileID: 1962779071930663356}
-  - component: {fileID: 3175875908293695684}
   m_Layer: 0
   m_Name: HelicopterEnemyView
   m_TagString: Untagged
@@ -1172,7 +1169,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8865347796139735620}
-  - {fileID: 7565097841420575419}
   - {fileID: 1759103537891593099}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1188,23 +1184,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10deb1187de4992b8627b80b8f89259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _navMeshAgent: {fileID: 3175875908293695684}
-  _healthView: {fileID: 1172895594204776497}
+  _navMeshAgent: {fileID: 0}
+  _healthView: {fileID: 7330171542488357504}
   _healthBarUI: {fileID: 4131556643865476451}
   _healthUIText: {fileID: 491379515560827209}
   _enemyAnimation: {fileID: 3748769131238687909}
---- !u!114 &1172895594204776497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2841334394300402315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e91c045298145fea8e21f88215cc74f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3748769131238687909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1217,106 +1201,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3666e0880b384e9d8edba6eb4cfc6f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 8266315012893704235}
+  _animator: {fileID: 7142335105820221714}
   _gunShoot: {fileID: 1211228137421608665}
-  _destructible: {fileID: 1962779071930663356}
---- !u!114 &1962779071930663356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2841334394300402315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _totalHitPoints: 50
-  _currentHitPoints: 50
-  damageLevels:
-  - maxHitPoints: 50
-    minHitPoints: 40.1
-    healthPercent: 100
-    hasError: 0
-    visibleDamageLevel: 0
-  - maxHitPoints: 40
-    minHitPoints: 30.099998
-    healthPercent: 80
-    hasError: 0
-    visibleDamageLevel: 2
-  - maxHitPoints: 30
-    minHitPoints: 20.1
-    healthPercent: 60
-    hasError: 0
-    visibleDamageLevel: 4
-  - maxHitPoints: 20
-    minHitPoints: 10.099999
-    healthPercent: 40
-    hasError: 0
-    visibleDamageLevel: 6
-  - maxHitPoints: 10
-    minHitPoints: 0
-    healthPercent: 20
-    hasError: 0
-    visibleDamageLevel: 8
-  destroyedPrefab: {fileID: 0}
-  destroyedPrefabParent: {fileID: 0}
-  fallbackParticle: {fileID: 19800004, guid: 6b46cad447c64dd48b8b715df6e3d2ad, type: 3}
-  fallbackParticleMatOption: 0
-  damageEffects: []
-  velocityReduction: 0.5
-  limitDamage: 0
-  minDamage: 10
-  maxDamage: 100
-  minDamageTime: 0
-  ignoreCollisionsUnder: 2
-  unparentOnDestroy: []
-  disableKinematicOnUparentedChildren: 1
-  replaceMaterials: []
-  replaceParticleMats: []
-  canBeDestroyed: 1
-  canBeRepaired: 1
-  debrisToReParentByName: []
-  debrisToReParentIsKinematic: 0
-  childrenToReParentByName: []
-  isDebrisChipAway: 0
-  chipAwayDebrisMass: 1
-  chipAwayDebrisDrag: 0
-  chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
-  useFallbackParticle: 1
-  centerPointOverride: {x: 0, y: 0, z: 0}
-  fallbackParticleScale: {x: 1, y: 1, z: 1}
-  fallbackParticleParent: {fileID: 0}
-  sinkWhenDestroyed: 0
-  shouldDeactivate: 0
-  isTerrainTree: 0
-  destroyedSound: {fileID: 0}
-  damagedSound: {fileID: 0}
-  repairedSound: {fileID: 0}
---- !u!195 &3175875908293695684
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2841334394300402315}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  _destructible: {fileID: 6686252706891399966}
 --- !u!1 &3071159334148462638
 GameObject:
   m_ObjectHideFlags: 0
@@ -6663,6 +6550,10 @@ GameObject:
   - component: {fileID: 1759103537891593099}
   - component: {fileID: 5000081285336737768}
   - component: {fileID: 2888140472181641199}
+  - component: {fileID: 7142335105820221714}
+  - component: {fileID: 7330171542488357504}
+  - component: {fileID: 3197383934003619604}
+  - component: {fileID: 6686252706891399966}
   m_Layer: 0
   m_Name: Helicopter
   m_TagString: Untagged
@@ -6680,13 +6571,14 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.005, y: 0.0066804998, z: 0.005}
+  m_LocalScale: {x: 0.003, y: 0.003, z: 0.003}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3062715263845727814}
   - {fileID: 5056195647736326734}
   - {fileID: 2220773532151473272}
   - {fileID: 6513652938675688803}
+  - {fileID: 7565097841420575419}
   m_Father: {fileID: 6318796341398952710}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5000081285336737768
@@ -6739,6 +6631,112 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &7142335105820221714
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5129366304408542470}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1847ffd384556fb40b53285402689266, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7330171542488357504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5129366304408542470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e91c045298145fea8e21f88215cc74f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &3197383934003619604
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5129366304408542470}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 550.1358
+  m_Height: 493.9296
+  m_Direction: 2
+  m_Center: {x: 0, y: 246.1265, z: -263.1855}
+--- !u!114 &6686252706891399966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5129366304408542470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _totalHitPoints: 50
+  _currentHitPoints: 50
+  damageLevels: []
+  destroyedPrefab: {fileID: 0}
+  destroyedPrefabParent: {fileID: 0}
+  fallbackParticle: {fileID: 0}
+  fallbackParticleMatOption: 0
+  damageEffects: []
+  velocityReduction: 0.5
+  limitDamage: 0
+  minDamage: 10
+  maxDamage: 100
+  minDamageTime: 0
+  ignoreCollisionsUnder: 2
+  unparentOnDestroy: []
+  disableKinematicOnUparentedChildren: 1
+  replaceMaterials: []
+  replaceParticleMats: []
+  canBeDestroyed: 1
+  canBeRepaired: 1
+  debrisToReParentByName: []
+  debrisToReParentIsKinematic: 0
+  childrenToReParentByName: []
+  isDebrisChipAway: 0
+  chipAwayDebrisMass: 1
+  chipAwayDebrisDrag: 0
+  chipAwayDebrisAngularDrag: 0.05
+  autoPoolDestroyedPrefab: 1
+  useFallbackParticle: 1
+  centerPointOverride: {x: 0, y: 0, z: 0}
+  fallbackParticleScale: {x: 1, y: 1, z: 1}
+  fallbackParticleParent: {fileID: 0}
+  sinkWhenDestroyed: 0
+  shouldDeactivate: 0
+  isTerrainTree: 0
+  destroyedSound: {fileID: 0}
+  damagedSound: {fileID: 0}
+  repairedSound: {fileID: 0}
 --- !u!1 &5282858650469138881
 GameObject:
   m_ObjectHideFlags: 0
@@ -6765,8 +6763,8 @@ Transform:
   m_GameObject: {fileID: 5282858650469138881}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.6909049, z: -0, w: -0.7229457}
-  m_LocalPosition: {x: 0.28180844, y: 1.16263, z: 0.54402566}
-  m_LocalScale: {x: 0.49999988, y: 0.49999997, z: 0.49999988}
+  m_LocalPosition: {x: 56.361687, y: 174.03337, z: 108.80513}
+  m_LocalScale: {x: 99.99998, y: 74.84469, z: 99.99998}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8470416892023452298}
@@ -6777,7 +6775,7 @@ Transform:
   - {fileID: 9129387587096028159}
   - {fileID: 697573810561953904}
   - {fileID: 3339744195781513027}
-  m_Father: {fileID: 6318796341398952710}
+  m_Father: {fileID: 1759103537891593099}
   m_LocalEulerAnglesHint: {x: 0, y: 316.618, z: 0}
 --- !u!95 &8266315012893704235
 Animator:

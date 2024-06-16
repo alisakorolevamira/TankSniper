@@ -4,6 +4,7 @@
     {
         Tank = 1,
         Standing = 2,
-        Boss = 3,
+        Helicopter = 3,
+        Boss = 4,
     }
 }

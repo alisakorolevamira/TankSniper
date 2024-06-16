@@ -1,13 +1,13 @@
 using Sources.Scripts;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class TestWeapon : MonoBehaviour
 {
-    [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private Rigidbody _rigidbodyy;
+    [SerializeField] private Transform _rigidbodyy;
     [SerializeField] private Button _button;
-    [SerializeField] private ForceMode _forceMode;
+    [SerializeField] private NavMeshAgent _navMeshAgent;
 
     private void OnEnable()
     {
@@ -21,12 +21,6 @@ public class TestWeapon : MonoBehaviour
 
     private void PerformAttack()
     {
-
-        
-        _rigidbody.AddForce(new Vector3(transform.position.x -2, 
-            transform.position.y+5, transform.position.z +3), _forceMode);
-        
-        _rigidbodyy.AddForce(new Vector3(transform.position.x +2, 
-            transform.position.y+5, transform.position.z -3), _forceMode);
+        _navMeshAgent.SetDestination(_rigidbodyy.position);
     }
 }

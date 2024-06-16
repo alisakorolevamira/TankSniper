@@ -1267,13 +1267,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4087161420347104715}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1074766639022528710}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0.25851822}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.008129826}
@@ -11574,7 +11574,6 @@ GameObject:
   - component: {fileID: 8865171993953347413}
   - component: {fileID: 2295363492333614151}
   - component: {fileID: -4276252091964249331}
-  - component: {fileID: -7004983082041883700}
   m_Layer: 0
   m_Name: StandingEnemyView
   m_TagString: Untagged
@@ -11612,7 +11611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de8a31e51d044e1afe9e462e1162f38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _navMeshAgent: {fileID: -7004983082041883700}
+  _navMeshAgent: {fileID: 0}
   _healthView: {fileID: 8865171993953347413}
   _healthBarUI: {fileID: 8497304767100452393}
   _healthUIText: {fileID: 5836055317558170551}
@@ -11744,28 +11743,6 @@ MonoBehaviour:
   destroyedSound: {fileID: 0}
   damagedSound: {fileID: 0}
   repairedSound: {fileID: 0}
---- !u!195 &-7004983082041883700
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7625160230402186198}
-  m_Enabled: 0
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &7652841969811948441
 GameObject:
   m_ObjectHideFlags: 0

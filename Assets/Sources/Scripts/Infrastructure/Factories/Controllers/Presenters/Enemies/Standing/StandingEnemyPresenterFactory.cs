@@ -37,7 +37,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
             IStandingEnemyAnimation enemyAnimation,
             IEnemySpawnPoint spawnPoint)
         {
-            StandingEnemyIdleState idleState = new StandingEnemyIdleState(enemyAnimation, enemyView);
+            EnemyIdleState idleState = new EnemyIdleState(enemyAnimation);
             EnemyAttackState attackState = new EnemyAttackState(enemy, enemyView, enemyAnimation);
             EnemyDieState dieState = new EnemyDieState(killedEnemiesCounter, enemyView, _enemyCollection, enemyAnimation);
             

@@ -2,6 +2,7 @@
 using System.Linq;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.States;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopter;
 using Sources.Scripts.PresentationsInterfaces.Views.Spawners;
 using UnityEngine;
 
@@ -38,7 +39,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Base.States
         {
             _enemyView.Move(_currentTargetPoint);
             
-            if(Vector3.Distance(_enemyView.Position, _currentTargetPoint) < 0.1f)
+            if (Vector3.Distance(_enemyView.Position, _currentTargetPoint) < 0.1f)
                 ChangeCurrentTargetPoint();
         }
 

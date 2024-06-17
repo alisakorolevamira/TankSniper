@@ -32,7 +32,7 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Base
         public void PlayIdle()
         {
             ExceptAnimation(StopIdle);
-            //Animator.SetBool(s_isIdle, true);
+            Animator.SetBool(s_isIdle, true);
             //_idleAnimation.Play();
         }
 

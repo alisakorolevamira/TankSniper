@@ -5,6 +5,7 @@ using Sources.Scripts.UIFramework.Presentations.Views.Types;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Forms;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace Sources.Scripts.Infrastructure.Services.InputServices
 {
@@ -46,10 +47,13 @@ namespace Sources.Scripts.Infrastructure.Services.InputServices
 
         private void OnTouchPressPerformedStarted(InputAction.CallbackContext context)
         {
-            var currentTouchPosition = _inputMap.Touchscreen.TouchPosition.ReadValue<Vector2>();
-            var isTouchInRect = RectTransformUtility.RectangleContainsScreenPoint(_shootZone, currentTouchPosition);
+            Vector2 currentTouchPosition = _inputMap.Touchscreen.TouchPosition.ReadValue<Vector2>();
+            bool isTouchInRect = RectTransformUtility.RectangleContainsScreenPoint(_shootZone, currentTouchPosition);
 
-            if (isTouchInRect)
+            if (isTouchInRect != true)
+                return;
+
+            if (_formService.IsActive(FormId.Entry) || _formService.IsActive(FormId.Hud))
             {
                 _inputMap.Touchscreen.TouchPress.canceled += OnTouchPressPerformedEnded;
                 _formService.Show(FormId.Shoot);

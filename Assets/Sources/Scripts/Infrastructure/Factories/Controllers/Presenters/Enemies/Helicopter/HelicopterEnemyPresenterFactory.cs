@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base.States;
+using Sources.Scripts.Controllers.Presenters.Enemies.Helicopter;
 using Sources.Scripts.Controllers.Presenters.Enemies.Standing.States;
 using Sources.Scripts.Domain.Models.Enemies.Helicopter;
 using Sources.Scripts.Domain.Models.Enemies.Standing;
@@ -40,7 +41,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
             IEnemySpawnPoint spawnPoint)
         {
             EnemyIdleState idleState = new EnemyIdleState(enemyAnimation);
-            EnemyAttackState attackState = new EnemyAttackState(enemy, enemyView, enemyAnimation);
+            HelicopterAttackState attackState = new HelicopterAttackState(enemy, enemyView, enemyAnimation);
             EnemyDieState dieState = new EnemyDieState(killedEnemiesCounter, enemyView, _enemyCollection, enemyAnimation);
             
             FiniteTransitionBase toAttackTransition = new FiniteTransitionBase(

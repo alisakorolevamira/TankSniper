@@ -8,6 +8,7 @@ using Sources.Scripts.Presentations.Views.Settings;
 using Sources.Scripts.Presentations.Views.Weapons;
 using Sources.Scripts.UIFramework.Presentations.Views;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Sources.Scripts.Presentations.UI.Huds
 {

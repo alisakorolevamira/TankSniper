@@ -8,7 +8,7 @@ using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
 
-public class TestWeapon : MonoBehaviour
+public class AddNewTankButton : MonoBehaviour
 {
     [SerializeField] private Button _addButton;
     [SerializeField] private List<TankPoint> _points;

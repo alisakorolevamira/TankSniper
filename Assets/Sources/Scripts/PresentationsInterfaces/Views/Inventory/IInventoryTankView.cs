@@ -1,4 +1,5 @@
 ﻿using Sources.Scripts.Controllers.Presenters.Inventory;
+using Sources.Scripts.Infrastructure.Services.Spawners;
 
 namespace Sources.Scripts.PresentationsInterfaces.Views.Inventory
 {
@@ -6,6 +7,6 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Inventory
     {
         int Level { get; }
 
-        void Construct(InventoryGridPresenter presenter, int level);
+        void Construct(InventoryTankSpawnerService spawnerService, int level);
     }
 }

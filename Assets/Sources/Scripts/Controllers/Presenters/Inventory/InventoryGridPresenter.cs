@@ -2,7 +2,6 @@
 using System.Linq;
 using Sources.Scripts.Domain.Models.Inventory;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
-using Sources.Scripts.Presentations.Views.Inventory;
 using Sources.Scripts.PresentationsInterfaces.Views.Inventory;
 
 namespace Sources.Scripts.Controllers.Presenters.Inventory
@@ -23,17 +22,24 @@ namespace Sources.Scripts.Controllers.Presenters.Inventory
             _spawnerService = spawnerService ?? throw new ArgumentNullException(nameof(spawnerService));
         }
 
-        public void AddTank(int level)
+        public override void Enable()
         {
-            InventorySlotView slot = _view.Slots.FirstOrDefault(x => x.IsEmpty);
+            Fill();
+        }
 
-            if (slot == null)
-                return;
+        private void Fill()
+        {
+            foreach (var slotView in _view.Slots)
+            {
+                foreach (var slot in 
+                         _grid.Slots.Where(slot => slotView.Position == slot.Key))
+                {
+                    slotView.Construct(slot.Value);
 
-            IInventoryTankView tankView = _spawnerService.Spawn(slot.transform.position, level);
-            tankView.Construct(this, level);
-
-            slot.SetTank(tankView);
+                    if (slotView.IsEmpty == false)
+                        _spawnerService.Spawn(slotView.Level, slotView.transform.position);
+                }
+            }
         }
     }
 }

@@ -11,18 +11,22 @@ namespace Sources.Scripts.Domain.Models.Inventory
         {
             Id = inventorySlotDto.Id;
             IsEmpty = inventorySlotDto.IsEmpty;
+            Level = inventorySlotDto.Level;
         }
         
         public InventorySlot(
             string id,
-            bool isEmpty)
+            bool isEmpty,
+            int level)
         {
             Id = id;
             IsEmpty = isEmpty;
+            Level = level;
         }
         
         public bool IsEmpty { get; private set; }
         public string Id { get; }
+        public int Level { get; }
         public Type Type => GetType();
     }
 }

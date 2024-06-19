@@ -129,15 +129,15 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
 
         private List<InventorySlot> CreateSlots()
         {
-            InventorySlot firstSlot = new InventorySlot(ModelId.FirstSlot, true);
-            InventorySlot secondSlot = new InventorySlot(ModelId.SecondSlot, true);
-            InventorySlot thirdSlot = new InventorySlot(ModelId.ThirdSlot, true);
-            InventorySlot fourthSlot = new InventorySlot(ModelId.FourthSlot, true);
-            InventorySlot fifthSlot = new InventorySlot(ModelId.FifthSlot, true);
-            InventorySlot sixthSlot = new InventorySlot(ModelId.SixthSlot, true);
-            InventorySlot seventhSlot = new InventorySlot(ModelId.SeventhSlot, true);
-            InventorySlot eighthSlot = new InventorySlot(ModelId.EighthSlot, true);
-            InventorySlot ninthSlot = new InventorySlot(ModelId.NinthSlot, true);
+            InventorySlot firstSlot = new InventorySlot(ModelId.FirstSlot, true, 1);
+            InventorySlot secondSlot = new InventorySlot(ModelId.SecondSlot, true, 1);
+            InventorySlot thirdSlot = new InventorySlot(ModelId.ThirdSlot, true, 1);
+            InventorySlot fourthSlot = new InventorySlot(ModelId.FourthSlot, true, 1);
+            InventorySlot fifthSlot = new InventorySlot(ModelId.FifthSlot, true, 1);
+            InventorySlot sixthSlot = new InventorySlot(ModelId.SixthSlot, true, 1);
+            InventorySlot seventhSlot = new InventorySlot(ModelId.SeventhSlot, true, 1);
+            InventorySlot eighthSlot = new InventorySlot(ModelId.EighthSlot, true, 1);
+            InventorySlot ninthSlot = new InventorySlot(ModelId.NinthSlot, true, 1);
 
             List<InventorySlot> slots = new List<InventorySlot>
             {

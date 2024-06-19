@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Sources.Scripts.Domain.Models.Inventory;
+using UnityEngine;
 
 namespace Sources.Scripts.PresentationsInterfaces.Views.Inventory
 {
@@ -6,6 +7,8 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Inventory
     {
         Vector2Int Position { get; }
         bool IsEmpty { get; }
+        int Level { get; }
         IInventoryTankView CurrentTank { get; }
+        void Construct(InventorySlot slot);
     }
 }

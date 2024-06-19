@@ -1,11 +1,9 @@
 ﻿using System;
-using Sources.Scripts.Controllers.Presenters.Inventory;
-using Sources.Scripts.Infrastructure.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
+using Sources.Scripts.Presentations.Views.Inventory;
 using Sources.Scripts.UIFramework.Domain.Commands;
 using Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Buttons;
 using Sources.Scripts.UIFramework.PresentationsInterfaces.Buttons;
-using UnityEngine;
 
 namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
 {
@@ -22,7 +20,13 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
         
         public void Handle(IUIButton uiButton)
         {
-            _spawnerService.Spawn(1);
+            InventorySlotView emptySlot = _spawnerService.FindEmptySlot();
+
+            if (emptySlot == null)
+                return;
+            
+            
+            _spawnerService.Spawn(1, emptySlot.transform.position);
         }
     }
 }

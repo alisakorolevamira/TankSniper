@@ -1,6 +1,7 @@
 ﻿using System;
 using Sources.Scripts.Controllers.Presenters.Inventory;
 using Sources.Scripts.Infrastructure.Services.ObjectPool;
+using Sources.Scripts.Infrastructure.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.ObjectPool;
 using Sources.Scripts.PresentationsInterfaces.Views.Inventory;
 using UnityEngine;
@@ -10,14 +11,14 @@ namespace Sources.Scripts.Presentations.Views.Inventory
     public class InventoryTankView : View, IInventoryTankView
     {
         private InventorySlotView _currentTankPoint;
-        private InventoryGridPresenter _inventoryGridPresenter;
+        private InventoryTankSpawnerService _spawnerService;
 
         public event Action<int> AddNewTank;
         public int Level { get; private set; }
         
-        public void Construct(InventoryGridPresenter presenter, int level)
+        public void Construct(InventoryTankSpawnerService spawnerService, int level)
         {
-            _inventoryGridPresenter = presenter;
+            _spawnerService = spawnerService;
             Level = level;
         }
         
@@ -46,8 +47,7 @@ namespace Sources.Scripts.Presentations.Views.Inventory
                         Hide();
                         slotView.CurrentTank.Hide();
                         _currentTankPoint.ClearSlot();
-                        
-                        _inventoryGridPresenter.AddTank(Level + 1);
+                        _spawnerService.Spawn(Level + 1, slotView.transform.position);
                         
                         return;
                     }

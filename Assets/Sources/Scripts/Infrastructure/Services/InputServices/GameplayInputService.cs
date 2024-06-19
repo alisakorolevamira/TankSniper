@@ -32,17 +32,17 @@ namespace Sources.Scripts.Infrastructure.Services.InputServices
         
             _inputMap.Enable();
 
-            _inputMap.Touchscreen.TouchDelta.performed += OnTouchDeltaPreformed;
+            _inputMap.Touchscreen.TouchDelta.performed += OnTouchDeltaPerformed;
             _inputMap.Touchscreen.TouchPress.started += OnTouchPressPerformedStarted;
         }
 
         public void Exit()
         {
-            _inputMap.Touchscreen.TouchDelta.performed -= OnTouchDeltaPreformed;
+            _inputMap.Touchscreen.TouchDelta.performed -= OnTouchDeltaPerformed;
             _inputMap.Touchscreen.TouchPress.started -= OnTouchPressPerformedEnded;
         }
 
-        private void OnTouchDeltaPreformed(InputAction.CallbackContext context) => 
+        private void OnTouchDeltaPerformed(InputAction.CallbackContext context) => 
             RotationInputReceived?.Invoke(context.ReadValue<Vector2>());
 
         private void OnTouchPressPerformedStarted(InputAction.CallbackContext context)

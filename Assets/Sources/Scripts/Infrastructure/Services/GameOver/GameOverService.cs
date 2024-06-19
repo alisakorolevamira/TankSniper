@@ -13,7 +13,7 @@ namespace Sources.Scripts.Infrastructure.Services.GameOver
         private readonly IFormService _formService;
         private readonly ILoadService _loadService;
         //private readonly IInterstitialAdService _interstitialAdService;
-        private ICharacterHealth characterHealth;
+        private ICharacterHealth _characterHealth;
         private bool _isGameOver;
 
         public GameOverService(
@@ -29,17 +29,17 @@ namespace Sources.Scripts.Infrastructure.Services.GameOver
 
         public void Enter(object payload = null)
         {
-            if (characterHealth == null)
-                throw new ArgumentNullException(nameof(characterHealth));
+            if (_characterHealth == null)
+                throw new ArgumentNullException(nameof(_characterHealth));
 
-            characterHealth.Die += OnCharacterDie;
+            _characterHealth.Die += OnCharacterDie;
         }
 
         public void Exit() =>
-            characterHealth.Die -= OnCharacterDie;
+            _characterHealth.Die -= OnCharacterDie;
 
         public void Register(ICharacterHealth characterHealth) =>
-            this.characterHealth = characterHealth ?? throw new ArgumentNullException(nameof(characterHealth));
+            _characterHealth = characterHealth ?? throw new ArgumentNullException(nameof(characterHealth));
 
         private void OnCharacterDie()
         {

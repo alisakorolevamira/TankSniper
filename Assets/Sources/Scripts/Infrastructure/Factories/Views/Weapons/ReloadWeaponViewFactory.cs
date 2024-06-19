@@ -8,16 +8,16 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Weapons
 {
     public class ReloadWeaponViewFactory
     {
-        private readonly ReloadWeaponPresenterFactory _factory;
+        private readonly ReloadWeaponPresenterFactory _presenterFactory;
 
-        public ReloadWeaponViewFactory(ReloadWeaponPresenterFactory factory)
+        public ReloadWeaponViewFactory(ReloadWeaponPresenterFactory presenterFactory)
         {
-            _factory = factory ?? throw new ArgumentNullException(nameof(factory));
+            _presenterFactory = presenterFactory ?? throw new ArgumentNullException(nameof(presenterFactory));
         }
 
         public IReloadWeaponView Create(ReloadWeaponView view)
         {
-            ReloadWeaponPresenter presenter = _factory.Create(view);
+            ReloadWeaponPresenter presenter = _presenterFactory.Create(view);
             
             view.Construct(presenter);
 

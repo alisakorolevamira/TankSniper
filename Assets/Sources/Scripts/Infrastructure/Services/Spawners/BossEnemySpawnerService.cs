@@ -38,15 +38,5 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners
 
             return bossEnemyView;
         }
-
-       // private IBossEnemyView SpawnFromPool(BossEnemy bossEnemy, KilledEnemiesCounter killedEnemiesCounter)
-       // {
-       //     BossEnemyView enemyView = _bossEnemyPool.Get<BossEnemyView>();
-//
-       //     if (enemyView == null)
-       //         return null;
-//
-       //     return _bossEnemyViewFactory.Create(bossEnemy, killedEnemiesCounter, enemyView);
-       // }
     }
 }

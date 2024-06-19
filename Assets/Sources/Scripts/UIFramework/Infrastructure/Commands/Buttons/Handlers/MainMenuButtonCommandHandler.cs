@@ -12,10 +12,16 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons.Handlers
         
         public MainMenuButtonCommandHandler(
             ShowFormCommand showFormCommand,
+            HideFormCommand hideFormCommand,
+            AddTankCommand addTankCommand,
+            CompleteTutorialCommand completeTutorialCommand,
             LoadGameCommand loadGameCommand)
         {
             _commands[showFormCommand.Id] = showFormCommand;
             _commands[loadGameCommand.Id] = loadGameCommand;
+            _commands[hideFormCommand.Id] = hideFormCommand;
+            _commands[completeTutorialCommand.Id] = completeTutorialCommand;
+            _commands[addTankCommand.Id] = hideFormCommand;
         }
         
         public void Handle(IUIButton uiButton, ButtonCommandId buttonCommandId)

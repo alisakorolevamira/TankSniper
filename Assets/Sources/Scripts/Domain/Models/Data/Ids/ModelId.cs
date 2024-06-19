@@ -5,7 +5,6 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
 {
     public class ModelId
     {
-        public const string GameplayEnemySpawner = "GameplayEnemySpawner";
         public const string PlayerWallet = "PlayerWallet";
         public const string MainMenu = "MainMenu";
         public const string SavedLevel = "SavedLevel";
@@ -18,13 +17,20 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
         public const string FourthLevel = "FourthLevel";
         public const string FifthLevel = "FifthLevel";
         public const string SixthLevel = "SixthLevel";
-        public const string KilledEnemiesCounter = "KilledEnemiesCounter";
+        public const string FirstSlot = "FirstSlot";
+        public const string SecondSlot = "SecondSlot";
+        public const string ThirdSlot = "ThirdSlot";
+        public const string FourthSlot = "FourthSlot";
+        public const string FifthSlot = "FifthSlot";
+        public const string SixthSlot = "SixthSlot";
+        public const string SeventhSlot = "SeventhSlot";
+        public const string EighthSlot = "EighthSlot";
+        public const string NinthSlot = "NinthSlot";
+        
         
         public static IReadOnlyList<string> DeletedModelsIds = new List<string>()
         {
-            GameplayEnemySpawner,
             PlayerWallet,
-            KilledEnemiesCounter,
         };
         
         public static IReadOnlyList<string> ModelsIds = new List<string>()
@@ -40,11 +46,9 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
             Volume,
             PlayerWallet,
             Tutorial,
-            GameplayEnemySpawner,
             GameData,
             Volume,
             PlayerWallet,
-            KilledEnemiesCounter,
             Tutorial,
         };
 
@@ -61,6 +65,15 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
             [FifthLevel] = typeof(LevelDto),
             [SixthLevel] = typeof(LevelDto),
             [PlayerWallet] = typeof(PlayerWalletDto),
+            [FirstSlot] = typeof(InventorySlotDto),
+            [SecondSlot] = typeof(InventorySlotDto),
+            [ThirdSlot] = typeof(InventorySlotDto),
+            [FourthSlot] = typeof(InventorySlotDto),
+            [FifthSlot] = typeof(InventorySlotDto),
+            [SixthSlot] = typeof(InventorySlotDto),
+            [SeventhSlot] = typeof(InventorySlotDto),
+            [EighthSlot] = typeof(InventorySlotDto),
+            [NinthSlot] = typeof(InventorySlotDto),
         };
     }
 }

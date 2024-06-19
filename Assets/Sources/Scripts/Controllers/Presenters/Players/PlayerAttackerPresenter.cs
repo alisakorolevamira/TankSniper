@@ -3,7 +3,6 @@ using System.Threading;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.InfrastructureInterfaces.Services.InputServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Players;
-using UnityEngine;
 
 namespace Sources.Scripts.Controllers.Presenters.Players
 {

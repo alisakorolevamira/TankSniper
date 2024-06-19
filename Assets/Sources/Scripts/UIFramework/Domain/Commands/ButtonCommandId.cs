@@ -8,5 +8,6 @@
         LoadGame = 3,
         UnPause = 4,
         HideForm = 5,
+        AddTank = 6,
     }
 }

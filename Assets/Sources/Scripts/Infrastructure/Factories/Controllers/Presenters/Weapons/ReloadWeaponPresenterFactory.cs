@@ -10,7 +10,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Weapon
     {
         private readonly IFormService _formService;
 
-        public ReloadWeaponPresenterFactory([NotNull] IFormService formService)
+        public ReloadWeaponPresenterFactory(IFormService formService)
         {
             _formService = formService ?? throw new ArgumentNullException(nameof(formService));
         }

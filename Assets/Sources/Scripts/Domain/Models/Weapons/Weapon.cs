@@ -7,12 +7,10 @@ namespace Sources.Scripts.Domain.Models.Weapons
 {
     public class Weapon : IWeapon
     {
-        private readonly Upgrader _upgrader;
         public event Action Attacked;
 
         public Weapon(float damage)
         {
-            //_upgrader = upgrader;
             Damage = damage;
         }
         

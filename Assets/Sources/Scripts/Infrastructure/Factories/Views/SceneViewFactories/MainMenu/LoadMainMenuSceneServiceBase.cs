@@ -1,7 +1,9 @@
 ﻿using System;
+using JetBrains.Annotations;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
+using Sources.Scripts.Infrastructure.Factories.Views.Inventory;
 using Sources.Scripts.Infrastructure.Factories.Views.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactories;
@@ -20,6 +22,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
         private readonly MainMenuHud _mainMenuHud;
         private readonly LevelAvailabilityViewFactory _levelAvailabilityViewFactory;
         private readonly VolumeViewFactory _volumeViewFactory;
+        private readonly InventoryGridViewFactory _inventoryGridViewFactory;
         private readonly IVolumeService _volumeService;
         private readonly UICollectorFactory _uiCollectorFactory;
         private readonly IFormService _formService;
@@ -30,6 +33,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             MainMenuHud mainMenuHud,
             LevelAvailabilityViewFactory levelAvailabilityViewFactory,
             VolumeViewFactory volumeViewFactory,
+            InventoryGridViewFactory inventoryGridViewFactory,
             IVolumeService volumeService,
             UICollectorFactory uiCollectorFactory,
             IFormService formService,
@@ -40,6 +44,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             _levelAvailabilityViewFactory = levelAvailabilityViewFactory ?? 
                                             throw new ArgumentNullException(nameof(levelAvailabilityViewFactory));
             _volumeViewFactory = volumeViewFactory ?? throw new ArgumentNullException(nameof(volumeViewFactory));
+            _inventoryGridViewFactory = inventoryGridViewFactory ??
+                                        throw new ArgumentNullException(nameof(inventoryGridViewFactory));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
             _uiCollectorFactory = uiCollectorFactory ?? throw new ArgumentNullException(nameof(uiCollectorFactory));
             _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
@@ -59,6 +65,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             PlayerView playerView = _playerViewFactory.Create(models.Player);
             
             _levelAvailabilityViewFactory.Create(models.LevelAvailability, _mainMenuHud.LevelAvailabilityView);
+            _inventoryGridViewFactory.Create(_mainMenuHud.InventoryGridView, models.InventoryGrid);
             
             _uiCollectorFactory.Create();
             _tutorialService.Construct(models.Tutorial, savedLevel);

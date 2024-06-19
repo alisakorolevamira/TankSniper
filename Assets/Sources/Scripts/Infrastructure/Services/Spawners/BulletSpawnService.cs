@@ -1,12 +1,10 @@
 ﻿using System;
-using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.Bullets;
 using Sources.Scripts.InfrastructureInterfaces.Services.ObjectPool.Generic;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.Presentations.Views.Bullets;
 using Sources.Scripts.PresentationsInterfaces.Views.Bullets;
 using Sources.Scripts.PresentationsInterfaces.Views.Weapons;
-using UnityEngine;
 
 namespace Sources.Scripts.Infrastructure.Services.Spawners
 {
@@ -30,8 +28,6 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners
             bulletView.SetPosition(weaponView.BulletSpawnPoint.Transform.position);
             bulletView.SetRotation(weaponView.BulletSpawnPoint.Transform.rotation);
             bulletView.Show();
-            
-            //bulletView.Rigidbody.AddForce(weaponView.BulletSpawnPoint.Transform.forward * BulletConst.Force, ForceMode.Impulse);
             bulletView.Move(weaponView.BulletSpawnPoint.Transform.forward);
             
             return bulletView;

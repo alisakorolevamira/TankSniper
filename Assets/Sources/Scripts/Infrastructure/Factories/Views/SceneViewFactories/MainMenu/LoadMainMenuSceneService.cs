@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Domain.Models.Gameplay;
+using Sources.Scripts.Domain.Models.Inventory;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
+using Sources.Scripts.Infrastructure.Factories.Views.Inventory;
 using Sources.Scripts.Infrastructure.Factories.Views.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
@@ -28,7 +30,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             ILoadService loadService,
             MainMenuHud mainMenuHud,
             LevelAvailabilityViewFactory levelAvailabilityViewFactory,
-            VolumeViewFactory volumeViewFactory, 
+            VolumeViewFactory volumeViewFactory,
+            InventoryGridViewFactory inventoryGridViewFactory,
             IVolumeService volumeService,
             UICollectorFactory uiCollectorFactory,
             IFormService formService,
@@ -37,7 +40,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             : base(
                 mainMenuHud, 
                 levelAvailabilityViewFactory,
-                volumeViewFactory, 
+                volumeViewFactory,
+                inventoryGridViewFactory,
                 volumeService, 
                 uiCollectorFactory,
                 formService,
@@ -79,6 +83,30 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             PlayerWallet playerWallet = _loadService.Load<PlayerWallet>(ModelId.PlayerWallet);
 
             Player player = new Player(playerWallet);
+
+            InventorySlot firstSlot = _loadService.Load<InventorySlot>(ModelId.FirstSlot);
+            InventorySlot secondSlot = _loadService.Load<InventorySlot>(ModelId.SecondSlot);
+            InventorySlot thirdSlot = _loadService.Load<InventorySlot>(ModelId.ThirdSlot);
+            InventorySlot fourthSlot = _loadService.Load<InventorySlot>(ModelId.FourthSlot);
+            InventorySlot fifthSlot = _loadService.Load<InventorySlot>(ModelId.FifthSlot);
+            InventorySlot sixthSlot = _loadService.Load<InventorySlot>(ModelId.SixthSlot);
+            InventorySlot seventhSlot = _loadService.Load<InventorySlot>(ModelId.SeventhSlot);
+            InventorySlot eighthSlot = _loadService.Load<InventorySlot>(ModelId.EighthSlot);
+            InventorySlot ninthSlot = _loadService.Load<InventorySlot>(ModelId.NinthSlot);
+
+            InventoryGrid inventoryGrid = new InventoryGrid(
+                new List<InventorySlot>()
+                {
+                    firstSlot,
+                    secondSlot,
+                    thirdSlot,
+                    fourthSlot,
+                    fifthSlot,
+                    sixthSlot,
+                    seventhSlot,
+                    eighthSlot,
+                    ninthSlot
+                });
             
             return new MainMenuModels(
                 volume,
@@ -92,7 +120,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 gameData,
                 tutorial,
                 player,
-                savedLevel);
+                savedLevel,
+                inventoryGrid);
         }
     }
 }

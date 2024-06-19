@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Domain.Models.Gameplay;
+using Sources.Scripts.Domain.Models.Inventory;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
+using Sources.Scripts.Infrastructure.Factories.Views.Inventory;
 using Sources.Scripts.Infrastructure.Factories.Views.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
@@ -30,6 +32,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             LevelAvailabilityViewFactory levelAvailabilityViewFactory,
             MainMenuPlayerViewFactory playerViewFactory,
             VolumeViewFactory volumeViewFactory,
+            InventoryGridViewFactory inventoryGridViewFactory,
             IVolumeService volumeService,
             UICollectorFactory uiCollectorFactory,
             IFormService formService,
@@ -38,6 +41,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 mainMenuHud,
                 levelAvailabilityViewFactory,
                 volumeViewFactory,
+                inventoryGridViewFactory,
                 volumeService,
                 uiCollectorFactory,
                 formService,
@@ -79,6 +83,10 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             
             Player player = new Player(playerWallet);
 
+            List<InventorySlot> slots = CreateSlots();
+
+            InventoryGrid grid = new InventoryGrid(slots);
+
             LevelAvailability levelAvailability = new LevelAvailability(
                 new List<Level>()
                 {
@@ -104,7 +112,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 gameData,
                 tutorial,
                 player,
-                savedLevel);
+                savedLevel,
+                grid);
         }
 
         private Volume CreateVolume()
@@ -116,6 +125,34 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             _entityRepository.Add(volume);
             
             return volume;
+        }
+
+        private List<InventorySlot> CreateSlots()
+        {
+            InventorySlot firstSlot = new InventorySlot(ModelId.FirstSlot, true);
+            InventorySlot secondSlot = new InventorySlot(ModelId.SecondSlot, true);
+            InventorySlot thirdSlot = new InventorySlot(ModelId.ThirdSlot, true);
+            InventorySlot fourthSlot = new InventorySlot(ModelId.FourthSlot, true);
+            InventorySlot fifthSlot = new InventorySlot(ModelId.FifthSlot, true);
+            InventorySlot sixthSlot = new InventorySlot(ModelId.SixthSlot, true);
+            InventorySlot seventhSlot = new InventorySlot(ModelId.SeventhSlot, true);
+            InventorySlot eighthSlot = new InventorySlot(ModelId.EighthSlot, true);
+            InventorySlot ninthSlot = new InventorySlot(ModelId.NinthSlot, true);
+
+            List<InventorySlot> slots = new List<InventorySlot>
+            {
+                firstSlot,
+                secondSlot,
+                thirdSlot,
+                fourthSlot,
+                fifthSlot,
+                sixthSlot,
+                seventhSlot,
+                eighthSlot,
+                ninthSlot
+            };
+
+            return slots;
         }
     }
 }

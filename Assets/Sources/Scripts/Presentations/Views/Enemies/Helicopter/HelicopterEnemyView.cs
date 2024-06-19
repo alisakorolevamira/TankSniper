@@ -1,7 +1,4 @@
-﻿using System;
-using Cysharp.Threading.Tasks;
-using Sources.Scripts.Domain.Models.Constants;
-using Sources.Scripts.Presentations.Views.Enemies.Base;
+﻿using Sources.Scripts.Presentations.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopter;
 using UnityEngine;
 

@@ -2,10 +2,8 @@
 
 namespace Sources.Scripts.Interfaces
 {
-    public interface IInventoryGrid : IInventory
+    public interface IInventoryGrid
     {
-        Vector2Int Size { get; }
-        bool Has(string itemId);
         IInventorySlot[,] GetSlots();
     }
 }

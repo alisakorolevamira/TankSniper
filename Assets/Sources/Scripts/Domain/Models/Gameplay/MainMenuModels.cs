@@ -1,4 +1,5 @@
-﻿using Sources.Scripts.Domain.Models.Players;
+﻿using Sources.Scripts.Domain.Models.Inventory;
+using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
 
 namespace Sources.Scripts.Domain.Models.Gameplay
@@ -17,7 +18,8 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             GameData gameData,
             Tutorial tutorial,
             Player player,
-            SavedLevel savedLevel)
+            SavedLevel savedLevel,
+            InventoryGrid grid)
         {
             Volume = volume;
             FirstLevel = firstLevel;
@@ -31,6 +33,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             Tutorial = tutorial;
             Player = player;
             SavedLevel = savedLevel;
+            InventoryGrid = grid;
         }
 
         public Volume Volume { get; }
@@ -45,5 +48,6 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         public Tutorial Tutorial { get; }
         public Player Player { get; }
         public SavedLevel SavedLevel { get; }
+        public InventoryGrid InventoryGrid { get; }
     }
 }

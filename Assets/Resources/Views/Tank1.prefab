@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 9216309678798182565}
   - component: {fileID: 256135192417762512}
-  - component: {fileID: 2275369397007602020}
   - component: {fileID: 3297666137345568629}
   - component: {fileID: 848283081360768554}
+  - component: {fileID: 1482993185941562767}
   m_Layer: 0
   m_Name: Tank1
   m_TagString: Untagged
@@ -51,10 +51,36 @@ MonoBehaviour:
   selfSelected: 0
   onSelected:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1482993185941562767}
+        m_TargetAssemblyTypeName: Sources.Scripts.Presentations.Views.Inventory.InventoryTankView,
+          Assembly-CSharp
+        m_MethodName: OnSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDeselected:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1482993185941562767}
+        m_TargetAssemblyTypeName: Sources.Scripts.Presentations.Views.Inventory.InventoryTankView,
+          Assembly-CSharp
+        m_MethodName: OnDeselected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   use: 0
   onSelectedFinger:
     m_PersistentCalls:
@@ -66,34 +92,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onSelectedSelectFingerUp:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &2275369397007602020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1448574297219601000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a832b4c75cdbb834281b3be9c666862d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ignore: 2
-  ScreenQuery:
-    Method: 0
-    Layers:
-      serializedVersion: 2
-      m_Bits: 4294967291
-    Search: 1
-    RequiredTag: 
-    Camera: {fileID: 0}
-    Distance: 50
-  onGameObject:
-    m_PersistentCalls:
-      m_Calls: []
-  onDropHandler:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &3297666137345568629
@@ -145,6 +143,18 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1482993185941562767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448574297219601000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7572e017b9e48369b82eaaa1163cbec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3304726640461589976
 GameObject:
   m_ObjectHideFlags: 0

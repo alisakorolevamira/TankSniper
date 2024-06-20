@@ -1,5 +1,7 @@
 ﻿using Sources.Scripts.Controllers.Presenters.Inventory;
 using Sources.Scripts.Infrastructure.Services.Spawners;
+using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
+using Sources.Scripts.Presentations.Views.Inventory;
 
 namespace Sources.Scripts.PresentationsInterfaces.Views.Inventory
 {
@@ -7,6 +9,6 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Inventory
     {
         int Level { get; }
 
-        void Construct(InventoryTankSpawnerService spawnerService, int level);
+        void Construct(IInventoryTankSpawnerService spawnerService, int level, InventorySlotView currentPoint);
     }
 }

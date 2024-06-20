@@ -13,6 +13,7 @@ using Sources.Scripts.Infrastructure.Factories.Views.Settings;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
+using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.UIFramework.Infrastructure.Factories.Services.Collectors;
@@ -36,7 +37,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             UICollectorFactory uiCollectorFactory,
             IFormService formService,
             ITutorialService tutorialService,
-            MainMenuPlayerViewFactory playerViewFactory) 
+            IInventoryTankSpawnerService inventoryTankSpawnerService,
+            MainMenuPlayerViewFactory playerViewFactory)
             : base(
                 mainMenuHud, 
                 levelAvailabilityViewFactory,
@@ -46,6 +48,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 uiCollectorFactory,
                 formService,
                 tutorialService,
+                inventoryTankSpawnerService,
                 playerViewFactory)
         {
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));

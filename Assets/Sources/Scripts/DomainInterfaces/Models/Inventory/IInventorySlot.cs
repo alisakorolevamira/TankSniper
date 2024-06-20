@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Sources.Scripts.Interfaces
+﻿namespace Sources.Scripts.DomainInterfaces.Models.Inventory
 {
     public interface IInventorySlot
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Sources.Scripts.Domain.Models.Data;
 using Sources.Scripts.DomainInterfaces.Models.Entities;
-using Sources.Scripts.Interfaces;
+using Sources.Scripts.DomainInterfaces.Models.Inventory;
 
 namespace Sources.Scripts.Domain.Models.Inventory
 {

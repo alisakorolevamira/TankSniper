@@ -8,6 +8,7 @@ using Sources.Scripts.Infrastructure.Factories.Views.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactories;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
+using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.Presentations.Views.Players;
@@ -27,6 +28,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
         private readonly UICollectorFactory _uiCollectorFactory;
         private readonly IFormService _formService;
         private readonly ITutorialService _tutorialService;
+        private readonly IInventoryTankSpawnerService _inventoryTankSpawnerService;
         private readonly MainMenuPlayerViewFactory _playerViewFactory;
         
         protected LoadMainMenuSceneServiceBase(
@@ -38,6 +40,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             UICollectorFactory uiCollectorFactory,
             IFormService formService,
             ITutorialService tutorialService,
+            IInventoryTankSpawnerService inventoryTankSpawnerService,
             MainMenuPlayerViewFactory playerViewFactory)
         {
             _mainMenuHud = mainMenuHud ? mainMenuHud : throw new ArgumentNullException(nameof(mainMenuHud));
@@ -49,6 +52,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
             _uiCollectorFactory = uiCollectorFactory ?? throw new ArgumentNullException(nameof(uiCollectorFactory));
             _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
+            _inventoryTankSpawnerService = inventoryTankSpawnerService ??
+                                           throw new ArgumentNullException(nameof(inventoryTankSpawnerService));
             _playerViewFactory = playerViewFactory ?? throw new ArgumentNullException(nameof(playerViewFactory));
             _formService = formService ?? throw new ArgumentNullException(nameof(formService));
         }
@@ -65,7 +70,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             PlayerView playerView = _playerViewFactory.Create(models.Player);
             
             _levelAvailabilityViewFactory.Create(models.LevelAvailability, _mainMenuHud.LevelAvailabilityView);
+            
             _inventoryGridViewFactory.Create(_mainMenuHud.InventoryGridView, models.InventoryGrid);
+            _inventoryTankSpawnerService.AddSlots(_mainMenuHud.InventoryGridView.Slots);
             
             _uiCollectorFactory.Create();
             _tutorialService.Construct(models.Tutorial, savedLevel);

@@ -2,7 +2,6 @@
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.DomainInterfaces.Models.Common;
 using Sources.Scripts.DomainInterfaces.Models.Healths;
-using Sources.Scripts.DomainInterfaces.Models.Players;
 using UnityEngine;
 
 namespace Sources.Scripts.Domain.Models.Common

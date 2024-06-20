@@ -2,7 +2,7 @@
 using Sources.Scripts.Domain.Models.Inventory;
 using UnityEngine;
 
-namespace Sources.Scripts.Interfaces
+namespace Sources.Scripts.DomainInterfaces.Models.Inventory
 {
     public interface IInventoryGrid
     {

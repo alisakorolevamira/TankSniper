@@ -8,7 +8,8 @@ namespace Sources.Scripts.InfrastructureInterfaces.Services.Spawners
 {
     public interface IInventoryTankSpawnerService
     {
-        IInventoryTankView Spawn(int level, Vector3 position);
-        InventorySlotView FindEmptySlot();
+        IInventoryTankView Spawn(int level, InventorySlotView inventorySlotView);
+        IInventoryTankView Spawn(int level);
+        void AddSlots(IReadOnlyList<InventorySlotView> slots);
     }
 }

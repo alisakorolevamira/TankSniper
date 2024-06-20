@@ -1,6 +1,5 @@
 ﻿using System;
 using Sources.Scripts.DomainInterfaces.Models.Common;
-using Sources.Scripts.DomainInterfaces.Models.Players;
 using Sources.Scripts.InfrastructureInterfaces.Services.GameOver;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.UIFramework.Presentations.Views.Types;

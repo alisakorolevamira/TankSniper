@@ -1,27 +1,28 @@
-﻿using System;
-using Sources.Scripts.Controllers.Presenters.Inventory;
-using Sources.Scripts.Infrastructure.Services.ObjectPool;
-using Sources.Scripts.Infrastructure.Services.Spawners;
-using Sources.Scripts.InfrastructureInterfaces.Services.ObjectPool;
+﻿using Sources.Scripts.Domain.Models.Constants;
+using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.PresentationsInterfaces.Views.Inventory;
+using Sources.Scripts.UIFramework.Presentations.Texts;
 using UnityEngine;
 
 namespace Sources.Scripts.Presentations.Views.Inventory
 {
     public class InventoryTankView : View, IInventoryTankView
     {
+        [SerializeField] private UIText _levelText;
+        
         private InventorySlotView _currentTankPoint;
-        private InventoryTankSpawnerService _spawnerService;
-
-        public event Action<int> AddNewTank;
+        private IInventoryTankSpawnerService _spawnerService;
+        
         public int Level { get; private set; }
         
-        public void Construct(InventoryTankSpawnerService spawnerService, int level)
+        public void Construct(IInventoryTankSpawnerService spawnerService, int level, InventorySlotView currentPoint)
         {
             _spawnerService = spawnerService;
             Level = level;
+            _currentTankPoint = currentPoint;
+            _levelText.SetText(Level.ToString());
         }
-        
+
         public void OnDeselected()
         {
             Ray ray = new Ray(transform.position, Vector3.down);
@@ -32,6 +33,9 @@ namespace Sources.Scripts.Presentations.Views.Inventory
 
                 if (isUnderPoint)
                 {
+                    if (slotView == _currentTankPoint)
+                        return;
+                    
                     if (slotView.IsEmpty)
                     {
                         _currentTankPoint.ClearSlot();
@@ -44,10 +48,10 @@ namespace Sources.Scripts.Presentations.Views.Inventory
 
                     if (slotView.CurrentTank.Level == Level)
                     {
-                        Hide();
-                        slotView.CurrentTank.Hide();
+                        Destroy();
+                        slotView.CurrentTank.Destroy();
                         _currentTankPoint.ClearSlot();
-                        _spawnerService.Spawn(Level + 1, slotView.transform.position);
+                        _spawnerService.Spawn(Level + InventoryConst.DefaultTankLevel, slotView);
                         
                         return;
                     }

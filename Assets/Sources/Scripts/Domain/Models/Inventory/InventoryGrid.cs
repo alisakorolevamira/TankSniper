@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Sources.Scripts.Interfaces;
+using Sources.Scripts.DomainInterfaces.Models.Inventory;
 using UnityEngine;
 
 namespace Sources.Scripts.Domain.Models.Inventory

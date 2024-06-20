@@ -37,7 +37,7 @@ namespace Sources.Scripts.Controllers.Presenters.Inventory
                     slotView.Construct(slot.Value);
 
                     if (slotView.IsEmpty == false)
-                        _spawnerService.Spawn(slotView.Level, slotView.transform.position);
+                        _spawnerService.Spawn(slotView.Level, slotView);
                 }
             }
         }

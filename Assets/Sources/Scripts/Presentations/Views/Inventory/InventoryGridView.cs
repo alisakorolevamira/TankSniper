@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Sources.Scripts.Controllers.Presenters.Inventory;
-using Sources.Scripts.Interfaces;
 using Sources.Scripts.PresentationsInterfaces.Views.Inventory;
 using UnityEngine;
 

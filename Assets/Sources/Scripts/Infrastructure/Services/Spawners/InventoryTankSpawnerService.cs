@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Sources.Scripts.Domain.Models.Inventory;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.Inventory;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.Presentations.Views.Inventory;
 using Sources.Scripts.PresentationsInterfaces.Views.Inventory;
-using UnityEngine;
 
 namespace Sources.Scripts.Infrastructure.Services.Spawners
 {
@@ -14,28 +12,37 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners
     {
         private readonly IInventoryTankViewFactory _viewFactory;
         
-        private List<InventorySlotView> _slots;
+        private IReadOnlyList<InventorySlotView> _slots;
 
         public InventoryTankSpawnerService(IInventoryTankViewFactory viewFactory)
         {
             _viewFactory = viewFactory ?? throw new ArgumentNullException(nameof(viewFactory));
         }
 
-        public IInventoryTankView Spawn(int level, Vector3 position)
+        public IInventoryTankView Spawn(int level, InventorySlotView inventorySlotView)
         {
-            IInventoryTankView view = _viewFactory.Create(level);
-            
-            view.SetPosition(position);
+            IInventoryTankView view = _viewFactory.Create(level, inventorySlotView, this);
+            inventorySlotView.SetTank(view);
             
             return view;
         }
 
-        public void AddSlots(List<InventorySlotView> slots)
+        public IInventoryTankView Spawn(int level)
         {
-            _slots = slots;
+            InventorySlotView emptySlot = FindEmptySlot();
+
+            if (emptySlot == null)
+                return null;
+
+            IInventoryTankView view = Spawn(level, emptySlot);
+
+            return view;
         }
 
-        public InventorySlotView FindEmptySlot()
+        public void AddSlots(IReadOnlyList<InventorySlotView> slots) => 
+            _slots = slots;
+
+        private InventorySlotView FindEmptySlot()
         {
             InventorySlotView slot = _slots.FirstOrDefault(x => x.IsEmpty);
 

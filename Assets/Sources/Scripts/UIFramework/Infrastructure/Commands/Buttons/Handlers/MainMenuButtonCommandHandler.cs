@@ -21,7 +21,7 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons.Handlers
             _commands[loadGameCommand.Id] = loadGameCommand;
             _commands[hideFormCommand.Id] = hideFormCommand;
             _commands[completeTutorialCommand.Id] = completeTutorialCommand;
-            _commands[addTankCommand.Id] = hideFormCommand;
+            _commands[addTankCommand.Id] = addTankCommand;
         }
         
         public void Handle(IUIButton uiButton, ButtonCommandId buttonCommandId)

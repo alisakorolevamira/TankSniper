@@ -1,6 +1,6 @@
 ﻿using System;
+using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
-using Sources.Scripts.Presentations.Views.Inventory;
 using Sources.Scripts.UIFramework.Domain.Commands;
 using Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Buttons;
 using Sources.Scripts.UIFramework.PresentationsInterfaces.Buttons;
@@ -18,15 +18,7 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
         
         public ButtonCommandId Id => ButtonCommandId.AddTank;
         
-        public void Handle(IUIButton uiButton)
-        {
-            InventorySlotView emptySlot = _spawnerService.FindEmptySlot();
-
-            if (emptySlot == null)
-                return;
-            
-            
-            _spawnerService.Spawn(1, emptySlot.transform.position);
-        }
+        public void Handle(IUIButton uiButton) => 
+            _spawnerService.Spawn(InventoryConst.DefaultTankLevel);
     }
 }

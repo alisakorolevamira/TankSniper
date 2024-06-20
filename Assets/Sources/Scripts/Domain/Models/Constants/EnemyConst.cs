@@ -4,8 +4,8 @@
     {
         public const float AttackDelay = 5f;
         public const int Health = 1000;
-        public const int TankDamage = 25;
-        public const int StandingDamage = 10;
-        public const int HelicopterDamage = 40;
+        public const int TankDamage = 50;
+        public const int StandingDamage = 20;
+        public const int HelicopterDamage = 70;
     }
 }

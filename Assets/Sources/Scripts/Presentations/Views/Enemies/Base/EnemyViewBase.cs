@@ -26,16 +26,12 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Base
 
         public override void Destroy()
         {
-            //_poolableObjectDestroyerService.Destroy(this);
-            //DestroyPresenter();
+            DestroyPresenter();
             Hide();
         }
         
-        public void SetLookAtPlayer()
-        {
-            Quaternion rotation = Camera.main.transform.rotation;
-            transform.LookAt(transform.position + rotation * Vector3.back, rotation * Vector3.up);
-        }
+        public void SetLookAtPlayer() => 
+            transform.LookAt(PlayerHealthView.Position);
 
         public void SetPlayerHealthView(ICharacterHealthView playerHealthView) =>
             PlayerHealthView = playerHealthView;

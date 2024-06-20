@@ -24,6 +24,7 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners
             IInventoryTankView view = _viewFactory.Create(level, inventorySlotView, this);
             inventorySlotView.SetTank(view);
             
+            //playerviewfacrtory check player level
             return view;
         }
 

@@ -31,8 +31,6 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Tank
 
         public void PlayDying()
         {
-            _movementParticle.Stop();
-            _attackParticle.Stop();
             _destructible.Destroy();
         }
     }

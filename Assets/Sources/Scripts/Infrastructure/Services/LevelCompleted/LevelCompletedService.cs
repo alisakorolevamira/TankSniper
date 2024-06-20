@@ -22,7 +22,7 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
         private IKilledEnemiesCounter _killedEnemiesCounter;
         private IEnemySpawner _enemySpawner;
         private CancellationTokenSource _cancellationTokenSource;
-        private readonly TimeSpan _delay = TimeSpan.FromSeconds(6);
+        private readonly TimeSpan _delay = TimeSpan.FromSeconds(4);
         
         public LevelCompletedService(
             IFormService formService,

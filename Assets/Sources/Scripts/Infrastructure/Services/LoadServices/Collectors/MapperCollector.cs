@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Sources.Scripts.Domain.Models.Data;
 using Sources.Scripts.Domain.Models.Gameplay;
+using Sources.Scripts.Domain.Models.Inventory;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
 using Sources.Scripts.Domain.Models.Upgrades;
@@ -24,7 +25,8 @@ namespace Sources.Scripts.Infrastructure.Services.LoadServices.Collectors
             ILevelDtoMapper levelDtoMapper,
             IGameDataDtoMapper gameDataDtoMapper,
             ITutorialDtoMapper tutorialDtoMapper,
-            ISavedLevelDtoMapper savedLevelDtoMapper)
+            ISavedLevelDtoMapper savedLevelDtoMapper,
+            IInventorySlotDtoMapper inventorySlotDtoMapper)
         {
             _toDtoMappers = new Dictionary<Type, Func<IEntity, IDto>>();
             //_toDtoMappers[typeof(Upgrader)] =
@@ -41,6 +43,8 @@ namespace Sources.Scripts.Infrastructure.Services.LoadServices.Collectors
                 model => tutorialDtoMapper.MapModelToDto(model as Tutorial);
             _toDtoMappers[typeof(SavedLevel)] =
                 model => savedLevelDtoMapper.MapModelToDto(model as SavedLevel);
+            _toDtoMappers[typeof(InventorySlot)] =
+                model => inventorySlotDtoMapper.MapModelToDto(model as InventorySlot);
 
             _toModelMappers = new Dictionary<Type, Func<IDto, IEntity>>();
             //_toModelMappers[typeof(UpgradeDto)] =
@@ -57,6 +61,8 @@ namespace Sources.Scripts.Infrastructure.Services.LoadServices.Collectors
                 dto => tutorialDtoMapper.MapDtoToModel(dto as TutorialDto);
             _toModelMappers[typeof(SavedLevelDto)] =
                 dto => savedLevelDtoMapper.MapDtoToModel(dto as SavedLevelDto);
+            _toModelMappers[typeof(InventorySlotDto)] =
+                dto => inventorySlotDtoMapper.MapDtoToModel(dto as InventorySlotDto);
         }
 
         public Func<IEntity, IDto> GetToDtoMapper(Type type)

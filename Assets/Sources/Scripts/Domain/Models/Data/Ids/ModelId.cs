@@ -30,7 +30,6 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
         
         public static IReadOnlyList<string> DeletedModelsIds = new List<string>()
         {
-            PlayerWallet,
         };
         
         public static IReadOnlyList<string> ModelsIds = new List<string>()

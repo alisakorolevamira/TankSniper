@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 using Sources.Scripts.DomainInterfaces.Models.Data;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices.Data;
 using UnityEngine;
@@ -13,23 +14,22 @@ namespace Sources.Scripts.Infrastructure.Services.LoadServices.Data
 
         public object LoadData(string key, Type dtoType)
         {
-           // string json = PlayerPrefs.GetString(key, string.Empty);
-//
-           // if (string.IsNullOrEmpty(json))
-           //     throw new NullReferenceException(nameof(key));
-//
-           // return JsonConvert.DeserializeObject(json, dtoType) ?? 
-           //        throw new NullReferenceException(nameof(json));
-           return null;
+            string json = PlayerPrefs.GetString(key, string.Empty);
+
+            if (string.IsNullOrEmpty(json))
+                throw new NullReferenceException(nameof(key));
+
+            return JsonConvert.DeserializeObject(json, dtoType) ?? 
+                   throw new NullReferenceException(nameof(json));
         }
 
         public void SaveData<T>(T dataModel, string key)
             where T : IDto
         {
-           // string json = JsonConvert.SerializeObject(dataModel) ?? 
-           //               throw new NullReferenceException(nameof(dataModel));
-           // 
-           // PlayerPrefs.SetString(key, json);
+            string json = JsonConvert.SerializeObject(dataModel) ?? 
+                          throw new NullReferenceException(nameof(dataModel));
+            
+            PlayerPrefs.SetString(key, json);
         }
 
         public bool HasKey(string key) =>

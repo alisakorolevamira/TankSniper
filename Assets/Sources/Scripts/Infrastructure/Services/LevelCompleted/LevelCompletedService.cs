@@ -10,6 +10,7 @@ using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
 using Sources.Scripts.UIFramework.Presentations.Views.Types;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Forms;
+using UnityEngine;
 
 namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
 {
@@ -64,7 +65,7 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
             Level level = _entityRepository.Get<Level>(savedLevel.CurrentLevelId);
             level.Complete();
             _loadService.Save(level);
-            _loadService.ClearAll();
+            //_loadService.ClearAll();
             StartTimer(_cancellationTokenSource.Token);
             //_interstitialAdService.ShowInterstitial();
         }

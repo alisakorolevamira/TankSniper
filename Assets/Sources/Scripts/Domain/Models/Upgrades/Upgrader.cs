@@ -21,7 +21,7 @@ namespace Sources.Scripts.Domain.Models.Upgrades
         public int CurrentLevel { get; private set; }
         public int MaxLevel { get; } = 8;
         
-        public void Upgrade (PlayerWallet playerWallet)
+        public void Upgrade ()
         {
             if (CurrentLevel >= MaxLevel)
                 return;

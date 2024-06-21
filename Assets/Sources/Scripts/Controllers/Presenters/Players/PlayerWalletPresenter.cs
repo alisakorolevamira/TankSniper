@@ -1,7 +1,5 @@
 ﻿using System;
 using Sources.Scripts.Domain.Models.Players;
-using Sources.Scripts.DomainInterfaces.Models.Players;
-using Sources.Scripts.PresentationsInterfaces.Views.Players;
 
 namespace Sources.Scripts.Controllers.Presenters.Players
 {
@@ -16,6 +14,9 @@ namespace Sources.Scripts.Controllers.Presenters.Players
 
         public void AddMoney(int amount)
         {
+            if (amount < 0)
+                return;
+            
             _playerWallet.AddMoney(amount);
         }
     }

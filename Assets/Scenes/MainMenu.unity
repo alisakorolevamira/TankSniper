@@ -3984,7 +3984,8 @@ MonoBehaviour:
   _uICollector: {fileID: 965964110}
   _levelAvailabilityView: {fileID: 76637218}
   _volumeView: {fileID: 1871282930}
-  _walletsUI: []
+  _walletsUI:
+  - {fileID: 1953317077}
   _gridView: {fileID: 847518269}
 --- !u!114 &965964112
 MonoBehaviour:
@@ -5533,6 +5534,7 @@ GameObject:
   - component: {fileID: 1354020376}
   - component: {fileID: 1354020378}
   - component: {fileID: 1354020377}
+  - component: {fileID: 1354020379}
   m_Layer: 5
   m_Name: Money_Text
   m_TagString: Untagged
@@ -5656,6 +5658,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354020375}
   m_CullTransparentMesh: 1
+--- !u!114 &1354020379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354020375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8045b0a8b254856852c7748d401022c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tmpText: {fileID: 1354020377}
 --- !u!1 &1396933989
 GameObject:
   m_ObjectHideFlags: 0
@@ -6938,6 +6953,7 @@ MonoBehaviour:
   - {fileID: 704486878}
   - {fileID: 138459826}
   - {fileID: 531415929}
+  - {fileID: 1795776927}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -6976,6 +6992,7 @@ Transform:
   - {fileID: 704486877}
   - {fileID: 138459827}
   - {fileID: 531415930}
+  - {fileID: 1795776926}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1662929904
@@ -7493,6 +7510,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1773967531}
   m_CullTransparentMesh: 1
+--- !u!1 &1795776925
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1795776926}
+  - component: {fileID: 1795776927}
+  m_Layer: 0
+  m_Name: PlayerWalletInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1795776926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795776925}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1659034639}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1795776927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795776925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30c59bd4bb504c948c9361c18a7a9c40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1800732967
 GameObject:
   m_ObjectHideFlags: 0
@@ -8049,6 +8110,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1953317076}
+  - component: {fileID: 1953317077}
   m_Layer: 5
   m_Name: Money_Container
   m_TagString: Untagged
@@ -8078,6 +8140,19 @@ RectTransform:
   m_AnchoredPosition: {x: 207.3, y: -157.5}
   m_SizeDelta: {x: 332.3341, y: 122.1754}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1953317077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953317075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 894ac7cb025b44459baa5f8ecbeecd3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moneyText: {fileID: 1354020379}
 --- !u!1 &1955572038
 GameObject:
   m_ObjectHideFlags: 0

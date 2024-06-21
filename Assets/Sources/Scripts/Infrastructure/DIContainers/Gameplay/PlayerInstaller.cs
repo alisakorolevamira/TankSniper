@@ -22,14 +22,14 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
             Container.Bind<CharacterHealthPresenterFactory>().AsSingle();
             Container.Bind<CharacterHealthViewFactory>().AsSingle();
 
-            Container.Bind<PlayerWalletPresenterFactory>().AsSingle();
-            Container.Bind<PlayerWalletViewFactory>().AsSingle();
+            //Container.Bind<PlayerWalletPresenterFactory>().AsSingle();
+            //Container.Bind<PlayerWalletViewFactory>().AsSingle();
 
             Container.Bind<HealthBarUIPresenterFactory>().AsSingle();
             Container.Bind<HealthBarUIFactory>().AsSingle();
 
-            Container.Bind<WalletUIPresenterFactory>().AsSingle();
-            Container.Bind<WalletUIFactory>().AsSingle();
+            //Container.Bind<WalletUIPresenterFactory>().AsSingle();
+            //Container.Bind<WalletUIFactory>().AsSingle();
 
             Container.Bind<AttackerUIPresenterFactory>().AsSingle();
             Container.Bind<AttackerUIViewFactory>().AsSingle();

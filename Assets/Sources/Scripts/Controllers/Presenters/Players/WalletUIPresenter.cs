@@ -24,7 +24,7 @@ namespace Sources.Scripts.Controllers.Presenters.Players
         public override void Disable() =>
             _playerWallet.MoneyChanged -= OnMoneyChanged;
 
-        private void OnMoneyChanged() =>
+        private void OnMoneyChanged() => 
             _walletUI.MoneyText.SetText(_playerWallet.Money.ToString());
     }
 }

@@ -3,6 +3,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Domain.Models.Gameplay;
+using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.DomainInterfaces.Models.Gameplay;
 using Sources.Scripts.DomainInterfaces.Models.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
@@ -37,7 +38,8 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
             //_interstitialAdService = interstitialAdService ?? 
             //                         throw new ArgumentNullException(nameof(interstitialAdService));
         }
-        
+
+        public event Action<int> LevelCompleted;
         public bool AllEnemiesKilled { get; private set; }
 
         public void Enable()
@@ -61,13 +63,23 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
                 return;
 
             AllEnemiesKilled = true;
+            
+            LevelCompleted?.Invoke(_enemySpawner.SpawnedEnemies * 100);
+            PlayerWallet playerWallet = _entityRepository.Get<PlayerWallet>(ModelId.PlayerWallet);
+            playerWallet.AddMoney(_enemySpawner.SpawnedEnemies * 100);
+            
+            
+            
             SavedLevel savedLevel = _entityRepository.Get<SavedLevel>(ModelId.SavedLevel);
             Level level = _entityRepository.Get<Level>(savedLevel.CurrentLevelId);
+            
             level.Complete();
             _loadService.SaveAll();
             _loadService.Save(level);
+            
+            _formService.Show(FormId.LevelCompleted);
             //_loadService.ClearAll();
-            StartTimer(_cancellationTokenSource.Token);
+            //StartTimer(_cancellationTokenSource.Token);
             //_interstitialAdService.ShowInterstitial();
         }
 

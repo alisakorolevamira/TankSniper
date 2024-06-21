@@ -26,7 +26,13 @@ namespace Sources.Scripts.Domain.Models.Inventory
         
         public bool IsEmpty { get; private set; }
         public string Id { get; }
-        public int Level { get; }
+        public int Level { get; private set; }
         public Type Type => GetType();
+
+        public void ChangeValues(bool isEmpty, int level)
+        {
+            IsEmpty = isEmpty;
+            Level = level;
+        }
     }
 }

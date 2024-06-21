@@ -4,5 +4,6 @@
     {
         bool IsEmpty { get; }
         int Level { get; }
+        void ChangeValues(bool isEmpty, int level);
     }
 }

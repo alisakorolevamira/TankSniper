@@ -132,15 +132,24 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
 
         private List<InventorySlot> CreateSlots()
         {
-            InventorySlot firstSlot = new InventorySlot(ModelId.FirstSlot, true, 1);
-            InventorySlot secondSlot = new InventorySlot(ModelId.SecondSlot, true, 1);
-            InventorySlot thirdSlot = new InventorySlot(ModelId.ThirdSlot, true, 1);
-            InventorySlot fourthSlot = new InventorySlot(ModelId.FourthSlot, true, 1);
-            InventorySlot fifthSlot = new InventorySlot(ModelId.FifthSlot, true, 1);
-            InventorySlot sixthSlot = new InventorySlot(ModelId.SixthSlot, true, 1);
-            InventorySlot seventhSlot = new InventorySlot(ModelId.SeventhSlot, true, 1);
-            InventorySlot eighthSlot = new InventorySlot(ModelId.EighthSlot, true, 1);
-            InventorySlot ninthSlot = new InventorySlot(ModelId.NinthSlot, true, 1);
+            InventorySlot firstSlot = new InventorySlot(ModelId.FirstSlot, true, 0);
+            _entityRepository.Add(firstSlot);
+            InventorySlot secondSlot = new InventorySlot(ModelId.SecondSlot, true, 0);
+            _entityRepository.Add(secondSlot);
+            InventorySlot thirdSlot = new InventorySlot(ModelId.ThirdSlot, true, 0);
+            _entityRepository.Add(thirdSlot);
+            InventorySlot fourthSlot = new InventorySlot(ModelId.FourthSlot, true, 0);
+            _entityRepository.Add(fourthSlot);
+            InventorySlot fifthSlot = new InventorySlot(ModelId.FifthSlot, true, 0);
+            _entityRepository.Add(fifthSlot);
+            InventorySlot sixthSlot = new InventorySlot(ModelId.SixthSlot, true, 0);
+            _entityRepository.Add(sixthSlot);
+            InventorySlot seventhSlot = new InventorySlot(ModelId.SeventhSlot, true, 0);
+            _entityRepository.Add(seventhSlot);
+            InventorySlot eighthSlot = new InventorySlot(ModelId.EighthSlot, true, 0);
+            _entityRepository.Add(eighthSlot);
+            InventorySlot ninthSlot = new InventorySlot(ModelId.NinthSlot, true, 0);
+            _entityRepository.Add(ninthSlot);
 
             List<InventorySlot> slots = new List<InventorySlot>
             {

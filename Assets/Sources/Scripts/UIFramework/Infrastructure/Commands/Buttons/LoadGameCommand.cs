@@ -37,11 +37,18 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
 
             SavedLevel savedLevel = _entityRepository.Get<SavedLevel>(ModelId.SavedLevel);
             
+            _loadService.SaveAll();
+            
             if (savedLevel == null)
             {
                 _sceneService.ChangeSceneAsync(ModelId.FirstLevel, new ScenePayload(ModelId.FirstLevel, true, false));
                 return;
             }
+
+            //if (savedLevel.CurrentLevelId == ModelId.FirstLevel)
+            //{
+            //    _sceneService.ChangeSceneAsync(ModelId.SecondLevel, new ScenePayload(ModelId.SecondLevel, true, false));
+            //}
 
             _sceneService.ChangeSceneAsync(
                 savedLevel.CurrentLevelId,

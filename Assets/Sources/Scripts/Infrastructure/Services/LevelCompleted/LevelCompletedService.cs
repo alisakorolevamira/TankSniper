@@ -64,6 +64,7 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
             SavedLevel savedLevel = _entityRepository.Get<SavedLevel>(ModelId.SavedLevel);
             Level level = _entityRepository.Get<Level>(savedLevel.CurrentLevelId);
             level.Complete();
+            _loadService.SaveAll();
             _loadService.Save(level);
             //_loadService.ClearAll();
             StartTimer(_cancellationTokenSource.Token);

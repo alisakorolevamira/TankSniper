@@ -11,7 +11,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Domain.Data
             return new InventorySlotDto()
             {
                 Id = slot.Id,
-                IsEmpty = slot.IsEmpty
+                IsEmpty = slot.IsEmpty,
+                Level = slot.Level
             };
         }
 

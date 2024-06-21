@@ -3,6 +3,7 @@ using System.Linq;
 using Sources.Scripts.Domain.Models.Inventory;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.PresentationsInterfaces.Views.Inventory;
+using UnityEngine;
 
 namespace Sources.Scripts.Controllers.Presenters.Inventory
 {
@@ -31,14 +32,11 @@ namespace Sources.Scripts.Controllers.Presenters.Inventory
         {
             foreach (var slotView in _view.Slots)
             {
-                foreach (var slot in 
-                         _grid.Slots.Where(slot => slotView.Position == slot.Key))
-                {
-                    slotView.Construct(slot.Value);
-
-                    if (slotView.IsEmpty == false)
-                        _spawnerService.Spawn(slotView.Level, slotView);
-                }
+               var slot = _grid.Slots.First(slot => slotView.Position == slot.Key);
+               slotView.Construct(slot.Value);
+               
+               if (slotView.IsEmpty == false) 
+                   _spawnerService.Spawn(slotView.Level, slotView);
             }
         }
     }

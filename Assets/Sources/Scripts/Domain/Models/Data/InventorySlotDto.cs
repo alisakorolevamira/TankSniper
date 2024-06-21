@@ -8,7 +8,7 @@ namespace Sources.Scripts.Domain.Models.Data
         [JsonProperty("id")]
         public string Id { get; set; }
         
-        [JsonProperty("isCompleted")]
+        [JsonProperty("isEmpty")]
         public bool IsEmpty { get; set; }
         
         [JsonProperty("level")]

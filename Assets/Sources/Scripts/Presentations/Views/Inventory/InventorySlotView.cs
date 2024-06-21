@@ -7,29 +7,28 @@ namespace Sources.Scripts.Presentations.Views.Inventory
     public class InventorySlotView : View, IInventorySlotView
     {
         [SerializeField] private Vector2Int _position;
+
+        private InventorySlot _slot;
         
         public Vector2Int Position => _position;
-        public bool IsEmpty { get; private set; }
-        public int Level { get; private set; }
+        public bool IsEmpty => _slot.IsEmpty;
+        public int Level => _slot.Level;
         public IInventoryTankView CurrentTank { get; private set; }
         public void Construct(InventorySlot slot)
         {
-            IsEmpty = slot.IsEmpty;
-            Level = slot.Level;
+            _slot = slot;
         }
 
         public void SetTank(IInventoryTankView tankView)
         {
-            IsEmpty = false;
             CurrentTank = tankView;
-            Level = tankView.Level;
+            _slot.ChangeValues(false, tankView.Level);
         }
 
         public void ClearSlot()
         {
-            IsEmpty = true;
             CurrentTank = null;
-            Level = 0;
+            _slot.ChangeValues(true, 0);
         }
     }
 }

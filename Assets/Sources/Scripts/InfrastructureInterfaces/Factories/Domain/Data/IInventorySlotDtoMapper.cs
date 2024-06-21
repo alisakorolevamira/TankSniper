@@ -5,7 +5,7 @@ namespace Sources.Scripts.InfrastructureInterfaces.Factories.Domain.Data
 {
     public interface IInventorySlotDtoMapper
     {
-        InventorySlotDto MapModelToDto(InventorySlot level);
-        InventorySlot MapDtoToModel(InventorySlotDto levelDto);
+        InventorySlotDto MapModelToDto(InventorySlot inventorySlot);
+        InventorySlot MapDtoToModel(InventorySlotDto inventorySlotDto);
     }
 }

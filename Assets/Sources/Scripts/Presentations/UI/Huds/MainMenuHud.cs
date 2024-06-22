@@ -11,10 +11,19 @@ namespace Sources.Scripts.Presentations.UI.Huds
 {
     public class MainMenuHud : View, IHud
     {
+        [Header("UI Collector")]
         [SerializeField] private UICollector _uICollector;
+        
+        [Header("Levels")]
         [SerializeField] private LevelAvailabilityView _levelAvailabilityView;
+        
+        [Header("Volume")]
         [SerializeField] private VolumeView _volumeView;
+        
+        [Header("Wallet")]
         [SerializeField] private List<WalletUI> _walletsUI;
+        
+        [Header("Inventory")]
         [SerializeField] private InventoryGridView _gridView;
         
         public UICollector UICollector => _uICollector;

@@ -140,7 +140,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             _entityRepository.Add(thirdSlot);
             InventorySlot fourthSlot = new InventorySlot(ModelId.FourthSlot, true, 0);
             _entityRepository.Add(fourthSlot);
-            InventorySlot fifthSlot = new InventorySlot(ModelId.FifthSlot, true, 0);
+            InventorySlot fifthSlot = new InventorySlot(ModelId.FifthSlot, false, 1);
             _entityRepository.Add(fifthSlot);
             InventorySlot sixthSlot = new InventorySlot(ModelId.SixthSlot, true, 0);
             _entityRepository.Add(sixthSlot);

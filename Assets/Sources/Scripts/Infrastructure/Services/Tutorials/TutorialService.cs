@@ -5,6 +5,7 @@ using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.UIFramework.Presentations.Views.Types;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Forms;
+using UnityEngine;
 
 namespace Sources.Scripts.Infrastructure.Services.Tutorials
 {
@@ -13,7 +14,7 @@ namespace Sources.Scripts.Infrastructure.Services.Tutorials
         private readonly IFormService _formService;
         private readonly ILoadService _loadService;
         private Tutorial _tutorial;
-        private SavedLevel savedLevel;
+        private SavedLevel _savedLevel;
 
         public TutorialService(
             IFormService formService,
@@ -28,16 +29,16 @@ namespace Sources.Scripts.Infrastructure.Services.Tutorials
             if (_tutorial.HasCompleted)
                 return;
 
-            if (savedLevel.CurrentLevelId != ModelId.MainMenu)
-                return;
+            //if (_savedLevel.CurrentLevelId != ModelId.MainMenu)
+            //    return;
 
-            _formService.Show(FormId.GreetingTutorial);
+            _formService.Show(FormId.AddTankTutorial);
         }
 
         public void Construct(Tutorial tutorial, SavedLevel savedLevel)
         {
             _tutorial = tutorial ?? throw new ArgumentNullException(nameof(tutorial));
-            this.savedLevel = savedLevel ?? throw new ArgumentNullException(nameof(savedLevel));
+            _savedLevel = savedLevel ?? throw new ArgumentNullException(nameof(savedLevel));
         }
 
         public void Complete()

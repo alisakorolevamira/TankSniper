@@ -12,10 +12,16 @@ namespace Sources.Scripts.UIFramework.Presentations.Views
     public class UIView : PresentableView<UIViewPresenter>, IUIView
     {
         [SerializeField] private FormId _formId;
+        
+        [Header("On Enable")]
         [SerializeField] private List<FormId> _onEnableEnabledForms;
         [SerializeField] private List<FormId> _onEnableDisabledForms;
+        
+        [Header("On Disable")]
         [SerializeField] private List<FormId> _onDisableEnabledForms;
         [SerializeField] private List<FormId> _onDisableDisabledForms;
+        
+        [Header("Commands")]
         [SerializeField] private List<FormCommandId> _enabledFormCommands;
         [SerializeField] private List<FormCommandId> _disabledFormCommands;
         [SerializeField] private Enable _enabledGameObject;

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Sources.Scripts.Presentations.Views;
+using Sources.Scripts.UIFramework.Presentations.Animations;
 using Sources.Scripts.UIFramework.Presentations.AudioSources;
 using Sources.Scripts.UIFramework.Presentations.Buttons;
 using Sources.Scripts.UIFramework.PresentationsInterfaces.AudioSources;
@@ -17,9 +18,13 @@ namespace Sources.Scripts.UIFramework.Presentations.Views
         
         [Header("Audio")]
         [SerializeField] private List<UIAudioSource> _uiAudioSources;
+
+        [Header("Animators")]
+        [SerializeField] private List<UIAnimator> _uiAnimators;
         
         public IReadOnlyList<UIButton> UIFormButtons => _uiFormButtons;
         public IReadOnlyList<UIView> UIContainers => _uiContainers;
         public IReadOnlyList<IUIAudioSource> UIAudioSources => _uiAudioSources;
+        public IReadOnlyList<UIAnimator> UIAnimators => _uiAnimators;
     }
 }

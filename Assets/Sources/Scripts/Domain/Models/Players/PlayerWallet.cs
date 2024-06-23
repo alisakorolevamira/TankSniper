@@ -15,12 +15,6 @@ namespace Sources.Scripts.Domain.Models.Players
             Id = id;
         }
 
-        public PlayerWallet(PlayerWalletDto playerWalletDto)
-        {
-            Money = playerWalletDto.Money;
-            Id = playerWalletDto.Id;
-        }
-
         public event Action MoneyChanged;
 
         public string Id { get; }

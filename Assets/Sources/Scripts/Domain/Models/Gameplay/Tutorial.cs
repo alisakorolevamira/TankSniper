@@ -7,17 +7,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
 {
     public class Tutorial : IEntity
     {
-        public Tutorial(TutorialDto tutorialDto)
-            : this(tutorialDto.Id, tutorialDto.HasCompleted)
-        {
-        }
-
-        public Tutorial()
-            : this(ModelId.Tutorial, false)
-        {
-        }
-
-        private Tutorial(string id, bool hasCompleted)
+        public Tutorial(string id, bool hasCompleted)
         {
             Id = id;
             HasCompleted = hasCompleted;

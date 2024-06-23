@@ -1,9 +1,11 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
 using Sources.Scripts.ControllersInterfaces.Scenes;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactories;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
+using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.Presentations.UI.Curtain;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
@@ -17,6 +19,9 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         private readonly IVolumeService _volumeService;
         //private readonly IStickyService _stickyService;
         private readonly IAudioService _audioService;
+
+        private readonly IPlayerSpawnerService _playerSpawnerService;
+
         //private readonly IFocusService _focusService;
         private readonly ITutorialService _tutorialService;
         private readonly LoadingCurtainView _curtainView;
@@ -27,6 +32,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             LoadingCurtainView curtainView,
             //IStickyService stickyService,
             IAudioService audioService,
+            IPlayerSpawnerService playerSpawnerService,
             ITutorialService tutorialService)
             //IFocusService focusService)
         {
@@ -34,6 +40,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
             //_stickyService = stickyService ?? throw new ArgumentNullException(nameof(stickyService));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
+            _playerSpawnerService = playerSpawnerService ?? throw new ArgumentNullException(nameof(playerSpawnerService));
             //_focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
             _curtainView = curtainView ? curtainView : throw new ArgumentNullException(nameof(curtainView));
@@ -46,6 +53,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _loadSceneService.Load(payload as IScenePayload);
             _volumeService.Enter();
             _audioService.Enter();
+            _playerSpawnerService.Enable();
             await _curtainView.HideCurtain();
             await GameReady(payload as IScenePayload);
             _tutorialService.Enable();
@@ -54,6 +62,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         public void Exit()
         {
             //_focusService.Disable();
+            _playerSpawnerService.Disable();
             _volumeService.Exit();
             _audioService.Exit();
         }

@@ -17,6 +17,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Domain.Data
         }
 
         public InventorySlot MapDtoToModel(InventorySlotDto inventorySlotDto) =>
-            new(inventorySlotDto);
+            new(inventorySlotDto.Id, inventorySlotDto.IsEmpty, inventorySlotDto.Level);
     }
 }

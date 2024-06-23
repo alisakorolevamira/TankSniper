@@ -10,17 +10,7 @@ namespace Sources.Scripts.Domain.Models.Settings
     {
         private int _audioVolume;
         
-        public Volume(VolumeDto volumeDto)
-            : this(volumeDto.AudioValue, volumeDto.Id)
-        {
-        }
-        
-        public Volume()
-            : this(VolumeConst.BaseAudioValue, ModelId.Volume)
-        {
-        }
-
-        private Volume(int audioVolume, string id)
+        public Volume(int audioVolume, string id)
         {
             _audioVolume = audioVolume;
             Id = id;

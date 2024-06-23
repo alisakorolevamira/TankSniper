@@ -16,6 +16,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Domain.Data
         }
 
         public Tutorial MapDtoToModel(TutorialDto tutorialDto) =>
-            new(tutorialDto);
+            new(tutorialDto.Id, tutorialDto.HasCompleted);
     }
 }

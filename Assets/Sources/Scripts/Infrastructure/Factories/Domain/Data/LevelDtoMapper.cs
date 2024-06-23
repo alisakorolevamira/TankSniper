@@ -16,6 +16,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Domain.Data
         }
 
         public Level MapDtoToModel(LevelDto levelDto) =>
-            new(levelDto);
+            new(levelDto.Id, levelDto.IsCompleted);
     }
 }

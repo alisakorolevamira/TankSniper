@@ -7,11 +7,6 @@ namespace Sources.Scripts.Domain.Models.Gameplay
 {
     public class Level : IEntity, ILevel
     {
-        public Level(LevelDto levelDto)
-        {
-            Id = levelDto.Id;
-            IsCompleted = levelDto.IsCompleted;
-        }
         public Level(
             string id,
             bool isCompleted)

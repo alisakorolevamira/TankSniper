@@ -15,7 +15,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Domain.Data
             };
         }
 
-        public GameData MapDtoToModel(GameDataDto gameDataDto) =>
-            new(gameDataDto);
+        public GameData MapDtoToModel(GameDataDto gameDataDto) => 
+            new(gameDataDto.Id, gameDataDto.WasLaunched);
     }
 }

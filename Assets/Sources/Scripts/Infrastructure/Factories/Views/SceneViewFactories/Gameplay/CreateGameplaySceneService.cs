@@ -171,7 +171,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             if (_loadService.HasKey(ModelId.Volume))
                 return _loadService.Load<Volume>(ModelId.Volume);
 
-            Volume volume = new Volume();
+            Volume volume = new Volume(VolumeConst.BaseAudioValue, ModelId.Volume);
             _entityRepository.Add(volume);
 
             return volume;

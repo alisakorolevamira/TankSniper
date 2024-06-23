@@ -10,34 +10,32 @@ namespace Sources.Scripts.Infrastructure.Factories.Domain.Data
 {
     public class UpgradeDtoMapper : IUpgradeDtoMapper
     {
-        private readonly IUpgradeConfigCollectionService _upgradeConfigCollectionService;
+        //private readonly IUpgradeConfigCollectionService _upgradeConfigCollectionService;
 
-        public UpgradeDtoMapper(IUpgradeConfigCollectionService upgradeConfigCollectionService)
-        {
-            _upgradeConfigCollectionService = 
-                upgradeConfigCollectionService ?? 
-                throw new ArgumentNullException(nameof(upgradeConfigCollectionService));
-        }
+       // public UpgradeDtoMapper(IUpgradeConfigCollectionService upgradeConfigCollectionService)
+       // {
+       //     //_upgradeConfigCollectionService = 
+       //     //    upgradeConfigCollectionService ?? 
+       //     //    throw new ArgumentNullException(nameof(upgradeConfigCollectionService));
+       // }
 
         public UpgradeDto MapModelToDto(Upgrader upgrader)
         {
-            return new UpgradeDto();
+            return new UpgradeDto()
+            {
+                CurrentLevel = upgrader.CurrentLevel,
+                Id = upgrader.Id
+            };
         }
 
         public UpgradeDto MapIdToDto(string id)
         {
-            UpgradeConfig upgradeConfig = _upgradeConfigCollectionService.GetConfig(id);
+            //UpgradeConfig upgradeConfig = _upgradeConfigCollectionService.GetConfig(id);
 
             return new UpgradeDto();
         }
 
-        public Upgrader MapDtoToModel(UpgradeDto upgradeDto)
-        {
-            
-
-            return new Upgrader(
-                upgradeDto.CurrentLevel,
-                upgradeDto.Id);
-        }
+        public Upgrader MapDtoToModel(UpgradeDto upgradeDto) => 
+            new(upgradeDto.CurrentLevel, upgradeDto.Id);
     }
 }

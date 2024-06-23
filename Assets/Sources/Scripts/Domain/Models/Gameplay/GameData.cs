@@ -6,12 +6,6 @@ namespace Sources.Scripts.Domain.Models.Gameplay
 {
     public class GameData : IEntity
     {
-        public GameData(GameDataDto gameDataDto)
-        {
-            Id = gameDataDto.Id;
-            WasLaunched = gameDataDto.WasLaunched;
-        }
-        
         public GameData(string id, bool wasLaunched)
         {
             Id = id;

@@ -19,7 +19,7 @@ namespace Sources.Scripts.Infrastructure.Services.LoadServices.Collectors
         private readonly Dictionary<Type, Func<IDto, IEntity>> _toModelMappers;
 
         public MapperCollector(
-            //IUpgradeDtoMapper upgradeDtoMapper,
+            IUpgradeDtoMapper upgradeDtoMapper,
             IPlayerWalletDtoMapper playerWalletDtoMapper,
             IVolumeDtoMapper volumeDtoMapper,
             ILevelDtoMapper levelDtoMapper,
@@ -29,8 +29,8 @@ namespace Sources.Scripts.Infrastructure.Services.LoadServices.Collectors
             IInventorySlotDtoMapper inventorySlotDtoMapper)
         {
             _toDtoMappers = new Dictionary<Type, Func<IEntity, IDto>>();
-            //_toDtoMappers[typeof(Upgrader)] =
-                //model => upgradeDtoMapper.MapModelToDto(model as Upgrader);
+            _toDtoMappers[typeof(Upgrader)] =
+                model => upgradeDtoMapper.MapModelToDto(model as Upgrader);
             _toDtoMappers[typeof(PlayerWallet)] =
                 model => playerWalletDtoMapper.MapModelToDto(model as PlayerWallet);
             _toDtoMappers[typeof(Volume)] =
@@ -47,8 +47,8 @@ namespace Sources.Scripts.Infrastructure.Services.LoadServices.Collectors
                 model => inventorySlotDtoMapper.MapModelToDto(model as InventorySlot);
 
             _toModelMappers = new Dictionary<Type, Func<IDto, IEntity>>();
-            //_toModelMappers[typeof(UpgradeDto)] =
-                //dto => upgradeDtoMapper.MapDtoToModel(dto as UpgradeDto);
+            _toModelMappers[typeof(UpgradeDto)] =
+                dto => upgradeDtoMapper.MapDtoToModel(dto as UpgradeDto);
             _toModelMappers[typeof(PlayerWalletDto)] =
                 dto => playerWalletDtoMapper.MapDtoToModel(dto as PlayerWalletDto);
             _toModelMappers[typeof(VolumeDto)] =

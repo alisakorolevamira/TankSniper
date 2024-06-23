@@ -1,5 +1,6 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
 using Sources.Scripts.Controllers.Presenters.Scenes;
 using Sources.Scripts.ControllersInterfaces.Scenes;
 using Sources.Scripts.Domain.Models.Data.Ids;
@@ -8,6 +9,7 @@ using Sources.Scripts.InfrastructureInterfaces.Factories.Controllers.Scenes;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactories;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
+using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.Presentations.UI.Curtain;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
@@ -23,6 +25,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
         private readonly ILoadService _loadService;
         //private readonly IStickyService _stickyService;
         private readonly IAudioService _audioService;
+
+        private readonly IPlayerSpawnerService _playerSpawnerService;
+
         //private readonly IFocusService _focusService;
         private readonly ITutorialService _tutorialService;
         private readonly LoadingCurtainView _curtainView;
@@ -35,6 +40,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             LoadingCurtainView curtainView,
             //IStickyService stickyService,
             IAudioService audioService,
+            IPlayerSpawnerService playerSpawnerService,
             ITutorialService tutorialService)
             //IFocusService focusService)
         {
@@ -46,6 +52,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
             //_stickyService = stickyService ?? throw new ArgumentNullException(nameof(stickyService));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
+            _playerSpawnerService = playerSpawnerService ?? throw new ArgumentNullException(nameof(playerSpawnerService));
             _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
             //_focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             _curtainView = curtainView ? curtainView : throw new ArgumentNullException(nameof(curtainView));
@@ -59,6 +66,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
                 _curtainView,
                 //_stickyService,
                 _audioService,
+                _playerSpawnerService,
                 _tutorialService);
             //_focusService);
         }

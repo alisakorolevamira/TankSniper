@@ -7,13 +7,6 @@ namespace Sources.Scripts.Domain.Models.Inventory
 {
     public class InventorySlot : IEntity, IInventorySlot
     {
-        public InventorySlot(InventorySlotDto inventorySlotDto)
-        {
-            Id = inventorySlotDto.Id;
-            IsEmpty = inventorySlotDto.IsEmpty;
-            Level = inventorySlotDto.Level;
-        }
-        
         public InventorySlot(
             string id,
             bool isEmpty,

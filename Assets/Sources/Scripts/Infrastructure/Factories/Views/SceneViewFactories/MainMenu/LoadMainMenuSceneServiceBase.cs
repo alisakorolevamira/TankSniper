@@ -10,6 +10,7 @@ using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactorie
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
+using Sources.Scripts.InfrastructureInterfaces.Services.UpgradeServices;
 using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.PresentationsInterfaces.Views.Players;
@@ -31,6 +32,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
         private readonly ITutorialService _tutorialService;
         private readonly IPlayerSpawnerService _playerSpawnerService;
         private readonly IInventoryTankSpawnerService _inventoryTankSpawnerService;
+        private readonly IUpgradeService _upgradeService;
         private readonly MainMenuPlayerViewFactory _playerViewFactory;
         
         protected LoadMainMenuSceneServiceBase(
@@ -44,6 +46,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             ITutorialService tutorialService,
             IPlayerSpawnerService playerSpawnerService,
             IInventoryTankSpawnerService inventoryTankSpawnerService,
+            IUpgradeService upgradeService,
             MainMenuPlayerViewFactory playerViewFactory)
         {
             _mainMenuHud = mainMenuHud ? mainMenuHud : throw new ArgumentNullException(nameof(mainMenuHud));
@@ -58,6 +61,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             _playerSpawnerService = playerSpawnerService ?? throw new ArgumentNullException(nameof(playerSpawnerService));
             _inventoryTankSpawnerService = inventoryTankSpawnerService ??
                                            throw new ArgumentNullException(nameof(inventoryTankSpawnerService));
+            _upgradeService = upgradeService ?? throw new ArgumentNullException(nameof(upgradeService));
             _playerViewFactory = playerViewFactory ?? throw new ArgumentNullException(nameof(playerViewFactory));
             _formService = formService ?? throw new ArgumentNullException(nameof(formService));
         }
@@ -73,6 +77,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             
             //PlayerView playerView = _playerViewFactory.Create(models.Player);
             IPlayerView playerView = _playerSpawnerService.Spawn(models.Player, models.Upgrader.CurrentLevel);
+            
+            _upgradeService.Register(models.Upgrader);
             
             _levelAvailabilityViewFactory.Create(models.LevelAvailability, _mainMenuHud.LevelAvailabilityView);
             

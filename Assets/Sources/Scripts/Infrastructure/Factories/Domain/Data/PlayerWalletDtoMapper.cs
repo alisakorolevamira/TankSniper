@@ -16,6 +16,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Domain.Data
         }
 
         public PlayerWallet MapDtoToModel(PlayerWalletDto playerWalletDto) =>
-            new(playerWalletDto);
+            new(playerWalletDto.Money, playerWalletDto.Id);
     }
 }

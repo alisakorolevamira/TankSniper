@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.Inventory;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
+using Sources.Scripts.InfrastructureInterfaces.Services.UpgradeServices;
 using Sources.Scripts.Presentations.Views.Inventory;
 using Sources.Scripts.PresentationsInterfaces.Views.Inventory;
 
@@ -11,20 +13,23 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners
     public class InventoryTankSpawnerService : IInventoryTankSpawnerService
     {
         private readonly IInventoryTankViewFactory _viewFactory;
-        
+        private readonly IUpgradeService _upgradeService;
+
         private IReadOnlyList<InventorySlotView> _slots;
 
-        public InventoryTankSpawnerService(IInventoryTankViewFactory viewFactory)
+        public InventoryTankSpawnerService(IInventoryTankViewFactory viewFactory, IUpgradeService upgradeService)
         {
             _viewFactory = viewFactory ?? throw new ArgumentNullException(nameof(viewFactory));
+            _upgradeService = upgradeService ?? throw new ArgumentNullException(nameof(upgradeService));
         }
 
         public IInventoryTankView Spawn(int level, InventorySlotView inventorySlotView)
         {
             IInventoryTankView view = _viewFactory.Create(level, inventorySlotView, this);
-            inventorySlotView.SetTank(view);
             
-            //playerviewfacrtory check player level
+            inventorySlotView.SetTank(view);
+            _upgradeService.CheckLevel(level);
+            
             return view;
         }
 

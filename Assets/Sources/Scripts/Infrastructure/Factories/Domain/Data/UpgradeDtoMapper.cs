@@ -4,7 +4,7 @@ using Sources.Scripts.Domain.Models.Data;
 using Sources.Scripts.Domain.Models.Upgrades;
 using Sources.Scripts.Domain.Models.Upgrades.Configs;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Domain.Data;
-using Sources.Scripts.InfrastructureInterfaces.Services.Upgrades;
+using Sources.Scripts.InfrastructureInterfaces.Services.UpgradeServices;
 
 namespace Sources.Scripts.Infrastructure.Factories.Domain.Data
 {

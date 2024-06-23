@@ -11,6 +11,7 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
         public const string PlayerWallet = "PlayerWallet";
         public const string MainMenu = "MainMenu";
         public const string Tutorial = "Tutorial";
+        public const string Upgrader = "Upgrader";
         
         public const string FirstLevel = "FirstLevel";
         public const string SecondLevel = "SecondLevel";
@@ -41,6 +42,7 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
             Volume,
             PlayerWallet,
             Tutorial,
+            Upgrader,
             FirstLevel,
             SecondLevel,
             ThirdLevel,
@@ -65,6 +67,7 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
             [Volume] = typeof(VolumeDto),
             [PlayerWallet] = typeof(PlayerWalletDto),
             [Tutorial] = typeof(TutorialDto),
+            [Upgrader] = typeof(UpgradeDto),
             [FirstLevel] = typeof(LevelDto),
             [SecondLevel] = typeof(LevelDto),
             [ThirdLevel] = typeof(LevelDto),

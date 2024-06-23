@@ -5,6 +5,7 @@ using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Inventory;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
+using Sources.Scripts.Domain.Models.Upgrades;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Inventory;
@@ -38,6 +39,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             UICollectorFactory uiCollectorFactory,
             IFormService formService,
             ITutorialService tutorialService,
+            IPlayerSpawnerService playerSpawnerService,
             IInventoryTankSpawnerService inventoryTankSpawnerService)
             : base(
                 mainMenuHud,
@@ -48,6 +50,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 uiCollectorFactory,
                 formService,
                 tutorialService,
+                playerSpawnerService,
                 inventoryTankSpawnerService,
                 playerViewFactory)
         {
@@ -67,6 +70,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             
             SavedLevel savedLevel = new SavedLevel(ModelId.SavedLevel, ModelId.FirstLevel);
             _entityRepository.Add(savedLevel);
+
+            Upgrader upgrader = new Upgrader(1, ModelId.Upgrader);
             
             Level firstLevel = new Level(ModelId.FirstLevel, false);
             _entityRepository.Add(firstLevel);
@@ -115,6 +120,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 gameData,
                 tutorial,
                 player,
+                upgrader,
                 savedLevel,
                 grid);
         }

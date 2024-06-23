@@ -14,7 +14,6 @@ namespace Sources.Scripts.Infrastructure.Services.Tutorials
         private readonly IFormService _formService;
         private readonly ILoadService _loadService;
         private Tutorial _tutorial;
-        private SavedLevel _savedLevel;
 
         public TutorialService(
             IFormService formService,
@@ -29,17 +28,11 @@ namespace Sources.Scripts.Infrastructure.Services.Tutorials
             if (_tutorial.HasCompleted)
                 return;
 
-            //if (_savedLevel.CurrentLevelId != ModelId.MainMenu)
-            //    return;
-
             _formService.Show(FormId.AddTankTutorial);
         }
 
-        public void Construct(Tutorial tutorial, SavedLevel savedLevel)
-        {
+        public void Construct(Tutorial tutorial) => 
             _tutorial = tutorial ?? throw new ArgumentNullException(nameof(tutorial));
-            _savedLevel = savedLevel ?? throw new ArgumentNullException(nameof(savedLevel));
-        }
 
         public void Complete()
         {

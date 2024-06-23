@@ -5,6 +5,7 @@ using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Inventory;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
+using Sources.Scripts.Domain.Models.Upgrades;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Inventory;
@@ -37,6 +38,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             UICollectorFactory uiCollectorFactory,
             IFormService formService,
             ITutorialService tutorialService,
+            IPlayerSpawnerService playerSpawnerService,
             IInventoryTankSpawnerService inventoryTankSpawnerService,
             MainMenuPlayerViewFactory playerViewFactory)
             : base(
@@ -48,6 +50,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 uiCollectorFactory,
                 formService,
                 tutorialService,
+                playerSpawnerService,
                 inventoryTankSpawnerService,
                 playerViewFactory)
         {
@@ -64,6 +67,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             GameData gameData = _loadService.Load<GameData>(ModelId.GameData);
             
             SavedLevel savedLevel = _loadService.Load<SavedLevel>(ModelId.SavedLevel);
+
+            Upgrader upgrader = _loadService.Load<Upgrader>(ModelId.Upgrader);
             
             Level firstLevel = _loadService.Load<Level>(ModelId.FirstLevel);
             Level secondLevel = _loadService.Load<Level>(ModelId.SecondLevel);
@@ -123,6 +128,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 gameData,
                 tutorial,
                 player,
+                upgrader,
                 savedLevel,
                 inventoryGrid);
         }

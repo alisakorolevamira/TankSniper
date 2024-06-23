@@ -36,7 +36,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Players
             AttackerUIViewFactory attackerUIViewFactory)
         {
             _gameplayHud = gameplayHud ? gameplayHud : throw new ArgumentNullException(nameof(gameplayHud));
-            this._gameplayRootGameObject = gameplayRootGameObject ?? throw new ArgumentNullException(nameof(gameplayRootGameObject));
+            _gameplayRootGameObject = gameplayRootGameObject ? gameplayRootGameObject :
+                throw new ArgumentNullException(nameof(gameplayRootGameObject));
             _playerAttackerViewFactory = playerAttackerViewFactory ??
                                          throw new ArgumentNullException(nameof(playerAttackerViewFactory));
             _healthBarUIFactory = healthBarUIFactory ?? throw new ArgumentNullException(nameof(healthBarUIFactory));

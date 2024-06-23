@@ -1,6 +1,6 @@
 ﻿using Sources.Scripts.Domain.Models.Upgrades.Configs;
 
-namespace Sources.Scripts.InfrastructureInterfaces.Services.Upgrades
+namespace Sources.Scripts.InfrastructureInterfaces.Services.UpgradeServices
 {
     public interface IUpgradeConfigCollectionService
     {

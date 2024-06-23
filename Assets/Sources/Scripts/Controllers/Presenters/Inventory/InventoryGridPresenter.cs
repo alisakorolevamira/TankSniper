@@ -32,7 +32,8 @@ namespace Sources.Scripts.Controllers.Presenters.Inventory
         {
             foreach (var slotView in _view.Slots)
             {
-               var slot = _grid.Slots.First(slot => slotView.Position == slot.Key);
+               var slot =
+                   _grid.Slots.First(slot => slotView.Position == slot.Key);
                slotView.Construct(slot.Value);
                
                if (slotView.IsEmpty == false) 

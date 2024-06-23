@@ -1,6 +1,7 @@
 ﻿using Sources.Scripts.Domain.Models.Inventory;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
+using Sources.Scripts.Domain.Models.Upgrades;
 
 namespace Sources.Scripts.Domain.Models.Gameplay
 {
@@ -18,6 +19,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             GameData gameData,
             Tutorial tutorial,
             Player player,
+            Upgrader upgrader,
             SavedLevel savedLevel,
             InventoryGrid grid)
         {
@@ -32,6 +34,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             GameData = gameData;
             Tutorial = tutorial;
             Player = player;
+            Upgrader = upgrader;
             SavedLevel = savedLevel;
             InventoryGrid = grid;
         }
@@ -48,6 +51,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         public Tutorial Tutorial { get; }
         public Player Player { get; }
         public SavedLevel SavedLevel { get; }
+        public Upgrader Upgrader { get; }
         public InventoryGrid InventoryGrid { get; }
     }
 }

@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c893f8dcfea1014448523d7642ed6f55, type: 2}
+  - {fileID: -2813337366143557646, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 4110512460711393863}
   - component: {fileID: -2579662288539658095}
   m_Layer: 0
-  m_Name: PlayerView
+  m_Name: PlayerView1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,8 +112,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5164724530927718643}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000018098783, y: 0.5605771, z: -0.000000012251836, w: 0.8281023}
-  m_LocalPosition: {x: -1.55, y: 1.73, z: -11.95}
+  m_LocalRotation: {x: 0, y: 0.56057394, z: 0, w: 0.8281044}
+  m_LocalPosition: {x: 0, y: 1.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -208,6 +208,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdf292b2fd0645698c9f5ae28f03da7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bullets: []
-  _lightnings: []
-  _shootEffect: {fileID: 0}

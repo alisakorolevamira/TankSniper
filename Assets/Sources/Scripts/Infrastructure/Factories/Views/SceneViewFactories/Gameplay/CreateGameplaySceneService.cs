@@ -6,6 +6,7 @@ using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
 using Sources.Scripts.Domain.Models.Spawners;
+using Sources.Scripts.Domain.Models.Upgrades;
 using Sources.Scripts.Domain.Models.Weapons;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Cameras;
@@ -106,6 +107,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             CharacterHealth characterHealth = new CharacterHealth();
 
             Weapon weapon = new Weapon(PlayerConst.Damage);
+
+            Upgrader upgrader = new Upgrader(1, ModelId.Upgrader);
             
             PlayerAttacker playerAttacker = new PlayerAttacker(weapon); //переделать
             
@@ -120,6 +123,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 player,
                 killedEnemiesCounter,
                 enemySpawner,
+                upgrader,
                 savedLevel);
         }
 

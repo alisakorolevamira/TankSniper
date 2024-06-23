@@ -51,11 +51,11 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Players
                                      throw new ArgumentNullException(nameof(attackerUIViewFactory));
         }
 
-        public PlayerView Create(GameplayPlayer player)
+        public PlayerView Create(GameplayPlayer player, int level)
         {
             PlayerView playerView =
                 Object.Instantiate(
-                    Resources.Load<PlayerView>(PrefabPath.Player),
+                    Resources.Load<PlayerView>($"{PrefabPath.Player}{level}"),
                     _gameplayRootGameObject.PlayerSpawnPoint.Position,
                     _gameplayRootGameObject.PlayerSpawnPoint.Rotation);
             

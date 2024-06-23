@@ -107,7 +107,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             
             _saveService.Register(gameModels.EnemySpawner);
 
-            PlayerView playerView = _playerViewFactory.Create(gameModels.Player);
+            PlayerView playerView = _playerViewFactory.Create(gameModels.Player, gameModels.Upgrader.CurrentLevel);
 
             //PlayerAttackerView playerAttackerView = _rootGameObject.PlayerAttackerView;
             //_playerAttackerViewFactory.Create(gameModels.PlayerAttacker, playerAttackerView);

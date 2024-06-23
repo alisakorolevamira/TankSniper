@@ -7,6 +7,7 @@ using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
 using Sources.Scripts.Domain.Models.Spawners;
+using Sources.Scripts.Domain.Models.Upgrades;
 using Sources.Scripts.Domain.Models.Weapons;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Cameras;
@@ -88,6 +89,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             SavedLevel savedLevel = _entityRepository.Get<SavedLevel>(ModelId.SavedLevel);
             
             PlayerWallet playerWallet = _entityRepository.Get<PlayerWallet>(ModelId.PlayerWallet);
+            
+            Upgrader upgrader = _entityRepository.Get<Upgrader>(ModelId.Upgrader);
 
             KilledEnemiesCounter killedEnemiesCounter = new KilledEnemiesCounter();
 
@@ -110,6 +113,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 player,
                 killedEnemiesCounter,
                 enemySpawner,
+                upgrader,
                 savedLevel);
         }
     }

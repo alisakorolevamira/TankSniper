@@ -18,6 +18,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             GameplayPlayer player,
             KilledEnemiesCounter killedEnemiesCounter,
             EnemySpawner enemySpawner,
+            Upgrader upgrader,
             SavedLevel savedLevel)
         {
             CharacterHealth = characterHealth;
@@ -29,6 +30,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             KilledEnemiesCounter = killedEnemiesCounter;
             EnemySpawner = enemySpawner;
             SavedLevel = savedLevel;
+            Upgrader = upgrader;
         }
 
         public CharacterHealth CharacterHealth { get; }
@@ -40,5 +42,6 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         public KilledEnemiesCounter KilledEnemiesCounter { get; }
         public EnemySpawner EnemySpawner { get; }
         public SavedLevel SavedLevel { get; }
+        public Upgrader Upgrader { get; }
     }
 }

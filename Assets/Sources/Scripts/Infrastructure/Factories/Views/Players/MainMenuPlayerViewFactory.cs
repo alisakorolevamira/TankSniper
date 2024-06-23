@@ -19,12 +19,13 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Players
         private readonly PlayerWalletViewFactory _playerWalletViewFactory;
         private readonly WalletUIFactory _walletUIFactory;
 
+        private PlayerView _playerView;
+
         public MainMenuPlayerViewFactory(
             MainMenuRootGameObjects mainMenuRootGameObjects,
             MainMenuHud mainMenuHud,
             PlayerWalletViewFactory playerWalletViewFactory,
-            WalletUIFactory walletUIFactory,
-            IUpgradeService upgradeService)
+            WalletUIFactory walletUIFactory)
         {
             _mainMenuHud = mainMenuHud ? mainMenuHud : throw new ArgumentNullException(nameof(mainMenuHud));
             _mainMenuRootGameObjects = mainMenuRootGameObjects ? mainMenuRootGameObjects :
@@ -36,16 +37,24 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Players
 
         public PlayerView Create(Player player, int level, PlayerSpawnPoint playerSpawnPoint)
         {
-            PlayerView playerView =
-                Object.Instantiate(
-                    Resources.Load<PlayerView>(PrefabPath.Player),
+            if (_playerView != null) 
+                _playerView.Destroy();
+            
+            //PlayerView playerView =
+            //    Object.Instantiate(
+            //        Resources.Load<PlayerView>($"{PrefabPath.Player}{level}"),
+            //        playerSpawnPoint.Position,
+            //        playerSpawnPoint.Rotation);
+            
+            _playerView = Object.Instantiate(
+                    Resources.Load<PlayerView>($"{PrefabPath.Player}{level}"),
                     playerSpawnPoint.Position,
                     playerSpawnPoint.Rotation);
             
             foreach (WalletUI wallet in _mainMenuHud.WalletsUI) 
                 _walletUIFactory.Create(player.PlayerWallet, wallet);
             
-            return playerView;
+            return _playerView;
         }
     }
 }

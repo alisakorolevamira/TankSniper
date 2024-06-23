@@ -93,8 +93,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
             Level level = CreateLevel(scenePayload.SceneId);
 
-            SavedLevel savedLevel = new SavedLevel(
-                ModelId.SavedLevel, scenePayload.SceneId);
+            SavedLevel savedLevel = new SavedLevel(ModelId.SavedLevel, scenePayload.SceneId);
             _entityRepository.Add(savedLevel);
 
             PlayerWallet playerWallet = new PlayerWallet(0, ModelId.PlayerWallet);

@@ -11,7 +11,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Domain.Data
             return new SavedLevelDto()
             {
                 Id = savedLevel.Id,
-                SavedLevelId = savedLevel.CurrentLevelId,
+                SavedLevelId = savedLevel.CurrentLevelId
             };
         }
 

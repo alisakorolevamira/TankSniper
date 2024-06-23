@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Payloads;
@@ -17,6 +19,16 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
         private readonly ILoadService _loadService;
         private readonly IEntityRepository _entityRepository;
         private readonly ISceneService _sceneService;
+
+        private Dictionary<int, string> _levels = new()
+        {
+            { 1, ModelId.FirstLevel },
+            { 2, ModelId.SecondLevel },
+            { 3, ModelId.ThirdLevel },
+            { 4, ModelId.FourthLevel },
+            { 5, ModelId.FifthLevel },
+            { 6, ModelId.SixthLevel }
+        };
 
         public LoadGameCommand(
             ILoadService loadService, 
@@ -45,14 +57,21 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
                 return;
             }
 
-            //if (savedLevel.CurrentLevelId == ModelId.FirstLevel)
-            //{
-            //    _sceneService.ChangeSceneAsync(ModelId.SecondLevel, new ScenePayload(ModelId.SecondLevel, true, false));
-            //}
+            string newLevel = FindNewLevel(savedLevel.CurrentLevelId);
 
-            _sceneService.ChangeSceneAsync(
-                savedLevel.CurrentLevelId,
-                new ScenePayload(savedLevel.CurrentLevelId, true, false));
+            _sceneService.ChangeSceneAsync(newLevel, new ScenePayload(newLevel, true, false));
+        }
+
+        private string FindNewLevel(string savedLevel)
+        {
+            int savedLevelId = _levels.First(x => x.Value == savedLevel).Key;
+
+            string newLevel = _levels.First(x => x.Key == savedLevelId + 1).Value;
+
+            if (newLevel == null)
+                return ModelId.FirstLevel;
+
+            return newLevel;
         }
     }
 }

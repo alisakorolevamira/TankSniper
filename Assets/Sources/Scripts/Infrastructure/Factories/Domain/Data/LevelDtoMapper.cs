@@ -11,7 +11,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Domain.Data
             return new LevelDto()
             {
                 Id = level.Id,
-                IsCompleted = level.IsCompleted
+                IsCompleted = level.IsCompleted,
             };
         }
 

@@ -6,6 +6,6 @@ namespace Sources.Scripts.DomainInterfaces.Models.Gameplay
     {
         event Action Completed;
         
-        public bool IsCompleted { get; }
+        bool IsCompleted { get; }
     }
 }

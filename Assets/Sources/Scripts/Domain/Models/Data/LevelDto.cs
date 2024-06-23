@@ -10,5 +10,8 @@ namespace Sources.Scripts.Domain.Models.Data
         
         [JsonProperty("isCompleted")]
         public bool IsCompleted { get; set; }
+        
+        [JsonProperty("index")]
+        public int Index { get; set; }
     }
 }

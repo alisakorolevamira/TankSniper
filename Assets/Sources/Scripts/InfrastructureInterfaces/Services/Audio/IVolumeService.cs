@@ -6,10 +6,11 @@ namespace Sources.Scripts.InfrastructureInterfaces.Services.Audio
 {
     public interface IVolumeService : IEnterable, IExitable
     {
-        event Action VolumeChanged;
+        event Action<int> VolumeChanged;
         
         int Volume { get; }
         
         void Register(Volume volume);
+        void SetVolume();
     }
 }

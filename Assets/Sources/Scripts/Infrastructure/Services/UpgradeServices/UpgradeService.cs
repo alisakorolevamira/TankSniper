@@ -1,6 +1,8 @@
 ﻿using System;
+using Doozy.Runtime.Signals;
 using JetBrains.Annotations;
 using Sources.Scripts.Domain.Models.Upgrades;
+using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpgradeServices;
 using Sources.Scripts.UIFramework.Presentations.Views.Types;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Forms;
@@ -10,13 +12,13 @@ namespace Sources.Scripts.Infrastructure.Services.UpgradeServices
 {
     public class UpgradeService : IUpgradeService
     {
-        private readonly IFormService _formService;
+        private readonly ITutorialService _tutorialService;
         
         private Upgrader _upgrader;
 
-        public UpgradeService(IFormService formService)
+        public UpgradeService(ITutorialService tutorialService)
         {
-            _formService = formService ?? throw new ArgumentNullException(nameof(formService));
+            _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
         }
         
         public event Action<int> LevelChanged;
@@ -30,9 +32,9 @@ namespace Sources.Scripts.Infrastructure.Services.UpgradeServices
             {
                 _upgrader.Upgrade();
                 LevelChanged?.Invoke(_upgrader.CurrentLevel);
-                
-                if (_formService.IsActive(FormId.MergeTanksTutorial))
-                    _formService.Show(FormId.FightTutorial);
+
+                if (_tutorialService.IsCompleted == false)
+                    Signal.Send(StreamId.MainMenu.ShowFightTutorial);
             }
         }
     }

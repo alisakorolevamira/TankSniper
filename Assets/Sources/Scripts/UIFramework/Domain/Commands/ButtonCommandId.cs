@@ -2,12 +2,11 @@
 {
     public enum ButtonCommandId
     {
-        ShowForm = 0,
-        CompleteTutorial = 1,
-        LoadMainMenuScene = 2,
-        LoadGame = 3,
-        UnPause = 4,
-        HideForm = 5,
-        AddTank = 6,
+        CompleteTutorial = 0,
+        LoadMainMenuScene = 1,
+        LoadGame = 2,
+        UnPause = 3,
+        AddTank = 4,
+        ChangeVolume = 5,
     }
 }

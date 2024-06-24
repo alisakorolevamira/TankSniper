@@ -33,16 +33,14 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners
             return view;
         }
 
-        public IInventoryTankView Spawn(int level)
+        public void Spawn(int level)
         {
             InventorySlotView emptySlot = FindEmptySlot();
 
             if (emptySlot == null)
-                return null;
+                return;
 
-            IInventoryTankView view = Spawn(level, emptySlot);
-
-            return view;
+            Spawn(level, emptySlot);
         }
 
         public void AddSlots(IReadOnlyList<InventorySlotView> slots) => 

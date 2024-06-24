@@ -11,12 +11,10 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Forms.Handlers
         
         public MainMenuUIViewCommandHandler(
             PauseCommand pauseCommand,
-            UnPauseCommand unPauseCommand,
-            SaveVolumeCommand saveVolumeCommand)
+            UnPauseCommand unPauseCommand)
         {
             _commands[pauseCommand.Id] = pauseCommand;
             _commands[unPauseCommand.Id] = unPauseCommand;
-            _commands[saveVolumeCommand.Id] = saveVolumeCommand;
         }
         
         public void Handle(FormCommandId formCommandId)

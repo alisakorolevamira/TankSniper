@@ -25,7 +25,7 @@ namespace Sources.Scripts.UIFramework.Services.AudioSources
 
         public void Enter(object payload = null)
         {
-            OnVolumeChanged();
+            OnVolumeChanged(_volumeService.Volume);
             _volumeService.VolumeChanged += OnVolumeChanged;
         }
 
@@ -40,10 +40,10 @@ namespace Sources.Scripts.UIFramework.Services.AudioSources
             _audioSources[id].Play();
         }
 
-        private void OnVolumeChanged()
+        private void OnVolumeChanged(int volume)
         {
             foreach (IUIAudioSource audioSource in _audioSources.Values)
-                audioSource.SetVolume(_volumeService.Volume);
+                audioSource.SetVolume(volume);
         }
     }
 }

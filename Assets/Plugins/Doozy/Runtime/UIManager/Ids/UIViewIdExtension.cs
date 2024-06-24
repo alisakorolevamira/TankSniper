@@ -30,11 +30,14 @@ namespace Doozy.Runtime.UIManager
     {
         public enum Gameplay
         {
+            Entry,
             GameOver,
             Hud,
             LevelCompleted,
             Pause,
-            Settings
+            ReloadWeapon,
+            Settings,
+            Shoot
         }
 
         public enum MainMenu

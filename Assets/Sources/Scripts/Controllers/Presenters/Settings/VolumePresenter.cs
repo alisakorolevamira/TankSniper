@@ -1,43 +1,30 @@
 ﻿using System;
+using Doozy.Runtime.UIManager.Components;
+using JetBrains.Annotations;
 using Sources.Scripts.Domain.Models.Settings;
+using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.PresentationsInterfaces.Views.Settings;
 
 namespace Sources.Scripts.Controllers.Presenters.Settings
 {
     public class VolumePresenter : PresenterBase
     {
-        private readonly Volume _volume;
+        private readonly IVolumeService _volumeService;
         private readonly IVolumeView _volumeView;
 
-        public VolumePresenter(Volume volume, IVolumeView volumeView)
+        public VolumePresenter(IVolumeService volumeService, IVolumeView volumeView)
         {
-            _volume = volume ?? throw new ArgumentNullException(nameof(volume));
+            _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
             _volumeView = volumeView ?? throw new ArgumentNullException(nameof(volumeView));
         }
         
-        public override void Enable()
-        {
-            _volumeView.VolumeButton.AddClickListener(SetVolume);
-        }
+        public override void Enable() => 
+            _volumeService.VolumeChanged += SetVolume;
 
-        public override void Disable()
-        {
-            _volumeView.VolumeButton.RemoveClickListener(SetVolume);
-        }
+        public override void Disable() => 
+            _volumeService.VolumeChanged -= SetVolume;
 
-        private void SetVolume()
-        {
-            if (_volume.AudioVolume == 0)
-            {
-                _volume.AudioVolume = 1;
-                _volumeView.ImageView.SetSprite(_volumeView.VolumeOnSprite);
-            }
-
-            else
-            {
-                _volume.AudioVolume = 0;
-                _volumeView.ImageView.SetSprite(_volumeView.VolumeOffSprite);
-            }
-        }
+        private void SetVolume(int volume) => 
+            _volumeView.ImageView.SetSprite(volume == 0 ? _volumeView.VolumeOffSprite : _volumeView.VolumeOnSprite);
     }
 }

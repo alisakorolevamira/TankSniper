@@ -72,8 +72,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             
             SavedLevel savedLevel = models.SavedLevel;
             
-            _volumeViewFactory.Create(models.Volume, _mainMenuHud.VolumeView);
             _volumeService.Register(models.Volume);
+            _volumeViewFactory.Create(_volumeService, _mainMenuHud.VolumeView);
             
             //PlayerView playerView = _playerViewFactory.Create(models.Player);
             IPlayerView playerView = _playerSpawnerService.Spawn(models.Player, models.Upgrader.CurrentLevel);
@@ -87,7 +87,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             
             _uiCollectorFactory.Create();
             _tutorialService.Construct(models.Tutorial);
-            //_formService.Show(FormId.Hud);
         }
         
         protected abstract MainMenuModels LoadModels(IScenePayload scenePayload);

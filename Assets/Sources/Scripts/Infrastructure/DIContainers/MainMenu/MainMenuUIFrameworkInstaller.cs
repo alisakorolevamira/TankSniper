@@ -22,7 +22,7 @@ namespace Sources.Scripts.Infrastructure.DIContainers.MainMenu
 
             Container.Bind<UnPauseCommand>().AsSingle();
             Container.Bind<PauseCommand>().AsSingle();
-            Container.Bind<SaveVolumeCommand>().AsSingle();
+            Container.Bind<ChangeVolumeCommand>().AsSingle();
         }
     }
 }

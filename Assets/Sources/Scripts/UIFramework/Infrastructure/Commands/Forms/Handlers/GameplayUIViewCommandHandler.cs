@@ -13,21 +13,13 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Forms.Handlers
         public GameplayUIViewCommandHandler(
             PauseCommand pauseCommand,
             UnPauseCommand unPauseCommand,
-            SaveVolumeCommand saveVolumeCommand,
             SetCameraToShootPositionCommand setCameraToShootPositionCommand,
             SetCameraToMainPositionCommand setCameraToMainPositionCommand)
-            //ClearSavesCommand clearSavesCommand,
-            //SetAllMapCameraFollowViewCommand setAllMapCameraFollowViewCommand,
-            //SetCharacterCameraFollowViewCommand setCharacterCameraFollowUiViewCommand)
         {
             _commands[pauseCommand.Id] = pauseCommand;
             _commands[unPauseCommand.Id] = unPauseCommand;
-            _commands[saveVolumeCommand.Id] = saveVolumeCommand;
             _commands[setCameraToShootPositionCommand.Id] = setCameraToShootPositionCommand;
             _commands[setCameraToMainPositionCommand.Id] = setCameraToMainPositionCommand;
-            //_commands[clearSavesCommand.Id] = clearSavesCommand;
-            //_commands[setAllMapCameraFollowViewCommand.Id] = setAllMapCameraFollowViewCommand;
-            //_commands[setCharacterCameraFollowUiViewCommand.Id] = setCharacterCameraFollowUiViewCommand;
         }
 
         public void Handle(FormCommandId formCommandId)

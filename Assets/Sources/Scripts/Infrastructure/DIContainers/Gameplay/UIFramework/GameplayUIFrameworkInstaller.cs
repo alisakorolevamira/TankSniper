@@ -19,13 +19,11 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay.UIFramework
             Container.Bind<UnPauseButtonCommand>().AsSingle();
             Container.Bind<SetCameraToShootPositionCommand>().AsSingle();
             Container.Bind<SetCameraToMainPositionCommand>().AsSingle();
-            //Container.Bind<ShowRewardedAdvertisingButtonCommand>().AsSingle();
             
             Container.Bind<IUIViewCommandHandler>().To<GameplayUIViewCommandHandler>().AsSingle();
             
             Container.Bind<UnPauseCommand>().AsSingle();
             Container.Bind<PauseCommand>().AsSingle();
-            Container.Bind<SaveVolumeCommand>().AsSingle();
         }
     }
 }

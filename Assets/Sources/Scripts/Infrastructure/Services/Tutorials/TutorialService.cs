@@ -27,6 +27,8 @@ namespace Sources.Scripts.Infrastructure.Services.Tutorials
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
         }
 
+        public bool IsCompleted => _tutorial.HasCompleted;
+
         public void Enable()
         {
             if (_tutorial.HasCompleted)

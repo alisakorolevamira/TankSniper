@@ -1,6 +1,5 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
-using JetBrains.Annotations;
 using Sources.Scripts.Controllers.Presenters.Scenes;
 using Sources.Scripts.ControllersInterfaces.Scenes;
 using Sources.Scripts.Domain.Models.Data.Ids;
@@ -13,7 +12,7 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.InfrastructureInterfaces.Services.Yandex;
 using Sources.Scripts.Presentations.UI.Curtain;
-using Sources.Scripts.UIFramework.ControllerInterfaces.Signals;
+using Sources.Scripts.UIFramework.ControllerInterfaces.Buttons;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;
 
@@ -31,7 +30,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
         private readonly IFocusService _focusService;
         private readonly ITutorialService _tutorialService;
         private readonly ISDKInitializeService _sdkInitializeService;
-        private readonly ISignalController _signalController;
+        private readonly IButtonSignalController _signalController;
         private readonly LoadingCurtainView _curtainView;
 
         public MainMenuSceneFactory(
@@ -45,7 +44,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             IPlayerSpawnerService playerSpawnerService,
             ITutorialService tutorialService,
             ISDKInitializeService sdkInitializeService,
-            ISignalController signalController,
+            IButtonSignalController signalController,
             IFocusService focusService)
         {
             _createMainMenuSceneService = createMainMenuSceneService ?? 

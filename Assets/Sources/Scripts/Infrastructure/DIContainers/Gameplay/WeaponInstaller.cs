@@ -3,9 +3,11 @@ using Sources.Scripts.Infrastructure.Factories.Views.Bullets;
 using Sources.Scripts.Infrastructure.Factories.Views.Weapons;
 using Sources.Scripts.Infrastructure.Services.ObjectPool;
 using Sources.Scripts.Infrastructure.Services.Spawners;
+using Sources.Scripts.Infrastructure.Services.Weapons;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.Bullets;
 using Sources.Scripts.InfrastructureInterfaces.Services.ObjectPool.Generic;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
+using Sources.Scripts.InfrastructureInterfaces.Services.Weapons;
 using Sources.Scripts.Presentations.Views.Bullets;
 using Zenject;
 
@@ -26,6 +28,8 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
 
             Container.Bind<ReloadWeaponPresenterFactory>().AsSingle();
             Container.Bind<ReloadWeaponViewFactory>().AsSingle();
+
+            Container.Bind<IReloadWeaponService>().To<ReloadWeaponService>().AsSingle();
         }
     }
 }

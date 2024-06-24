@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
+using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.UIFramework.Presentations.AudioSources.Types;
-using Sources.Scripts.UIFramework.Presentations.Views;
 using Sources.Scripts.UIFramework.PresentationsInterfaces.AudioSources;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
 
@@ -15,11 +15,11 @@ namespace Sources.Scripts.UIFramework.Services.AudioSources
         private readonly Dictionary<AudioSourceId, IUIAudioSource> _audioSources;
 
         public AudioService(
-            UICollector uiCollector,
+            IHud hud,
             IVolumeService volumeService)
         {
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
-            _audioSources = uiCollector.UIAudioSources.ToDictionary(
+            _audioSources = hud.UIAudioSources.ToDictionary(
                 uiAudioSource => uiAudioSource.AudioSourceId, uiAudioSource => uiAudioSource);
         }
 

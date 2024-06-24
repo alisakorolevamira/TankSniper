@@ -1,12 +1,8 @@
 ﻿using System;
 using Doozy.Runtime.Signals;
-using JetBrains.Annotations;
 using Sources.Scripts.Domain.Models.Upgrades;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpgradeServices;
-using Sources.Scripts.UIFramework.Presentations.Views.Types;
-using Sources.Scripts.UIFramework.ServicesInterfaces.Forms;
-using UnityEngine;
 
 namespace Sources.Scripts.Infrastructure.Services.UpgradeServices
 {

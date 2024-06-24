@@ -15,7 +15,6 @@ using Sources.Scripts.Infrastructure.Factories.Views.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
 using Sources.Scripts.Infrastructure.Factories.Views.Spawners;
 using Sources.Scripts.Infrastructure.Factories.Views.Weapons;
-using Sources.Scripts.InfrastructureInterfaces.Factories.Domain.Data;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.Cameras;
 using Sources.Scripts.InfrastructureInterfaces.Services.GameOver;
@@ -23,11 +22,8 @@ using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
 using Sources.Scripts.InfrastructureInterfaces.Services.Saves;
-using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.Presentations.Views.RootGameObjects;
-using Sources.Scripts.UIFramework.Infrastructure.Factories.Services.Collectors;
-using Sources.Scripts.UIFramework.ServicesInterfaces.Forms;
 
 namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Gameplay
 {
@@ -40,7 +36,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
         public CreateGameplaySceneService(
             GameplayHud gameplayHud,
-            UICollectorFactory uiCollectorFactory,
             PlayerViewFactory playerViewFactory,
             PlayerAttackerViewFactory playerAttackerViewFactory,
             ILoadService loadService,
@@ -57,13 +52,11 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             VolumeViewFactory volumeViewFactory,
             IVolumeService volumeService,
             ISaveService saveService,
-            ILevelCompletedService levelCompletedService,
+            ILevelCompletedService levelCompletedService)
             //IEnemySpawnerDtoMapper enemySpawnerDtoMapper,
             //IAdvertisingService advertisingService,
-            IFormService formService)
             : base(
                 gameplayHud,
-                uiCollectorFactory,
                 playerViewFactory,
                 playerAttackerViewFactory,
                 gameplayRootGameObject,
@@ -78,9 +71,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 volumeViewFactory,
                 volumeService,
                 saveService,
-                levelCompletedService,
+                levelCompletedService)
                 //advertisingService,
-                formService)
         {
             _loadService = loadService;
             _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));

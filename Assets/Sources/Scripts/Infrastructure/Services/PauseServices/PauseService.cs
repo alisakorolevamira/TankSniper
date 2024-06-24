@@ -41,7 +41,7 @@ namespace Sources.Scripts.Infrastructure.Services.PauseServices
                 return;
 
             if (PauseListenersCount < 0)
-                throw new IndexOutOfRangeException(nameof(PauseListenersCount));
+                //throw new IndexOutOfRangeException(nameof(PauseListenersCount));
 
             IsPaused = false;
             ContinueActivated?.Invoke();
@@ -64,7 +64,7 @@ namespace Sources.Scripts.Infrastructure.Services.PauseServices
             PauseListenersCount++;
 
             if (PauseListenersCount < 0)
-                throw new IndexOutOfRangeException(nameof(PauseListenersCount));
+                //throw new IndexOutOfRangeException(nameof(PauseListenersCount));
 
             IsPaused = true;
             PauseActivated?.Invoke();

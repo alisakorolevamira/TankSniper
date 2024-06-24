@@ -13,11 +13,11 @@ using Sources.Scripts.InfrastructureInterfaces.Services.GameOver;
 using Sources.Scripts.InfrastructureInterfaces.Services.InputServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
 using Sources.Scripts.InfrastructureInterfaces.Services.Saves;
-using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpdateServices;
 using Sources.Scripts.Presentations.UI.Curtain;
-using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tank;
+using Sources.Scripts.UIFramework.ControllerInterfaces.Buttons;
+using Sources.Scripts.UIFramework.ControllerInterfaces.Forms;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;
 
@@ -38,6 +38,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
         private readonly List<ITankEnemyView> _enemiesViews;
         private readonly IAudioService _audioService;
         private readonly IFocusService _focusService;
+        private readonly IFormSignalController _formSignalController;
+        private readonly IButtonSignalController _buttonSignalController;
         //private readonly IAdvertisingService _advertisingService;
         private readonly LoadingCurtainView _curtainView;
 
@@ -55,6 +57,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             List<ITankEnemyView> enemiesViews,
             LoadingCurtainView curtainView,
             IAudioService audioService,
+            IFormSignalController formSignalController,
+            IButtonSignalController buttonSignalController,
             IFocusService focusService)
             //IAdvertisingService advertisingService) 
         {
@@ -74,6 +78,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             _enemiesViews = enemiesViews ?? throw new ArgumentNullException(nameof(enemiesViews));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
+            _formSignalController = formSignalController ?? throw new ArgumentNullException(nameof(formSignalController));
+            _buttonSignalController = buttonSignalController ?? throw new ArgumentNullException(nameof(buttonSignalController));
             //_advertisingService = advertisingService ?? throw new ArgumentNullException(nameof(advertisingService));
             _curtainView = curtainView ? curtainView : throw new ArgumentNullException(nameof(curtainView));
         }
@@ -93,6 +99,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
                 _enemiesViews,
                 _audioService,
                 _focusService,
+                _formSignalController,
+                _buttonSignalController,
                 _curtainView);
             //_advertisingService);
         }

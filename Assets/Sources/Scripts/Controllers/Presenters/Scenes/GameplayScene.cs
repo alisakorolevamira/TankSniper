@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Sources.Scripts.ControllersInterfaces.Scenes;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactories;
@@ -14,6 +15,8 @@ using Sources.Scripts.InfrastructureInterfaces.Services.UpdateServices;
 using Sources.Scripts.Presentations.UI.Curtain;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tank;
+using Sources.Scripts.UIFramework.ControllerInterfaces.Buttons;
+using Sources.Scripts.UIFramework.ControllerInterfaces.Forms;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;
 using UnityEngine;
@@ -34,6 +37,8 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         private List<ITankEnemyView> _enemiesViews;
         private readonly IAudioService _audioService;
         private readonly IFocusService _focusService;
+        private readonly IButtonSignalController _buttonSignalController;
+        private readonly IFormSignalController _formSignalController;
         //private readonly IAdvertisingService _advertisingService;
         private readonly LoadingCurtainView _curtainView;
 
@@ -50,6 +55,8 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             List<ITankEnemyView> enemiesViews,
             IAudioService audioService,
             IFocusService focusService,
+            IFormSignalController formSignalController,
+            IButtonSignalController buttonSignalController,
             //IAdvertisingService advertisingService)
             LoadingCurtainView curtainView)
         {
@@ -68,6 +75,8 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
                                    throw new ArgumentNullException(nameof(enemiesViews));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
+            _buttonSignalController = buttonSignalController ?? throw new ArgumentNullException(nameof(buttonSignalController));
+            _formSignalController = formSignalController ?? throw new ArgumentNullException(nameof(formSignalController));
             //_advertisingService = advertisingService ??
             //                      throw new ArgumentNullException(nameof(advertisingService));
             _curtainView = curtainView ? curtainView : throw new ArgumentNullException(nameof(curtainView));
@@ -82,6 +91,8 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _gameOverService.Enter();
             _saveService.Enter();
             _levelCompletedService.Enable();
+            _buttonSignalController.Initialize();
+            _formSignalController.Initialize();
             _audioService.Enter();
             _inputService.Enter();
             _cameraService.Enter();
@@ -101,6 +112,8 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _inputService.Exit();
             _cameraService.Exit();
             _enemiesViews.Clear();
+            _buttonSignalController.Destroy();
+            _formSignalController.Destroy();
         }
 
         public void Update(float deltaTime)

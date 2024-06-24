@@ -4,21 +4,20 @@ using Sources.Scripts.Presentations.Views.Gameplay;
 using Sources.Scripts.Presentations.Views.Inventory;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.Presentations.Views.Settings;
-using Sources.Scripts.UIFramework.Presentations.Views;
+using Sources.Scripts.UIFramework.Presentations.AudioSources;
+using Sources.Scripts.UIFramework.PresentationsInterfaces.AudioSources;
 using UnityEngine;
 
 namespace Sources.Scripts.Presentations.UI.Huds
 {
     public class MainMenuHud : View, IHud
     {
-        [Header("UI Collector")]
-        [SerializeField] private UICollector _uICollector;
+        [Header("Audio")]
+        [SerializeField] private List<UIAudioSource> _uiAudioSources;
+        [SerializeField] private VolumeView _volumeView;
         
         [Header("Levels")]
         [SerializeField] private LevelAvailabilityView _levelAvailabilityView;
-        
-        [Header("Volume")]
-        [SerializeField] private VolumeView _volumeView;
         
         [Header("Wallet")]
         [SerializeField] private List<WalletUI> _walletsUI;
@@ -26,7 +25,7 @@ namespace Sources.Scripts.Presentations.UI.Huds
         [Header("Inventory")]
         [SerializeField] private InventoryGridView _gridView;
         
-        public UICollector UICollector => _uICollector;
+        public IReadOnlyList<IUIAudioSource> UIAudioSources => _uiAudioSources;
         public LevelAvailabilityView LevelAvailabilityView => _levelAvailabilityView;
         public VolumeView VolumeView => _volumeView;
         public IReadOnlyList<WalletUI> WalletsUI => _walletsUI;

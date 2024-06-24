@@ -16,14 +16,15 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay.UIFramework
             
             Container.Bind<LoadMainMenuSceneCommand>().AsSingle(); 
             Container.Bind<LoadGameCommand>().AsSingle();
-            Container.Bind<UnPauseButtonCommand>().AsSingle();
-            Container.Bind<SetCameraToShootPositionCommand>().AsSingle();
-            Container.Bind<SetCameraToMainPositionCommand>().AsSingle();
+            Container.Bind<ChangeVolumeCommand>().AsSingle();
             
             Container.Bind<IUIViewCommandHandler>().To<GameplayUIViewCommandHandler>().AsSingle();
             
             Container.Bind<UnPauseCommand>().AsSingle();
             Container.Bind<PauseCommand>().AsSingle();
+            Container.Bind<SetCameraToShootPositionCommand>().AsSingle();
+            Container.Bind<SetCameraToMainPositionCommand>().AsSingle();
+            Container.Bind<ReloadWeaponCommand>().AsSingle();
         }
     }
 }

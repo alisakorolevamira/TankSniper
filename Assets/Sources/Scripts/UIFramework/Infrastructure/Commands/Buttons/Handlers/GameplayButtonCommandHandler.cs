@@ -14,16 +14,15 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons.Handlers
         
         public GameplayButtonCommandHandler(
             LoadMainMenuSceneCommand loadMainMenuSceneCommand,
-            UnPauseButtonCommand unPauseButtonCommand,
+            LoadGameCommand loadGameCommand,
+            ChangeVolumeCommand changeVolumeCommand)
             //ShowRewardedAdvertisingButtonCommand showRewardedAdvertisingButtonCommand,
-            //ClearSavesButtonCommand clearSavesButtonCommand
-            SetCameraToShootPositionCommand setCameraToShootPositionCommand,
-            SetCameraToMainPositionCommand setCameraToMainPositionCommand)
+
         {
             _commands[loadMainMenuSceneCommand.Id] = loadMainMenuSceneCommand;
-            _commands[unPauseButtonCommand.Id] = unPauseButtonCommand;
+            _commands[loadGameCommand.Id] = loadGameCommand;
+            _commands[changeVolumeCommand.Id] = changeVolumeCommand;
             //_commands[showRewardedAdvertisingButtonCommand.Id] = showRewardedAdvertisingButtonCommand;
-            //_commands[clearSavesButtonCommand.Id] = clearSavesButtonCommand;
         }
 
         public void Handle(ButtonCommandId buttonCommandId)

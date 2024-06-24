@@ -1,5 +1,4 @@
 ﻿using System;
-using JetBrains.Annotations;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Cameras;
@@ -21,17 +20,12 @@ using Sources.Scripts.Presentations.Views.Gameplay;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.Presentations.Views.RootGameObjects;
 using Sources.Scripts.Presentations.Views.Spawners;
-using Sources.Scripts.UIFramework.Infrastructure.Factories.Services.Collectors;
-using Sources.Scripts.UIFramework.Presentations.Views.Types;
-using Sources.Scripts.UIFramework.ServicesInterfaces.Forms;
-using UnityEngine;
 
 namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Gameplay
 {
     public abstract class LoadGameplaySceneServiceBase : ILoadSceneService
     {
         private readonly GameplayHud _gameplayHud;
-        private readonly UICollectorFactory _uiCollectorFactory;
         private readonly PlayerViewFactory _playerViewFactory;
         private readonly PlayerAttackerViewFactory _playerAttackerViewFactory;
         private readonly GameplayRootGameObject gameplayRootGameObject;
@@ -46,11 +40,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
         private readonly ISaveService _saveService;
         private readonly ILevelCompletedService _levelCompletedService;
         //private readonly IAdvertisingService _advertisingService;
-        private readonly IFormService _formService;
 
         protected LoadGameplaySceneServiceBase(
             GameplayHud gameplayHud,
-            UICollectorFactory uiCollectorFactory,
             PlayerViewFactory playerViewFactory,
             PlayerAttackerViewFactory playerAttackerViewFactory,
             GameplayRootGameObject gameplayRootGameObject,
@@ -63,12 +55,10 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             VolumeViewFactory volumeViewFactory,
             IVolumeService volumeService,
             ISaveService saveService,
-            ILevelCompletedService levelCompletedService,
+            ILevelCompletedService levelCompletedService)
             //IAdvertisingService advertisingService,
-            IFormService formService)
         {
             _gameplayHud = gameplayHud ? gameplayHud : throw new ArgumentNullException(nameof(gameplayHud));
-            _uiCollectorFactory = uiCollectorFactory ?? throw new ArgumentNullException(nameof(uiCollectorFactory));
             _playerViewFactory = playerViewFactory ?? throw new ArgumentNullException(nameof(playerViewFactory));
             _playerAttackerViewFactory = playerAttackerViewFactory ?? throw new ArgumentNullException(nameof(playerAttackerViewFactory));
             this.gameplayRootGameObject = gameplayRootGameObject 
@@ -88,7 +78,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             _levelCompletedService = levelCompletedService ?? 
                                      throw new ArgumentNullException(nameof(levelCompletedService));
             //_advertisingService = advertisingService ?? throw new ArgumentNullException(nameof(advertisingService));
-            _formService = formService ?? throw new ArgumentNullException(nameof(formService));
         }
 
         public void Load(IScenePayload scenePayload)
@@ -126,11 +115,10 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
             _reloadWeaponViewFactory.Create(_gameplayHud.ReloadWeaponView);
             
-            _uiCollectorFactory.Create();
             _cameraService.SetPosition(PositionId.MainPosition);
             _cameraViewFactory.Create(_gameplayHud.CameraView);
             
-            _formService.Show(FormId.Entry);
+            //_formService.Show(FormId.Entry);
         }
 
         protected abstract GameModels LoadModels(IScenePayload scenePayload);

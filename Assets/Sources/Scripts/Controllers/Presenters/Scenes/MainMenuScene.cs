@@ -1,6 +1,5 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
-using JetBrains.Annotations;
 using Sources.Scripts.ControllersInterfaces.Scenes;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactories;
@@ -9,8 +8,7 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.InfrastructureInterfaces.Services.Yandex;
 using Sources.Scripts.Presentations.UI.Curtain;
-using Sources.Scripts.UIFramework.ControllerInterfaces.Signals;
-using Sources.Scripts.UIFramework.Controllers.Buttons;
+using Sources.Scripts.UIFramework.ControllerInterfaces.Buttons;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;
 
@@ -26,7 +24,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         private readonly IFocusService _focusService;
         private readonly ITutorialService _tutorialService;
         private readonly ISDKInitializeService _sdkInitializeService;
-        private readonly ISignalController _buttonCommandSignalController;
+        private readonly IButtonSignalController _buttonSignalController;
         private readonly LoadingCurtainView _curtainView;
 
         public MainMenuScene(
@@ -38,7 +36,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             IPlayerSpawnerService playerSpawnerService,
             ITutorialService tutorialService,
             ISDKInitializeService sdkInitializeService,
-            ISignalController buttonCommandSignalController,
+            IButtonSignalController buttonSignalController,
             IFocusService focusService)
         {
             _loadSceneService = loadSceneService ?? throw new ArgumentNullException(nameof(loadSceneService));
@@ -49,7 +47,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
             _sdkInitializeService = sdkInitializeService ?? throw new ArgumentNullException(nameof(sdkInitializeService));
-            _buttonCommandSignalController = buttonCommandSignalController ?? throw new ArgumentNullException(nameof(buttonCommandSignalController));
+            _buttonSignalController = buttonSignalController ?? throw new ArgumentNullException(nameof(buttonSignalController));
             _curtainView = curtainView ? curtainView : throw new ArgumentNullException(nameof(curtainView));
         }
 
@@ -60,7 +58,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _loadSceneService.Load(payload as IScenePayload);
             _volumeService.Enter();
             _audioService.Enter();
-            _buttonCommandSignalController.Initialize();
+            _buttonSignalController.Initialize();
             _playerSpawnerService.Enable();
             await _curtainView.HideCurtain();
             await GameReady(payload as IScenePayload);
@@ -73,6 +71,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _playerSpawnerService.Disable();
             _volumeService.Exit();
             _audioService.Exit();
+            _buttonSignalController.Destroy();
         }
 
         public void Update(float deltaTime)

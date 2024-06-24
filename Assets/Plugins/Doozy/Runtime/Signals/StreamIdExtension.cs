@@ -15,6 +15,15 @@ namespace Doozy.Runtime.Signals
 {
     public partial class Signal
     {
+        public static bool Send(StreamId.Gameplay id, string message = "") => SignalsService.SendSignal(nameof(StreamId.Gameplay), id.ToString(), message);
+        public static bool Send(StreamId.Gameplay id, GameObject signalSource, string message = "") => SignalsService.SendSignal(nameof(StreamId.Gameplay), id.ToString(), signalSource, message);
+        public static bool Send(StreamId.Gameplay id, SignalProvider signalProvider, string message = "") => SignalsService.SendSignal(nameof(StreamId.Gameplay), id.ToString(), signalProvider, message);
+        public static bool Send(StreamId.Gameplay id, Object signalSender, string message = "") => SignalsService.SendSignal(nameof(StreamId.Gameplay), id.ToString(), signalSender, message);
+        public static bool Send<T>(StreamId.Gameplay id, T signalValue, string message = "") => SignalsService.SendSignal(nameof(StreamId.Gameplay), id.ToString(), signalValue, message);
+        public static bool Send<T>(StreamId.Gameplay id, T signalValue, GameObject signalSource, string message = "") => SignalsService.SendSignal(nameof(StreamId.Gameplay), id.ToString(), signalValue, signalSource, message);
+        public static bool Send<T>(StreamId.Gameplay id, T signalValue, SignalProvider signalProvider, string message = "") => SignalsService.SendSignal(nameof(StreamId.Gameplay), id.ToString(), signalValue, signalProvider, message);
+        public static bool Send<T>(StreamId.Gameplay id, T signalValue, Object signalSender, string message = "") => SignalsService.SendSignal(nameof(StreamId.Gameplay), id.ToString(), signalValue, signalSender, message);
+
         public static bool Send(StreamId.MainMenu id, string message = "") => SignalsService.SendSignal(nameof(StreamId.MainMenu), id.ToString(), message);
         public static bool Send(StreamId.MainMenu id, GameObject signalSource, string message = "") => SignalsService.SendSignal(nameof(StreamId.MainMenu), id.ToString(), signalSource, message);
         public static bool Send(StreamId.MainMenu id, SignalProvider signalProvider, string message = "") => SignalsService.SendSignal(nameof(StreamId.MainMenu), id.ToString(), signalProvider, message);
@@ -28,6 +37,15 @@ namespace Doozy.Runtime.Signals
 
     public partial class StreamId
     {
+        public enum Gameplay
+        {
+            GameOver,
+            LevelCompleted,
+            ReloadWeapon,
+            ReturnToHud,
+            Shoot
+        }
+
         public enum MainMenu
         {
             AddTank,

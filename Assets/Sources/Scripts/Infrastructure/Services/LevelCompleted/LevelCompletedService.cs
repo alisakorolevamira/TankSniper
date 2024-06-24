@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Doozy.Runtime.Signals;
 using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Players;
@@ -9,15 +10,11 @@ using Sources.Scripts.DomainInterfaces.Models.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
-using Sources.Scripts.UIFramework.Presentations.Views.Types;
-using Sources.Scripts.UIFramework.ServicesInterfaces.Forms;
-using UnityEngine;
 
 namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
 {
     public class LevelCompletedService : ILevelCompletedService
     {
-        private readonly IFormService _formService;
         private readonly IEntityRepository _entityRepository;
         private readonly ILoadService _loadService;
         //private readonly IInterstitialAdService _interstitialAdService;
@@ -27,12 +24,10 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
         private readonly TimeSpan _delay = TimeSpan.FromSeconds(4);
         
         public LevelCompletedService(
-            IFormService formService,
             IEntityRepository entityRepository,
             ILoadService loadService)
             //IInterstitialAdService interstitialAdService)
         {
-            _formService = formService ?? throw new ArgumentNullException(nameof(formService));
             _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
             //_interstitialAdService = interstitialAdService ?? 
@@ -76,8 +71,8 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
             level.Complete();
             _loadService.SaveAll();
             _loadService.Save(level);
-            
-            _formService.Show(FormId.LevelCompleted);
+
+            Signal.Send(StreamId.Gameplay.LevelCompleted);
             //_loadService.ClearAll();
             //StartTimer(_cancellationTokenSource.Token);
             //_interstitialAdService.ShowInterstitial();
@@ -89,7 +84,7 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
             {
                 await UniTask.Delay(_delay, cancellationToken: cancellationToken);
                 
-                _formService.Show(FormId.LevelCompleted);
+                //_formService.Show(FormId.LevelCompleted);
             }
             catch (OperationCanceledException)
             {

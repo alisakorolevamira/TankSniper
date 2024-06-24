@@ -1,14 +1,14 @@
 ﻿using System;
 using Doozy.Runtime.Signals;
 using Sources.Scripts.Domain.Models.Constants;
-using Sources.Scripts.UIFramework.ControllerInterfaces.Signals;
+using Sources.Scripts.UIFramework.ControllerInterfaces.Buttons;
 using Sources.Scripts.UIFramework.Domain.Commands;
 using Sources.Scripts.UIFramework.Domain.Signals;
 using Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Buttons.Handlers;
 
 namespace Sources.Scripts.UIFramework.Controllers.Buttons
 {
-    public class ButtonCommandSignalController : ISignalController
+    public class ButtonCommandSignalController : IButtonSignalController
     {
         private readonly IButtonCommandHandler _buttonCommandHandler;
 

@@ -18,8 +18,6 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpgradeServices;
 using Sources.Scripts.Presentations.UI.Huds;
-using Sources.Scripts.UIFramework.Infrastructure.Factories.Services.Collectors;
-using Sources.Scripts.UIFramework.ServicesInterfaces.Forms;
 
 namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.MainMenu
 {
@@ -36,8 +34,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             VolumeViewFactory volumeViewFactory,
             InventoryGridViewFactory inventoryGridViewFactory,
             IVolumeService volumeService,
-            UICollectorFactory uiCollectorFactory,
-            IFormService formService,
             ITutorialService tutorialService,
             IPlayerSpawnerService playerSpawnerService,
             IInventoryTankSpawnerService inventoryTankSpawnerService,
@@ -49,8 +45,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 volumeViewFactory,
                 inventoryGridViewFactory,
                 volumeService, 
-                uiCollectorFactory,
-                formService,
                 tutorialService,
                 playerSpawnerService,
                 inventoryTankSpawnerService,

@@ -9,7 +9,6 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.Presentations.Views;
 using Sources.Scripts.Presentations.Views.RootGameObjects;
-using Sources.Scripts.UIFramework.Presentations.Views;
 using UnityEngine;
 using Zenject;
 
@@ -25,7 +24,6 @@ namespace Sources.Scripts.Infrastructure.DIContainers.MainMenu
         {
             Container.BindInterfacesAndSelfTo<MainMenuHud>().FromInstance(_mainMenuHud).AsSingle();
             Container.Bind<ContainerView>().FromInstance(_containerView).AsSingle();
-            Container.Bind<UICollector>().FromInstance(_mainMenuHud.UICollector).AsSingle();
             Container.Bind<MainMenuRootGameObjects>().FromInstance(_mainMenuRoot).AsSingle();
             Container.BindInterfacesAndSelfTo<MainMenuSceneFactory>().AsSingle();
             
@@ -37,9 +35,7 @@ namespace Sources.Scripts.Infrastructure.DIContainers.MainMenu
         private void BindServices()
         {
             Container.Bind<IPauseService>().To<PauseService>().AsSingle();
-            //Container.Bind<IEnemySpawnerConfigCollectionService>().To<EnemySpawnerConfigCollectionService>().AsSingle();
             //Container.Bind<IStickyService>().To<StickyService>().AsSingle();
-            //Container.Bind<IUpgradeConfigCollectionService>().To<UpgradeConfigCollectionService>().AsSingle();
             Container.Bind<ITutorialService>().To<TutorialService>().AsSingle();
         }
 

@@ -4,9 +4,8 @@
     {
         Pause = 0,
         UnPause = 1,
-        SaveVolume = 2,
-        ClearSaves = 3,
-        SetCameraToShootPosition = 4,
-        SetCameraToMainPosition = 5,
+        SetCameraToShootPosition = 2,
+        SetCameraToMainPosition = 3,
+        ReloadWeapon = 4,
     }
 }

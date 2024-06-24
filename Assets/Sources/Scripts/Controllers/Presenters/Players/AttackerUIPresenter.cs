@@ -2,16 +2,12 @@
 using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Doozy.Runtime.Signals;
 using Sources.Scripts.Domain.Models.Constants;
-using Sources.Scripts.Domain.Models.Gameplay;
-using Sources.Scripts.DomainInterfaces.Models.Gameplay;
 using Sources.Scripts.InfrastructureInterfaces.Services.InputServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
 using Sources.Scripts.PresentationsInterfaces.Views.Bullets;
 using Sources.Scripts.PresentationsInterfaces.Views.Players;
-using Sources.Scripts.UIFramework.Presentations.Views.Types;
-using Sources.Scripts.UIFramework.ServicesInterfaces.Forms;
-using UnityEngine;
 
 namespace Sources.Scripts.Controllers.Presenters.Players
 {
@@ -19,7 +15,6 @@ namespace Sources.Scripts.Controllers.Presenters.Players
     {
         private readonly IAttackerUIView _uiAttackerView;
         private readonly IInputService _inputService;
-        private readonly IFormService _formService;
         private readonly ILevelCompletedService _levelCompletedService;
 
         private CancellationTokenSource _cancellationTokenSource;
@@ -29,12 +24,10 @@ namespace Sources.Scripts.Controllers.Presenters.Players
         public AttackerUIPresenter(
             IAttackerUIView uiAttackerView,
             IInputService inputService,
-            ILevelCompletedService levelCompletedService,
-            IFormService formService)
+            ILevelCompletedService levelCompletedService)
         {
             _uiAttackerView = uiAttackerView ?? throw new ArgumentNullException(nameof(uiAttackerView));
             _inputService = inputService ?? throw new ArgumentNullException(nameof(inputService));
-            _formService = formService ?? throw new ArgumentNullException(nameof(formService));
             _levelCompletedService = levelCompletedService ?? throw new ArgumentNullException(nameof(levelCompletedService));
         }
 
@@ -85,14 +78,14 @@ namespace Sources.Scripts.Controllers.Presenters.Players
             if (_amountOfShoots == AttackConst.MaxShoots)
             {
                 _amountOfShoots = AttackConst.DefaultShoots;
-                _formService.Show(FormId.ReloadWeapon);
+                Signal.Send(StreamId.Gameplay.ReloadWeapon);
 
                 foreach (IBulletUIView bulletView in _uiAttackerView.BulletViews) 
                     bulletView.Show();
             }
 
             else
-                _formService.Show(FormId.Hud);
+                Signal.Send(StreamId.Gameplay.ReturnToHud);
         }
     }
 }

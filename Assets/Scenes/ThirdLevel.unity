@@ -167,6 +167,7 @@ MonoBehaviour:
   - {fileID: 1712673396}
   - {fileID: 277604492}
   - {fileID: 130611001}
+  - {fileID: 230320243}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -210,6 +211,7 @@ Transform:
   - {fileID: 1712673397}
   - {fileID: 277604493}
   - {fileID: 130611002}
+  - {fileID: 230320244}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &45338252
@@ -785,6 +787,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: f902b41e10cdd2d44aaf1ada606f5d3c, type: 3}
   m_PrefabInstance: {fileID: 1626550700}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &230320242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 230320244}
+  - component: {fileID: 230320243}
+  m_Layer: 0
+  m_Name: SDKInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &230320243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230320242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8679853cbe44cd68dd1e95ce8105299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &230320244
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230320242}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 10254760}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &277604491
 GameObject:
   m_ObjectHideFlags: 0
@@ -3137,6 +3183,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5100936874482407104, guid: 9412f965ded53204790345861d7cb3f2, type: 3}
+      propertyPath: _uiAnimators.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5118824055292335411, guid: 9412f965ded53204790345861d7cb3f2, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3145,6 +3195,14 @@ PrefabInstance:
       propertyPath: cameraView
       value: 
       objectReference: {fileID: 1557157906}
+    - target: {fileID: 5327734733074954593, guid: 9412f965ded53204790345861d7cb3f2, type: 3}
+      propertyPath: _walletsUI.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5327734733074954593, guid: 9412f965ded53204790345861d7cb3f2, type: 3}
+      propertyPath: _walletsUI.Array.data[1]
+      value: 
+      objectReference: {fileID: 975800364}
     - target: {fileID: 6179121736831501489, guid: 9412f965ded53204790345861d7cb3f2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3266,6 +3324,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54d9f298131d4fc99fa19d27720b2020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &975800364 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3997952968917994369, guid: 9412f965ded53204790345861d7cb3f2, type: 3}
+  m_PrefabInstance: {fileID: 975800361}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 894ac7cb025b44459baa5f8ecbeecd3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!33 &982392517

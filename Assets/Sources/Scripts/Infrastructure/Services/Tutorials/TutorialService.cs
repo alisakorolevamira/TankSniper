@@ -1,4 +1,5 @@
 ﻿using System;
+using Doozy.Runtime.Signals;
 using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
@@ -14,6 +15,9 @@ namespace Sources.Scripts.Infrastructure.Services.Tutorials
         private readonly IFormService _formService;
         private readonly ILoadService _loadService;
         private Tutorial _tutorial;
+        
+        private SignalReceiver _signalReceiver;
+        private SignalStream _signalStream;
 
         public TutorialService(
             IFormService formService,
@@ -27,8 +31,8 @@ namespace Sources.Scripts.Infrastructure.Services.Tutorials
         {
             if (_tutorial.HasCompleted)
                 return;
-
-            _formService.Show(FormId.AddTankTutorial);
+            
+            Signal.Send(StreamId.MainMenu.ShowAddTankTutorial);
         }
 
         public void Construct(Tutorial tutorial) => 

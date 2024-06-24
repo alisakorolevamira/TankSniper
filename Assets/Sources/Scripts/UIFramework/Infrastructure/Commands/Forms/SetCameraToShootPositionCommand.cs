@@ -3,7 +3,6 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Cameras;
 using Sources.Scripts.Presentations.Views.Cameras.Types;
 using Sources.Scripts.UIFramework.Domain.Commands;
 using Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Views;
-using Sources.Scripts.UIFramework.PresentationsInterfaces.Buttons;
 
 namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Forms
 {

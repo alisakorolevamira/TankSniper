@@ -17,23 +17,17 @@ namespace Sources.Scripts.UIFramework.Services.Focus
 
         public void Enable()
         {
-            if (WebApplication.IsRunningOnWebGL == false)
-                return;
-
-            OnInBackgroundChangeWeb(WebApplication.InBackground);
-            OnInBackgroundChangeApp(Application.isFocused);
+            //OnInBackgroundChangeWeb(WebApplication.InBackground);
+            //OnInBackgroundChangeApp(Application.isFocused);
             
-            Application.focusChanged += OnInBackgroundChangeApp;
-            WebApplication.InBackgroundChangeEvent += OnInBackgroundChangeWeb;
+            //Application.focusChanged += OnInBackgroundChangeApp;
+            //WebApplication.InBackgroundChangeEvent += OnInBackgroundChangeWeb;
         }
 
         public void Disable()
         {
-            if (WebApplication.IsRunningOnWebGL == false)
-                return;
-            
-            Application.focusChanged -= OnInBackgroundChangeApp;
-            WebApplication.InBackgroundChangeEvent -= OnInBackgroundChangeWeb;
+            //Application.focusChanged -= OnInBackgroundChangeApp;
+            //WebApplication.InBackgroundChangeEvent -= OnInBackgroundChangeWeb;
         }
 
         private void OnInBackgroundChangeApp(bool inApp)

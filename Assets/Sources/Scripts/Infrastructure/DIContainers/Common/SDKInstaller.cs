@@ -10,7 +10,6 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Common
     {
         public override void InstallBindings()
         {
-            Container.Bind<IFocusService>().To<FocusService>().AsSingle();
             Container.Bind<IPlayerAccountAuthorizeService>().To<PlayerAccountAuthorizeService>().AsSingle();
             Container.Bind<ISDKInitializeService>().To<SDKInitializeService>().AsSingle();
             Container.Bind<IStickyAdService>().To<StickyAdService>().AsSingle();

@@ -1,4 +1,5 @@
 ﻿using System;
+using Doozy.Runtime.UIManager.Components;
 using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Payloads;
@@ -6,7 +7,6 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
 using Sources.Scripts.InfrastructureInterfaces.Services.SceneServices;
 using Sources.Scripts.UIFramework.Domain.Commands;
 using Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Buttons;
-using Sources.Scripts.UIFramework.PresentationsInterfaces.Buttons;
 
 namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
 {
@@ -25,7 +25,7 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
 
         public ButtonCommandId Id => ButtonCommandId.LoadMainMenuScene;
         
-        public void Handle(IUIButton uiButton)
+        public void Handle()
         {
             SavedLevel savedLevel = _entityRepository.Get<SavedLevel>(ModelId.SavedLevel);
             _sceneService.ChangeSceneAsync(

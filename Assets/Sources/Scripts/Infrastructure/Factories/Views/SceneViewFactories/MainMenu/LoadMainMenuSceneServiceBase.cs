@@ -87,7 +87,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             
             _uiCollectorFactory.Create();
             _tutorialService.Construct(models.Tutorial);
-            _formService.Show(FormId.Hud);
+            //_formService.Show(FormId.Hud);
         }
         
         protected abstract MainMenuModels LoadModels(IScenePayload scenePayload);

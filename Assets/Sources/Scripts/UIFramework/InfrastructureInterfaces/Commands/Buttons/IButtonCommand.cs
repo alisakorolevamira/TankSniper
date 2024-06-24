@@ -1,5 +1,5 @@
-﻿using Sources.Scripts.UIFramework.Domain.Commands;
-using Sources.Scripts.UIFramework.PresentationsInterfaces.Buttons;
+﻿using Doozy.Runtime.UIManager.Components;
+using Sources.Scripts.UIFramework.Domain.Commands;
 
 namespace Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Buttons
 {
@@ -7,6 +7,6 @@ namespace Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Buttons
     {
         ButtonCommandId Id { get; }
 
-        void Handle(IUIButton uiButton);
+        void Handle();
     }
 }

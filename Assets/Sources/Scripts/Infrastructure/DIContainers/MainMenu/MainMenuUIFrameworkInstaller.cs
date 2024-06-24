@@ -14,8 +14,6 @@ namespace Sources.Scripts.Infrastructure.DIContainers.MainMenu
         {
             Container.Bind<IButtonCommandHandler>().To<MainMenuButtonCommandHandler>().AsSingle();
 
-            Container.Bind<ShowFormCommand>().AsSingle();
-            Container.Bind<HideFormCommand>().AsSingle();
             Container.Bind<CompleteTutorialCommand>().AsSingle();
             Container.Bind<LoadGameCommand>().AsSingle();
             Container.Bind<AddTankCommand>().AsSingle();

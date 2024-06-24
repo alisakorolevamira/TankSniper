@@ -1,8 +1,8 @@
 ﻿using System;
+using Doozy.Runtime.UIManager.Components;
 using Sources.Scripts.InfrastructureInterfaces.Services.PauseServices;
 using Sources.Scripts.UIFramework.Domain.Commands;
 using Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Buttons;
-using Sources.Scripts.UIFramework.PresentationsInterfaces.Buttons;
 
 namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
 {
@@ -17,7 +17,7 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
 
         public ButtonCommandId Id => ButtonCommandId.UnPause;
         
-        public void Handle(IUIButton uiButton) =>
+        public void Handle() =>
             _pauseService.Continue();
     }
 }

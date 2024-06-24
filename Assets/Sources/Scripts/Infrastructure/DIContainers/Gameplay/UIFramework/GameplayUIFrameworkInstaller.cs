@@ -14,11 +14,9 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay.UIFramework
         {
             Container.Bind<IButtonCommandHandler>().To<GameplayButtonCommandHandler>().AsSingle();
             
-            Container.Bind<ShowFormCommand>().AsSingle();
             Container.Bind<LoadMainMenuSceneCommand>().AsSingle(); 
             Container.Bind<LoadGameCommand>().AsSingle();
             Container.Bind<UnPauseButtonCommand>().AsSingle();
-            Container.Bind<HideFormCommand>().AsSingle();
             Container.Bind<SetCameraToShootPositionCommand>().AsSingle();
             Container.Bind<SetCameraToMainPositionCommand>().AsSingle();
             //Container.Bind<ShowRewardedAdvertisingButtonCommand>().AsSingle();

@@ -13,6 +13,7 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.InfrastructureInterfaces.Services.Yandex;
 using Sources.Scripts.Presentations.UI.Curtain;
+using Sources.Scripts.UIFramework.ControllerInterfaces.Signals;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;
 
@@ -30,6 +31,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
         private readonly IFocusService _focusService;
         private readonly ITutorialService _tutorialService;
         private readonly ISDKInitializeService _sdkInitializeService;
+        private readonly ISignalController _signalController;
         private readonly LoadingCurtainView _curtainView;
 
         public MainMenuSceneFactory(
@@ -43,6 +45,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             IPlayerSpawnerService playerSpawnerService,
             ITutorialService tutorialService,
             ISDKInitializeService sdkInitializeService,
+            ISignalController signalController,
             IFocusService focusService)
         {
             _createMainMenuSceneService = createMainMenuSceneService ?? 
@@ -56,6 +59,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             _playerSpawnerService = playerSpawnerService ?? throw new ArgumentNullException(nameof(playerSpawnerService));
             _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
             _sdkInitializeService = sdkInitializeService ?? throw new ArgumentNullException(nameof(sdkInitializeService));
+            _signalController = signalController ?? throw new ArgumentNullException(nameof(signalController));
             _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             _curtainView = curtainView ? curtainView : throw new ArgumentNullException(nameof(curtainView));
         }
@@ -71,6 +75,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
                 _playerSpawnerService,
                 _tutorialService,
                 _sdkInitializeService,
+                _signalController,
                 _focusService);
         }
         

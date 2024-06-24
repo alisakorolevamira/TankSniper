@@ -33,7 +33,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         private readonly ILevelCompletedService _levelCompletedService;
         private List<ITankEnemyView> _enemiesViews;
         private readonly IAudioService _audioService;
-        //private readonly IFocusService _focusService;
+        private readonly IFocusService _focusService;
         //private readonly IAdvertisingService _advertisingService;
         private readonly LoadingCurtainView _curtainView;
 
@@ -49,7 +49,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             ILevelCompletedService levelCompletedService,
             List<ITankEnemyView> enemiesViews,
             IAudioService audioService,
-            //IFocusService focusService,
+            IFocusService focusService,
             //IAdvertisingService advertisingService)
             LoadingCurtainView curtainView)
         {
@@ -67,7 +67,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _enemiesViews = enemiesViews ??
                                    throw new ArgumentNullException(nameof(enemiesViews));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
-            //_focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
+            _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             //_advertisingService = advertisingService ??
             //                      throw new ArgumentNullException(nameof(advertisingService));
             _curtainView = curtainView ? curtainView : throw new ArgumentNullException(nameof(curtainView));
@@ -75,7 +75,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
 
         public async void Enter(object payload = null)
         {
-            //_focusService.Enable();
+            _focusService.Enable();
             _loadSceneService.Load(payload as IScenePayload);
             //_advertisingService.Enable();
             _volumeService.Enter();
@@ -90,7 +90,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
 
         public void Exit()
         {
-            //_focusService.Disable();
+            _focusService.Disable();
             //_advertisingService.Disable();
             _updateService.UnregisterAll();
             _gameOverService.Exit();

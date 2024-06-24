@@ -37,7 +37,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
         private readonly ILevelCompletedService _levelCompletedService;
         private readonly List<ITankEnemyView> _enemiesViews;
         private readonly IAudioService _audioService;
-        //private readonly IFocusService _focusService;
+        private readonly IFocusService _focusService;
         //private readonly IAdvertisingService _advertisingService;
         private readonly LoadingCurtainView _curtainView;
 
@@ -54,8 +54,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             ILevelCompletedService levelCompletedService,
             List<ITankEnemyView> enemiesViews,
             LoadingCurtainView curtainView,
-            IAudioService audioService)
-            //IFocusService focusService)
+            IAudioService audioService,
+            IFocusService focusService)
             //IAdvertisingService advertisingService) 
         {
             _updateService = updateService ?? throw new ArgumentNullException(nameof(updateService));
@@ -73,7 +73,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
                                      throw new ArgumentNullException(nameof(levelCompletedService));
             _enemiesViews = enemiesViews ?? throw new ArgumentNullException(nameof(enemiesViews));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
-            //_focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
+            _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             //_advertisingService = advertisingService ?? throw new ArgumentNullException(nameof(advertisingService));
             _curtainView = curtainView ? curtainView : throw new ArgumentNullException(nameof(curtainView));
         }
@@ -92,7 +92,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
                 _levelCompletedService,
                 _enemiesViews,
                 _audioService,
-                //_focusService,
+                _focusService,
                 _curtainView);
             //_advertisingService);
         }

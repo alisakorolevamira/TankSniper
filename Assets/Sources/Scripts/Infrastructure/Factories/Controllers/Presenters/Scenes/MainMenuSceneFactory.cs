@@ -11,6 +11,7 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
+using Sources.Scripts.InfrastructureInterfaces.Services.Yandex;
 using Sources.Scripts.Presentations.UI.Curtain;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;
@@ -23,13 +24,12 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
         private readonly LoadMainMenuSceneService _loadMainMenuSceneService;
         private readonly IVolumeService _volumeService;
         private readonly ILoadService _loadService;
-        //private readonly IStickyService _stickyService;
+        private readonly IStickyAdService _stickyAdService;
         private readonly IAudioService _audioService;
-
         private readonly IPlayerSpawnerService _playerSpawnerService;
-
-        //private readonly IFocusService _focusService;
+        private readonly IFocusService _focusService;
         private readonly ITutorialService _tutorialService;
+        private readonly ISDKInitializeService _sdkInitializeService;
         private readonly LoadingCurtainView _curtainView;
 
         public MainMenuSceneFactory(
@@ -38,11 +38,12 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             IVolumeService volumeService,
             ILoadService loadService,
             LoadingCurtainView curtainView,
-            //IStickyService stickyService,
+            IStickyAdService stickyAdService,
             IAudioService audioService,
             IPlayerSpawnerService playerSpawnerService,
-            ITutorialService tutorialService)
-            //IFocusService focusService)
+            ITutorialService tutorialService,
+            ISDKInitializeService sdkInitializeService,
+            IFocusService focusService)
         {
             _createMainMenuSceneService = createMainMenuSceneService ?? 
                                           throw new ArgumentNullException(nameof(createMainMenuSceneService));
@@ -50,11 +51,12 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
                                         throw new ArgumentNullException(nameof(loadMainMenuSceneService));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
-            //_stickyService = stickyService ?? throw new ArgumentNullException(nameof(stickyService));
+            _stickyAdService = stickyAdService ?? throw new ArgumentNullException(nameof(stickyAdService));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _playerSpawnerService = playerSpawnerService ?? throw new ArgumentNullException(nameof(playerSpawnerService));
             _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
-            //_focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
+            _sdkInitializeService = sdkInitializeService ?? throw new ArgumentNullException(nameof(sdkInitializeService));
+            _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             _curtainView = curtainView ? curtainView : throw new ArgumentNullException(nameof(curtainView));
         }
         
@@ -64,11 +66,12 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
                 CreateLoadSceneService(payload),
                 _volumeService,
                 _curtainView,
-                //_stickyService,
+                _stickyAdService,
                 _audioService,
                 _playerSpawnerService,
-                _tutorialService);
-            //_focusService);
+                _tutorialService,
+                _sdkInitializeService,
+                _focusService);
         }
         
         private ILoadSceneService CreateLoadSceneService(object payload)

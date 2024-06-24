@@ -7,6 +7,7 @@ using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactorie
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
+using Sources.Scripts.InfrastructureInterfaces.Services.Yandex;
 using Sources.Scripts.Presentations.UI.Curtain;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;
@@ -17,39 +18,40 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
     {
         private readonly ILoadSceneService _loadSceneService;
         private readonly IVolumeService _volumeService;
-        //private readonly IStickyService _stickyService;
+        private readonly IStickyAdService _stickyAdService;
         private readonly IAudioService _audioService;
-
         private readonly IPlayerSpawnerService _playerSpawnerService;
-
-        //private readonly IFocusService _focusService;
+        private readonly IFocusService _focusService;
         private readonly ITutorialService _tutorialService;
+        private readonly ISDKInitializeService _sdkInitializeService;
         private readonly LoadingCurtainView _curtainView;
 
         public MainMenuScene(
             ILoadSceneService loadSceneService,
             IVolumeService volumeService,
             LoadingCurtainView curtainView,
-            //IStickyService stickyService,
+            IStickyAdService stickyAdService,
             IAudioService audioService,
             IPlayerSpawnerService playerSpawnerService,
-            ITutorialService tutorialService)
-            //IFocusService focusService)
+            ITutorialService tutorialService,
+            ISDKInitializeService sdkInitializeService,
+            IFocusService focusService)
         {
             _loadSceneService = loadSceneService ?? throw new ArgumentNullException(nameof(loadSceneService));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
-            //_stickyService = stickyService ?? throw new ArgumentNullException(nameof(stickyService));
+            _stickyAdService = stickyAdService ?? throw new ArgumentNullException(nameof(stickyAdService));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _playerSpawnerService = playerSpawnerService ?? throw new ArgumentNullException(nameof(playerSpawnerService));
-            //_focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
+            _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
+            _sdkInitializeService = sdkInitializeService ?? throw new ArgumentNullException(nameof(sdkInitializeService));
             _curtainView = curtainView ? curtainView : throw new ArgumentNullException(nameof(curtainView));
         }
 
         public async void Enter(object payload = null)
         {
             await Initialize(payload as IScenePayload);
-            //_focusService.Enable();
+            _focusService.Enable();
             _loadSceneService.Load(payload as IScenePayload);
             _volumeService.Enter();
             _audioService.Enter();
@@ -61,7 +63,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
 
         public void Exit()
         {
-            //_focusService.Disable();
+            _focusService.Disable();
             _playerSpawnerService.Disable();
             _volumeService.Exit();
             _audioService.Exit();
@@ -82,7 +84,10 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         private async UniTask Initialize(IScenePayload payload)
         {
             if (payload.CanFromGameplay)
-                 return;
+                return;
+            
+            _sdkInitializeService.EnableCallbackLogging();
+            await _sdkInitializeService.Initialize();
             //можно добавить инициализацию магазина сюда
         }
 
@@ -91,7 +96,8 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             if (payload.CanFromGameplay)
                 return UniTask.CompletedTask;
 
-            //_stickyService.ShowSticky();
+            //_stickyAdService.ShowStickyAd();
+            _sdkInitializeService.GameReady();
 
             return UniTask.CompletedTask;
         }

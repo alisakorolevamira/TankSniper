@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Sources.Scripts.PresentationsInterfaces.UI.Images;
 using Sources.Scripts.PresentationsInterfaces.Views.Bullets;
 using Sources.Scripts.PresentationsInterfaces.Views.Lightnings;
 using UnityEngine;
@@ -9,5 +10,6 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Players
     {
         IReadOnlyList<IBulletUIView> BulletViews { get; }
         IReadOnlyList<ILightningView> LightningViews { get; }
+        IImageView LightningAim { get; }
     }
 }

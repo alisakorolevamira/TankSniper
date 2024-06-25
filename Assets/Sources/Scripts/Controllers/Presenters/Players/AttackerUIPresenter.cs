@@ -42,6 +42,8 @@ namespace Sources.Scripts.Controllers.Presenters.Players
         {
             _inputService.AttackInputReceived += OnAttackInputReceived;
             _cancellationTokenSource = new CancellationTokenSource();
+            
+            _uiAttackerView.LightningAim.HideImage();
         }
 
         public override void Disable() => 
@@ -57,6 +59,7 @@ namespace Sources.Scripts.Controllers.Presenters.Players
 
             _amountOfShoots++;
 
+            CheckLightnings();
             CheckShoots();
         }
 
@@ -95,6 +98,15 @@ namespace Sources.Scripts.Controllers.Presenters.Players
             catch (OperationCanceledException)
             {
             }
+        }
+
+        private void CheckLightnings()
+        {
+            if(_amountOfShoots == 3)
+                _uiAttackerView.LightningAim.ShowImage();
+
+            else
+                _uiAttackerView.LightningAim.HideImage();
         }
     }
 }

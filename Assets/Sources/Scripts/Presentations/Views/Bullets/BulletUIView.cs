@@ -12,10 +12,8 @@ namespace Sources.Scripts.Presentations.Views.Bullets
         public IImageView Icon => _icon;
         public bool IsShowed { get; private set; } = true;
 
-        public void Awake()
-        {
+        public void Awake() => 
             Show();
-        }
 
         public void Show()
         {

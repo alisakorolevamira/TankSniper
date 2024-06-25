@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Cameras;
@@ -26,16 +27,17 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
     public abstract class LoadGameplaySceneServiceBase : ILoadSceneService
     {
         private readonly GameplayHud _gameplayHud;
+        private readonly GameplayRootGameObject gameplayRootGameObject;
         private readonly PlayerViewFactory _playerViewFactory;
         private readonly PlayerAttackerViewFactory _playerAttackerViewFactory;
-        private readonly GameplayRootGameObject gameplayRootGameObject;
         private readonly EnemySpawnerViewFactory _enemySpawnerViewFactory;
         private readonly KilledEnemiesCounterViewFactory _killedEnemiesCounterViewFactory;
         private readonly ReloadWeaponViewFactory _reloadWeaponViewFactory;
-        private readonly IGameOverService _gameOverService;
         private readonly CameraViewFactory _cameraViewFactory;
-        private readonly ICameraService _cameraService;
         private readonly VolumeViewFactory _volumeViewFactory;
+        private readonly RewardViewFactory _rewardViewFactory;
+        private readonly IGameOverService _gameOverService;
+        private readonly ICameraService _cameraService;
         private readonly IVolumeService _volumeService;
         private readonly ISaveService _saveService;
         private readonly ILevelCompletedService _levelCompletedService;
@@ -43,16 +45,17 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
         protected LoadGameplaySceneServiceBase(
             GameplayHud gameplayHud,
+            GameplayRootGameObject gameplayRootGameObject,
             PlayerViewFactory playerViewFactory,
             PlayerAttackerViewFactory playerAttackerViewFactory,
-            GameplayRootGameObject gameplayRootGameObject,
             EnemySpawnerViewFactory enemySpawnerViewFactory,
             KilledEnemiesCounterViewFactory killedEnemiesCounterViewFactory,
             ReloadWeaponViewFactory reloadWeaponViewFactory,
-            IGameOverService gameOverService,
             CameraViewFactory cameraViewFactory,
-            ICameraService cameraService,
             VolumeViewFactory volumeViewFactory,
+            RewardViewFactory rewardViewFactory,
+            IGameOverService gameOverService,
+            ICameraService cameraService,
             IVolumeService volumeService,
             ISaveService saveService,
             ILevelCompletedService levelCompletedService)
@@ -73,6 +76,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             _cameraViewFactory = cameraViewFactory ?? throw new ArgumentNullException(nameof(cameraViewFactory));
             _cameraService = cameraService ?? throw new ArgumentNullException(nameof(cameraService));
             _volumeViewFactory = volumeViewFactory ?? throw new ArgumentNullException(nameof(volumeViewFactory));
+            _rewardViewFactory = rewardViewFactory ?? throw new ArgumentNullException(nameof(rewardViewFactory));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
             _saveService = saveService ?? throw new ArgumentNullException(nameof(saveService));
             _levelCompletedService = levelCompletedService ?? 
@@ -114,11 +118,11 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 _cameraService.AddPosition(cameraPosition);
 
             _reloadWeaponViewFactory.Create(_gameplayHud.ReloadWeaponView);
+
+            _rewardViewFactory.Create(_levelCompletedService, _gameplayHud.RewardView);
             
             _cameraService.SetPosition(PositionId.MainPosition);
             _cameraViewFactory.Create(_gameplayHud.CameraView);
-            
-            //_formService.Show(FormId.Entry);
         }
 
         protected abstract GameModels LoadModels(IScenePayload scenePayload);

@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using Doozy.Runtime.UIManager.Components;
 using Sources.Scripts.UIFramework.Domain.Commands;
-using Sources.Scripts.UIFramework.Infrastructure.Commands.Forms;
 using Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Buttons;
 using Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Buttons.Handlers;
 
@@ -9,8 +7,7 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons.Handlers
 {
     public class GameplayButtonCommandHandler : IButtonCommandHandler
     {
-        private readonly Dictionary<ButtonCommandId, IButtonCommand> _commands =
-            new Dictionary<ButtonCommandId, IButtonCommand>();
+        private readonly Dictionary<ButtonCommandId, IButtonCommand> _commands = new();
         
         public GameplayButtonCommandHandler(
             LoadMainMenuSceneCommand loadMainMenuSceneCommand,

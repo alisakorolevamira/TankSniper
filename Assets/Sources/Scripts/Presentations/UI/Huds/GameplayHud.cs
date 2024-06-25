@@ -25,6 +25,7 @@ namespace Sources.Scripts.Presentations.UI.Huds
         [SerializeField] private List<WalletUI> _walletsUI;
         [SerializeField] private List<HealthBarUI> _playerHealthBars;
         [SerializeField] private AttackerUIView _attackerUIView;
+        [SerializeField] private RewardView _rewardView;
         
         [Header("Enemy")]
         [SerializeField] private List<KilledEnemiesCounterView> _killedEnemiesCounterViews;
@@ -47,5 +48,6 @@ namespace Sources.Scripts.Presentations.UI.Huds
         public VolumeView VolumeView => _volumeView;
         public AttackerUIView AttackerUIView => _attackerUIView;
         public ReloadWeaponView ReloadWeaponView => _reloadWeaponView;
+        public RewardView RewardView => _rewardView;
     }
 }

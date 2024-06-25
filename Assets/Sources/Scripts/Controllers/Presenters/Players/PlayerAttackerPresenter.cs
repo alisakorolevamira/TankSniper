@@ -24,13 +24,19 @@ namespace Sources.Scripts.Controllers.Presenters.Players
             _inputService = inputService ?? throw new ArgumentNullException(nameof(inputService));
         }
 
-        public override void Enable() => 
-            _inputService.AttackInputReceived += OnAttackInputReceived;
+        public override void Enable()
+        {
+            _inputService.AttackInputReceived += OnAttack;
+            _attackService.DoubleAttackEnabled += OnAttack;
+        }
 
-        public override void Disable() => 
-            _inputService.AttackInputReceived -= OnAttackInputReceived;
+        public override void Disable()
+        {
+            _inputService.AttackInputReceived -= OnAttack;
+            _attackService.DoubleAttackEnabled -= OnAttack;
+        }
 
-        private void OnAttackInputReceived()
+        private void OnAttack()
         {
             _attackService.Attack();
             _playerAttacker.Attack();

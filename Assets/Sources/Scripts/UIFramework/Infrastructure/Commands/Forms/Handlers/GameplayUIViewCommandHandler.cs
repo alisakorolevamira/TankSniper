@@ -12,13 +12,11 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Forms.Handlers
         
         public GameplayUIViewCommandHandler(
             PauseCommand pauseCommand,
-            UnPauseCommand unPauseCommand,
             SetCameraToShootPositionCommand setCameraToShootPositionCommand,
             SetCameraToMainPositionCommand setCameraToMainPositionCommand,
             ReloadWeaponCommand reloadWeaponCommand)
         {
             _commands[pauseCommand.Id] = pauseCommand;
-            _commands[unPauseCommand.Id] = unPauseCommand;
             _commands[setCameraToShootPositionCommand.Id] = setCameraToShootPositionCommand;
             _commands[setCameraToMainPositionCommand.Id] = setCameraToMainPositionCommand;
             _commands[reloadWeaponCommand.Id] = reloadWeaponCommand;

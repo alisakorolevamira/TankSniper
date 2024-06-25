@@ -65,9 +65,6 @@ namespace Sources.Scripts.Controllers.Presenters.Players
 
         private async void CheckShoots()
         {
-            if (_levelCompletedService.AllEnemiesKilled)
-                return;
-            
             _cancellationTokenSource.Cancel();
             _cancellationTokenSource = new CancellationTokenSource();
 
@@ -86,14 +83,22 @@ namespace Sources.Scripts.Controllers.Presenters.Players
 
                     _amountOfShoots = AttackConst.DefaultShoots;
 
-                    Signal.Send(StreamId.Gameplay.ReloadWeapon);
-
                     foreach (IBulletUIView bulletView in _uiAttackerView.BulletViews)
                         bulletView.Show();
+                    
+                    if (_levelCompletedService.AllEnemiesKilled)
+                        return;
+                    
+                    Signal.Send(StreamId.Gameplay.ReloadWeapon);
                 }
 
                 else
+                {
+                    if (_levelCompletedService.AllEnemiesKilled)
+                        return;
+                    
                     Signal.Send(StreamId.Gameplay.ReturnToHud);
+                }
             }
             catch (OperationCanceledException)
             {
@@ -102,7 +107,7 @@ namespace Sources.Scripts.Controllers.Presenters.Players
 
         private void CheckLightnings()
         {
-            if(_amountOfShoots == 3)
+            if(_amountOfShoots == AttackConst.MaxLightnings)
                 _uiAttackerView.LightningAim.ShowImage();
 
             else

@@ -9,16 +9,16 @@ namespace Sources.Scripts.Infrastructure.Services.Yandex
     {
         public void GameReady()
         {
-            if (WebApplication.IsRunningOnWebGL == false)
-                return;
+            //if (WebApplication.IsRunningOnWebGL == false)
+            //    return;
 
             YandexGamesSdk.GameReady();
         }
 
         public void EnableCallbackLogging()
         {
-            if (WebApplication.IsRunningOnWebGL == false)
-                return;
+           // if (WebApplication.IsRunningOnWebGL == false)
+           //     return;
 
             if (YandexGamesSdk.CallbackLogging)
                 return;
@@ -28,8 +28,8 @@ namespace Sources.Scripts.Infrastructure.Services.Yandex
 
         public async UniTask Initialize()
         {
-            if (WebApplication.IsRunningOnWebGL == false)
-                return;
+            //if (WebApplication.IsRunningOnWebGL == false)
+            //    return;
 
             if (YandexGamesSdk.IsInitialized)
                 return;

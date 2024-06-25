@@ -32,7 +32,7 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
             //    ModelId.MainMenu, new ScenePayload(savedLevel.CurrentLevelId, false, true));
             
             _sceneService.ChangeSceneAsync(
-                ModelId.MainMenu, new ScenePayload(ModelId.MainMenu, true, false));
+                ModelId.MainMenu, new ScenePayload(ModelId.MainMenu, true, true));
         }
     }
 }

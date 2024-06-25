@@ -1273,8 +1273,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view: {fileID: 3060882776681152217}
-  _onOpenCommandId: 00000000
-  _onCloseCommandId: 01000000
+  _onOpenCommandId: 01000000
+  _onCloseCommandId: 
 --- !u!1 &679026429332554672
 GameObject:
   m_ObjectHideFlags: 0
@@ -4606,7 +4606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view: {fileID: 8979977371552618047}
-  _onOpenCommandId: 00000000
+  _onOpenCommandId: 01000000
   _onCloseCommandId: 
 --- !u!1 &3278784439883926026
 GameObject:
@@ -5524,8 +5524,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view: {fileID: 7108447277331257900}
-  _onOpenCommandId: 00000000
-  _onCloseCommandId: 01000000
+  _onOpenCommandId: 01000000
+  _onCloseCommandId: 
 --- !u!1 &3833316321916429051
 GameObject:
   m_ObjectHideFlags: 0
@@ -5996,7 +5996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view: {fileID: 8729504350094176724}
-  _onOpenCommandId: 00000000
+  _onOpenCommandId: 01000000
   _onCloseCommandId: 
 --- !u!1 &4059543181402281406
 GameObject:
@@ -10535,6 +10535,7 @@ GameObject:
   - component: {fileID: 8359474320337270876}
   - component: {fileID: 596780930673289637}
   - component: {fileID: 6300149461894873895}
+  - component: {fileID: 6029792203801387560}
   m_Layer: 5
   m_Name: Back_Button
   m_TagString: Untagged
@@ -10699,6 +10700,20 @@ MonoBehaviour:
     Category: Gameplay
     Name: Hud
     Custom: 0
+--- !u!114 &6029792203801387560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7427837640003075640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1451db867f4148d69154881e10b28c02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 6300149461894873895}
+  _onClickCommandId: 03000000
 --- !u!1 &7488790474050688429
 GameObject:
   m_ObjectHideFlags: 0
@@ -12442,6 +12457,7 @@ GameObject:
   - component: {fileID: 8330427671214614895}
   - component: {fileID: 5583181496896242686}
   - component: {fileID: 2324570941895709186}
+  - component: {fileID: 3789377484804625345}
   m_Layer: 5
   m_Name: No_Button
   m_TagString: Untagged
@@ -12606,6 +12622,20 @@ MonoBehaviour:
     Category: Gameplay
     Name: Hud
     Custom: 0
+--- !u!114 &3789377484804625345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8673112956433163653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1451db867f4148d69154881e10b28c02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 2324570941895709186}
+  _onClickCommandId: 03000000
 --- !u!1 &8732324261677686333
 GameObject:
   m_ObjectHideFlags: 0

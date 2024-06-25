@@ -11,6 +11,7 @@ using Sources.Scripts.Presentations.UI.Curtain;
 using Sources.Scripts.UIFramework.ControllerInterfaces.Buttons;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;
+using UnityEngine;
 
 namespace Sources.Scripts.Controllers.Presenters.Scenes
 {

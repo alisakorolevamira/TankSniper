@@ -1,7 +1,6 @@
 ﻿using System;
 using Sources.Scripts.Controllers.Presenters.Players;
 using Sources.Scripts.Domain.Models.Players;
-using Sources.Scripts.DomainInterfaces.Models.Players;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Players;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.PresentationsInterfaces.Views.Players;

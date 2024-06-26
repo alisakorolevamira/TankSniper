@@ -95,9 +95,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1404106779292140366}
-  - component: {fileID: 87510147567982494}
-  - component: {fileID: 871836552973022983}
-  - component: {fileID: 8978091607476718165}
   m_Layer: 0
   m_Name: PlayerView2
   m_TagString: Untagged
@@ -121,41 +118,3 @@ Transform:
   - {fileID: 3915873205659848467}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &87510147567982494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1068536273273584265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e2126421a0b4985b21263c76b22df90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerHealthView: {fileID: 871836552973022983}
-  _playerAttackerView: {fileID: 8978091607476718165}
---- !u!114 &871836552973022983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1068536273273584265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e09d9ae8c0d941c0b9699c2c9bc70ff6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8978091607476718165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1068536273273584265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdf292b2fd0645698c9f5ae28f03da7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -21,6 +21,10 @@ namespace Doozy.Runtime.UIManager.Containers
         public static IEnumerable<UIView> GetViews(UIViewId.MainMenu id) => GetViews(nameof(UIViewId.MainMenu), id.ToString());
         public static void Show(UIViewId.MainMenu id, bool instant = false) => Show(nameof(UIViewId.MainMenu), id.ToString(), instant);
         public static void Hide(UIViewId.MainMenu id, bool instant = false) => Hide(nameof(UIViewId.MainMenu), id.ToString(), instant);
+
+        public static IEnumerable<UIView> GetViews(UIViewId.Shop id) => GetViews(nameof(UIViewId.Shop), id.ToString());
+        public static void Show(UIViewId.Shop id, bool instant = false) => Show(nameof(UIViewId.Shop), id.ToString(), instant);
+        public static void Hide(UIViewId.Shop id, bool instant = false) => Hide(nameof(UIViewId.Shop), id.ToString(), instant);
     }
 }
 
@@ -48,6 +52,12 @@ namespace Doozy.Runtime.UIManager
             MergeTanksTutorial,
             Settings,
             Shop
+        }
+
+        public enum Shop
+        {
+            Tank1,
+            Tank2
         }    
     }
 }

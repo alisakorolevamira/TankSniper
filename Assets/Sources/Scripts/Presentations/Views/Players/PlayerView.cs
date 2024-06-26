@@ -9,8 +9,10 @@ namespace Sources.Scripts.Presentations.Views.Players
     {
         [SerializeField] private CharacterHealthView _playerHealthView;
         [SerializeField] private PlayerAttackerView _playerAttackerView;
+        [SerializeField] private int _level;
 
         public CharacterHealthView PlayerHealthView => _playerHealthView;
         public PlayerAttackerView PlayerAttackerView => _playerAttackerView;
+        public int Level => _level;
     }
 }

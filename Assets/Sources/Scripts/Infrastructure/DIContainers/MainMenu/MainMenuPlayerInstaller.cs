@@ -18,11 +18,8 @@ namespace Sources.Scripts.Infrastructure.DIContainers.MainMenu
 
             Container.Bind<IUpgradeService>().To<UpgradeService>().AsSingle();
 
-            //Container.Bind<PlayerWalletPresenterFactory>().AsSingle();
-            //Container.Bind<PlayerWalletViewFactory>().AsSingle();
-
-            //Container.Bind<WalletUIPresenterFactory>().AsSingle();
-            //Container.Bind<WalletUIFactory>().AsSingle();
+            Container.Bind<SkinChangerPresenterFactory>().AsSingle();
+            Container.Bind<SkinChangerViewFactory>().AsSingle();
         }
     }
 }

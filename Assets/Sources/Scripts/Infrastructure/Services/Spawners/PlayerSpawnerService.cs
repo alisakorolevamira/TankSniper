@@ -41,7 +41,7 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners
         {
             _player = player;
             
-            IPlayerView playerView = _playerViewFactory.Create(player, level, _mainMenuRootGameObjects.PlayerSpawnPoint);
+            IPlayerView playerView = _playerViewFactory.Create(level);
 
             return playerView;
         }
@@ -51,7 +51,7 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners
             if(_player == null)
                 return;
 
-            _playerViewFactory.Create(_player, level, _mainMenuRootGameObjects.PlayerSpawnPoint);
+            _playerViewFactory.Create(level);
         }
     }
 }

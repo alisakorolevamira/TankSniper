@@ -8,5 +8,6 @@
         UnPause = 3,
         AddTank = 4,
         ChangeVolume = 5,
+        ShowShopTank = 6,
     }
 }

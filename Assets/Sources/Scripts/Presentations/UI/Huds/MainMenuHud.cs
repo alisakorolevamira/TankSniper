@@ -4,6 +4,7 @@ using Sources.Scripts.Presentations.Views.Gameplay;
 using Sources.Scripts.Presentations.Views.Inventory;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.Presentations.Views.Settings;
+using Sources.Scripts.Presentations.Views.Shop;
 using Sources.Scripts.UIFramework.Presentations.AudioSources;
 using Sources.Scripts.UIFramework.PresentationsInterfaces.AudioSources;
 using UnityEngine;

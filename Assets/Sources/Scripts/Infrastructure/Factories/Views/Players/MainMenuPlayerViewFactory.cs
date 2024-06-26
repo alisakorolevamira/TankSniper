@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using JetBrains.Annotations;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Players;
@@ -35,24 +36,26 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Players
                                        throw new ArgumentNullException(nameof(playerWalletViewFactory));
         }
 
-        public PlayerView Create(Player player, int level, PlayerSpawnPoint playerSpawnPoint)
+        public PlayerView Create(int level)
         {
             if (_playerView != null) 
-                _playerView.Destroy();
+                _playerView.Hide();
             
-            //PlayerView playerView =
-            //    Object.Instantiate(
-            //        Resources.Load<PlayerView>($"{PrefabPath.Player}{level}"),
-            //        playerSpawnPoint.Position,
-            //        playerSpawnPoint.Rotation);
-            
-            _playerView = Object.Instantiate(
-                    Resources.Load<PlayerView>($"{PrefabPath.Player}{level}"),
-                    playerSpawnPoint.Position,
-                    playerSpawnPoint.Rotation);
-            
-            foreach (WalletUI wallet in _mainMenuHud.WalletsUI) 
-                _walletUIFactory.Create(player.PlayerWallet, wallet);
+           // _playerView = Object.Instantiate(
+           //         Resources.Load<PlayerView>($"{PrefabPath.Player}{level}"),
+           //         playerSpawnPoint.Position,
+           //         playerSpawnPoint.Rotation);
+
+           _playerView = _mainMenuRootGameObjects.PlayerViews.FirstOrDefault(x => x.Level == level);
+
+           if (_playerView == null)
+           {
+               PlayerView playerView = _mainMenuRootGameObjects.PlayerViews.First(x => x.Level == 1);
+               playerView.Show();
+               return playerView;
+           }
+
+           _playerView.Show();
             
             return _playerView;
         }

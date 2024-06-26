@@ -12,8 +12,8 @@ namespace Sources.Scripts.Infrastructure.Services.SceneServices
 {
     public class SceneService : ISceneService
     {
-        private readonly List<Func<string, UniTask>> _enteringHandlers = new List<Func<string, UniTask>>();
-        private readonly List<Func<UniTask>> _exitingHandlers = new List<Func<UniTask>>();
+        private readonly List<Func<string, UniTask>> _enteringHandlers = new ();
+        private readonly List<Func<UniTask>> _exitingHandlers = new ();
 
         private readonly SceneStateMachine _stateMachine;
         private readonly IReadOnlyDictionary<string, Func<object, SceneContext, UniTask<IScene>>> _sceneFactories;

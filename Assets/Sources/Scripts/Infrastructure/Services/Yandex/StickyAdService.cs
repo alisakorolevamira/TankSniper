@@ -8,8 +8,8 @@ namespace Sources.Scripts.Infrastructure.Services.Yandex
     {
         public void ShowStickyAd()
         {
-            if (WebApplication.IsRunningOnWebGL == false)
-                return;
+           // if (WebApplication.IsRunningOnWebGL == false)
+           //     return;
 
             StickyAd.Show();
         }

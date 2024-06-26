@@ -29,6 +29,8 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
             { 6, ModelId.SixthLevel }
         };
 
+        private string _newLevel;
+
         public LoadGameCommand(
             ILoadService loadService, 
             IEntityRepository entityRepository, 
@@ -43,9 +45,6 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
         
         public void Handle()
         {
-            //if (_loadService.HasKey(ModelId.PlayerWallet) == false)
-                //return;
-
             SavedLevel savedLevel = _entityRepository.Get<SavedLevel>(ModelId.SavedLevel);
             
             _loadService.SaveAll();
@@ -64,13 +63,19 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
         private string FindNewLevel(string savedLevel)
         {
             int savedLevelId = _levels.First(x => x.Value == savedLevel).Key;
+            
+            Level level = _entityRepository.Get<Level>(savedLevel);
+            
+            if(level.IsCompleted)
+                _newLevel = _levels.FirstOrDefault(x => x.Key == savedLevelId + 1).Value;
 
-            string newLevel = _levels.First(x => x.Key == savedLevelId + 1).Value;
+            else
+                _newLevel = _levels.First(x => x.Key == savedLevelId).Value;
 
-            if (newLevel == null)
+            if (_newLevel == null)
                 return ModelId.FirstLevel;
 
-            return newLevel;
+            return _newLevel;
         }
     }
 }

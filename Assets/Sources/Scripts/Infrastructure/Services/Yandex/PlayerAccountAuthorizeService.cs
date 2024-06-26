@@ -9,8 +9,8 @@ namespace Sources.Scripts.Infrastructure.Services.Yandex
     {
         public bool IsAuthorized()
         {
-            if (WebApplication.IsRunningOnWebGL == false)
-                return false;
+            //if (WebApplication.IsRunningOnWebGL == false)
+            //    return false;
 
             if (PlayerAccount.IsAuthorized == false)
                 return false;
@@ -20,8 +20,8 @@ namespace Sources.Scripts.Infrastructure.Services.Yandex
 
         public void Authorize(Action onSuccessCallback)
         {
-            if (WebApplication.IsRunningOnWebGL == false)
-                return;
+            //if (WebApplication.IsRunningOnWebGL == false)
+            //    return;
 
             if (PlayerAccount.IsAuthorized)
                 return;

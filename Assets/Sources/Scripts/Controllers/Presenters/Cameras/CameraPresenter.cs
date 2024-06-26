@@ -64,16 +64,6 @@ namespace Sources.Scripts.Controllers.Presenters.Cameras
 
             _vertical -= CameraConst.Sensitivity * delta.y * time;
             _horizontal += CameraConst.Sensitivity * delta.x * time;
-
-            if (_currentPosition == PositionId.MainPosition)
-            {
-            }
-
-            else
-            {
-               // _vertical = Mathf.Clamp(_vertical, CameraConst.MinVerticalAimAngle, CameraConst.MaxVerticalAimAngle);
-               // _horizontal = Mathf.Clamp(_horizontal, CameraConst.MinHorizontalAimAngle, CameraConst.MaxHorizontalAimAngle);
-            }
             
             _vertical = Mathf.Clamp(_vertical, CameraConst.MinVerticalAngle, CameraConst.MaxVerticalAngle);
             _horizontal = Mathf.Clamp(_horizontal, CameraConst.MinHorizontalAngle, CameraConst.MaxHorizontalAngle);

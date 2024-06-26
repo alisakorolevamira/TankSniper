@@ -19,7 +19,7 @@ namespace Sources.Scripts.UIFramework.Services.Focus
         {
             //OnInBackgroundChangeWeb(WebApplication.InBackground);
             //OnInBackgroundChangeApp(Application.isFocused);
-            
+            //
             //Application.focusChanged += OnInBackgroundChangeApp;
             //WebApplication.InBackgroundChangeEvent += OnInBackgroundChangeWeb;
         }

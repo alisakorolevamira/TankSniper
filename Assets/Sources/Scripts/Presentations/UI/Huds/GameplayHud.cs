@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Doozy.Runtime.UIManager.Components;
 using Sources.Scripts.Presentations.Views;
 using Sources.Scripts.Presentations.Views.Cameras;
 using Sources.Scripts.Presentations.Views.Common;
@@ -32,12 +33,14 @@ namespace Sources.Scripts.Presentations.UI.Huds
 
         [Header("Weapon")]
         [SerializeField] private ReloadWeaponView _reloadWeaponView;
-        [SerializeField] private RectTransform _shootZone;
+        //[SerializeField] private RectTransform _shootZone;
+        [SerializeField] private List<UIButton> _shootButtons;
         
         public IReadOnlyList<IUIAudioSource> UIAudioSources => _uiAudioSources;
         
         public CameraView CameraView => cameraView;
-        public RectTransform ShootZone => _shootZone;
+        //public RectTransform ShootZone => _shootZone;
+        public IReadOnlyList<UIButton> ShootButtons => _shootButtons;
         
         public IReadOnlyList<WalletUI> WalletsUI => _walletsUI;
 

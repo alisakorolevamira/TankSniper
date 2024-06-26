@@ -28,7 +28,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
         private readonly IUpdateService _updateService;
         private readonly IInputService _inputService;
         private readonly ICameraService _cameraService;
-        //private readonly IInputServiceUpdater _inputServiceUpdater;
         private readonly IGameOverService _gameOverService;
         private readonly IVolumeService _volumeService;
         private readonly LoadGameplaySceneService _loadGameplaySceneService;
@@ -47,7 +46,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             IUpdateService updateService,
             IInputService inputService,
             ICameraService cameraService,
-            //IInputServiceUpdater inputServiceUpdater,
             IGameOverService gameOverService,
             IVolumeService volumeService,
             LoadGameplaySceneService loadGameplaySceneService,
@@ -65,7 +63,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             _updateService = updateService ?? throw new ArgumentNullException(nameof(updateService));
             _inputService = inputService ?? throw new ArgumentNullException(nameof(inputService));
             _cameraService = cameraService ?? throw new ArgumentNullException(nameof(cameraService));
-            //_inputServiceUpdater = inputServiceUpdater ?? throw new ArgumentNullException(nameof(inputServiceUpdater));
             _gameOverService = gameOverService ?? throw new ArgumentNullException(nameof(gameOverService));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
             _loadGameplaySceneService = loadGameplaySceneService ?? 
@@ -90,7 +87,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
                 _updateService,
                 _inputService,
                 _cameraService,
-                //_inputServiceUpdater,
                 CreateLoadSceneService(payload),
                 _gameOverService,
                 _volumeService,

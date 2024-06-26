@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Doozy.Runtime.Signals;
+using Doozy.Runtime.UIManager.Components;
 using Sources.Scripts.InfrastructureInterfaces.Services.InputServices;
 using Sources.Scripts.Presentations.UI.Huds;
 using UnityEngine;
@@ -11,12 +13,10 @@ namespace Sources.Scripts.Infrastructure.Services.InputServices
     {
         private readonly GameplayHud _hud;
         private InputMap _inputMap;
-        private RectTransform _shootZone;
 
         public GameplayInputService(GameplayHud hud)
         {
             _hud = hud ?? throw new ArgumentNullException(nameof(hud));
-            _shootZone = hud.ShootZone;
         }
 
         public event Action<Vector2> RotationInputReceived;
@@ -28,41 +28,33 @@ namespace Sources.Scripts.Infrastructure.Services.InputServices
         
             _inputMap.Enable();
 
+            foreach (UIButton shootButton in _hud.ShootButtons)
+            {
+                shootButton.onPointerDownEvent.AddListener(OnAimButtonDown);
+                shootButton.onPointerUpEvent.AddListener(OnAimButtonUp);
+            }
+
             _inputMap.Touchscreen.TouchDelta.performed += OnTouchDeltaPerformed;
-            _inputMap.Touchscreen.TouchPress.started += OnTouchPressPerformedStarted;
         }
 
         public void Exit()
         {
             _inputMap.Touchscreen.TouchDelta.performed -= OnTouchDeltaPerformed;
-            _inputMap.Touchscreen.TouchPress.started -= OnTouchPressPerformedEnded;
+            
+            foreach (UIButton shootButton in _hud.ShootButtons)
+            {
+                shootButton.onPointerDownEvent.RemoveListener(OnAimButtonDown);
+                shootButton.onPointerUpEvent.RemoveListener(OnAimButtonUp);
+            }
         }
 
         private void OnTouchDeltaPerformed(InputAction.CallbackContext context) => 
             RotationInputReceived?.Invoke(context.ReadValue<Vector2>());
 
-        private void OnTouchPressPerformedStarted(InputAction.CallbackContext context)
-        {
-            Vector2 currentTouchPosition = _inputMap.Touchscreen.TouchPosition.ReadValue<Vector2>();
-            bool isTouchInRect = RectTransformUtility.RectangleContainsScreenPoint(_shootZone, currentTouchPosition);
+        private void OnAimButtonDown() => 
+            Signal.Send(StreamId.Gameplay.Shoot);
 
-            if (isTouchInRect != true)
-                return;
-
-           // if (_formService.IsActive(FormId.Entry) || _formService.IsActive(FormId.Hud))
-           // {
-           //     _inputMap.Touchscreen.TouchPress.canceled += OnTouchPressPerformedEnded;
-           //     _formService.Show(FormId.Shoot);
-           // }
-
-           _inputMap.Touchscreen.TouchPress.canceled += OnTouchPressPerformedEnded;
-           Signal.Send(StreamId.Gameplay.Shoot);
-        }
-
-        private void OnTouchPressPerformedEnded(InputAction.CallbackContext context)
-        {
+        private void OnAimButtonUp() => 
             AttackInputReceived?.Invoke();
-            _inputMap.Touchscreen.TouchPress.canceled -= OnTouchPressPerformedEnded;
-        }
     }
 }

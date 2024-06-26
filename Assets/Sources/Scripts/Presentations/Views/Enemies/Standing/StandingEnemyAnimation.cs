@@ -32,7 +32,7 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Standing
             ExceptAnimation(StopAttack);
             //Animator.SetBool(s_isAttack, true);
             Animator.SetBool("Shoot", true);
-            _gunShoot.Play();
+            //_gunShoot.Play();
         }
 
         public void PlayDying()

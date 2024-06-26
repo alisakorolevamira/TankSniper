@@ -23,6 +23,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
         private readonly LevelAvailabilityViewFactory _levelAvailabilityViewFactory;
         private readonly VolumeViewFactory _volumeViewFactory;
         private readonly InventoryGridViewFactory _inventoryGridViewFactory;
+        private readonly SkinChangerViewFactory _skinChangerViewFactory;
         private readonly WalletUIFactory _walletUIFactory;
         private readonly IVolumeService _volumeService;
         private readonly ITutorialService _tutorialService;
@@ -36,6 +37,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             LevelAvailabilityViewFactory levelAvailabilityViewFactory,
             VolumeViewFactory volumeViewFactory,
             InventoryGridViewFactory inventoryGridViewFactory,
+            SkinChangerViewFactory skinChangerViewFactory,
             WalletUIFactory walletUIFactory,
             IVolumeService volumeService,
             ITutorialService tutorialService,
@@ -50,6 +52,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             _volumeViewFactory = volumeViewFactory ?? throw new ArgumentNullException(nameof(volumeViewFactory));
             _inventoryGridViewFactory = inventoryGridViewFactory ??
                                         throw new ArgumentNullException(nameof(inventoryGridViewFactory));
+            _skinChangerViewFactory = skinChangerViewFactory ??
+                                      throw new ArgumentNullException(nameof(skinChangerViewFactory));
             _walletUIFactory = walletUIFactory ?? throw new ArgumentNullException(nameof(walletUIFactory));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
             _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
@@ -70,12 +74,14 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             _volumeViewFactory.Create(_volumeService, _mainMenuHud.VolumeView);
             
             //PlayerView playerView = _playerViewFactory.Create(models.Player);
-            IPlayerView playerView = _playerSpawnerService.Spawn(models.Player, models.Upgrader.CurrentLevel);
+            //IPlayerView playerView = _playerSpawnerService.Spawn(models.Player, models.Upgrader.CurrentLevel);
+
+            _skinChangerViewFactory.Create(models.SkinChanger, _mainMenuHud.SkinChangerView);
             
             foreach (WalletUI wallet in _mainMenuHud.WalletsUI) 
                 _walletUIFactory.Create(models.Player.PlayerWallet, wallet);
             
-            _upgradeService.Register(models.Upgrader);
+            _upgradeService.Register(models.Upgrader, models.SkinChanger);
             
             _levelAvailabilityViewFactory.Create(models.LevelAvailability, _mainMenuHud.LevelAvailabilityView);
             

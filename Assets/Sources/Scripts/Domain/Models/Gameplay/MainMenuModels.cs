@@ -20,6 +20,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             Tutorial tutorial,
             Player player,
             Upgrader upgrader,
+            SkinChanger skinChanger,
             SavedLevel savedLevel,
             InventoryGrid grid)
         {
@@ -35,6 +36,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             Tutorial = tutorial;
             Player = player;
             Upgrader = upgrader;
+            SkinChanger = skinChanger;
             SavedLevel = savedLevel;
             InventoryGrid = grid;
         }
@@ -53,5 +55,6 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         public SavedLevel SavedLevel { get; }
         public Upgrader Upgrader { get; }
         public InventoryGrid InventoryGrid { get; }
+        public SkinChanger SkinChanger { get; }
     }
 }

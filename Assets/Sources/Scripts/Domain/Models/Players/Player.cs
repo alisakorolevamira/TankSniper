@@ -1,4 +1,5 @@
 ﻿using System;
+using Sources.Scripts.DomainInterfaces.Models.Entities;
 
 namespace Sources.Scripts.Domain.Models.Players
 {
@@ -6,7 +7,7 @@ namespace Sources.Scripts.Domain.Models.Players
     { 
         public Player(PlayerWallet playerWallet)
         {
-            PlayerWallet = playerWallet ?? throw new ArgumentNullException(nameof(playerWallet));
+            PlayerWallet = playerWallet;
         }
         
         public PlayerWallet PlayerWallet { get; }

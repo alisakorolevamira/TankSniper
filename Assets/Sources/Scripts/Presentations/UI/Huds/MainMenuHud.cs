@@ -25,11 +25,15 @@ namespace Sources.Scripts.Presentations.UI.Huds
         
         [Header("Inventory")]
         [SerializeField] private InventoryGridView _gridView;
+
+        [Header("Player")]
+        [SerializeField] private SkinChangerView _skinChangerView;
         
         public IReadOnlyList<IUIAudioSource> UIAudioSources => _uiAudioSources;
         public LevelAvailabilityView LevelAvailabilityView => _levelAvailabilityView;
         public VolumeView VolumeView => _volumeView;
         public IReadOnlyList<WalletUI> WalletsUI => _walletsUI;
         public InventoryGridView InventoryGridView => _gridView;
+        public SkinChangerView SkinChangerView => _skinChangerView;
     }
 }

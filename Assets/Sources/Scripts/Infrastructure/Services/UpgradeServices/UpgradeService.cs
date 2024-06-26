@@ -1,5 +1,6 @@
 ﻿using System;
 using Doozy.Runtime.Signals;
+using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Upgrades;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpgradeServices;
@@ -11,6 +12,7 @@ namespace Sources.Scripts.Infrastructure.Services.UpgradeServices
         private readonly ITutorialService _tutorialService;
         
         private Upgrader _upgrader;
+        private SkinChanger _skinChanger;
 
         public UpgradeService(ITutorialService tutorialService)
         {
@@ -19,14 +21,18 @@ namespace Sources.Scripts.Infrastructure.Services.UpgradeServices
         
         public event Action<int> LevelChanged;
 
-        public void Register(Upgrader upgrader) => 
+        public void Register(Upgrader upgrader, SkinChanger skinChanger)
+        {
             _upgrader = upgrader ?? throw new ArgumentNullException(nameof(upgrader));
+            _skinChanger = skinChanger ?? throw new ArgumentNullException(nameof(skinChanger));
+        }
 
         public void CheckLevel(int level)
         {
             if (level > _upgrader.CurrentLevel)
             {
                 _upgrader.Upgrade();
+                _skinChanger.ChangeSkin(level);
                 LevelChanged?.Invoke(_upgrader.CurrentLevel);
 
                 if (_tutorialService.IsCompleted == false)

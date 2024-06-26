@@ -33,6 +33,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             LevelAvailabilityViewFactory levelAvailabilityViewFactory,
             VolumeViewFactory volumeViewFactory,
             InventoryGridViewFactory inventoryGridViewFactory,
+            SkinChangerViewFactory skinChangerViewFactory,
             WalletUIFactory walletUIFactory,
             IVolumeService volumeService,
             ITutorialService tutorialService,
@@ -45,6 +46,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 levelAvailabilityViewFactory,
                 volumeViewFactory,
                 inventoryGridViewFactory,
+                skinChangerViewFactory,
                 walletUIFactory,
                 volumeService, 
                 tutorialService,
@@ -90,6 +92,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             PlayerWallet playerWallet = _loadService.Load<PlayerWallet>(ModelId.PlayerWallet);
 
             Player player = new Player(playerWallet);
+            SkinChanger skinChanger = new SkinChanger(upgrader);
 
             InventorySlot firstSlot = _loadService.Load<InventorySlot>(ModelId.FirstSlot);
             InventorySlot secondSlot = _loadService.Load<InventorySlot>(ModelId.SecondSlot);
@@ -128,6 +131,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 tutorial,
                 player,
                 upgrader,
+                skinChanger,
                 savedLevel,
                 inventoryGrid);
         }

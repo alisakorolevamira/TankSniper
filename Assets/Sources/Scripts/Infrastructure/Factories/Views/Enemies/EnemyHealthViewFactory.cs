@@ -19,7 +19,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies
         public IEnemyHealthView Create(EnemyHealth enemyHealth, EnemyHealthView view)
         {
             EnemyHealthPresenter presenter =
-                _presenterFactory.Create(enemyHealth, view);
+                _presenterFactory.Create(enemyHealth);
 
             view.Construct(presenter);
 

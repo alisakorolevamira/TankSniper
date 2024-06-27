@@ -24,10 +24,9 @@ namespace Sources.Scripts.Controllers.Presenters.Players
 
         public override void Enable()
         {
+            _cancellationTokenSource = new CancellationTokenSource();
             OnSkinChanged();
             _skinChanger.CurrentSkinChanged += OnSkinChanged;
-
-            _cancellationTokenSource = new CancellationTokenSource();
         }
 
         public override void Disable()

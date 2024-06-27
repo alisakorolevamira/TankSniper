@@ -5,14 +5,14 @@ namespace Sources.Scripts.Controllers.Presenters.Common
 {
     public class CharacterHealthPresenter : PresenterBase
     {
-        private readonly CharacterHealth characterHealth;
+        private readonly CharacterHealth _characterHealth;
 
         public CharacterHealthPresenter(CharacterHealth characterHealth)
         {
-            this.characterHealth = characterHealth ?? throw new ArgumentNullException(nameof(characterHealth));
+            _characterHealth = characterHealth ?? throw new ArgumentNullException(nameof(characterHealth));
         }
 
         public void TakeDamage(int damage) =>
-            characterHealth.TakeDamage(damage);
+            _characterHealth.TakeDamage(damage);
     }
 }

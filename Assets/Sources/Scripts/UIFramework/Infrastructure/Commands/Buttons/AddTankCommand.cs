@@ -18,6 +18,6 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
         public ButtonCommandId Id => ButtonCommandId.AddTank;
         
         public void Handle() => 
-            _spawnerService.Spawn(InventoryConst.DefaultTankLevel);
+            _spawnerService.Spawn(InventoryTankConst.DefaultTankLevel);
     }
 }

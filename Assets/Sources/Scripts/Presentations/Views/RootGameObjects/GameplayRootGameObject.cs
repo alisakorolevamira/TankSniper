@@ -3,7 +3,6 @@ using Sources.Scripts.Presentations.Views.Cameras;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.Presentations.Views.Spawners;
 using Sources.Scripts.Presentations.Views.Weapons;
-using Sources.Scripts.PresentationsInterfaces.Views.Players;
 using UnityEngine;
 
 namespace Sources.Scripts.Presentations.Views.RootGameObjects
@@ -18,13 +17,15 @@ namespace Sources.Scripts.Presentations.Views.RootGameObjects
         [SerializeField] private EnemySpawnerView _enemySpawnerView;
         
         [Header("Player")]
-        [SerializeField] private PlayerSpawnPoint _playerSpawnPoint;
+        [SerializeField] private PlayerView _playerView;
         [SerializeField] private WeaponView _weaponView;
+        [SerializeField] private SkinChangerView _skinChangerView;
 
         public IReadOnlyList<CameraPositionView> CameraPositions => _cameraPositions;
         public IReadOnlyList<Transform> EnemyMovementPoints => _enemyMovementPoints;
+        public PlayerView PlayerView => _playerView;
         public WeaponView WeaponView => _weaponView;
-        public PlayerSpawnPoint PlayerSpawnPoint => _playerSpawnPoint;
         public EnemySpawnerView EnemySpawnerView => _enemySpawnerView;
+        public SkinChangerView SkinChangerView => _skinChangerView;
     }
 }

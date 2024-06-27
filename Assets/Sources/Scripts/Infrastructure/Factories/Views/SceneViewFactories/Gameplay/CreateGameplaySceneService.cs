@@ -37,13 +37,13 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             GameplayRootGameObject gameplayRootGameObject,
             IEntityRepository entityRepository,
             PlayerViewFactory playerViewFactory,
-            PlayerAttackerViewFactory playerAttackerViewFactory,
             EnemySpawnerViewFactory enemySpawnerViewFactory,
             KilledEnemiesCounterViewFactory killedEnemiesCounterViewFactory,
             ReloadWeaponViewFactory reloadWeaponViewFactory,
             CameraViewFactory cameraViewFactory,
             VolumeViewFactory volumeViewFactory,
             RewardViewFactory rewardViewFactory,
+            SkinChangerViewFactory skinChangerViewFactory,
             IGameOverService gameOverService,
             ICameraService cameraService,
             IVolumeService volumeService,
@@ -56,13 +56,13 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 gameplayHud,
                 gameplayRootGameObject,
                 playerViewFactory,
-                playerAttackerViewFactory,
                 enemySpawnerViewFactory,
                 killedEnemiesCounterViewFactory,
                 reloadWeaponViewFactory,
                 cameraViewFactory,
                 volumeViewFactory,
                 rewardViewFactory,
+                skinChangerViewFactory,
                 gameOverService,
                 cameraService,
                 volumeService,
@@ -83,7 +83,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             SavedLevel savedLevel = new SavedLevel(ModelId.SavedLevel, scenePayload.SceneId);
             _entityRepository.Add(savedLevel);
 
-            PlayerWallet playerWallet = new PlayerWallet(0, ModelId.PlayerWallet);
+            PlayerWallet playerWallet = new PlayerWallet(PlayerConst.DefaultMoney, ModelId.PlayerWallet);
             _entityRepository.Add(playerWallet);
 
             KilledEnemiesCounter killedEnemiesCounter = new KilledEnemiesCounter();
@@ -94,7 +94,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
             Weapon weapon = new Weapon(PlayerConst.Damage);
 
-            Upgrader upgrader = new Upgrader(1, ModelId.Upgrader);
+            Upgrader upgrader = new Upgrader(PlayerConst.DefaultLevel, ModelId.Upgrader);
+
+            SkinChanger skinChanger = new SkinChanger(upgrader);
             
             PlayerAttacker playerAttacker = new PlayerAttacker(weapon); //переделать
             
@@ -110,6 +112,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 killedEnemiesCounter,
                 enemySpawner,
                 upgrader,
+                skinChanger,
                 savedLevel);
         }
 

@@ -1,4 +1,5 @@
-﻿using Sources.Scripts.Presentations.Views.Players.SkinTypes;
+﻿using Sources.Scripts.Domain.Models.Constants;
+using Sources.Scripts.Presentations.Views.Players.SkinTypes;
 using Sources.Scripts.PresentationsInterfaces.Views.Players;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ namespace Sources.Scripts.Presentations.Views.Players
 
         public void SetScale(Vector3 scale)
         {
-            transform.localScale = Vector3.MoveTowards(transform.localScale, scale, 1);
+            transform.localScale = Vector3.MoveTowards(transform.localScale, scale, InventoryTankConst.DistanceDelta);
         }
     }
 }

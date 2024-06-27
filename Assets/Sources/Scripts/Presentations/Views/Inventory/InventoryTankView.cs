@@ -51,7 +51,7 @@ namespace Sources.Scripts.Presentations.Views.Inventory
                         Destroy();
                         slotView.CurrentTank.Destroy();
                         _currentTankPoint.ClearSlot();
-                        _spawnerService.Spawn(Level + InventoryConst.DefaultTankLevel, slotView);
+                        _spawnerService.Spawn(Level + InventoryTankConst.DefaultTankLevel, slotView);
                         
                         return;
                     }

@@ -19,6 +19,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             KilledEnemiesCounter killedEnemiesCounter,
             EnemySpawner enemySpawner,
             Upgrader upgrader,
+            SkinChanger skinChanger,
             SavedLevel savedLevel)
         {
             CharacterHealth = characterHealth;
@@ -30,6 +31,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             KilledEnemiesCounter = killedEnemiesCounter;
             EnemySpawner = enemySpawner;
             SavedLevel = savedLevel;
+            SkinChanger = skinChanger;
             Upgrader = upgrader;
         }
 
@@ -43,5 +45,6 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         public EnemySpawner EnemySpawner { get; }
         public SavedLevel SavedLevel { get; }
         public Upgrader Upgrader { get; }
+        public SkinChanger SkinChanger { get; }
     }
 }

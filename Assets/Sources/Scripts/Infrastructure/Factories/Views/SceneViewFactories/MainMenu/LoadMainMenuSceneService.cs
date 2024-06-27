@@ -14,6 +14,7 @@ using Sources.Scripts.Infrastructure.Factories.Views.Settings;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
+using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpgradeServices;
@@ -37,10 +38,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             WalletUIFactory walletUIFactory,
             IVolumeService volumeService,
             ITutorialService tutorialService,
-            IPlayerSpawnerService playerSpawnerService,
             IInventoryTankSpawnerService inventoryTankSpawnerService,
-            IUpgradeService upgradeService,
-            MainMenuPlayerViewFactory playerViewFactory)
+            ISkinChangerService skinChangerService,
+            IUpgradeService upgradeService)
             : base(
                 mainMenuHud, 
                 levelAvailabilityViewFactory,
@@ -50,10 +50,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 walletUIFactory,
                 volumeService, 
                 tutorialService,
-                playerSpawnerService,
                 inventoryTankSpawnerService,
-                upgradeService,
-                playerViewFactory)
+                skinChangerService,
+                upgradeService)
         {
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
             _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));

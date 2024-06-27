@@ -15,8 +15,7 @@ namespace Sources.Scripts.UIFramework.Controllers.Forms
         private SignalReceiver _signalReceiver;
         private SignalStream _signalStream;
 
-        public FormCommandSignalController(
-            IUIViewCommandHandler uiViewCommandHandler)
+        public FormCommandSignalController(IUIViewCommandHandler uiViewCommandHandler)
         {
             _uiViewCommandHandler = uiViewCommandHandler ??
                                     throw new ArgumentNullException(nameof(uiViewCommandHandler));

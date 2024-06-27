@@ -1,6 +1,7 @@
 ﻿using System;
 using JetBrains.Annotations;
 using Sources.Scripts.Domain.Models.Gameplay;
+using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Cameras;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
@@ -27,15 +28,15 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
     public abstract class LoadGameplaySceneServiceBase : ILoadSceneService
     {
         private readonly GameplayHud _gameplayHud;
-        private readonly GameplayRootGameObject gameplayRootGameObject;
+        private readonly GameplayRootGameObject _gameplayRootGameObject;
         private readonly PlayerViewFactory _playerViewFactory;
-        private readonly PlayerAttackerViewFactory _playerAttackerViewFactory;
         private readonly EnemySpawnerViewFactory _enemySpawnerViewFactory;
         private readonly KilledEnemiesCounterViewFactory _killedEnemiesCounterViewFactory;
         private readonly ReloadWeaponViewFactory _reloadWeaponViewFactory;
         private readonly CameraViewFactory _cameraViewFactory;
         private readonly VolumeViewFactory _volumeViewFactory;
         private readonly RewardViewFactory _rewardViewFactory;
+        private readonly SkinChangerViewFactory _skinChangerViewFactory;
         private readonly IGameOverService _gameOverService;
         private readonly ICameraService _cameraService;
         private readonly IVolumeService _volumeService;
@@ -47,13 +48,13 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             GameplayHud gameplayHud,
             GameplayRootGameObject gameplayRootGameObject,
             PlayerViewFactory playerViewFactory,
-            PlayerAttackerViewFactory playerAttackerViewFactory,
             EnemySpawnerViewFactory enemySpawnerViewFactory,
             KilledEnemiesCounterViewFactory killedEnemiesCounterViewFactory,
             ReloadWeaponViewFactory reloadWeaponViewFactory,
             CameraViewFactory cameraViewFactory,
             VolumeViewFactory volumeViewFactory,
             RewardViewFactory rewardViewFactory,
+            SkinChangerViewFactory skinChangerViewFactory,
             IGameOverService gameOverService,
             ICameraService cameraService,
             IVolumeService volumeService,
@@ -63,8 +64,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
         {
             _gameplayHud = gameplayHud ? gameplayHud : throw new ArgumentNullException(nameof(gameplayHud));
             _playerViewFactory = playerViewFactory ?? throw new ArgumentNullException(nameof(playerViewFactory));
-            _playerAttackerViewFactory = playerAttackerViewFactory ?? throw new ArgumentNullException(nameof(playerAttackerViewFactory));
-            this.gameplayRootGameObject = gameplayRootGameObject 
+            _gameplayRootGameObject = gameplayRootGameObject 
                 ? gameplayRootGameObject 
                 : throw new ArgumentNullException(nameof(gameplayRootGameObject));
             _enemySpawnerViewFactory = enemySpawnerViewFactory ?? 
@@ -77,6 +77,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             _cameraService = cameraService ?? throw new ArgumentNullException(nameof(cameraService));
             _volumeViewFactory = volumeViewFactory ?? throw new ArgumentNullException(nameof(volumeViewFactory));
             _rewardViewFactory = rewardViewFactory ?? throw new ArgumentNullException(nameof(rewardViewFactory));
+            _skinChangerViewFactory = skinChangerViewFactory ?? throw new ArgumentNullException(nameof(skinChangerViewFactory));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
             _saveService = saveService ?? throw new ArgumentNullException(nameof(saveService));
             _levelCompletedService = levelCompletedService ?? 
@@ -99,22 +100,25 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             _volumeViewFactory.Create(_volumeService, _gameplayHud.VolumeView);
             
             _saveService.Register(gameModels.EnemySpawner);
-
-            PlayerView playerView = _playerViewFactory.Create(gameModels.Player, gameModels.Upgrader.CurrentLevel);
+            
+            PlayerView playerView = _playerViewFactory.Create(
+                gameModels.Player,
+                gameModels.SkinChanger,
+                gameModels.Upgrader.CurrentLevel);
 
             //PlayerAttackerView playerAttackerView = _rootGameObject.PlayerAttackerView;
             //_playerAttackerViewFactory.Create(gameModels.PlayerAttacker, playerAttackerView);
             
             _gameOverService.Register(gameModels.CharacterHealth);;
 
-            EnemySpawnerView enemySpawnerView = gameplayRootGameObject.EnemySpawnerView;
+            EnemySpawnerView enemySpawnerView = _gameplayRootGameObject.EnemySpawnerView;
             enemySpawnerView.SetPlayerView(playerView);
             _enemySpawnerViewFactory.Create(gameModels.EnemySpawner, gameModels.KilledEnemiesCounter, enemySpawnerView);
             
             foreach (KilledEnemiesCounterView view in _gameplayHud.KilledEnemiesCounterViews)
                 _killedEnemiesCounterViewFactory.Create(gameModels.KilledEnemiesCounter, gameModels.EnemySpawner, view);
 
-            foreach (CameraPositionView cameraPosition in gameplayRootGameObject.CameraPositions)
+            foreach (CameraPositionView cameraPosition in _gameplayRootGameObject.CameraPositions)
                 _cameraService.AddPosition(cameraPosition);
 
             _reloadWeaponViewFactory.Create(_gameplayHud.ReloadWeaponView);
@@ -123,6 +127,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             
             _cameraService.SetPosition(PositionId.MainPosition);
             _cameraViewFactory.Create(_gameplayHud.CameraView);
+
+            _skinChangerViewFactory.Create(gameModels.SkinChanger, _gameplayRootGameObject.SkinChangerView);
         }
 
         protected abstract GameModels LoadModels(IScenePayload scenePayload);

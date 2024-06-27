@@ -1,5 +1,4 @@
-﻿using Sources.Scripts.PresentationsInterfaces.UI.Buttons;
-using Sources.Scripts.PresentationsInterfaces.UI.Images;
+﻿using Sources.Scripts.PresentationsInterfaces.UI.Images;
 using UnityEngine;
 
 namespace Sources.Scripts.PresentationsInterfaces.Views.Settings

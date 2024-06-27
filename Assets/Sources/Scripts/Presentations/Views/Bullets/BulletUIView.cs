@@ -1,6 +1,6 @@
-﻿using Sources.Scripts.Presentations.UI.Images;
-using Sources.Scripts.PresentationsInterfaces.UI.Images;
+﻿using Sources.Scripts.PresentationsInterfaces.UI.Images;
 using Sources.Scripts.PresentationsInterfaces.Views.Bullets;
+using Sources.Scripts.UIFramework.Presentations.Images;
 using UnityEngine;
 
 namespace Sources.Scripts.Presentations.Views.Bullets

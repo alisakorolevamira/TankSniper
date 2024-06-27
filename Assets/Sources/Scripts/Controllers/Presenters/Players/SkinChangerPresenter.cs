@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.PresentationsInterfaces.Views.Players;
@@ -54,11 +55,13 @@ namespace Sources.Scripts.Controllers.Presenters.Players
         {
             _cancellationTokenSource.Cancel();
             _cancellationTokenSource = new CancellationTokenSource();
+
+            Vector3 currentScale = _skinChangerView.CurrentSkinView.CurrentScale;
             
             try
             {
-                await ChangeScale(new Vector3(0.8f, 0.8f, 0.8f), _cancellationTokenSource.Token);
-                await ChangeScale(new Vector3(1, 1, 1), _cancellationTokenSource.Token);
+                await ChangeScale(currentScale * InventoryTankConst.ScaleIndex, _cancellationTokenSource.Token);
+                await ChangeScale(currentScale, _cancellationTokenSource.Token);
             }
             catch (OperationCanceledException)
             {
@@ -67,7 +70,7 @@ namespace Sources.Scripts.Controllers.Presenters.Players
 
         private async UniTask ChangeScale(Vector3 to, CancellationToken token)
         {
-            while (Vector3.Distance(_skinChangerView.CurrentSkinView.CurrentScale, to) > 0.01f)
+            while (Vector3.Distance(_skinChangerView.CurrentSkinView.CurrentScale, to) > InventoryTankConst.DefaultDistance)
             {
                 _skinChangerView.CurrentSkinView.SetScale(to);
 

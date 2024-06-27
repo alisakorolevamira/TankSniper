@@ -2,13 +2,15 @@
 using Doozy.Runtime.Signals;
 using Doozy.Runtime.UIManager.Containers;
 using Sources.Scripts.Domain.Models.Constants;
+using Sources.Scripts.Presentations.Views;
 using Sources.Scripts.UIFramework.Domain.Commands;
 using Sources.Scripts.UIFramework.Domain.Signals;
+using Sources.Scripts.UIFramework.PresentationsInterfaces.Signals;
 using UnityEngine;
 
 namespace Sources.Scripts.UIFramework.Presentations.Signals
 {
-    public class FormSignalSender : MonoBehaviour
+    public class FormSignalSender : View, IFormSignalSender
     {
         [SerializeField] private UIView _view;
         [SerializeField] private List<FormCommandId> _onOpenCommandId;

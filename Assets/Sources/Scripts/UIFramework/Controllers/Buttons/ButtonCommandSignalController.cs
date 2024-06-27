@@ -15,8 +15,7 @@ namespace Sources.Scripts.UIFramework.Controllers.Buttons
         private SignalReceiver _signalReceiver;
         private SignalStream _signalStream;
 
-        public ButtonCommandSignalController(
-            IButtonCommandHandler buttonCommandHandler)
+        public ButtonCommandSignalController(IButtonCommandHandler buttonCommandHandler)
         {
             _buttonCommandHandler = buttonCommandHandler ??
                                     throw new ArgumentNullException(nameof(buttonCommandHandler));

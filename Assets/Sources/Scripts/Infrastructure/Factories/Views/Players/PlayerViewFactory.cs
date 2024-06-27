@@ -7,6 +7,7 @@ using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.Presentations.Views.Common;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.Presentations.Views.RootGameObjects;
+using Sources.Scripts.PresentationsInterfaces.Views.Players;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -51,14 +52,12 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Players
                                      throw new ArgumentNullException(nameof(attackerUIViewFactory));
         }
 
-        public PlayerView Create(GameplayPlayer player, int level)
+        public PlayerView Create(GameplayPlayer player, SkinChanger skinChanger, int level)
         {
-            PlayerView playerView =
-                Object.Instantiate(
-                    Resources.Load<PlayerView>($"{PrefabPath.Player}{level}"),
-                    _gameplayRootGameObject.PlayerSpawnPoint.Position,
-                    _gameplayRootGameObject.PlayerSpawnPoint.Rotation);
-            
+           PlayerView playerView = _gameplayRootGameObject.PlayerView;
+           
+           skinChanger.ChangeSkin(level);
+           
             _playerAttackerViewFactory.Create(player.PlayerAttacker, playerView.PlayerAttackerView);
 
             _characterHealthViewFactory.Create(player.CharacterHealth, playerView.PlayerHealthView);

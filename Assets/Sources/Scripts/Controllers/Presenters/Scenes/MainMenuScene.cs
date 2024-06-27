@@ -9,6 +9,7 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.InfrastructureInterfaces.Services.Yandex;
 using Sources.Scripts.Presentations.UI.Curtain;
 using Sources.Scripts.UIFramework.ControllerInterfaces.Buttons;
+using Sources.Scripts.UIFramework.ControllerInterfaces.Shop;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;
 using UnityEngine;
@@ -21,11 +22,11 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         private readonly IVolumeService _volumeService;
         private readonly IStickyAdService _stickyAdService;
         private readonly IAudioService _audioService;
-        private readonly IPlayerSpawnerService _playerSpawnerService;
         private readonly IFocusService _focusService;
         private readonly ITutorialService _tutorialService;
         private readonly ISDKInitializeService _sdkInitializeService;
         private readonly IButtonSignalController _buttonSignalController;
+        private readonly IShopSignalController _shopSignalController;
         private readonly LoadingCurtainView _curtainView;
 
         public MainMenuScene(
@@ -34,21 +35,21 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             LoadingCurtainView curtainView,
             IStickyAdService stickyAdService,
             IAudioService audioService,
-            IPlayerSpawnerService playerSpawnerService,
             ITutorialService tutorialService,
             ISDKInitializeService sdkInitializeService,
             IButtonSignalController buttonSignalController,
+            IShopSignalController shopSignalController,
             IFocusService focusService)
         {
             _loadSceneService = loadSceneService ?? throw new ArgumentNullException(nameof(loadSceneService));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
             _stickyAdService = stickyAdService ?? throw new ArgumentNullException(nameof(stickyAdService));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
-            _playerSpawnerService = playerSpawnerService ?? throw new ArgumentNullException(nameof(playerSpawnerService));
             _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
             _sdkInitializeService = sdkInitializeService ?? throw new ArgumentNullException(nameof(sdkInitializeService));
             _buttonSignalController = buttonSignalController ?? throw new ArgumentNullException(nameof(buttonSignalController));
+            _shopSignalController = shopSignalController ?? throw new ArgumentNullException(nameof(shopSignalController));
             _curtainView = curtainView ? curtainView : throw new ArgumentNullException(nameof(curtainView));
         }
 
@@ -60,7 +61,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _volumeService.Enter();
             _audioService.Enter();
             _buttonSignalController.Initialize();
-            _playerSpawnerService.Enable();
+            _shopSignalController.Initialize();
             await _curtainView.HideCurtain();
             await GameReady(payload as IScenePayload);
             _tutorialService.Enable();
@@ -69,10 +70,10 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         public void Exit()
         {
             _focusService.Disable();
-            _playerSpawnerService.Disable();
             _volumeService.Exit();
             _audioService.Exit();
             _buttonSignalController.Destroy();
+            _shopSignalController.Destroy();
         }
 
         public void Update(float deltaTime)

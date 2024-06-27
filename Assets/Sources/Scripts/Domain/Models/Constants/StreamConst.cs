@@ -6,5 +6,6 @@
         public const string OnClick = "OnClick";
         public const string FormCommand = "FormCommand";
         public const string OnView = "OnView";
+        public const string ShopCommand = "ShopCommand";
     }
 }

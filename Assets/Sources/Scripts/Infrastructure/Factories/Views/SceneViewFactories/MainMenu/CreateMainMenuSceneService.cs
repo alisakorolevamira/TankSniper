@@ -15,6 +15,7 @@ using Sources.Scripts.Infrastructure.Factories.Views.Settings;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
+using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpgradeServices;
@@ -32,15 +33,14 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             IEntityRepository entityRepository,
             MainMenuHud mainMenuHud,
             LevelAvailabilityViewFactory levelAvailabilityViewFactory,
-            MainMenuPlayerViewFactory playerViewFactory,
             VolumeViewFactory volumeViewFactory,
             InventoryGridViewFactory inventoryGridViewFactory,
             SkinChangerViewFactory skinChangerViewFactory,
             WalletUIFactory walletUIFactory,
             IVolumeService volumeService,
             ITutorialService tutorialService,
-            IPlayerSpawnerService playerSpawnerService,
             IUpgradeService upgradeService,
+            ISkinChangerService skinChangerService,
             IInventoryTankSpawnerService inventoryTankSpawnerService)
             : base(
                 mainMenuHud,
@@ -51,10 +51,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 walletUIFactory,
                 volumeService,
                 tutorialService,
-                playerSpawnerService,
                 inventoryTankSpawnerService,
-                upgradeService,
-                playerViewFactory)
+                skinChangerService,
+                upgradeService)
         {
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
             _entityRepository = entityRepository;
@@ -73,7 +72,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             SavedLevel savedLevel = new SavedLevel(ModelId.SavedLevel, ModelId.FirstLevel);
             _entityRepository.Add(savedLevel);
 
-            Upgrader upgrader = new Upgrader(1, ModelId.Upgrader);
+            Upgrader upgrader = new Upgrader(PlayerConst.DefaultLevel, ModelId.Upgrader);
             _entityRepository.Add(upgrader);
             
             Level firstLevel = new Level(ModelId.FirstLevel, false);
@@ -89,7 +88,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             Level sixthLevel = new Level(ModelId.SixthLevel, false);
             _entityRepository.Add(sixthLevel);
             
-            PlayerWallet playerWallet = new PlayerWallet(0, ModelId.PlayerWallet);
+            PlayerWallet playerWallet = new PlayerWallet(PlayerConst.DefaultMoney, ModelId.PlayerWallet);
             _entityRepository.Add(playerWallet);
             
             Player player = new Player(playerWallet);
@@ -144,23 +143,23 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
 
         private List<InventorySlot> CreateSlots()
         {
-            InventorySlot firstSlot = new InventorySlot(ModelId.FirstSlot, true, 0);
+            InventorySlot firstSlot = new InventorySlot(ModelId.FirstSlot, true, InventoryTankConst.DefaultTankLevel);
             _entityRepository.Add(firstSlot);
-            InventorySlot secondSlot = new InventorySlot(ModelId.SecondSlot, true, 0);
+            InventorySlot secondSlot = new InventorySlot(ModelId.SecondSlot, true, InventoryTankConst.DefaultTankLevel);
             _entityRepository.Add(secondSlot);
-            InventorySlot thirdSlot = new InventorySlot(ModelId.ThirdSlot, true, 0);
+            InventorySlot thirdSlot = new InventorySlot(ModelId.ThirdSlot, true, InventoryTankConst.DefaultTankLevel);
             _entityRepository.Add(thirdSlot);
-            InventorySlot fourthSlot = new InventorySlot(ModelId.FourthSlot, true, 0);
+            InventorySlot fourthSlot = new InventorySlot(ModelId.FourthSlot, true, InventoryTankConst.DefaultTankLevel);
             _entityRepository.Add(fourthSlot);
-            InventorySlot fifthSlot = new InventorySlot(ModelId.FifthSlot, false, 1);
+            InventorySlot fifthSlot = new InventorySlot(ModelId.FifthSlot, false, InventoryTankConst.DefaultTankLevel);
             _entityRepository.Add(fifthSlot);
-            InventorySlot sixthSlot = new InventorySlot(ModelId.SixthSlot, true, 0);
+            InventorySlot sixthSlot = new InventorySlot(ModelId.SixthSlot, true, InventoryTankConst.DefaultTankLevel);
             _entityRepository.Add(sixthSlot);
-            InventorySlot seventhSlot = new InventorySlot(ModelId.SeventhSlot, true, 0);
+            InventorySlot seventhSlot = new InventorySlot(ModelId.SeventhSlot, true, InventoryTankConst.DefaultTankLevel);
             _entityRepository.Add(seventhSlot);
-            InventorySlot eighthSlot = new InventorySlot(ModelId.EighthSlot, true, 0);
+            InventorySlot eighthSlot = new InventorySlot(ModelId.EighthSlot, true, InventoryTankConst.DefaultTankLevel);
             _entityRepository.Add(eighthSlot);
-            InventorySlot ninthSlot = new InventorySlot(ModelId.NinthSlot, true, 0);
+            InventorySlot ninthSlot = new InventorySlot(ModelId.NinthSlot, true, InventoryTankConst.DefaultTankLevel);
             _entityRepository.Add(ninthSlot);
 
             List<InventorySlot> slots = new List<InventorySlot>

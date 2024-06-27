@@ -37,13 +37,13 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             GameplayRootGameObject gameplayRootGameObject, 
             IEntityRepository entityRepository, 
             PlayerViewFactory playerViewFactory,
-            PlayerAttackerViewFactory playerAttackerViewFactory,
             EnemySpawnerViewFactory enemySpawnerViewFactory, 
             KilledEnemiesCounterViewFactory killedEnemiesCounterViewFactory,
             ReloadWeaponViewFactory reloadWeaponViewFactory,
             CameraViewFactory cameraViewFactory, 
             VolumeViewFactory volumeViewFactory,
             RewardViewFactory rewardViewFactory,
+            SkinChangerViewFactory skinChangerViewFactory,
             ILoadService loadService, 
             IGameOverService gameOverService, 
             ICameraService cameraService, 
@@ -55,13 +55,13 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 gameplayHud, 
                 gameplayRootGameObject, 
                 playerViewFactory,
-                playerAttackerViewFactory,
                 enemySpawnerViewFactory, 
                 killedEnemiesCounterViewFactory,
                 reloadWeaponViewFactory,
                 cameraViewFactory, 
                 volumeViewFactory,
                 rewardViewFactory,
+                skinChangerViewFactory,
                 gameOverService, 
                 cameraService, 
                 volumeService,
@@ -98,6 +98,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             PlayerAttacker playerAttacker = new PlayerAttacker(weapon);
             
             GameplayPlayer player = new GameplayPlayer(playerWallet, characterHealth, playerAttacker, weapon);
+
+            SkinChanger skinChanger = new SkinChanger(upgrader);
             
             return new GameModels(
                 characterHealth,
@@ -109,6 +111,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 killedEnemiesCounter,
                 enemySpawner,
                 upgrader,
+                skinChanger,
                 savedLevel);
         }
     }

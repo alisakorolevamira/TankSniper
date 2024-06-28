@@ -12,9 +12,11 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Shop.Handlers
         private readonly Dictionary<ShopCommandId, IShopCommand> _commands = new ();
         
         public ShopCommandHandler(
-            SetSkinCommand setSkinCommand)
+            SetSkinCommand setSkinCommand,
+            SetMaterialCommand setMaterialCommand)
         {
             _commands[setSkinCommand.Id] = setSkinCommand;
+            _commands[setMaterialCommand.Id] = setMaterialCommand;
         }
 
         public void Handle(ShopCommandId shopCommandId, SkinType skinType, MaterialType materialType)

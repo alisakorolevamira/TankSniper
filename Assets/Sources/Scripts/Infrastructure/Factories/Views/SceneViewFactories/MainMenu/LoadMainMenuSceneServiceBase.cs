@@ -1,10 +1,12 @@
 ﻿using System;
+using JetBrains.Annotations;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Inventory;
 using Sources.Scripts.Infrastructure.Factories.Views.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
+using Sources.Scripts.Infrastructure.Factories.Views.Shop;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactories;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
@@ -23,6 +25,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
         private readonly VolumeViewFactory _volumeViewFactory;
         private readonly InventoryGridViewFactory _inventoryGridViewFactory;
         private readonly SkinChangerViewFactory _skinChangerViewFactory;
+        private readonly ShopViewFactory _shopViewFactory;
         private readonly WalletUIFactory _walletUIFactory;
         private readonly IVolumeService _volumeService;
         private readonly ITutorialService _tutorialService;
@@ -36,6 +39,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             VolumeViewFactory volumeViewFactory,
             InventoryGridViewFactory inventoryGridViewFactory,
             SkinChangerViewFactory skinChangerViewFactory,
+            ShopViewFactory shopViewFactory,
             WalletUIFactory walletUIFactory,
             IVolumeService volumeService,
             ITutorialService tutorialService,
@@ -51,6 +55,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                                         throw new ArgumentNullException(nameof(inventoryGridViewFactory));
             _skinChangerViewFactory = skinChangerViewFactory ??
                                       throw new ArgumentNullException(nameof(skinChangerViewFactory));
+            _shopViewFactory = shopViewFactory ?? throw new ArgumentNullException(nameof(shopViewFactory));
             _walletUIFactory = walletUIFactory ?? throw new ArgumentNullException(nameof(walletUIFactory));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
             _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
@@ -85,6 +90,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             _tutorialService.Construct(models.Tutorial);
             
             _skinChangerService.Construct(models.SkinChanger);
+
+            _shopViewFactory.Create(_mainMenuHud.ShopView, models.Upgrader);
         }
         
         protected abstract MainMenuModels LoadModels(IScenePayload scenePayload);

@@ -16,7 +16,7 @@ namespace Sources.Scripts.Controllers.Presenters.Cameras
         
         private float _horizontal;
         private float _vertical;
-        private PositionId _currentPosition;
+        //private PositionId _currentPosition;
         
         private CancellationTokenSource _cancellationTokenSource;
         
@@ -44,7 +44,7 @@ namespace Sources.Scripts.Controllers.Presenters.Cameras
         {
             try
             {
-                _currentPosition = position.Id;
+                //_currentPosition = position.Id;
                 
                 while (Vector3.Distance(_cameraView.CurrentPosition, position.Position) > 0.001f)
                 {

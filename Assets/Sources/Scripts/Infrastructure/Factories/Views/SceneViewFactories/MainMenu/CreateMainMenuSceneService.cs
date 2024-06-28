@@ -12,6 +12,7 @@ using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Inventory;
 using Sources.Scripts.Infrastructure.Factories.Views.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
+using Sources.Scripts.Infrastructure.Factories.Views.Shop;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
@@ -36,6 +37,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             VolumeViewFactory volumeViewFactory,
             InventoryGridViewFactory inventoryGridViewFactory,
             SkinChangerViewFactory skinChangerViewFactory,
+            ShopViewFactory shopViewFactory,
             WalletUIFactory walletUIFactory,
             IVolumeService volumeService,
             ITutorialService tutorialService,
@@ -48,6 +50,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 volumeViewFactory,
                 inventoryGridViewFactory,
                 skinChangerViewFactory,
+                shopViewFactory,
                 walletUIFactory,
                 volumeService,
                 tutorialService,

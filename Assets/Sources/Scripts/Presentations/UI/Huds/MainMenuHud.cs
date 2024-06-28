@@ -5,6 +5,7 @@ using Sources.Scripts.Presentations.Views.Inventory;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.Presentations.Views.Settings;
 using Sources.Scripts.Presentations.Views.Shop;
+using Sources.Scripts.PresentationsInterfaces.Views.Shop;
 using Sources.Scripts.UIFramework.Presentations.AudioSources;
 using Sources.Scripts.UIFramework.PresentationsInterfaces.AudioSources;
 using UnityEngine;
@@ -28,6 +29,9 @@ namespace Sources.Scripts.Presentations.UI.Huds
 
         [Header("Player")]
         [SerializeField] private List<SkinChangerView> _skinChangerViews;
+
+        [Header("Shop")]
+        [SerializeField] private ShopView _shopView;
         
         public IReadOnlyList<IUIAudioSource> UIAudioSources => _uiAudioSources;
         public LevelAvailabilityView LevelAvailabilityView => _levelAvailabilityView;
@@ -35,5 +39,6 @@ namespace Sources.Scripts.Presentations.UI.Huds
         public IReadOnlyList<WalletUI> WalletsUI => _walletsUI;
         public InventoryGridView InventoryGridView => _gridView;
         public IReadOnlyList<SkinChangerView> SkinChangerViews => _skinChangerViews;
+        public ShopView ShopView => _shopView;
     }
 }

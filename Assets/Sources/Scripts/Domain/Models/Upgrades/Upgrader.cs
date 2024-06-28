@@ -1,4 +1,5 @@
 ﻿using System;
+using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.DomainInterfaces.Models.Upgrades;
 
 namespace Sources.Scripts.Domain.Models.Upgrades
@@ -18,7 +19,7 @@ namespace Sources.Scripts.Domain.Models.Upgrades
         public string Id { get; }
         public Type Type => GetType();
         public int CurrentLevel { get; private set; }
-        public int MaxLevel { get; } = 8;
+        public int MaxLevel { get; } = PlayerConst.MaxLevel;
         
         public void Upgrade()
         {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Upgrades;
 using Sources.Scripts.Presentations.Views.Players.SkinTypes;
 
@@ -9,7 +10,7 @@ namespace Sources.Scripts.Domain.Models.Players
     {
         private Dictionary<int, SkinType> _skinTypes = new()
         {
-            { 1, SkinType.First },
+            {1, SkinType.First },
             {2, SkinType.Second},
             {3, SkinType.Third},
             {4, SkinType.Fourth},
@@ -31,6 +32,9 @@ namespace Sources.Scripts.Domain.Models.Players
 
         public void ChangeSkin(int level)
         {
+            if (level is < 0 or > PlayerConst.MaxLevel)
+                return;
+            
             CurrentSkin = _skinTypes[level];
             CurrentSkinChanged?.Invoke();
         }

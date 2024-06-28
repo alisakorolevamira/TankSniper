@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Upgrades;
-using Sources.Scripts.Presentations.Views.Players.SkinTypes;
+using Sources.Scripts.Presentations.Views.Players.Skins.MaterialTypes;
+using Sources.Scripts.Presentations.Views.Players.Skins.SkinTypes;
+using UnityEngine;
 
 namespace Sources.Scripts.Domain.Models.Players
 {
     public class SkinChanger
     {
+        private readonly Upgrader _upgrader;
+
         private Dictionary<int, SkinType> _skinTypes = new()
         {
             {1, SkinType.First },
@@ -22,21 +27,30 @@ namespace Sources.Scripts.Domain.Models.Players
         
         public SkinChanger(Upgrader upgrader)
         {
+            _upgrader = upgrader ?? throw new ArgumentNullException(nameof(upgrader));
             ChangeSkin(upgrader.CurrentLevel);
         }
 
         public SkinType CurrentSkin { get; set; }
+        public MaterialType CurrentMaterial { get; set; }
         public event Action CurrentSkinChanged;
+        public event Action<Material> CurrentMaterialChanged; 
         
         //сделать диктионари об открытых и закрытых модельках
 
-        public void ChangeSkin(int level)
+        public void ChangeSkin(SkinType skinType)
         {
-            if (level is < 0 or > PlayerConst.MaxLevel)
-                return;
-            
-            CurrentSkin = _skinTypes[level];
+            CurrentSkin = skinType;
             CurrentSkinChanged?.Invoke();
         }
+
+        public void ChangeSkin(int level)
+        {
+            CurrentSkin = _skinTypes[level];
+            ChangeSkin(CurrentSkin);
+        }
+
+        public void ChangeMaterial(Material material) => 
+            CurrentMaterialChanged?.Invoke(material);
     }
 }

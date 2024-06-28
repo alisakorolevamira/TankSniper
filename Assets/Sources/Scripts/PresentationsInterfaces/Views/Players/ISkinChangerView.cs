@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Sources.Scripts.Presentations.Views.Players;
-using Sources.Scripts.Presentations.Views.Players.SkinTypes;
+using Sources.Scripts.Presentations.Views.Players.Skins;
+using Sources.Scripts.Presentations.Views.Players.Skins.SkinTypes;
 
 namespace Sources.Scripts.PresentationsInterfaces.Views.Players
 {

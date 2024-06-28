@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Sources.Scripts.Presentations.Views.Players.Skins.MaterialTypes;
+using Sources.Scripts.Presentations.Views.Players.Skins.SkinTypes;
 using Sources.Scripts.UIFramework.Domain.Commands;
 using Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Shop;
 using Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Shop.Handlers;
@@ -15,12 +17,16 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Shop.Handlers
             _commands[setSkinCommand.Id] = setSkinCommand;
         }
 
-        public void Handle(ShopCommandId shopCommandId, int index)
+        public void Handle(ShopCommandId shopCommandId, SkinType skinType, MaterialType materialType)
         {
-            if(_commands.ContainsKey(shopCommandId) == false)
+            if (_commands.ContainsKey(shopCommandId) == false)
                 throw new KeyNotFoundException(nameof(shopCommandId));
             
-            _commands[shopCommandId].Handle(index);
+            if (shopCommandId == ShopCommandId.ChangeSkin)
+                _commands[shopCommandId].Handle(skinType);
+            
+            else if (shopCommandId == ShopCommandId.ChangeMaterial)
+                _commands[shopCommandId].Handle(materialType);
         }
     }
 }

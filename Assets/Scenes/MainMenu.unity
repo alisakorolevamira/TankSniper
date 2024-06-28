@@ -2461,497 +2461,6 @@ Transform:
   - {fileID: 860651201}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1734299780
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1734299785}
-  - component: {fileID: 1734299784}
-  - component: {fileID: 1734299783}
-  - component: {fileID: 1734299782}
-  - component: {fileID: 1734299781}
-  m_Layer: 5
-  m_Name: Background_Image (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1734299781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1734299780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f14dab462424a2db29dd51465501649, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Controller: {fileID: 6825744284775500823}
-  IsOn: 0
-  ToggleCommand: 2
-  SpriteTarget: {fileID: 1734299782}
-  NormalAnimation:
-    OnPlayCallback:
-      m_PersistentCalls:
-        m_Calls: []
-    OnStopCallback:
-      m_PersistentCalls:
-        m_Calls: []
-    OnFinishCallback:
-      m_PersistentCalls:
-        m_Calls: []
-    Sprites: []
-    Animation:
-      Settings:
-        PlayMode: 0
-        EaseMode: 0
-        Ease: 0
-        Curve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0
-            inSlope: 0
-            outSlope: 1
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 1
-            inSlope: 1
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        StartDelay: 0
-        Duration: 0.5
-        Loops: 0
-        LoopDelay: 0
-        UseRandomStartDelay: 0
-        UseRandomDuration: 0
-        UseRandomLoops: 0
-        UseRandomLoopDelay: 0
-        RandomStartDelay:
-          MIN: 0
-          MAX: 1
-        RandomDuration:
-          MIN: 0
-          MAX: 1
-        RandomLoops:
-          MIN: 0
-          MAX: 1
-        RandomLoopDelay:
-          MIN: 0
-          MAX: 1
-        Strength: 1
-        Vibration: 8
-        Elasticity: 1
-        FadeOutShake: 0
-      FromValue: 0
-      ToValue: 0
-      CurrentValue: 0
-      Enabled: 0
-      StartFrame: 0
-      FromReferenceValue: 0
-      ToReferenceValue: 1
-      FromCustomValue: 0
-      ToCustomValue: 0
-      FromFrameOffset: 0
-      ToFrameOffset: 0
-      FromCustomProgress: 0
-      ToCustomProgress: 1
-  HighlightedAnimation:
-    OnPlayCallback:
-      m_PersistentCalls:
-        m_Calls: []
-    OnStopCallback:
-      m_PersistentCalls:
-        m_Calls: []
-    OnFinishCallback:
-      m_PersistentCalls:
-        m_Calls: []
-    Sprites: []
-    Animation:
-      Settings:
-        PlayMode: 0
-        EaseMode: 0
-        Ease: 0
-        Curve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0
-            inSlope: 0
-            outSlope: 1
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 1
-            inSlope: 1
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        StartDelay: 0
-        Duration: 0.5
-        Loops: 0
-        LoopDelay: 0
-        UseRandomStartDelay: 0
-        UseRandomDuration: 0
-        UseRandomLoops: 0
-        UseRandomLoopDelay: 0
-        RandomStartDelay:
-          MIN: 0
-          MAX: 1
-        RandomDuration:
-          MIN: 0
-          MAX: 1
-        RandomLoops:
-          MIN: 0
-          MAX: 1
-        RandomLoopDelay:
-          MIN: 0
-          MAX: 1
-        Strength: 1
-        Vibration: 8
-        Elasticity: 1
-        FadeOutShake: 0
-      FromValue: 0
-      ToValue: 0
-      CurrentValue: 0
-      Enabled: 0
-      StartFrame: 0
-      FromReferenceValue: 0
-      ToReferenceValue: 1
-      FromCustomValue: 0
-      ToCustomValue: 0
-      FromFrameOffset: 0
-      ToFrameOffset: 0
-      FromCustomProgress: 0
-      ToCustomProgress: 1
-  PressedAnimation:
-    OnPlayCallback:
-      m_PersistentCalls:
-        m_Calls: []
-    OnStopCallback:
-      m_PersistentCalls:
-        m_Calls: []
-    OnFinishCallback:
-      m_PersistentCalls:
-        m_Calls: []
-    Sprites: []
-    Animation:
-      Settings:
-        PlayMode: 0
-        EaseMode: 0
-        Ease: 0
-        Curve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0
-            inSlope: 0
-            outSlope: 1
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 1
-            inSlope: 1
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        StartDelay: 0
-        Duration: 0.5
-        Loops: 0
-        LoopDelay: 0
-        UseRandomStartDelay: 0
-        UseRandomDuration: 0
-        UseRandomLoops: 0
-        UseRandomLoopDelay: 0
-        RandomStartDelay:
-          MIN: 0
-          MAX: 1
-        RandomDuration:
-          MIN: 0
-          MAX: 1
-        RandomLoops:
-          MIN: 0
-          MAX: 1
-        RandomLoopDelay:
-          MIN: 0
-          MAX: 1
-        Strength: 1
-        Vibration: 8
-        Elasticity: 1
-        FadeOutShake: 0
-      FromValue: 0
-      ToValue: 0
-      CurrentValue: 0
-      Enabled: 0
-      StartFrame: 0
-      FromReferenceValue: 0
-      ToReferenceValue: 1
-      FromCustomValue: 0
-      ToCustomValue: 0
-      FromFrameOffset: 0
-      ToFrameOffset: 0
-      FromCustomProgress: 0
-      ToCustomProgress: 1
-  SelectedAnimation:
-    OnPlayCallback:
-      m_PersistentCalls:
-        m_Calls: []
-    OnStopCallback:
-      m_PersistentCalls:
-        m_Calls: []
-    OnFinishCallback:
-      m_PersistentCalls:
-        m_Calls: []
-    Sprites: []
-    Animation:
-      Settings:
-        PlayMode: 0
-        EaseMode: 0
-        Ease: 0
-        Curve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0
-            inSlope: 0
-            outSlope: 1
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 1
-            inSlope: 1
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        StartDelay: 0
-        Duration: 0.5
-        Loops: 0
-        LoopDelay: 0
-        UseRandomStartDelay: 0
-        UseRandomDuration: 0
-        UseRandomLoops: 0
-        UseRandomLoopDelay: 0
-        RandomStartDelay:
-          MIN: 0
-          MAX: 1
-        RandomDuration:
-          MIN: 0
-          MAX: 1
-        RandomLoops:
-          MIN: 0
-          MAX: 1
-        RandomLoopDelay:
-          MIN: 0
-          MAX: 1
-        Strength: 1
-        Vibration: 8
-        Elasticity: 1
-        FadeOutShake: 0
-      FromValue: 0
-      ToValue: 0
-      CurrentValue: 0
-      Enabled: 0
-      StartFrame: 0
-      FromReferenceValue: 0
-      ToReferenceValue: 1
-      FromCustomValue: 0
-      ToCustomValue: 0
-      FromFrameOffset: 0
-      ToFrameOffset: 0
-      FromCustomProgress: 0
-      ToCustomProgress: 1
-  DisabledAnimation:
-    OnPlayCallback:
-      m_PersistentCalls:
-        m_Calls: []
-    OnStopCallback:
-      m_PersistentCalls:
-        m_Calls: []
-    OnFinishCallback:
-      m_PersistentCalls:
-        m_Calls: []
-    Sprites: []
-    Animation:
-      Settings:
-        PlayMode: 0
-        EaseMode: 0
-        Ease: 0
-        Curve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0
-            inSlope: 0
-            outSlope: 1
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 1
-            inSlope: 1
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        StartDelay: 0
-        Duration: 0.5
-        Loops: 0
-        LoopDelay: 0
-        UseRandomStartDelay: 0
-        UseRandomDuration: 0
-        UseRandomLoops: 0
-        UseRandomLoopDelay: 0
-        RandomStartDelay:
-          MIN: 0
-          MAX: 1
-        RandomDuration:
-          MIN: 0
-          MAX: 1
-        RandomLoops:
-          MIN: 0
-          MAX: 1
-        RandomLoopDelay:
-          MIN: 0
-          MAX: 1
-        Strength: 1
-        Vibration: 8
-        Elasticity: 1
-        FadeOutShake: 0
-      FromValue: 0
-      ToValue: 0
-      CurrentValue: 0
-      Enabled: 0
-      StartFrame: 0
-      FromReferenceValue: 0
-      ToReferenceValue: 1
-      FromCustomValue: 0
-      ToCustomValue: 0
-      FromFrameOffset: 0
-      ToFrameOffset: 0
-      FromCustomProgress: 0
-      ToCustomProgress: 1
---- !u!114 &1734299782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1734299780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba37efcd13d0411394e34c93c79fa09c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Target: {fileID: 1734299783}
---- !u!114 &1734299783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1734299780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.6038557, g: 1, b: 0.25943398, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8e66fad32bdcb4843a7cddbf91fe68cd, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1734299784
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1734299780}
-  m_CullTransparentMesh: 1
---- !u!224 &1734299785
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1734299780}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 87.9108}
-  m_LocalScale: {x: 0.00521, y: 0.00521, z: 0.00521}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 184718.97, y: 173391.34}
-  m_SizeDelta: {x: 251.562, y: 317.343}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1795776925
 GameObject:
   m_ObjectHideFlags: 0
@@ -3291,81 +2800,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b58e7fdfb89fbc549b36a69243aee4c0, type: 3}
   m_PrefabInstance: {fileID: 1915862779}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1916955406
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1916955409}
-  - component: {fileID: 1916955408}
-  - component: {fileID: 1916955407}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1916955407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1916955406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.6039216, g: 1, b: 0.25882354, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 42fe383747b748d4da839c42bc4f0cc7, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1916955408
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1916955406}
-  m_CullTransparentMesh: 1
---- !u!224 &1916955409
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1916955406}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 87.9108}
-  m_LocalScale: {x: 0.00521, y: 0.00521, z: 0.00521}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 199021.34, y: 149901.66}
-  m_SizeDelta: {x: 70, y: 70}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1918801778
 GameObject:
   m_ObjectHideFlags: 0
@@ -4313,7 +3747,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -5634944049139579078, guid: a7596933ff8a1ff4282cc49b7c2071d3, type: 3}
-  - {fileID: -2813337366143557646, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
+  - {fileID: 660535416369590717, guid: a7596933ff8a1ff4282cc49b7c2071d3, type: 3}
   - {fileID: 2336839302229727711, guid: a7596933ff8a1ff4282cc49b7c2071d3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -4414,7 +3848,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3780671244086486322, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
+  - {fileID: 2100000, guid: 4577ee2046668dc4faae41439ead563c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4476,7 +3910,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: -4973734387028869240, guid: 0ead8f2603d448b489b39dd05c303d15, type: 3}
   - {fileID: -1036871040768826088, guid: 0ead8f2603d448b489b39dd05c303d15, type: 3}
-  - {fileID: -2813337366143557646, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
+  - {fileID: -8010335889531232992, guid: 0ead8f2603d448b489b39dd05c303d15, type: 3}
   - {fileID: 1306837457758111357, guid: 0ead8f2603d448b489b39dd05c303d15, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -4876,7 +4310,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2813337366143557646, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
+  - {fileID: 2100000, guid: 4577ee2046668dc4faae41439ead563c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4936,7 +4370,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2813337366143557646, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
+  - {fileID: 2100000, guid: 8ccb10d6b6006d44cbd9fff02c26794e, type: 2}
   - {fileID: 2100000, guid: 1a32f3f9c94cd42428af0de38ab2fc50, type: 2}
   - {fileID: 2100000, guid: 1a915e0f036b2a049b7f7a636a5e12aa, type: 2}
   - {fileID: 2100000, guid: 27d8353c9a254854aa721674d83bb313, type: 2}
@@ -4981,7 +4415,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2813337366143557646, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
+  - {fileID: 2100004, guid: 74a16e09a9315f340a71b4b62575d18c, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5144,7 +4578,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2813337366143557646, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
+  - {fileID: 3780671244086486322, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5270,6 +4704,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _skinType: 7
+  _renderer: {fileID: 0}
+  _defaultMaterial: {fileID: 0}
 --- !u!4 &4720734198666880774
 Transform:
   m_ObjectHideFlags: 0
@@ -5384,6 +4820,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _skinType: 2
+  _renderer: {fileID: 0}
+  _defaultMaterial: {fileID: 0}
 --- !u!23 &5516359114346475970
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5404,7 +4842,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2813337366143557646, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
+  - {fileID: 2100006, guid: 9287f3dfc54bce84992db51bd9c66ab4, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5616,6 +5054,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _skinType: 4
+  _renderer: {fileID: 0}
+  _defaultMaterial: {fileID: 0}
 --- !u!1 &6707929648747770326
 GameObject:
   m_ObjectHideFlags: 0
@@ -5645,6 +5085,10 @@ PrefabInstance:
     - target: {fileID: 19930195498749724, guid: cd844966612f9e741b4ea798599fa667, type: 3}
       propertyPath: m_Name
       value: Hud
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118275666020008311, guid: cd844966612f9e741b4ea798599fa667, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.01071167
       objectReference: {fileID: 0}
     - target: {fileID: 2846543286578998594, guid: cd844966612f9e741b4ea798599fa667, type: 3}
       propertyPath: _gridView
@@ -5747,17 +5191,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd844966612f9e741b4ea798599fa667, type: 3}
---- !u!114 &6825744284775500823 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8795227961355978917, guid: cd844966612f9e741b4ea798599fa667, type: 3}
-  m_PrefabInstance: {fileID: 6825744284775500822}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77c6d918500348269ab48ea9646e337b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6945886979792299122
 GameObject:
   m_ObjectHideFlags: 0
@@ -5788,6 +5221,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _skinType: 3
+  _renderer: {fileID: 0}
+  _defaultMaterial: {fileID: 0}
 --- !u!1 &6982380570070877714
 GameObject:
   m_ObjectHideFlags: 0
@@ -5836,6 +5271,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _skinType: 0
+  _renderer: {fileID: 0}
+  _defaultMaterial: {fileID: 0}
 --- !u!33 &7253811674914917256
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6080,7 +5517,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2813337366143557646, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
+  - {fileID: 2100000, guid: 4577ee2046668dc4faae41439ead563c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6234,6 +5671,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _skinType: 1
+  _renderer: {fileID: 0}
+  _defaultMaterial: {fileID: 0}
 --- !u!33 &8806778894494745773
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6270,7 +5709,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0af3da256bc6008438e0529affe209f1, type: 2}
+  - {fileID: -8010335889531232992, guid: 0ead8f2603d448b489b39dd05c303d15, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6321,6 +5760,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _skinType: 5
+  _renderer: {fileID: 0}
+  _defaultMaterial: {fileID: 0}
 --- !u!23 &8932358770918541709
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6341,7 +5782,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3780671244086486322, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
+  - {fileID: 2100006, guid: d06b94986ee731a408bed0b1bf22a8a7, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6401,6 +5842,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _skinType: 6
+  _renderer: {fileID: 0}
+  _defaultMaterial: {fileID: 0}
 --- !u!23 &9206680417160153069
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6458,5 +5901,3 @@ SceneRoots:
   - {fileID: 1918801781}
   - {fileID: 1159250320}
   - {fileID: 1441086104}
-  - {fileID: 1734299785}
-  - {fileID: 1916955409}

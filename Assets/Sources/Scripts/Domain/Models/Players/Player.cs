@@ -1,7 +1,4 @@
-﻿using System;
-using Sources.Scripts.DomainInterfaces.Models.Entities;
-
-namespace Sources.Scripts.Domain.Models.Players
+﻿namespace Sources.Scripts.Domain.Models.Players
 {
     public class Player
     { 

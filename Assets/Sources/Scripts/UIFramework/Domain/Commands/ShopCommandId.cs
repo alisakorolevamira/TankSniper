@@ -3,5 +3,6 @@
     public enum ShopCommandId
     {
         ChangeSkin = 0,
+        ChangeMaterial = 1,
     }
 }

@@ -3,6 +3,7 @@ using Sources.Scripts.Presentations.Views;
 using Sources.Scripts.Presentations.Views.Gameplay;
 using Sources.Scripts.Presentations.Views.Inventory;
 using Sources.Scripts.Presentations.Views.Players;
+using Sources.Scripts.Presentations.Views.Players.Skins;
 using Sources.Scripts.Presentations.Views.Settings;
 using Sources.Scripts.Presentations.Views.Shop;
 using Sources.Scripts.PresentationsInterfaces.Views.Shop;

@@ -1,5 +1,4 @@
 ﻿using System;
-using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Common;
 using Sources.Scripts.Infrastructure.Factories.Views.Weapons;
@@ -7,9 +6,6 @@ using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.Presentations.Views.Common;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.Presentations.Views.RootGameObjects;
-using Sources.Scripts.PresentationsInterfaces.Views.Players;
-using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Sources.Scripts.Infrastructure.Factories.Views.Players
 {
@@ -52,11 +48,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Players
                                      throw new ArgumentNullException(nameof(attackerUIViewFactory));
         }
 
-        public PlayerView Create(GameplayPlayer player, SkinChanger skinChanger, int level)
+        public PlayerView Create(GameplayPlayer player)
         {
            PlayerView playerView = _gameplayRootGameObject.PlayerView;
-           
-           skinChanger.ChangeSkin(level);
            
             _playerAttackerViewFactory.Create(player.PlayerAttacker, playerView.PlayerAttackerView);
 

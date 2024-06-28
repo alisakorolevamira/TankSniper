@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Sources.Scripts.Controllers.Presenters.Players;
-using Sources.Scripts.Presentations.Views.Players.SkinTypes;
+using Sources.Scripts.Presentations.Views.Players.Skins.SkinTypes;
 using Sources.Scripts.PresentationsInterfaces.Views.Players;
 using UnityEngine;
 
-namespace Sources.Scripts.Presentations.Views.Players
+namespace Sources.Scripts.Presentations.Views.Players.Skins
 {
     public class SkinChangerView : PresentableView<SkinChangerPresenter>, ISkinChangerView
     {

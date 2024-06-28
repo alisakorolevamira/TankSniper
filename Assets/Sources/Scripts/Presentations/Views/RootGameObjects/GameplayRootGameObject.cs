@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Sources.Scripts.Presentations.Views.Cameras;
 using Sources.Scripts.Presentations.Views.Players;
+using Sources.Scripts.Presentations.Views.Players.Skins;
 using Sources.Scripts.Presentations.Views.Spawners;
 using Sources.Scripts.Presentations.Views.Weapons;
 using UnityEngine;

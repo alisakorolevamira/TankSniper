@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Presentations.Views.Players;
+using Sources.Scripts.Presentations.Views.Players.Skins;
 using Sources.Scripts.PresentationsInterfaces.Views.Players;
 using UnityEngine;
 
@@ -28,11 +29,13 @@ namespace Sources.Scripts.Controllers.Presenters.Players
             _cancellationTokenSource = new CancellationTokenSource();
             OnSkinChanged();
             _skinChanger.CurrentSkinChanged += OnSkinChanged;
+            _skinChanger.CurrentMaterialChanged += OnMaterialChanged;
         }
 
         public override void Disable()
         {
             _skinChanger.CurrentSkinChanged -= OnSkinChanged;
+            _skinChanger.CurrentMaterialChanged -= OnMaterialChanged;
             _cancellationTokenSource.Cancel();
         }
 
@@ -76,6 +79,12 @@ namespace Sources.Scripts.Controllers.Presenters.Players
 
                 await UniTask.Yield(token);
             }
+        }
+
+        private void OnMaterialChanged(Material material)
+        {
+            foreach (SkinView skinView in _skinChangerView.Skins.Values) 
+                skinView.SetMaterial(material);
         }
     }
 }

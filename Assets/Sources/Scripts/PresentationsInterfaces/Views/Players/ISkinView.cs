@@ -1,4 +1,4 @@
-﻿using Sources.Scripts.Presentations.Views.Players.SkinTypes;
+﻿using Sources.Scripts.Presentations.Views.Players.Skins.SkinTypes;
 using UnityEngine;
 
 namespace Sources.Scripts.PresentationsInterfaces.Views.Players

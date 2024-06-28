@@ -15,6 +15,7 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpgradeServices;
 using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.Presentations.Views.Players;
+using Sources.Scripts.Presentations.Views.Players.Skins;
 
 namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.MainMenu
 {

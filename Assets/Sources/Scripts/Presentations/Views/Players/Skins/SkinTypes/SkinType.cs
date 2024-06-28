@@ -1,4 +1,4 @@
-﻿namespace Sources.Scripts.Presentations.Views.Players.SkinTypes
+﻿namespace Sources.Scripts.Presentations.Views.Players.Skins.SkinTypes
 {
     public enum SkinType
     {
@@ -10,5 +10,6 @@
         Sixth = 5,
         Seventh = 6,
         Eighth = 7,
+        Default = 8,
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Sources.Scripts.Presentations.Views.Shop
 {
-    public class ShopButtonView : View, IShopButtonView
+    public class ShopTankButtonView : View, IShopTankButtonView
     {
         [SerializeField] private UIButton _button;
         [SerializeField] private ImageView _icon;
@@ -19,14 +19,14 @@ namespace Sources.Scripts.Presentations.Views.Shop
         {
             _button.enabled = false;
             _button.SetState(UISelectionState.Disabled);
-            _icon?.HideImage();
+            _icon.HideImage();
         }
 
         public void Show()
         {
             _button.enabled = true;
             _button.SetState(UISelectionState.Normal);
-            _icon?.ShowImage();
+            _icon.ShowImage();
         }
     }
 }

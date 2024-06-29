@@ -26,10 +26,10 @@ namespace Sources.Scripts.Infrastructure.Services.Yandex
         
         public void ShowRewardedAd()
         {
-            if (AdBlock.Enabled)
+            if (WebApplication.IsRunningOnWebGL == false)
                 return;
             
-            if (WebApplication.IsRunningOnWebGL == false)
+            if (AdBlock.Enabled)
                 return;
             
             VideoAd.Show(OnOpenCallBack, OnRewardCallBack, OnCloseCallBack);

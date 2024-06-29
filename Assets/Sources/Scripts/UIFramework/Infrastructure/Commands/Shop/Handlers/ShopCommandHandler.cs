@@ -11,24 +11,17 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Shop.Handlers
     {
         private readonly Dictionary<ShopCommandId, IShopCommand> _commands = new ();
         
-        public ShopCommandHandler(
-            SetSkinCommand setSkinCommand,
-            SetMaterialCommand setMaterialCommand)
+        public ShopCommandHandler(SetSkinCommand setSkinCommand)
         {
             _commands[setSkinCommand.Id] = setSkinCommand;
-            _commands[setMaterialCommand.Id] = setMaterialCommand;
         }
 
-        public void Handle(ShopCommandId shopCommandId, SkinType skinType, MaterialType materialType)
+        public void Handle(ShopCommandId shopCommandId, SkinType skinType)
         {
             if (_commands.ContainsKey(shopCommandId) == false)
                 throw new KeyNotFoundException(nameof(shopCommandId));
             
-            if (shopCommandId == ShopCommandId.ChangeSkin)
-                _commands[shopCommandId].Handle(skinType);
-            
-            else if (shopCommandId == ShopCommandId.ChangeMaterial)
-                _commands[shopCommandId].Handle(materialType);
+            _commands[shopCommandId].Handle(skinType);
         }
     }
 }

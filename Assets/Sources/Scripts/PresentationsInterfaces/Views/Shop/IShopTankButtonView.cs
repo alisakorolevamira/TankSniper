@@ -2,7 +2,7 @@
 
 namespace Sources.Scripts.PresentationsInterfaces.Views.Shop
 {
-    public interface IShopButtonView
+    public interface IShopTankButtonView
     {
         int Level { get; }
         void Show();

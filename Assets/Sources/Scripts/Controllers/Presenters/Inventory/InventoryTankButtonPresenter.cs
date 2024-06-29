@@ -59,7 +59,7 @@ namespace Sources.Scripts.Controllers.Presenters.Inventory
         {
             if (_playerWallet.Money >= _price)
             {
-                _tankButtonView.FreeText.Hide();
+                _tankButtonView.FreeText.SetText(string.Empty);
                 _tankButtonView.PriceText.SetText(_price.ToString());
                 _tankButtonView.AdImage.HideImage();
                 _tankButtonView.MoneyIcon.ShowImage();
@@ -67,8 +67,8 @@ namespace Sources.Scripts.Controllers.Presenters.Inventory
 
             else
             {
-                _tankButtonView.PriceText.SetText(String.Empty);
-                _tankButtonView.FreeText.Show();
+                _tankButtonView.PriceText.SetText(string.Empty);
+                _tankButtonView.FreeText.SetText("FREE");
                 _tankButtonView.MoneyIcon.HideImage();
                 _tankButtonView.AdImage.ShowImage();
             }

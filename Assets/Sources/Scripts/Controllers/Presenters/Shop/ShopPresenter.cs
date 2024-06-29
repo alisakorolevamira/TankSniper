@@ -33,23 +33,23 @@ namespace Sources.Scripts.Controllers.Presenters.Shop
 
         private void ShowTankButton(int level)
         {
-            IShopButtonView buttonView = _shopView.Buttons.FirstOrDefault(x => x.Level == level);
+            IShopTankButtonView tankButtonView = _shopView.TankButtons.FirstOrDefault(x => x.Level == level);
 
-            buttonView?.Show();
+            tankButtonView?.Show();
         }
 
         private void ShowAvailableButtons()
         {
             for (int i = 1; i <= _upgrader.CurrentLevel; i++)
             {
-                IShopButtonView buttonView = _shopView.Buttons.First(x => x.Level == i);
-                buttonView.Show();
+                IShopTankButtonView tankButtonView = _shopView.TankButtons.First(x => x.Level == i);
+                tankButtonView.Show();
             }
         }
 
         private void HideAllButtons()
         {
-            foreach (IShopButtonView buttonView in _shopView.Buttons) 
+            foreach (IShopTankButtonView buttonView in _shopView.TankButtons) 
                 buttonView.Hide();
         }
     }

@@ -25,9 +25,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Invent
         public InventoryTankButtonPresenter Create(
             IInventoryTankButtonView view,
             PlayerWallet playerWallet,
-            Upgrader upgrader)
-        {
-            return new InventoryTankButtonPresenter(view, _spawnerService, _rewardedAdService, playerWallet, upgrader);
-        }
+            Upgrader upgrader) => 
+            new (view, _spawnerService, _rewardedAdService, playerWallet, upgrader);
     }
 }

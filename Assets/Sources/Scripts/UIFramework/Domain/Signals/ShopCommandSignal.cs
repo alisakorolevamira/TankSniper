@@ -7,15 +7,13 @@ namespace Sources.Scripts.UIFramework.Domain.Signals
 {
     public struct ShopCommandSignal
     {
-        public ShopCommandSignal(IEnumerable<ShopCommandId> shopCommandIds, SkinType skinType, MaterialType materialType)
+        public ShopCommandSignal(IEnumerable<ShopCommandId> shopCommandIds, SkinType skinType)
         {
             ShopCommandIds = shopCommandIds;
             SkinType = skinType;
-            MaterialType = materialType;
         }
 
         public IEnumerable<ShopCommandId> ShopCommandIds { get; }
         public SkinType SkinType { get; }
-        public MaterialType MaterialType { get; }
     }
 }

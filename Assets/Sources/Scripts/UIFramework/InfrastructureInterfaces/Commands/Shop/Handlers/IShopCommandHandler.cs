@@ -6,6 +6,6 @@ namespace Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Shop.Han
 {
     public interface IShopCommandHandler
     {
-        void Handle(ShopCommandId shopCommandId, SkinType skinType, MaterialType materialType);
+        void Handle(ShopCommandId shopCommandId, SkinType skinType);
     }
 }

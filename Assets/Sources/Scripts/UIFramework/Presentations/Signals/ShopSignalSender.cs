@@ -15,7 +15,6 @@ namespace Sources.Scripts.UIFramework.Presentations.Signals
     {
         [SerializeField] private UIButton _button;
         [SerializeField] private SkinType _skinType;
-        [SerializeField] private MaterialType _materialType;
         [SerializeField] private List<ShopCommandId> _onClickCommandId;
         
         private SignalStream _stream;
@@ -30,6 +29,6 @@ namespace Sources.Scripts.UIFramework.Presentations.Signals
             _button.onClickEvent.RemoveListener(SendSignal);
 
         private void SendSignal() => 
-            _stream.SendSignal(new ShopCommandSignal(_onClickCommandId, _skinType, _materialType));
+            _stream.SendSignal(new ShopCommandSignal(_onClickCommandId, _skinType));
     }
 }

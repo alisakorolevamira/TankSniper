@@ -1,5 +1,4 @@
-﻿using Agava.WebUtility;
-using Agava.YandexGames;
+﻿using Agava.YandexGames;
 using Sources.Scripts.InfrastructureInterfaces.Services.Yandex;
 
 namespace Sources.Scripts.Infrastructure.Services.Yandex

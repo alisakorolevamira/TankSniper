@@ -6,7 +6,6 @@ using Sources.Scripts.InfrastructureInterfaces.Factories.Views.Inventory;
 using Sources.Scripts.InfrastructureInterfaces.Services.ObjectPool.Generic;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.Presentations.Views.Inventory;
-using Sources.Scripts.PresentationsInterfaces.Views.Inventory;
 using Zenject;
 
 namespace Sources.Scripts.Infrastructure.DIContainers.MainMenu
@@ -22,6 +21,9 @@ namespace Sources.Scripts.Infrastructure.DIContainers.MainMenu
 
             Container.Bind<InventoryGridPresenterFactory>().AsSingle();
             Container.Bind<InventoryGridViewFactory>().AsSingle();
+
+            Container.Bind<InventoryTankButtonPresenterFactory>().AsSingle();
+            Container.Bind<InventoryTankButtonViewFactory>().AsSingle();
         }
     }
 }

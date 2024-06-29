@@ -30,7 +30,7 @@ namespace Sources.Scripts.Domain.Models.Players
             MoneyChanged?.Invoke();
         }
 
-        public bool TryRemoveCoins(int amount)
+        public bool TryRemoveMoney(int amount)
         {
             if (Money < amount)
                 return false;

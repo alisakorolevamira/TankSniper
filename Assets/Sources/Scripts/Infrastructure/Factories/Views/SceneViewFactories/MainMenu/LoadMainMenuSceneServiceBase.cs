@@ -28,6 +28,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
         private readonly SkinChangerViewFactory _skinChangerViewFactory;
         private readonly ShopViewFactory _shopViewFactory;
         private readonly WalletUIFactory _walletUIFactory;
+        private readonly InventoryTankButtonViewFactory _inventoryTankButtonViewFactory;
         private readonly IVolumeService _volumeService;
         private readonly ITutorialService _tutorialService;
         private readonly IInventoryTankSpawnerService _inventoryTankSpawnerService;
@@ -42,6 +43,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             SkinChangerViewFactory skinChangerViewFactory,
             ShopViewFactory shopViewFactory,
             WalletUIFactory walletUIFactory,
+            InventoryTankButtonViewFactory inventoryTankButtonViewFactory,
             IVolumeService volumeService,
             ITutorialService tutorialService,
             IInventoryTankSpawnerService inventoryTankSpawnerService,
@@ -58,6 +60,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                                       throw new ArgumentNullException(nameof(skinChangerViewFactory));
             _shopViewFactory = shopViewFactory ?? throw new ArgumentNullException(nameof(shopViewFactory));
             _walletUIFactory = walletUIFactory ?? throw new ArgumentNullException(nameof(walletUIFactory));
+            _inventoryTankButtonViewFactory = inventoryTankButtonViewFactory ??
+                                              throw new ArgumentNullException(nameof(inventoryTankButtonViewFactory));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
             _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
             _skinChangerService = skinChangerService ?? throw new ArgumentNullException(nameof(skinChangerService));
@@ -87,6 +91,10 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             
             _inventoryGridViewFactory.Create(_mainMenuHud.InventoryGridView, models.InventoryGrid);
             _inventoryTankSpawnerService.AddSlots(_mainMenuHud.InventoryGridView.Slots);
+            _inventoryTankButtonViewFactory.Create(
+                _mainMenuHud.AddTankButtonView,
+                models.Player.PlayerWallet,
+                models.Upgrader);
             
             _tutorialService.Construct(models.Tutorial);
             

@@ -23,10 +23,8 @@ namespace Sources.Scripts.Controllers.Presenters.Inventory
             _spawnerService = spawnerService ?? throw new ArgumentNullException(nameof(spawnerService));
         }
 
-        public override void Enable()
-        {
+        public override void Enable() => 
             Fill();
-        }
 
         private void Fill()
         {

@@ -1,6 +1,4 @@
-﻿using Sources.Scripts.Controllers.Presenters.Inventory;
-using Sources.Scripts.Infrastructure.Services.Spawners;
-using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
+﻿using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.Presentations.Views.Inventory;
 
 namespace Sources.Scripts.PresentationsInterfaces.Views.Inventory

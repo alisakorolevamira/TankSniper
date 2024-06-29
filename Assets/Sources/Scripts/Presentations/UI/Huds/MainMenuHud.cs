@@ -27,6 +27,7 @@ namespace Sources.Scripts.Presentations.UI.Huds
         
         [Header("Inventory")]
         [SerializeField] private InventoryGridView _gridView;
+        [SerializeField] private InventoryTankButtonView _addTankButtonView;
 
         [Header("Player")]
         [SerializeField] private List<SkinChangerView> _skinChangerViews;
@@ -41,5 +42,6 @@ namespace Sources.Scripts.Presentations.UI.Huds
         public InventoryGridView InventoryGridView => _gridView;
         public IReadOnlyList<SkinChangerView> SkinChangerViews => _skinChangerViews;
         public ShopView ShopView => _shopView;
+        public InventoryTankButtonView AddTankButtonView => _addTankButtonView;
     }
 }

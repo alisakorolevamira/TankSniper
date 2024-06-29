@@ -36,7 +36,7 @@ namespace Sources.Scripts.Domain.Models.Players
         public event Action CurrentSkinChanged;
         public event Action<Material> CurrentMaterialChanged;
         public event Action DefaultMaterialSetted;
-
+        public event Action DecalRemoved;
         public event Action<Sprite> CurrentDecalChanged; 
         
         //сделать диктионари об открытых и закрытых модельках
@@ -61,5 +61,8 @@ namespace Sources.Scripts.Domain.Models.Players
 
         public void ChangeDecal(Sprite decal) => 
             CurrentDecalChanged?.Invoke(decal);
+
+        public void RemoveDecal() => 
+            DecalRemoved?.Invoke();
     }
 }

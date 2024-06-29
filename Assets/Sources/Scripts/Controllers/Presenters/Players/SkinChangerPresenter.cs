@@ -34,6 +34,7 @@ namespace Sources.Scripts.Controllers.Presenters.Players
             _skinChanger.CurrentMaterialChanged += OnMaterialChanged;
             _skinChanger.DefaultMaterialSetted += OnDefaultMaterialSetted;
             _skinChanger.CurrentDecalChanged += OnDecalChanged;
+            _skinChanger.DecalRemoved += OnDecalRemoved;
         }
 
         public override void Disable()
@@ -42,6 +43,7 @@ namespace Sources.Scripts.Controllers.Presenters.Players
             _skinChanger.CurrentMaterialChanged -= OnMaterialChanged;
             _skinChanger.DefaultMaterialSetted -= OnDefaultMaterialSetted;
             _skinChanger.CurrentDecalChanged -= OnDecalChanged;
+            _skinChanger.DecalRemoved -= OnDecalRemoved;
             
             _cancellationTokenSource.Cancel();
         }
@@ -104,6 +106,12 @@ namespace Sources.Scripts.Controllers.Presenters.Players
         {
             foreach (SkinView skinView in _skinChangerView.Skins.Values) 
                 skinView.SetDecal(decal);
+        }
+
+        private void OnDecalRemoved()
+        {
+            foreach (SkinView skinView in _skinChangerView.Skins.Values) 
+                skinView.DecalImage.HideImage();
         }
     }
 }

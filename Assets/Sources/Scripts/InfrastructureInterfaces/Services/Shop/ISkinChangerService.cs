@@ -10,6 +10,7 @@ namespace Sources.Scripts.InfrastructureInterfaces.Services.Shop
         void ChangeSkin(SkinType skinType);
         void ChangeMaterial(MaterialType materialType);
         void ChangeDecal(Sprite decal);
+        void RemoveDecal();
         void Construct(SkinChanger skinChanger);
     }
 }

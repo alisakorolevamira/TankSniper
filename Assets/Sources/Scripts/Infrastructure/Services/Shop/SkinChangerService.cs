@@ -40,9 +40,10 @@ namespace Sources.Scripts.Infrastructure.Services.Shop
             _skinChanger.ChangeMaterial(materialView.Material);
         }
 
-        public void ChangeDecal(Sprite decal)
-        {
+        public void ChangeDecal(Sprite decal) => 
             _skinChanger.ChangeDecal(decal);
-        }
+
+        public void RemoveDecal() => 
+            _skinChanger.RemoveDecal();
     }
 }

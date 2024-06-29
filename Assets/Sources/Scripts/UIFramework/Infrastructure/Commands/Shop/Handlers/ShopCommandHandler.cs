@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Sources.Scripts.Presentations.Views.Players.Skins.MaterialTypes;
 using Sources.Scripts.Presentations.Views.Players.Skins.SkinTypes;
 using Sources.Scripts.UIFramework.Domain.Commands;
 using Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Shop;
@@ -13,10 +12,12 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Shop.Handlers
         
         public ShopCommandHandler(
             SetSkinCommand setSkinCommand,
-            SetDefaultMaterialCommand setDefaultMaterialCommand)
+            SetDefaultMaterialCommand setDefaultMaterialCommand,
+            RemoveDecalCommand removeDecalCommand)
         {
             _commands[setSkinCommand.Id] = setSkinCommand;
             _commands[setDefaultMaterialCommand.Id] = setDefaultMaterialCommand;
+            _commands[removeDecalCommand.Id] = removeDecalCommand;
         }
 
         public void Handle(ShopCommandId shopCommandId, SkinType skinType)

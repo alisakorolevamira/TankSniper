@@ -23,6 +23,7 @@ namespace Sources.Scripts.Infrastructure.DIContainers.MainMenu
 
             Container.Bind<SetSkinCommand>().AsSingle();
             Container.Bind<SetDefaultMaterialCommand>().AsSingle();
+            Container.Bind<RemoveDecalCommand>().AsSingle();
         }
     }
 }

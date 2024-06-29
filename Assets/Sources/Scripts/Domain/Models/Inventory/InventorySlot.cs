@@ -1,5 +1,4 @@
 ﻿using System;
-using Sources.Scripts.Domain.Models.Data;
 using Sources.Scripts.DomainInterfaces.Models.Entities;
 using Sources.Scripts.DomainInterfaces.Models.Inventory;
 
@@ -7,10 +6,7 @@ namespace Sources.Scripts.Domain.Models.Inventory
 {
     public class InventorySlot : IEntity, IInventorySlot
     {
-        public InventorySlot(
-            string id,
-            bool isEmpty,
-            int level)
+        public InventorySlot(string id, bool isEmpty, int level)
         {
             Id = id;
             IsEmpty = isEmpty;

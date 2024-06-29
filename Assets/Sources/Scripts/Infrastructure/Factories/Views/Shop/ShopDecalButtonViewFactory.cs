@@ -7,18 +7,18 @@ using Sources.Scripts.PresentationsInterfaces.Views.Shop;
 
 namespace Sources.Scripts.Infrastructure.Factories.Views.Shop
 {
-    public class ShopPatternButtonViewFactory
+    public class ShopDecalButtonViewFactory
     {
-        private readonly ShopPatternButtonPresenterFactory _presenterFactory;
+        private readonly ShopDecalButtonPresenterFactory _presenterFactory;
 
-        public ShopPatternButtonViewFactory(ShopPatternButtonPresenterFactory presenterFactory)
+        public ShopDecalButtonViewFactory(ShopDecalButtonPresenterFactory presenterFactory)
         {
             _presenterFactory = presenterFactory ?? throw new ArgumentNullException(nameof(presenterFactory));
         }
 
-        public IShopPatternButtonView Create(ShopPatternButtonView view, PlayerWallet playerWallet)
+        public IShopDecalButtonView Create(ShopDecalButtonView view, PlayerWallet playerWallet)
         {
-            ShopPatternButtonPresenter presenter = _presenterFactory.Create(view, playerWallet);
+            ShopDecalButtonPresenter presenter = _presenterFactory.Create(view, playerWallet);
             
             view.Construct(presenter);
 

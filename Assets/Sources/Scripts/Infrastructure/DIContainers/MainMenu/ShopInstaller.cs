@@ -19,6 +19,9 @@ namespace Sources.Scripts.Infrastructure.DIContainers.MainMenu
 
             Container.Bind<ShopPatternButtonPresenterFactory>().AsSingle();
             Container.Bind<ShopPatternButtonViewFactory>().AsSingle();
+
+            Container.Bind<ShopDecalButtonPresenterFactory>().AsSingle();
+            Container.Bind<ShopDecalButtonViewFactory>().AsSingle();
         }
     }
 }

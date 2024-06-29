@@ -9,6 +9,5 @@ namespace Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Shop
         ShopCommandId Id { get; }
 
         void Handle(SkinType skinType);
-        void Handle(MaterialType materialType);
     }
 }

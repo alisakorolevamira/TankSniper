@@ -34,7 +34,10 @@ namespace Sources.Scripts.Domain.Models.Players
         public SkinType CurrentSkin { get; set; }
         public MaterialType CurrentMaterial { get; set; }
         public event Action CurrentSkinChanged;
-        public event Action<Material> CurrentMaterialChanged; 
+        public event Action<Material> CurrentMaterialChanged;
+        public event Action DefaultMaterialSetted;
+
+        public event Action<Sprite> CurrentDecalChanged; 
         
         //сделать диктионари об открытых и закрытых модельках
 
@@ -52,5 +55,11 @@ namespace Sources.Scripts.Domain.Models.Players
 
         public void ChangeMaterial(Material material) => 
             CurrentMaterialChanged?.Invoke(material);
+
+        public void SetDefaultMaterial() => 
+            DefaultMaterialSetted?.Invoke();
+
+        public void ChangeDecal(Sprite decal) => 
+            CurrentDecalChanged?.Invoke(decal);
     }
 }

@@ -5,6 +5,7 @@ using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Inventory;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
+using Sources.Scripts.Domain.Models.Shop;
 using Sources.Scripts.Domain.Models.Upgrades;
 using Sources.Scripts.DomainInterfaces.Models.Data;
 using Sources.Scripts.DomainInterfaces.Models.Entities;
@@ -26,7 +27,8 @@ namespace Sources.Scripts.Infrastructure.Services.LoadServices.Collectors
             IGameDataDtoMapper gameDataDtoMapper,
             ITutorialDtoMapper tutorialDtoMapper,
             ISavedLevelDtoMapper savedLevelDtoMapper,
-            IInventorySlotDtoMapper inventorySlotDtoMapper)
+            IInventorySlotDtoMapper inventorySlotDtoMapper,
+            IShopPatternButtonDtoMapper shopPatternButtonDtoMapper)
         {
             _toDtoMappers = new Dictionary<Type, Func<IEntity, IDto>>();
             _toDtoMappers[typeof(Upgrader)] =
@@ -45,6 +47,8 @@ namespace Sources.Scripts.Infrastructure.Services.LoadServices.Collectors
                 model => savedLevelDtoMapper.MapModelToDto(model as SavedLevel);
             _toDtoMappers[typeof(InventorySlot)] =
                 model => inventorySlotDtoMapper.MapModelToDto(model as InventorySlot);
+            _toDtoMappers[typeof(ShopPatternButton)] =
+                model => shopPatternButtonDtoMapper.MapModelToDto(model as ShopPatternButton);
 
             _toModelMappers = new Dictionary<Type, Func<IDto, IEntity>>();
             _toModelMappers[typeof(UpgradeDto)] =
@@ -63,6 +67,8 @@ namespace Sources.Scripts.Infrastructure.Services.LoadServices.Collectors
                 dto => savedLevelDtoMapper.MapDtoToModel(dto as SavedLevelDto);
             _toModelMappers[typeof(InventorySlotDto)] =
                 dto => inventorySlotDtoMapper.MapDtoToModel(dto as InventorySlotDto);
+            _toModelMappers[typeof(ShopPatternButtonDto)] =
+                dto => shopPatternButtonDtoMapper.MapDtoToModel(dto as ShopPatternButtonDto);
         }
 
         public Func<IEntity, IDto> GetToDtoMapper(Type type)

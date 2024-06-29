@@ -9,8 +9,10 @@ namespace Sources.Scripts.Presentations.Views.Shop
     {
         [SerializeField] private List<ShopTankButtonView> _tankButtons;
         [SerializeField] private List<ShopPatternButtonView> _patternButtons;
+        [SerializeField] private List<ShopDecalButtonView> _decalButtons;
 
         public IReadOnlyList<IShopTankButtonView> TankButtons => _tankButtons;
-        public IReadOnlyList<IShopPatternButtonView> PatternButtons => _patternButtons;
+        public IReadOnlyList<ShopPatternButtonView> PatternButtons => _patternButtons;
+        public IReadOnlyList<ShopDecalButtonView> DecalButtons => _decalButtons;
     }
 }

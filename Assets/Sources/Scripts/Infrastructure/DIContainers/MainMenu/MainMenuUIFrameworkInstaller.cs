@@ -22,6 +22,7 @@ namespace Sources.Scripts.Infrastructure.DIContainers.MainMenu
             Container.Bind<IShopCommandHandler>().To<ShopCommandHandler>().AsSingle();
 
             Container.Bind<SetSkinCommand>().AsSingle();
+            Container.Bind<SetDefaultMaterialCommand>().AsSingle();
         }
     }
 }

@@ -5,6 +5,7 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
 using Sources.Scripts.Presentations.Views.Materials;
 using Sources.Scripts.Presentations.Views.Players.Skins.MaterialTypes;
 using Sources.Scripts.Presentations.Views.Players.Skins.SkinTypes;
+using UnityEngine;
 
 namespace Sources.Scripts.Infrastructure.Services.Shop
 {
@@ -16,8 +17,8 @@ namespace Sources.Scripts.Infrastructure.Services.Shop
 
         public SkinChangerService(PlayerViewMaterialsConfig playerViewMaterialsConfig)
         {
-            _playerViewMaterialsConfig = playerViewMaterialsConfig ??
-                                         throw new ArgumentNullException(nameof(playerViewMaterialsConfig));
+            _playerViewMaterialsConfig = playerViewMaterialsConfig ? playerViewMaterialsConfig :
+                throw new ArgumentNullException(nameof(playerViewMaterialsConfig));
         }
 
         public void ChangeSkin(SkinType skinType) => 
@@ -28,9 +29,20 @@ namespace Sources.Scripts.Infrastructure.Services.Shop
 
         public void ChangeMaterial(MaterialType materialType)
         {
+            if (materialType == MaterialType.Default)
+            {
+                _skinChanger.SetDefaultMaterial();
+                return;
+            }
+                
             MaterialView materialView = _playerViewMaterialsConfig.Materials.Find(x => x.Type == materialType);
             
             _skinChanger.ChangeMaterial(materialView.Material);
+        }
+
+        public void ChangeDecal(Sprite decal)
+        {
+            _skinChanger.ChangeDecal(decal);
         }
     }
 }

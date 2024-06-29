@@ -9,16 +9,16 @@ using Sources.Scripts.PresentationsInterfaces.Views.Shop;
 
 namespace Sources.Scripts.Controllers.Presenters.Shop
 {
-    public class ShopPatternButtonPresenter : PresenterBase
+    public class ShopDecalButtonPresenter : PresenterBase
     {
-        private readonly IShopPatternButtonView _view;
+        private readonly IShopDecalButtonView _view;
         private readonly IStickyAdService _stickyAdService;
         private readonly ISkinChangerService _skinChangerService;
         private readonly ILoadService _loadService;
         private readonly PlayerWallet _playerWallet;
 
-        public ShopPatternButtonPresenter(
-            IShopPatternButtonView view,
+        public ShopDecalButtonPresenter(
+            IShopDecalButtonView view,
             IStickyAdService stickyAdService,
             ISkinChangerService skinChangerService,
             ILoadService loadService,
@@ -30,7 +30,7 @@ namespace Sources.Scripts.Controllers.Presenters.Shop
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
             _playerWallet = playerWallet ?? throw new ArgumentNullException(nameof(playerWallet));
         }
-
+        
         public override void Enable()
         {
             if (_view.IsBought)
@@ -43,13 +43,13 @@ namespace Sources.Scripts.Controllers.Presenters.Shop
             SetPriceText();
 
             _view.BuyButton.onClickEvent.AddListener(OnBuyButtonClick);
-            _view.Button.onClickEvent.AddListener(SetMaterial);
+            _view.Button.onClickEvent.AddListener(SetSprite);
         }
 
         public override void Disable()
         {
             _view.BuyButton.onClickEvent.RemoveListener(OnBuyButtonClick);
-            _view.Button.onClickEvent.RemoveListener(SetMaterial);
+            _view.Button.onClickEvent.RemoveListener(SetSprite);
         }
 
         private void OnBuyButtonClick()
@@ -59,12 +59,12 @@ namespace Sources.Scripts.Controllers.Presenters.Shop
 
             _view.Show();
             _view.Button.SetState(UISelectionState.Pressed);
-            SetMaterial();
+            SetSprite();
             _loadService.SaveAll();
         }
 
-        private void SetMaterial() => 
-            _skinChangerService.ChangeMaterial(_view.MaterialType);
+        private void SetSprite() =>
+            _skinChangerService.ChangeDecal(_view.Decal);
 
         private void SetPriceText()
         {

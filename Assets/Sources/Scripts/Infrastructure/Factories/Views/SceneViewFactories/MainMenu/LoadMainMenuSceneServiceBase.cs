@@ -17,7 +17,6 @@ using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.Presentations.Views.Players.Skins;
 using Sources.Scripts.Presentations.Views.Shop;
-using Sources.Scripts.PresentationsInterfaces.Views.Shop;
 
 namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.MainMenu
 {
@@ -30,6 +29,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
         private readonly SkinChangerViewFactory _skinChangerViewFactory;
         private readonly ShopViewFactory _shopViewFactory;
         private readonly ShopPatternButtonViewFactory _shopPatternButtonViewFactory;
+        private readonly ShopDecalButtonViewFactory _shopDecalButtonViewFactory;
         private readonly WalletUIFactory _walletUIFactory;
         private readonly InventoryTankButtonViewFactory _inventoryTankButtonViewFactory;
         private readonly IVolumeService _volumeService;
@@ -46,6 +46,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             SkinChangerViewFactory skinChangerViewFactory,
             ShopViewFactory shopViewFactory,
             ShopPatternButtonViewFactory shopPatternButtonViewFactory,
+            ShopDecalButtonViewFactory shopDecalButtonViewFactory,
             WalletUIFactory walletUIFactory,
             InventoryTankButtonViewFactory inventoryTankButtonViewFactory,
             IVolumeService volumeService,
@@ -65,6 +66,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             _shopViewFactory = shopViewFactory ?? throw new ArgumentNullException(nameof(shopViewFactory));
             _shopPatternButtonViewFactory = shopPatternButtonViewFactory ??
                                             throw new ArgumentNullException(nameof(shopPatternButtonViewFactory));
+            _shopDecalButtonViewFactory = shopDecalButtonViewFactory ??
+                                          throw new ArgumentNullException(nameof(shopDecalButtonViewFactory));
             _walletUIFactory = walletUIFactory ?? throw new ArgumentNullException(nameof(walletUIFactory));
             _inventoryTankButtonViewFactory = inventoryTankButtonViewFactory ??
                                               throw new ArgumentNullException(nameof(inventoryTankButtonViewFactory));
@@ -110,6 +113,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
 
             foreach (ShopPatternButtonView patternButton in _mainMenuHud.ShopView.PatternButtons)
                 _shopPatternButtonViewFactory.Create(patternButton, models.Player.PlayerWallet);
+
+            foreach (ShopDecalButtonView decalButton in _mainMenuHud.ShopView.DecalButtons) 
+                _shopDecalButtonViewFactory.Create(decalButton, models.Player.PlayerWallet);
             
         }
         

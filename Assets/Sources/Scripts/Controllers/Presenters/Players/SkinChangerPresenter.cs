@@ -27,15 +27,22 @@ namespace Sources.Scripts.Controllers.Presenters.Players
         public override void Enable()
         {
             _cancellationTokenSource = new CancellationTokenSource();
+            
             OnSkinChanged();
+            
             _skinChanger.CurrentSkinChanged += OnSkinChanged;
             _skinChanger.CurrentMaterialChanged += OnMaterialChanged;
+            _skinChanger.DefaultMaterialSetted += OnDefaultMaterialSetted;
+            _skinChanger.CurrentDecalChanged += OnDecalChanged;
         }
 
         public override void Disable()
         {
             _skinChanger.CurrentSkinChanged -= OnSkinChanged;
             _skinChanger.CurrentMaterialChanged -= OnMaterialChanged;
+            _skinChanger.DefaultMaterialSetted -= OnDefaultMaterialSetted;
+            _skinChanger.CurrentDecalChanged -= OnDecalChanged;
+            
             _cancellationTokenSource.Cancel();
         }
 
@@ -85,6 +92,18 @@ namespace Sources.Scripts.Controllers.Presenters.Players
         {
             foreach (SkinView skinView in _skinChangerView.Skins.Values) 
                 skinView.SetMaterial(material);
+        }
+
+        private void OnDefaultMaterialSetted()
+        {
+            foreach (SkinView skinView in _skinChangerView.Skins.Values) 
+                skinView.SetDefaultMaterial();
+        }
+
+        private void OnDecalChanged(Sprite decal)
+        {
+            foreach (SkinView skinView in _skinChangerView.Skins.Values) 
+                skinView.SetDecal(decal);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using Sources.Scripts.DomainInterfaces.Models.Entities;
+using Sources.Scripts.Presentations.Views.Players.Skins.SkinTypes;
 
 namespace Sources.Scripts.DomainInterfaces.Models.Upgrades
 {

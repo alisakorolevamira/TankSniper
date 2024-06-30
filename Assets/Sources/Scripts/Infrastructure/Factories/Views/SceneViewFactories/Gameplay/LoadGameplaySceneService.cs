@@ -22,6 +22,7 @@ using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
 using Sources.Scripts.InfrastructureInterfaces.Services.Saves;
+using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
 using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.Presentations.Views.RootGameObjects;
 
@@ -49,6 +50,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             ICameraService cameraService, 
             IVolumeService volumeService,
             ISaveService saveService,
+            ISkinChangerService skinChangerService,
             ILevelCompletedService levelCompletedService)
             //IAdvertisingService advertisingService,
             : base(
@@ -66,6 +68,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 cameraService, 
                 volumeService,
                 saveService,
+                skinChangerService,
                 levelCompletedService)
                 //advertisingService,
         {
@@ -87,6 +90,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             
             Upgrader upgrader = _entityRepository.Get<Upgrader>(ModelId.Upgrader);
 
+            SkinChanger skinChanger = _entityRepository.Get<SkinChanger>(ModelId.SkinChanger);
+            
             KilledEnemiesCounter killedEnemiesCounter = new KilledEnemiesCounter();
 
             EnemySpawner enemySpawner = new EnemySpawner();
@@ -98,8 +103,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             PlayerAttacker playerAttacker = new PlayerAttacker(weapon);
             
             GameplayPlayer player = new GameplayPlayer(playerWallet, characterHealth, playerAttacker, weapon);
-
-            SkinChanger skinChanger = new SkinChanger(upgrader);
             
             return new GameModels(
                 characterHealth,

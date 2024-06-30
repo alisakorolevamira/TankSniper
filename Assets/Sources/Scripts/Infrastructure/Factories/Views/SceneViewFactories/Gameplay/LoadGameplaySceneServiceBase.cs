@@ -15,6 +15,7 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Cameras;
 using Sources.Scripts.InfrastructureInterfaces.Services.GameOver;
 using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
 using Sources.Scripts.InfrastructureInterfaces.Services.Saves;
+using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
 using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.Presentations.Views.Cameras;
 using Sources.Scripts.Presentations.Views.Cameras.Types;
@@ -41,6 +42,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
         private readonly ICameraService _cameraService;
         private readonly IVolumeService _volumeService;
         private readonly ISaveService _saveService;
+        private readonly ISkinChangerService _skinChangerService;
+
         private readonly ILevelCompletedService _levelCompletedService;
         //private readonly IAdvertisingService _advertisingService;
 
@@ -59,6 +62,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             ICameraService cameraService,
             IVolumeService volumeService,
             ISaveService saveService,
+            ISkinChangerService skinChangerService,
             ILevelCompletedService levelCompletedService)
             //IAdvertisingService advertisingService,
         {
@@ -80,6 +84,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             _skinChangerViewFactory = skinChangerViewFactory ?? throw new ArgumentNullException(nameof(skinChangerViewFactory));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
             _saveService = saveService ?? throw new ArgumentNullException(nameof(saveService));
+            _skinChangerService = skinChangerService ?? throw new ArgumentNullException(nameof(skinChangerService));
             _levelCompletedService = levelCompletedService ?? 
                                      throw new ArgumentNullException(nameof(levelCompletedService));
             //_advertisingService = advertisingService ?? throw new ArgumentNullException(nameof(advertisingService));
@@ -125,6 +130,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             _cameraService.SetPosition(PositionId.MainPosition);
             _cameraViewFactory.Create(_gameplayHud.CameraView);
 
+            _skinChangerService.Construct(gameModels.SkinChanger);
             _skinChangerViewFactory.Create(gameModels.SkinChanger, _gameplayRootGameObject.SkinChangerView);
         }
 

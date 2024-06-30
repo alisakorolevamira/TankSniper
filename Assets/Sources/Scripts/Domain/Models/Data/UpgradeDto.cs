@@ -1,5 +1,7 @@
 ﻿using Sources.Scripts.DomainInterfaces.Models.Data;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Sources.Scripts.Presentations.Views.Players.Skins.SkinTypes;
 
 namespace Sources.Scripts.Domain.Models.Data
 {
@@ -10,5 +12,8 @@ namespace Sources.Scripts.Domain.Models.Data
         
         [JsonProperty("id")]
         public string Id { get; set; }
+        
+        [JsonConverter(typeof(StringEnumConverter))]
+        public SkinType CurrentSkinType { get; set; }
     }
 }

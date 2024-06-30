@@ -22,7 +22,11 @@ using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
 using Sources.Scripts.InfrastructureInterfaces.Services.Saves;
+using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
 using Sources.Scripts.Presentations.UI.Huds;
+using Sources.Scripts.Presentations.Views.Players.Skins.DecalsType;
+using Sources.Scripts.Presentations.Views.Players.Skins.MaterialTypes;
+using Sources.Scripts.Presentations.Views.Players.Skins.SkinTypes;
 using Sources.Scripts.Presentations.Views.RootGameObjects;
 
 namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Gameplay
@@ -49,8 +53,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             IVolumeService volumeService,
             ISaveService saveService,
             ILoadService loadService,
+            ISkinChangerService skinChangerService,
             ILevelCompletedService levelCompletedService)
-            //IUpgradeDtoMapper upgradeDtoMapper,
             //IAdvertisingService advertisingService,
             : base(
                 gameplayHud,
@@ -67,6 +71,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 cameraService,
                 volumeService,
                 saveService,
+                skinChangerService,
                 levelCompletedService)
                 //advertisingService,
         {
@@ -95,8 +100,11 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             Weapon weapon = new Weapon(PlayerConst.Damage);
 
             Upgrader upgrader = new Upgrader(PlayerConst.DefaultLevel, ModelId.Upgrader);
+            _entityRepository.Add(upgrader);
 
-            SkinChanger skinChanger = new SkinChanger(upgrader);
+            SkinChanger skinChanger =
+                new SkinChanger(SkinType.First, MaterialType.Default, DecalType.Default, ModelId.SkinChanger);
+            _entityRepository.Add(skinChanger);
             
             PlayerAttacker playerAttacker = new PlayerAttacker(weapon); //переделать
             

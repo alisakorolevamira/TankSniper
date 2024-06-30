@@ -1,9 +1,11 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
 using Sources.Scripts.ControllersInterfaces.Scenes;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactories;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
+using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.InfrastructureInterfaces.Services.Yandex;
@@ -25,6 +27,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         private readonly IFocusService _focusService;
         private readonly ITutorialService _tutorialService;
         private readonly ISDKInitializeService _sdkInitializeService;
+        private readonly ISkinChangerService _skinChangerService;
         private readonly IButtonSignalController _buttonSignalController;
         private readonly IShopSignalController _shopSignalController;
         private readonly LoadingCurtainView _curtainView;
@@ -37,6 +40,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             IAudioService audioService,
             ITutorialService tutorialService,
             ISDKInitializeService sdkInitializeService,
+            ISkinChangerService skinChangerService,
             IButtonSignalController buttonSignalController,
             IShopSignalController shopSignalController,
             IFocusService focusService)
@@ -48,6 +52,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
             _sdkInitializeService = sdkInitializeService ?? throw new ArgumentNullException(nameof(sdkInitializeService));
+            _skinChangerService = skinChangerService ?? throw new ArgumentNullException(nameof(skinChangerService));
             _buttonSignalController = buttonSignalController ?? throw new ArgumentNullException(nameof(buttonSignalController));
             _shopSignalController = shopSignalController ?? throw new ArgumentNullException(nameof(shopSignalController));
             _curtainView = curtainView ? curtainView : throw new ArgumentNullException(nameof(curtainView));
@@ -60,6 +65,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _loadSceneService.Load(payload as IScenePayload);
             _volumeService.Enter();
             _audioService.Enter();
+            _skinChangerService.Enable();
             _buttonSignalController.Initialize();
             _shopSignalController.Initialize();
             await _curtainView.HideCurtain();

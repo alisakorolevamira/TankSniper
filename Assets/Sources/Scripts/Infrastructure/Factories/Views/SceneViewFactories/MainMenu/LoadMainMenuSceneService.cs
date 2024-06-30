@@ -100,7 +100,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             PlayerWallet playerWallet = _loadService.Load<PlayerWallet>(ModelId.PlayerWallet);
 
             Player player = new Player(playerWallet);
-            SkinChanger skinChanger = new SkinChanger(upgrader);
+            SkinChanger skinChanger = _loadService.Load<SkinChanger>(ModelId.SkinChanger);
 
             InventorySlot firstSlot = _loadService.Load<InventorySlot>(ModelId.FirstSlot);
             InventorySlot secondSlot = _loadService.Load<InventorySlot>(ModelId.SecondSlot);

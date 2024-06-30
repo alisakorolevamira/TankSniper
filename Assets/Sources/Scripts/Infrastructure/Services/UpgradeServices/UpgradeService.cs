@@ -4,6 +4,7 @@ using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Upgrades;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpgradeServices;
+using Sources.Scripts.Presentations.Views.Players.Skins.SkinTypes;
 
 namespace Sources.Scripts.Infrastructure.Services.UpgradeServices
 {
@@ -32,7 +33,9 @@ namespace Sources.Scripts.Infrastructure.Services.UpgradeServices
             if (level > _upgrader.CurrentLevel)
             {
                 _upgrader.Upgrade();
-                _skinChanger.ChangeSkin(level);
+                SkinType skinType = (SkinType)level;
+                _skinChanger.ChangeSkin(skinType);
+
                 LevelChanged?.Invoke(_upgrader.CurrentLevel);
 
                 if (_tutorialService.IsCompleted == false)

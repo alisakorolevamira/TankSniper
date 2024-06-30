@@ -21,6 +21,9 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpgradeServices;
 using Sources.Scripts.Presentations.UI.Huds;
+using Sources.Scripts.Presentations.Views.Players.Skins.DecalsType;
+using Sources.Scripts.Presentations.Views.Players.Skins.MaterialTypes;
+using Sources.Scripts.Presentations.Views.Players.Skins.SkinTypes;
 
 namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.MainMenu
 {
@@ -102,7 +105,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             
             Player player = new Player(playerWallet);
 
-            SkinChanger skinChanger = new SkinChanger(upgrader);
+            SkinChanger skinChanger = 
+                new SkinChanger(SkinType.First, MaterialType.Default, DecalType.Default, ModelId.SkinChanger);
+            _entityRepository.Add(skinChanger);
 
             List<InventorySlot> slots = CreateSlots();
 

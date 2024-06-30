@@ -9,11 +9,6 @@ namespace Sources.Scripts.Infrastructure.DIContainers.MainMenu
     {
         public override void InstallBindings()
         {
-            Container
-                .Bind<PlayerViewMaterialsConfig>()
-                .FromResource("Configs/PlayerViewMaterialsConfig")
-                .AsSingle();
-            
             Container.Bind<ShopPresenterFactory>().AsSingle();
             Container.Bind<ShopViewFactory>().AsSingle();
 

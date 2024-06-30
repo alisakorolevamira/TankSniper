@@ -2,14 +2,14 @@
 {
     public enum SkinType
     {
-        First = 0,
-        Second = 1,
-        Third = 2,
-        Fourth = 3,
-        Fifth = 4,
-        Sixth = 5,
-        Seventh = 6,
-        Eighth = 7,
-        Default = 8,
+        First = 1,
+        Second = 2,
+        Third = 3,
+        Fourth = 4,
+        Fifth = 5,
+        Sixth = 6,
+        Seventh = 7,
+        Eighth = 8,
+        Default = 0,
     }
 }

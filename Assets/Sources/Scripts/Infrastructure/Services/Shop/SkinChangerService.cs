@@ -20,12 +20,16 @@ namespace Sources.Scripts.Infrastructure.Services.Shop
             _playerViewMaterialsConfig = playerViewMaterialsConfig ? playerViewMaterialsConfig :
                 throw new ArgumentNullException(nameof(playerViewMaterialsConfig));
         }
+        
+        public void Enable()
+        {
+            ChangeSkin(_skinChanger.CurrentSkin);
+            ChangeMaterial(_skinChanger.CurrentMaterial);
+            Debug.Log("enable");
+        }
 
         public void ChangeSkin(SkinType skinType) => 
             _skinChanger.ChangeSkin(skinType);
-        
-        public void Construct(SkinChanger skinChanger) => 
-            _skinChanger = skinChanger ?? throw new ArgumentNullException(nameof(skinChanger));
 
         public void ChangeMaterial(MaterialType materialType)
         {
@@ -45,5 +49,8 @@ namespace Sources.Scripts.Infrastructure.Services.Shop
 
         public void RemoveDecal() => 
             _skinChanger.RemoveDecal();
+        
+        public void Construct(SkinChanger skinChanger) => 
+            _skinChanger = skinChanger ?? throw new ArgumentNullException(nameof(skinChanger));
     }
 }

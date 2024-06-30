@@ -28,7 +28,7 @@ namespace Sources.Scripts.Infrastructure.Services.LoadServices.Collectors
             ITutorialDtoMapper tutorialDtoMapper,
             ISavedLevelDtoMapper savedLevelDtoMapper,
             IInventorySlotDtoMapper inventorySlotDtoMapper,
-            IShopPatternButtonDtoMapper shopPatternButtonDtoMapper)
+            ISkinChangerDtoMapper skinChangerDtoMapper)
         {
             _toDtoMappers = new Dictionary<Type, Func<IEntity, IDto>>();
             _toDtoMappers[typeof(Upgrader)] =
@@ -47,8 +47,8 @@ namespace Sources.Scripts.Infrastructure.Services.LoadServices.Collectors
                 model => savedLevelDtoMapper.MapModelToDto(model as SavedLevel);
             _toDtoMappers[typeof(InventorySlot)] =
                 model => inventorySlotDtoMapper.MapModelToDto(model as InventorySlot);
-            _toDtoMappers[typeof(ShopPatternButton)] =
-                model => shopPatternButtonDtoMapper.MapModelToDto(model as ShopPatternButton);
+            _toDtoMappers[typeof(SkinChanger)] =
+                model => skinChangerDtoMapper.MapModelToDto(model as SkinChanger);
 
             _toModelMappers = new Dictionary<Type, Func<IDto, IEntity>>();
             _toModelMappers[typeof(UpgradeDto)] =
@@ -67,8 +67,8 @@ namespace Sources.Scripts.Infrastructure.Services.LoadServices.Collectors
                 dto => savedLevelDtoMapper.MapDtoToModel(dto as SavedLevelDto);
             _toModelMappers[typeof(InventorySlotDto)] =
                 dto => inventorySlotDtoMapper.MapDtoToModel(dto as InventorySlotDto);
-            _toModelMappers[typeof(ShopPatternButtonDto)] =
-                dto => shopPatternButtonDtoMapper.MapDtoToModel(dto as ShopPatternButtonDto);
+            _toModelMappers[typeof(SkinChangerDto)] =
+                dto => skinChangerDtoMapper.MapDtoToModel(dto as SkinChangerDto);
         }
 
         public Func<IEntity, IDto> GetToDtoMapper(Type type)

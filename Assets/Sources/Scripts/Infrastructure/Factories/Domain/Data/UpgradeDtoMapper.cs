@@ -11,7 +11,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Domain.Data
             return new UpgradeDto()
             {
                 CurrentLevel = upgrader.CurrentLevel,
-                Id = upgrader.Id
+                Id = upgrader.Id,
             };
         }
 

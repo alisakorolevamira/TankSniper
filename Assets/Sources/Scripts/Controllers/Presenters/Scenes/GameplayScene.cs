@@ -10,6 +10,7 @@ using Sources.Scripts.InfrastructureInterfaces.Services.GameOver;
 using Sources.Scripts.InfrastructureInterfaces.Services.InputServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
 using Sources.Scripts.InfrastructureInterfaces.Services.Saves;
+using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpdateServices;
 using Sources.Scripts.Presentations.UI.Curtain;
@@ -26,7 +27,6 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
     public class GameplayScene : IScene
     {
         private readonly IUpdateService _updateService;
-        //private readonly IInputServiceUpdater _inputServiceUpdater;
         private readonly IInputService _inputService;
         private readonly ICameraService _cameraService;
         private readonly ILoadSceneService _loadSceneService;
@@ -37,6 +37,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         private List<ITankEnemyView> _enemiesViews;
         private readonly IAudioService _audioService;
         private readonly IFocusService _focusService;
+        private readonly ISkinChangerService _skinChangerService;
         private readonly IButtonSignalController _buttonSignalController;
         private readonly IFormSignalController _formSignalController;
         //private readonly IAdvertisingService _advertisingService;
@@ -46,7 +47,6 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             IUpdateService updateService,
             IInputService inputService,
             ICameraService cameraService,
-            //IInputServiceUpdater inputServiceUpdater,
             ILoadSceneService loadSceneService,
             IGameOverService gameOverService,
             IVolumeService volumeService,
@@ -55,6 +55,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             List<ITankEnemyView> enemiesViews,
             IAudioService audioService,
             IFocusService focusService,
+            ISkinChangerService skinChangerService,
             IFormSignalController formSignalController,
             IButtonSignalController buttonSignalController,
             //IAdvertisingService advertisingService)
@@ -63,8 +64,8 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _updateService = updateService ?? throw new ArgumentNullException(nameof(updateService));
             _inputService = inputService ?? throw new ArgumentNullException(nameof(inputService));
             _cameraService = cameraService ?? throw new ArgumentNullException(nameof(cameraService));
-            //_inputServiceUpdater = inputServiceUpdater ??
-                                   //throw new ArgumentNullException(nameof(inputServiceUpdater));
+            _skinChangerService = skinChangerService ??
+                                   throw new ArgumentNullException(nameof(skinChangerService));
             _loadSceneService = loadSceneService ?? throw new ArgumentNullException(nameof(loadSceneService));
             _gameOverService = gameOverService ?? throw new ArgumentNullException(nameof(gameOverService));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
@@ -91,6 +92,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _gameOverService.Enter();
             _saveService.Enter();
             _levelCompletedService.Enable();
+            _skinChangerService.Enable();
             _buttonSignalController.Initialize();
             _formSignalController.Initialize();
             _audioService.Enter();
@@ -119,7 +121,6 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         public void Update(float deltaTime)
         {
             _updateService.Update(deltaTime);
-            //_inputServiceUpdater.Update(deltaTime);
         }
 
         public void UpdateLate(float deltaTime)

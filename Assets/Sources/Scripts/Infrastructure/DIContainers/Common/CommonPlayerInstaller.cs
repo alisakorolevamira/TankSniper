@@ -1,5 +1,8 @@
-﻿using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Players;
+﻿using Sources.Scripts.Domain.Models.Players.Configs;
+using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Players;
+using Sources.Scripts.Infrastructure.Services.Shop;
+using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
 using Zenject;
 
 namespace Sources.Scripts.Infrastructure.DIContainers.Common
@@ -8,6 +11,11 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Common
     {
         public override void InstallBindings()
         {
+            Container
+                .Bind<PlayerViewMaterialsConfig>()
+                .FromResource("Configs/PlayerViewMaterialsConfig")
+                .AsSingle();
+            
             Container.Bind<PlayerWalletPresenterFactory>().AsSingle();
             Container.Bind<PlayerWalletViewFactory>().AsSingle();
             
@@ -16,6 +24,8 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Common
 
             Container.Bind<SkinChangerPresenterFactory>().AsSingle();
             Container.Bind<SkinChangerViewFactory>().AsSingle();
+            
+            Container.Bind<ISkinChangerService>().To<SkinChangerService>().AsSingle();
         }
     }
 }

@@ -5,9 +5,11 @@ using Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.MainMenu
 using Sources.Scripts.Infrastructure.Services.PauseServices;
 using Sources.Scripts.Infrastructure.Services.Shop;
 using Sources.Scripts.Infrastructure.Services.Tutorials;
+using Sources.Scripts.Infrastructure.Services.UpgradeServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.PauseServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
+using Sources.Scripts.InfrastructureInterfaces.Services.UpgradeServices;
 using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.Presentations.Views;
 using Sources.Scripts.Presentations.Views.RootGameObjects;
@@ -39,7 +41,7 @@ namespace Sources.Scripts.Infrastructure.DIContainers.MainMenu
             Container.Bind<IPauseService>().To<PauseService>().AsSingle();
             //Container.Bind<IStickyService>().To<StickyService>().AsSingle();
             Container.Bind<ITutorialService>().To<TutorialService>().AsSingle();
-            Container.Bind<ISkinChangerService>().To<SkinChangerService>().AsSingle();
+            Container.Bind<IUpgradeService>().To<UpgradeService>().AsSingle();
         }
 
         private void BindMainMenuLoadService()

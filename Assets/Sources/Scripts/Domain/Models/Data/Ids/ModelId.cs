@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Sources.Scripts.Domain.Models.Players;
 
 namespace Sources.Scripts.Domain.Models.Data.Ids
 {
@@ -12,6 +13,7 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
         public const string MainMenu = "MainMenu";
         public const string Tutorial = "Tutorial";
         public const string Upgrader = "Upgrader";
+        public const string SkinChanger = "SkinChanger";
         
         public const string FirstLevel = "FirstLevel";
         public const string SecondLevel = "SecondLevel";
@@ -43,6 +45,7 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
             PlayerWallet,
             Tutorial,
             Upgrader,
+            SkinChanger,
             FirstLevel,
             SecondLevel,
             ThirdLevel,
@@ -68,6 +71,7 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
             [PlayerWallet] = typeof(PlayerWalletDto),
             [Tutorial] = typeof(TutorialDto),
             [Upgrader] = typeof(UpgradeDto),
+            [SkinChanger] = typeof(SkinChangerDto),
             [FirstLevel] = typeof(LevelDto),
             [SecondLevel] = typeof(LevelDto),
             [ThirdLevel] = typeof(LevelDto),

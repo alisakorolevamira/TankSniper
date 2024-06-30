@@ -8,7 +8,7 @@ namespace Sources.Scripts.Infrastructure.DIContainers.MainMenu
     {
         public override void InstallBindings()
         {
-            Container.Bind<IUpgradeService>().To<UpgradeService>().AsSingle();
+            
         }
     }
 }

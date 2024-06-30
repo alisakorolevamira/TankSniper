@@ -20,12 +20,12 @@ namespace Sources.Scripts.Domain.Models.Upgrades
         public Type Type => GetType();
         public int CurrentLevel { get; private set; }
         public int MaxLevel { get; } = PlayerConst.MaxLevel;
-        
+
         public void Upgrade()
         {
             if (CurrentLevel >= MaxLevel)
                 return;
-            
+
             CurrentLevel++;
             LevelChanged?.Invoke();
         }

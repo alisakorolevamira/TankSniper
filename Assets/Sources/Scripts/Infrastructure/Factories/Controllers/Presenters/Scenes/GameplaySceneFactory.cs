@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
 using Sources.Scripts.Controllers.Presenters.Scenes;
 using Sources.Scripts.ControllersInterfaces.Scenes;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
@@ -13,6 +14,7 @@ using Sources.Scripts.InfrastructureInterfaces.Services.GameOver;
 using Sources.Scripts.InfrastructureInterfaces.Services.InputServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
 using Sources.Scripts.InfrastructureInterfaces.Services.Saves;
+using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpdateServices;
 using Sources.Scripts.Presentations.UI.Curtain;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tank;
@@ -34,6 +36,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
         private readonly CreateGameplaySceneService _createGameplaySceneService;
         private readonly ISaveService _saveService;
         private readonly ILevelCompletedService _levelCompletedService;
+        private readonly ISkinChangerService _skinChangerService;
         private readonly List<ITankEnemyView> _enemiesViews;
         private readonly IAudioService _audioService;
         private readonly IFocusService _focusService;
@@ -52,6 +55,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             CreateGameplaySceneService createGameplaySceneService,
             ISaveService saveService,
             ILevelCompletedService levelCompletedService,
+            ISkinChangerService skinChangerService,
             List<ITankEnemyView> enemiesViews,
             LoadingCurtainView curtainView,
             IAudioService audioService,
@@ -72,6 +76,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             _saveService = saveService ?? throw new ArgumentNullException(nameof(saveService));
             _levelCompletedService = levelCompletedService ?? 
                                      throw new ArgumentNullException(nameof(levelCompletedService));
+            _skinChangerService = skinChangerService ?? throw new ArgumentNullException(nameof(skinChangerService));
             _enemiesViews = enemiesViews ?? throw new ArgumentNullException(nameof(enemiesViews));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
@@ -95,6 +100,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
                 _enemiesViews,
                 _audioService,
                 _focusService,
+                _skinChangerService,
                 _formSignalController,
                 _buttonSignalController,
                 _curtainView);

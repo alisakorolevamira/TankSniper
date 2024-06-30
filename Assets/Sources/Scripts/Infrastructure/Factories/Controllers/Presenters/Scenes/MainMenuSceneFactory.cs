@@ -1,5 +1,6 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
 using Sources.Scripts.Controllers.Presenters.Scenes;
 using Sources.Scripts.ControllersInterfaces.Scenes;
 using Sources.Scripts.Domain.Models.Data.Ids;
@@ -8,6 +9,7 @@ using Sources.Scripts.InfrastructureInterfaces.Factories.Controllers.Scenes;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactories;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
+using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.InfrastructureInterfaces.Services.Yandex;
 using Sources.Scripts.Presentations.UI.Curtain;
@@ -28,6 +30,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
         private readonly IAudioService _audioService;
         private readonly IFocusService _focusService;
         private readonly ITutorialService _tutorialService;
+        private readonly ISkinChangerService _skinChangerService;
         private readonly ISDKInitializeService _sdkInitializeService;
         private readonly IButtonSignalController _buttonSignalController;
         private readonly IShopSignalController _shopSignalController;
@@ -42,6 +45,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             IStickyAdService stickyAdService,
             IAudioService audioService,
             ITutorialService tutorialService,
+            ISkinChangerService skinChangerService,
             ISDKInitializeService sdkInitializeService,
             IButtonSignalController buttonSignalController,
             IShopSignalController shopSignalController,
@@ -56,6 +60,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             _stickyAdService = stickyAdService ?? throw new ArgumentNullException(nameof(stickyAdService));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
+            _skinChangerService = skinChangerService ?? throw new ArgumentNullException(nameof(skinChangerService));
             _sdkInitializeService = sdkInitializeService ??
                                     throw new ArgumentNullException(nameof(sdkInitializeService));
             _buttonSignalController = buttonSignalController ??
@@ -76,6 +81,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
                 _audioService,
                 _tutorialService,
                 _sdkInitializeService,
+                _skinChangerService,
                 _buttonSignalController,
                 _shopSignalController,
                 _focusService);

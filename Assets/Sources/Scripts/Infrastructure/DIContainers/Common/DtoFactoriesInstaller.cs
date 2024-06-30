@@ -21,7 +21,7 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Common
             Container.Bind<IGameDataDtoMapper>().To<GameDataDtoMapper>().AsSingle();
             Container.Bind<ISavedLevelDtoMapper>().To<SavedLevelDtoMapper>().AsSingle();
             Container.Bind<IInventorySlotDtoMapper>().To<InventorySlotDtoMapper>().AsSingle();
-            Container.Bind<IShopPatternButtonDtoMapper>().To<ShopPatternButtonDtoMapper>().AsSingle();
+            Container.Bind<ISkinChangerDtoMapper>().To<SkinChangerDtoMapper>().AsSingle();
         }
     }
 }

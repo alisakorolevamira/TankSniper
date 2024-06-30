@@ -9,12 +9,13 @@ namespace Sources.Scripts.Domain.Models.Gameplay
     {
         public MainMenuModels(
             Volume volume,
-            Level firstLevel,
-            Level secondLevel,
-            Level thirdLevel,
-            Level fourthLevel,
-            Level fifthLevel,
-            Level sixthLevel,
+            //Level firstLevel,
+            //Level secondLevel,
+            //Level thirdLevel,
+            //Level fourthLevel,
+            //Level fifthLevel,
+            //Level sixthLevel,
+            GameLevels levels,
             LevelAvailability levelAvailability,
             GameData gameData,
             Tutorial tutorial,
@@ -25,12 +26,13 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             InventoryGrid grid)
         {
             Volume = volume;
-            FirstLevel = firstLevel;
-            SecondLevel = secondLevel;
-            ThirdLevel = thirdLevel;
-            FourthLevel = fourthLevel;
-            FifthLevel = fifthLevel;
-            SixthLevel = sixthLevel;
+            //FirstLevel = firstLevel;
+            //SecondLevel = secondLevel;
+            //ThirdLevel = thirdLevel;
+            //FourthLevel = fourthLevel;
+            //FifthLevel = fifthLevel;
+            //SixthLevel = sixthLevel;
+            Levels = levels;
             LevelAvailability = levelAvailability;
             GameData = gameData;
             Tutorial = tutorial;
@@ -42,12 +44,13 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         }
 
         public Volume Volume { get; }
-        public Level FirstLevel { get; }
-        public Level SecondLevel { get; }
-        public Level ThirdLevel { get; }
-        public Level FourthLevel { get; }
-        public Level FifthLevel { get; }
-        public Level SixthLevel { get; }
+        //public Level FirstLevel { get; }
+        //public Level SecondLevel { get; }
+        //public Level ThirdLevel { get; }
+        //public Level FourthLevel { get; }
+        //public Level FifthLevel { get; }
+        //public Level SixthLevel { get; }
+        public GameLevels Levels { get; }
         public LevelAvailability LevelAvailability { get; }
         public GameData GameData { get; }
         public Tutorial Tutorial { get; }

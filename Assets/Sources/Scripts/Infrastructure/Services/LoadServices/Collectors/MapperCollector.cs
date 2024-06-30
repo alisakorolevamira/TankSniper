@@ -37,8 +37,8 @@ namespace Sources.Scripts.Infrastructure.Services.LoadServices.Collectors
                 model => playerWalletDtoMapper.MapModelToDto(model as PlayerWallet);
             _toDtoMappers[typeof(Volume)] =
                 model => volumeDtoMapper.MapModelToDto(model as Volume);
-            _toDtoMappers[typeof(Level)] =
-                model => levelDtoMapper.MapModelToDto(model as Level);
+            _toDtoMappers[typeof(GameLevels)] =
+                model => levelDtoMapper.MapModelToDto(model as GameLevels);
             _toDtoMappers[typeof(GameData)] =
                 model => gameDataDtoMapper.MapModelToDto(model as GameData);
             _toDtoMappers[typeof(Tutorial)] =

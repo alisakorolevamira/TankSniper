@@ -87,18 +87,29 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             Upgrader upgrader = new Upgrader(PlayerConst.DefaultLevel, ModelId.Upgrader);
             _entityRepository.Add(upgrader);
             
-            Level firstLevel = new Level(ModelId.FirstLevel, false);
-            _entityRepository.Add(firstLevel);
-            Level secondLevel = new Level(ModelId.SecondLevel, false);
-            _entityRepository.Add(secondLevel);
-            Level thirdLevel = new Level(ModelId.ThirdLevel, false);
-            _entityRepository.Add(thirdLevel);
-            Level fourthLevel = new Level(ModelId.FourthLevel, false);
-            _entityRepository.Add(fourthLevel);
-            Level fifthLevel = new Level(ModelId.FifthLevel, false);
-            _entityRepository.Add(fifthLevel);
-            Level sixthLevel = new Level(ModelId.SixthLevel, false);
-            _entityRepository.Add(sixthLevel);
+           // Level firstLevel = new Level(ModelId.FirstLevel, false);
+           // _entityRepository.Add(firstLevel);
+           // Level secondLevel = new Level(ModelId.SecondLevel, false);
+           // _entityRepository.Add(secondLevel);
+           // Level thirdLevel = new Level(ModelId.ThirdLevel, false);
+           // _entityRepository.Add(thirdLevel);
+           // Level fourthLevel = new Level(ModelId.FourthLevel, false);
+           // _entityRepository.Add(fourthLevel);
+           // Level fifthLevel = new Level(ModelId.FifthLevel, false);
+           // _entityRepository.Add(fifthLevel);
+           // Level sixthLevel = new Level(ModelId.SixthLevel, false);
+           // _entityRepository.Add(sixthLevel);
+
+           GameLevels gameLevels = new GameLevels(ModelId.GameLevels, new List<Level>()
+           {
+               new (ModelId.FirstLevel, false),
+               new (ModelId.SecondLevel, false),
+               new (ModelId.ThirdLevel, false),
+               new (ModelId.FourthLevel, false),
+               new (ModelId.FifthLevel, false),
+               new (ModelId.SixthLevel, false),
+           });
+           _entityRepository.Add(gameLevels);
             
             PlayerWallet playerWallet = new PlayerWallet(PlayerConst.DefaultMoney, ModelId.PlayerWallet);
             _entityRepository.Add(playerWallet);
@@ -113,27 +124,28 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
 
             InventoryGrid grid = new InventoryGrid(slots);
 
-            LevelAvailability levelAvailability = new LevelAvailability(
-                new List<Level>()
-                {
-                    firstLevel,
-                    secondLevel,
-                    thirdLevel,
-                    fourthLevel,
-                    fifthLevel,
-                    sixthLevel,
-                });
+            LevelAvailability levelAvailability = new LevelAvailability(gameLevels.Levels);
+               // new List<Level>()
+               // {
+               //     firstLevel,
+               //     secondLevel,
+               //     thirdLevel,
+               //     fourthLevel,
+               //     fifthLevel,
+               //     sixthLevel,
+               // });
 
             _loadService.SaveAll();
 
             return new MainMenuModels(
                 volume,
-                firstLevel,
-                secondLevel,
-                thirdLevel,
-                fourthLevel,
-                fifthLevel,
-                sixthLevel,
+               // firstLevel,
+               // secondLevel,
+               // thirdLevel,
+               // fourthLevel,
+               // fifthLevel,
+               // sixthLevel,
+                gameLevels,
                 levelAvailability,
                 gameData,
                 tutorial,

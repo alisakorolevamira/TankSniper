@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Sources.Scripts.Domain.Models.Common;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Data.Ids;
@@ -83,7 +84,10 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
         {
             Volume volume = CreateVolume();
 
-            Level level = CreateLevel(scenePayload.SceneId);
+            //Level level = CreateLevel(scenePayload.SceneId);
+
+            GameLevels gameLevels = CreateGamelevels();
+            Level level = gameLevels.Levels.Find(level => level.Id == scenePayload.SceneId);
 
             SavedLevel savedLevel = new SavedLevel(ModelId.SavedLevel, scenePayload.SceneId);
             _entityRepository.Add(savedLevel);
@@ -135,15 +139,35 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             return volume;
         }
 
-        private Level CreateLevel(string sceneId)
-        {
-            if (_loadService.HasKey(sceneId))
-                return _loadService.Load<Level>(sceneId);
-            
-            Level level = new Level(sceneId, false);
-            _entityRepository.Add(level);
+       // private Level CreateLevel(string sceneId)
+       // {
+       //     if (_loadService.HasKey(sceneId))
+       //         return _loadService.Load<Level>(sceneId);
+       //     
+       //     Level level = new Level(sceneId, false);
+       //     _entityRepository.Add(level);
+//
+       //     return level;
+       // }
 
-            return level;
+        private GameLevels CreateGamelevels()
+        {
+            if (_loadService.HasKey(ModelId.GameLevels))
+                return _loadService.Load<GameLevels>(ModelId.GameLevels);
+            
+            GameLevels gameLevels = new GameLevels(ModelId.GameLevels, new List<Level>()
+            {
+                new (ModelId.FirstLevel, false),
+                new (ModelId.SecondLevel, false),
+                new (ModelId.ThirdLevel, false),
+                new (ModelId.FourthLevel, false),
+                new (ModelId.FifthLevel, false),
+                new (ModelId.SixthLevel, false),
+            });
+            
+            _entityRepository.Add(gameLevels);
+
+            return gameLevels;
         }
     }
 }

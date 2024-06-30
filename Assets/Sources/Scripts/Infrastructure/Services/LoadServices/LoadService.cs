@@ -62,6 +62,7 @@ namespace Sources.Scripts.Infrastructure.Services.LoadServices
             {
                 Type dtoType = ModelId.DtoTypes[id];
                 object dto = _dataService.LoadData(id, dtoType);
+                Debug.Log(id);
                 Func<IDto, IEntity> mapper = _mapperCollector.GetToModelMapper(dtoType);
                 IEntity model = mapper.Invoke((IDto)dto);
                 _entityRepository.Add(model);

@@ -66,11 +66,13 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
             
             
             SavedLevel savedLevel = _entityRepository.Get<SavedLevel>(ModelId.SavedLevel);
-            Level level = _entityRepository.Get<Level>(savedLevel.CurrentLevelId);
+            GameLevels gameLevels = _entityRepository.Get<GameLevels>(ModelId.GameLevels);
+            Level level = gameLevels.Levels.Find(level => level.Id == savedLevel.CurrentLevelId);
+            //Level level = _entityRepository.Get<Level>(savedLevel.CurrentLevelId);
             
             level.Complete();
             _loadService.SaveAll();
-            _loadService.Save(level);
+            //_loadService.Save(level);
 
             Signal.Send(StreamId.Gameplay.LevelCompleted);
             //_loadService.ClearAll();

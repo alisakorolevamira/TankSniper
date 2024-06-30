@@ -82,7 +82,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             
             Volume volume = _entityRepository.Get<Volume>(ModelId.Volume);
 
-            Level level = _entityRepository.Get<Level>(scenePayload.SceneId);
+            //Level level = _entityRepository.Get<Level>(scenePayload.SceneId);
+            GameLevels gameLevels = _entityRepository.Get<GameLevels>(ModelId.GameLevels);
+            Level level = gameLevels.Levels.Find(level => level.Id == scenePayload.SceneId);
             
             SavedLevel savedLevel = _entityRepository.Get<SavedLevel>(ModelId.SavedLevel);
             

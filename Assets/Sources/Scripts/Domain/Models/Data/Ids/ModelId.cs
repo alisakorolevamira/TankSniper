@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Players;
 
 namespace Sources.Scripts.Domain.Models.Data.Ids
@@ -14,6 +15,7 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
         public const string Tutorial = "Tutorial";
         public const string Upgrader = "Upgrader";
         public const string SkinChanger = "SkinChanger";
+        public const string GameLevels = "GameLevels";
         
         public const string FirstLevel = "FirstLevel";
         public const string SecondLevel = "SecondLevel";
@@ -46,12 +48,13 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
             Tutorial,
             Upgrader,
             SkinChanger,
-            FirstLevel,
-            SecondLevel,
-            ThirdLevel,
-            FourthLevel,
-            FifthLevel,
-            SixthLevel,
+            GameLevels,
+            //FirstLevel,
+            //SecondLevel,
+            //ThirdLevel,
+            //FourthLevel,
+            //FifthLevel,
+            //SixthLevel,
             FirstSlot,
             SecondSlot,
             ThirdSlot,
@@ -72,12 +75,13 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
             [Tutorial] = typeof(TutorialDto),
             [Upgrader] = typeof(UpgradeDto),
             [SkinChanger] = typeof(SkinChangerDto),
-            [FirstLevel] = typeof(LevelDto),
-            [SecondLevel] = typeof(LevelDto),
-            [ThirdLevel] = typeof(LevelDto),
-            [FourthLevel] = typeof(LevelDto),
-            [FifthLevel] = typeof(LevelDto),
-            [SixthLevel] = typeof(LevelDto),
+            [GameLevels] = typeof(LevelDto),
+            //[FirstLevel] = typeof(LevelDto),
+            //[SecondLevel] = typeof(LevelDto),
+            //[ThirdLevel] = typeof(LevelDto),
+            //[FourthLevel] = typeof(LevelDto),
+            //[FifthLevel] = typeof(LevelDto),
+            //[SixthLevel] = typeof(LevelDto),
             [FirstSlot] = typeof(InventorySlotDto),
             [SecondSlot] = typeof(InventorySlotDto),
             [ThirdSlot] = typeof(InventorySlotDto),

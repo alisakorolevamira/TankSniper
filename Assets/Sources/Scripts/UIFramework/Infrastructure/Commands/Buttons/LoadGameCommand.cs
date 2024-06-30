@@ -29,7 +29,7 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
             { 6, ModelId.SixthLevel }
         };
 
-        private string _newLevel;
+        private Level _newLevel;
 
         public LoadGameCommand(
             ILoadService loadService, 
@@ -60,22 +60,28 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
             _sceneService.ChangeSceneAsync(newLevel, new ScenePayload(newLevel, true, false));
         }
 
-        private string FindNewLevel(string savedLevel)
+        private string FindNewLevel(string savedLevelId)
         {
-            int savedLevelId = _levels.First(x => x.Value == savedLevel).Key;
+            GameLevels gameLevels = _entityRepository.Get<GameLevels>(ModelId.GameLevels);
             
-            Level level = _entityRepository.Get<Level>(savedLevel);
+            //int savedLevelId = _levels.First(x => x.Value == savedLevel).Key;
+            Level savedLevel = gameLevels.Levels.Find(level => level.Id == savedLevelId);
+            int savedLevelIndex = gameLevels.Levels.IndexOf(savedLevel);
             
-            if(level.IsCompleted)
-                _newLevel = _levels.FirstOrDefault(x => x.Key == savedLevelId + 1).Value;
+            //Level level = _entityRepository.Get<Level>(savedLevel);
+
+            if (savedLevel.IsCompleted)
+                _newLevel = gameLevels.Levels[savedLevelIndex + 1];
+            //_newLevel = _levels.FirstOrDefault(x => x.Key == savedLevelId + 1).Value;
 
             else
-                _newLevel = _levels.First(x => x.Key == savedLevelId).Value;
+                _newLevel = savedLevel;
+                //newLevel = _levels.First(x => x.Key == savedLevelId).Value;
 
             if (_newLevel == null)
                 return ModelId.FirstLevel;
 
-            return _newLevel;
+            return _newLevel.Id;
         }
     }
 }

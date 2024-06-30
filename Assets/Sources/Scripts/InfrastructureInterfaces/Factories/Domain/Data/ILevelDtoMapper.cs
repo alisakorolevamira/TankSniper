@@ -5,7 +5,7 @@ namespace Sources.Scripts.InfrastructureInterfaces.Factories.Domain.Data
 {
     public interface ILevelDtoMapper
     {
-        LevelDto MapModelToDto(Level level);
-        Level MapDtoToModel(LevelDto levelDto);
+        LevelDto MapModelToDto(GameLevels levels);
+        GameLevels MapDtoToModel(LevelDto levelsDto);
     }
 }

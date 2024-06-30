@@ -79,23 +79,16 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
 
             Upgrader upgrader = _loadService.Load<Upgrader>(ModelId.Upgrader);
             
-            Level firstLevel = _loadService.Load<Level>(ModelId.FirstLevel);
-            Level secondLevel = _loadService.Load<Level>(ModelId.SecondLevel);
-            Level thirdLevel = _loadService.Load<Level>(ModelId.ThirdLevel);
-            Level fourthLevel = _loadService.Load<Level>(ModelId.FourthLevel);
-            Level fifthLevel = _loadService.Load<Level>(ModelId.FifthLevel);
-            Level sixthLevel = _loadService.Load<Level>(ModelId.SixthLevel);
-            
-            LevelAvailability levelAvailability = new LevelAvailability(
-                new List<Level>()
-                {
-                    firstLevel,
-                    secondLevel,
-                    thirdLevel,
-                    fourthLevel,
-                    fifthLevel,
-                    sixthLevel
-                });
+            //Level firstLevel = _loadService.Load<Level>(ModelId.FirstLevel);
+            //Level secondLevel = _loadService.Load<Level>(ModelId.SecondLevel);
+            //Level thirdLevel = _loadService.Load<Level>(ModelId.ThirdLevel);
+            //Level fourthLevel = _loadService.Load<Level>(ModelId.FourthLevel);
+            //Level fifthLevel = _loadService.Load<Level>(ModelId.FifthLevel);
+            //Level sixthLevel = _loadService.Load<Level>(ModelId.SixthLevel);
+
+            GameLevels gameLevels = _loadService.Load<GameLevels>(ModelId.GameLevels);
+
+            LevelAvailability levelAvailability = new LevelAvailability(gameLevels.Levels);
             
             PlayerWallet playerWallet = _loadService.Load<PlayerWallet>(ModelId.PlayerWallet);
 
@@ -128,12 +121,13 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             
             return new MainMenuModels(
                 volume,
-                firstLevel, 
-                secondLevel,
-                thirdLevel,
-                fourthLevel,
-                fifthLevel,
-                sixthLevel,
+                //firstLevel, 
+                //secondLevel,
+                //thirdLevel,
+                //fourthLevel,
+                //fifthLevel,
+                //sixthLevel,
+                gameLevels,
                 levelAvailability,
                 gameData,
                 tutorial,

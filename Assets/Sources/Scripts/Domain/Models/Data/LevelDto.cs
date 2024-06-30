@@ -1,5 +1,8 @@
-﻿using Sources.Scripts.DomainInterfaces.Models.Data;
+﻿using System.Collections.Generic;
+using System.Collections.Specialized;
+using Sources.Scripts.DomainInterfaces.Models.Data;
 using Newtonsoft.Json;
+using Sources.Scripts.Domain.Models.Gameplay;
 
 namespace Sources.Scripts.Domain.Models.Data
 {
@@ -8,10 +11,13 @@ namespace Sources.Scripts.Domain.Models.Data
         [JsonProperty("id")]
         public string Id { get; set; }
         
-        [JsonProperty("isCompleted")]
-        public bool IsCompleted { get; set; }
+        [JsonProperty("levels")]
+        public List<Level> Levels { get; set; }
         
-        [JsonProperty("index")]
-        public int Index { get; set; }
+        //[JsonProperty("isCompleted")]
+        //public bool IsCompleted { get; set; }
+        //
+        //[JsonProperty("index")]
+        //public int Index { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using Sources.Scripts.DomainInterfaces.Models.Gameplay;
 
 namespace Sources.Scripts.Domain.Models.Gameplay
 {
-    public class Level : IEntity, ILevel
+    public class Level : ILevel
     {
         public Level(string id, bool isCompleted)
         {

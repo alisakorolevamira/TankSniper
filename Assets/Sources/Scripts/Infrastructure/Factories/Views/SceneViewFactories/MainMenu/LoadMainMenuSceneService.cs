@@ -69,64 +69,30 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
 
         protected override MainMenuModels LoadModels(IScenePayload scenePayload)
         {
-            Tutorial tutorial = _loadService.Load<Tutorial>(ModelId.Tutorial);
+            Tutorial tutorial = _loadService.Load(ModelId.Tutorial) as Tutorial;
             
-            Volume volume = _loadService.Load<Volume>(ModelId.Volume);
+            Volume volume = _loadService.Load(ModelId.Volume) as Volume;
             
-            GameData gameData = _loadService.Load<GameData>(ModelId.GameData);
+            GameData gameData = _loadService.Load(ModelId.GameData) as GameData;
             
-            SavedLevel savedLevel = _loadService.Load<SavedLevel>(ModelId.SavedLevel);
+            SavedLevel savedLevel = _loadService.Load(ModelId.SavedLevel) as SavedLevel;
 
-            Upgrader upgrader = _loadService.Load<Upgrader>(ModelId.Upgrader);
-            
-            //Level firstLevel = _loadService.Load<Level>(ModelId.FirstLevel);
-            //Level secondLevel = _loadService.Load<Level>(ModelId.SecondLevel);
-            //Level thirdLevel = _loadService.Load<Level>(ModelId.ThirdLevel);
-            //Level fourthLevel = _loadService.Load<Level>(ModelId.FourthLevel);
-            //Level fifthLevel = _loadService.Load<Level>(ModelId.FifthLevel);
-            //Level sixthLevel = _loadService.Load<Level>(ModelId.SixthLevel);
+            Upgrader upgrader = _loadService.Load(ModelId.Upgrader) as Upgrader;
 
-            GameLevels gameLevels = _loadService.Load<GameLevels>(ModelId.GameLevels);
+            GameLevels gameLevels = _loadService.Load(ModelId.GameLevels) as GameLevels;
 
             LevelAvailability levelAvailability = new LevelAvailability(gameLevels.Levels);
             
-            PlayerWallet playerWallet = _loadService.Load<PlayerWallet>(ModelId.PlayerWallet);
+            PlayerWallet playerWallet = _loadService.Load(ModelId.PlayerWallet) as PlayerWallet;
 
             Player player = new Player(playerWallet);
-            SkinChanger skinChanger = _loadService.Load<SkinChanger>(ModelId.SkinChanger);
+            
+            SkinChanger skinChanger = _loadService.Load(ModelId.SkinChanger) as SkinChanger;
 
-            InventorySlot firstSlot = _loadService.Load<InventorySlot>(ModelId.FirstSlot);
-            InventorySlot secondSlot = _loadService.Load<InventorySlot>(ModelId.SecondSlot);
-            InventorySlot thirdSlot = _loadService.Load<InventorySlot>(ModelId.ThirdSlot);
-            InventorySlot fourthSlot = _loadService.Load<InventorySlot>(ModelId.FourthSlot);
-            InventorySlot fifthSlot = _loadService.Load<InventorySlot>(ModelId.FifthSlot);
-            InventorySlot sixthSlot = _loadService.Load<InventorySlot>(ModelId.SixthSlot);
-            InventorySlot seventhSlot = _loadService.Load<InventorySlot>(ModelId.SeventhSlot);
-            InventorySlot eighthSlot = _loadService.Load<InventorySlot>(ModelId.EighthSlot);
-            InventorySlot ninthSlot = _loadService.Load<InventorySlot>(ModelId.NinthSlot);
-
-            InventoryGrid inventoryGrid = new InventoryGrid(
-                new List<InventorySlot>()
-                {
-                    firstSlot,
-                    secondSlot,
-                    thirdSlot,
-                    fourthSlot,
-                    fifthSlot,
-                    sixthSlot,
-                    seventhSlot,
-                    eighthSlot,
-                    ninthSlot
-                });
+            InventoryGrid inventoryGrid = _loadService.Load(ModelId.InventoryGrid) as InventoryGrid;
             
             return new MainMenuModels(
                 volume,
-                //firstLevel, 
-                //secondLevel,
-                //thirdLevel,
-                //fourthLevel,
-                //fifthLevel,
-                //sixthLevel,
                 gameLevels,
                 levelAvailability,
                 gameData,

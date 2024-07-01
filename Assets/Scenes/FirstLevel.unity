@@ -1102,6 +1102,7 @@ MonoBehaviour:
   _skinType: 1
   _renderer: {fileID: 1393537354}
   _defaultMaterial: {fileID: 99656467281103303, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
+  _decalImage: {fileID: 0}
 --- !u!1 &271876315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1711,6 +1712,7 @@ MonoBehaviour:
   _skinType: 7
   _renderer: {fileID: 1071267526}
   _defaultMaterial: {fileID: -8583780622465393609, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
+  _decalImage: {fileID: 0}
 --- !u!1 &465039055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1842,6 +1844,7 @@ MonoBehaviour:
   _skinType: 5
   _renderer: {fileID: 465039057}
   _defaultMaterial: {fileID: 2100006, guid: 5ad20ef734769b344a01cde65c49397f, type: 3}
+  _decalImage: {fileID: 0}
 --- !u!1 &511111165
 GameObject:
   m_ObjectHideFlags: 0
@@ -3240,7 +3243,6 @@ MonoBehaviour:
   _monoInstallers:
   - {fileID: 735555939}
   - {fileID: 1880149617}
-  - {fileID: 1593604644}
   - {fileID: 271876317}
   - {fileID: 2029501792}
   - {fileID: 1420798587}
@@ -3284,7 +3286,6 @@ Transform:
   m_Children:
   - {fileID: 735555938}
   - {fileID: 1880149616}
-  - {fileID: 1593604645}
   - {fileID: 271876316}
   - {fileID: 2029501791}
   - {fileID: 1420798588}
@@ -4097,6 +4098,7 @@ MonoBehaviour:
   _skinType: 3
   _renderer: {fileID: 909357083}
   _defaultMaterial: {fileID: 2100000, guid: 2bb78c64528360f47a13a43ba4790e14, type: 2}
+  _decalImage: {fileID: 0}
 --- !u!1001 &1236083473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4231,6 +4233,7 @@ MonoBehaviour:
   _skinType: 6
   _renderer: {fileID: 604186448}
   _defaultMaterial: {fileID: 6719245597448002910, guid: 5a66bf954173dfb4f85911ebfd402246, type: 3}
+  _decalImage: {fileID: 0}
 --- !u!1001 &1291556172
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5893,50 +5896,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300038, guid: 5f3a7deba91ee3341b2266db1be8c0a0, type: 3}
---- !u!1 &1593604643
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1593604645}
-  - component: {fileID: 1593604644}
-  m_Layer: 0
-  m_Name: DtoFactoriesInstaller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1593604644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593604643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f83d26f612694a96af851b0f6417e8ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1593604645
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593604643}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 970134698}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1596824930
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7480,6 +7439,7 @@ MonoBehaviour:
   _skinType: 4
   _renderer: {fileID: 1830880968}
   _defaultMaterial: {fileID: 2100006, guid: d06b94986ee731a408bed0b1bf22a8a7, type: 3}
+  _decalImage: {fileID: 0}
 --- !u!1 &1880149615
 GameObject:
   m_ObjectHideFlags: 0
@@ -8056,6 +8016,7 @@ MonoBehaviour:
   _skinType: 2
   _renderer: {fileID: 1478803207}
   _defaultMaterial: {fileID: 2100000, guid: 9ecbff9db83607447b19218a1c3409c8, type: 2}
+  _decalImage: {fileID: 0}
 --- !u!1 &2029501790
 GameObject:
   m_ObjectHideFlags: 0
@@ -8540,6 +8501,7 @@ MonoBehaviour:
   _skinType: 0
   _renderer: {fileID: 1405878952}
   _defaultMaterial: {fileID: -4973734387028869240, guid: 0ead8f2603d448b489b39dd05c303d15, type: 3}
+  _decalImage: {fileID: 0}
 --- !u!23 &2112322665
 MeshRenderer:
   m_ObjectHideFlags: 0

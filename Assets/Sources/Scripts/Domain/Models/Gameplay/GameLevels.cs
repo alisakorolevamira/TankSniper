@@ -1,19 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
+using Sources.Scripts.Domain.Models.Constants;
+using Sources.Scripts.Domain.Models.Data;
 using Sources.Scripts.DomainInterfaces.Models.Entities;
 
 namespace Sources.Scripts.Domain.Models.Gameplay
 {
     public class GameLevels : IEntity
     {
-        public GameLevels(string id, List<Level> levels)
+        private LevelData _data = new ();
+        public GameLevels(string id)
         {
             Id = id;
-            Levels = levels;
+            Levels = new List<Level>()
+            {
+                new(LevelConst.FirstLevel, false),
+                new(LevelConst.SecondLevel, false),
+                new(LevelConst.ThirdLevel, false),
+                new(LevelConst.FourthLevel, false),
+                new(LevelConst.FifthLevel, false),
+                new(LevelConst.SixthLevel, false),
+            };
         }
         
         public string Id { get; }
+        public List<Level> Levels { get; }
         public Type Type => GetType();
-        public List<Level> Levels { get; set; }
+        
+        public void Save()
+        {
+            _data.Id = Id;
+            _data.Levels = Levels;
+            _data.Save(Id);
+        }
+
+        public void Load()
+        {
+            _data = _data.Load(Id);
+        }
     }
 }

@@ -41,7 +41,7 @@ namespace Sources.Scripts.Infrastructure.Services.Shop
                 
             MaterialView materialView = _playerViewMaterialsConfig.Materials.Find(x => x.Type == materialType);
             
-            _skinChanger.ChangeMaterial(materialView.Material);
+            _skinChanger.ChangeMaterial(materialView);
         }
 
         public void ChangeDecal(Sprite decal) => 

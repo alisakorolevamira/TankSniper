@@ -1,6 +1,4 @@
 ﻿using System;
-using Sources.Scripts.Domain.Models.Data;
-using Sources.Scripts.DomainInterfaces.Models.Entities;
 using Sources.Scripts.DomainInterfaces.Models.Gameplay;
 
 namespace Sources.Scripts.Domain.Models.Gameplay
@@ -17,7 +15,6 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         
         public bool IsCompleted { get; private set; }
         public string Id { get; }
-        public Type Type => GetType();
 
         public void Complete()
         {

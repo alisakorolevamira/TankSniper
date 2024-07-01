@@ -4,8 +4,7 @@ namespace Sources.Scripts.InfrastructureInterfaces.Services.LoadServices
 {
     public interface ILoadService
     {
-        T Load<T>(string id) 
-            where T : class, IEntity;
+        IEntity Load(string id);
         void Save(IEntity entity);
         void Save(string id);
         void LoadAll();

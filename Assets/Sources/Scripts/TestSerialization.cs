@@ -45,7 +45,7 @@ namespace Sources.Scripts
         {
             _buttons2 = JsonConvert.DeserializeObject<List<ShopPatternButton>>(json);
             if(_buttons2[1].MaterialType == MaterialType.Grey)
-                Debug.Log("yes");
+                Debug.Log("yes3");
         }
     }
 }

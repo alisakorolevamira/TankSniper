@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using JetBrains.Annotations;
-using Sources.Scripts.Domain.Models.Constants;
-using Sources.Scripts.Domain.Models.Upgrades;
+using Sources.Scripts.Domain.Models.Data;
 using Sources.Scripts.DomainInterfaces.Models.Entities;
+using Sources.Scripts.Presentations.Views.Materials;
 using Sources.Scripts.Presentations.Views.Players.Skins.DecalsType;
 using Sources.Scripts.Presentations.Views.Players.Skins.MaterialTypes;
 using Sources.Scripts.Presentations.Views.Players.Skins.SkinTypes;
@@ -13,33 +11,21 @@ namespace Sources.Scripts.Domain.Models.Players
 {
     public class SkinChanger : IEntity
     {
-       //private readonly Upgrader _upgrader;
-
-       //private Dictionary<int, SkinType> _skinTypes = new()
-       //{
-       //    {1, SkinType.First },
-       //    {2, SkinType.Second},
-       //    {3, SkinType.Third},
-       //    {4, SkinType.Fourth},
-       //    {5, SkinType.Fifth},
-       //    {6, SkinType.Sixth},
-       //    {7, SkinType.Seventh},
-       //    {8, SkinType.Eighth}
-       //};
+        private SkinChangerData _data = new ();
         
-        public SkinChanger(SkinType currentSkin, MaterialType currentMaterial, DecalType currentDecal, string id)
+        public SkinChanger(string id)
         {
-            CurrentSkin = currentSkin;
-            CurrentMaterial = currentMaterial;
-            CurrentDecal = currentDecal;
             Id = id;
+            CurrentSkin = SkinType.First;
+            CurrentMaterial = MaterialType.Default;
+            CurrentDecal = DecalType.Default;
         }
 
-        public SkinType CurrentSkin { get; set; }
-        public MaterialType CurrentMaterial { get; set; }
-        public DecalType CurrentDecal { get; set; }
+        public SkinType CurrentSkin { get; private set; }
+        public MaterialType CurrentMaterial { get; private set; }
+        public DecalType CurrentDecal { get; private set; }
         public string Id { get; }
-        public Type Type => GetType();
+        
         public event Action CurrentSkinChanged;
         public event Action<Material> CurrentMaterialChanged;
         public event Action DefaultMaterialSetted;
@@ -47,6 +33,24 @@ namespace Sources.Scripts.Domain.Models.Players
         public event Action<Sprite> CurrentDecalChanged; 
         
         //сделать диктионари об открытых и закрытых модельках
+        
+        public void Save()
+        {
+            _data.Id = Id;
+            _data.CurrentSkinType = CurrentSkin;
+            _data.CurrentMaterialType = CurrentMaterial;
+            _data.CurrentDecalType = CurrentDecal;
+            
+            _data.Save(Id);
+        }
+
+        public void Load()
+        {
+            _data = _data.Load(Id);
+            CurrentSkin = _data.CurrentSkinType;
+            CurrentMaterial = _data.CurrentMaterialType;
+            CurrentDecal = _data.CurrentDecalType;
+        }
 
         public void ChangeSkin(SkinType skinType)
         {
@@ -54,20 +58,20 @@ namespace Sources.Scripts.Domain.Models.Players
             CurrentSkinChanged?.Invoke();
         }
 
-        public void ChangeSkin(int level)
+        public void ChangeMaterial(MaterialView materialView)
         {
-            //CurrentSkin = _skinTypes[level];
-            //ChangeSkin(CurrentSkin);
+            CurrentMaterial = materialView.Type;
+            CurrentMaterialChanged?.Invoke(materialView.Material);
         }
-
-        public void ChangeMaterial(Material material) => 
-            CurrentMaterialChanged?.Invoke(material);
 
         public void SetDefaultMaterial() => 
             DefaultMaterialSetted?.Invoke();
 
-        public void ChangeDecal(Sprite decal) => 
+        public void ChangeDecal(Sprite decal)
+        {
+            //сделать деколвью
             CurrentDecalChanged?.Invoke(decal);
+        }
 
         public void RemoveDecal() => 
             DecalRemoved?.Invoke();

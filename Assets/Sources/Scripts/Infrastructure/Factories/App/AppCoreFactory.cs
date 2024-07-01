@@ -36,13 +36,13 @@ namespace Sources.Scripts.Infrastructure.Factories.App
             SceneService sceneService = new SceneService(sceneFactories);
             projectContext.Container.BindInterfacesAndSelfTo<SceneService>().FromInstance(sceneService);
             
-            sceneFactories[ModelId.MainMenu] = (payload, sceneContext) =>
+            sceneFactories[LevelConst.MainMenu] = (payload, sceneContext) =>
                 sceneContext.Container.Resolve<MainMenuSceneFactory>().Create(payload);
-            sceneFactories[ModelId.FirstLevel] = (payload, sceneContext) =>
+            sceneFactories[LevelConst.FirstLevel] = (payload, sceneContext) =>
                 sceneContext.Container.Resolve<GameplaySceneFactory>().Create(payload);
-            sceneFactories[ModelId.SecondLevel] = (payload, sceneContext) =>
+            sceneFactories[LevelConst.SecondLevel] = (payload, sceneContext) =>
                 sceneContext.Container.Resolve<GameplaySceneFactory>().Create(payload);
-            sceneFactories[ModelId.ThirdLevel] = (payload, sceneContext) =>
+            sceneFactories[LevelConst.ThirdLevel] = (payload, sceneContext) =>
                 sceneContext.Container.Resolve<GameplaySceneFactory>().Create(payload);
             
             sceneService.AddBeforeSceneChangeHandler(async _ => await curtainView.ShowCurtain());

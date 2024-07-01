@@ -1,20 +1,36 @@
-﻿using System;
-using Sources.Scripts.Domain.Models.Data;
-using Sources.Scripts.Domain.Models.Data.Ids;
+﻿using Sources.Scripts.Domain.Models.Data;
 using Sources.Scripts.DomainInterfaces.Models.Entities;
 
 namespace Sources.Scripts.Domain.Models.Gameplay
 {
     public class Tutorial : IEntity
     {
-        public Tutorial(string id, bool hasCompleted)
+        private TutorialData _data = new ();
+        
+        public Tutorial(string id)
         {
             Id = id;
-            HasCompleted = hasCompleted;
+            HasCompleted = false;
         }
 
-        public bool HasCompleted { get; set; }
+        public bool HasCompleted { get; private set; }
         public string Id { get; }
-        public Type Type => GetType();
+
+        public void Save()
+        {
+            _data.Id = Id;
+            _data.HasCompleted = HasCompleted;
+            
+            _data.Save(Id);
+        }
+
+        public void Load()
+        {
+            _data = _data.Load(Id);
+            HasCompleted = _data.HasCompleted;
+        }
+
+        public void Complete() => 
+            HasCompleted = true;
     }
 }

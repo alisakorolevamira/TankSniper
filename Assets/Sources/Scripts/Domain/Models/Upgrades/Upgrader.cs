@@ -1,33 +1,46 @@
 ﻿using System;
 using Sources.Scripts.Domain.Models.Constants;
-using Sources.Scripts.DomainInterfaces.Models.Upgrades;
+using Sources.Scripts.Domain.Models.Data;
+using Sources.Scripts.DomainInterfaces.Models.Entities;
 
 namespace Sources.Scripts.Domain.Models.Upgrades
 {
-    public class Upgrader : IUpgrader
+    public class Upgrader : IEntity
     {
-        public Upgrader(
-            int currentLevel,
-            string id)
+        private UpgradeData _data = new ();
+        
+        public Upgrader(string id)
         {
-            CurrentLevel = currentLevel;
             Id = id;
+            CurrentLevel = PlayerConst.DefaultLevel;
         }
 
         public event Action LevelChanged;
 
         public string Id { get; }
-        public Type Type => GetType();
         public int CurrentLevel { get; private set; }
-        public int MaxLevel { get; } = PlayerConst.MaxLevel;
 
         public void Upgrade()
         {
-            if (CurrentLevel >= MaxLevel)
+            if (CurrentLevel >= PlayerConst.MaxLevel)
                 return;
 
             CurrentLevel++;
             LevelChanged?.Invoke();
+        }
+
+        public void Save()
+        {
+            _data.CurrentLevel = CurrentLevel;
+            _data.Id = Id;
+            
+            _data.Save(Id);
+        }
+
+        public void Load()
+        {
+            _data = _data.Load(Id);
+            CurrentLevel = _data.CurrentLevel;
         }
     }
 }

@@ -73,78 +73,41 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
 
         protected override MainMenuModels LoadModels(IScenePayload scenePayload)
         {
-            Tutorial tutorial = new Tutorial(ModelId.Tutorial, false);
+            Tutorial tutorial = new Tutorial(ModelId.Tutorial);
             _entityRepository.Add(tutorial);
 
-            Volume volume = CreateVolume();
+            Volume volume = new Volume(ModelId.Volume);
+            _entityRepository.Add(volume);
             
-            GameData gameData = new GameData(ModelId.GameData, true);
+            GameData gameData = new GameData(ModelId.GameData);
             _entityRepository.Add(gameData);
             
-            SavedLevel savedLevel = new SavedLevel(ModelId.SavedLevel, ModelId.FirstLevel);
+            SavedLevel savedLevel = new SavedLevel(ModelId.SavedLevel);
             _entityRepository.Add(savedLevel);
 
-            Upgrader upgrader = new Upgrader(PlayerConst.DefaultLevel, ModelId.Upgrader);
+            Upgrader upgrader = new Upgrader(ModelId.Upgrader);
             _entityRepository.Add(upgrader);
-            
-           // Level firstLevel = new Level(ModelId.FirstLevel, false);
-           // _entityRepository.Add(firstLevel);
-           // Level secondLevel = new Level(ModelId.SecondLevel, false);
-           // _entityRepository.Add(secondLevel);
-           // Level thirdLevel = new Level(ModelId.ThirdLevel, false);
-           // _entityRepository.Add(thirdLevel);
-           // Level fourthLevel = new Level(ModelId.FourthLevel, false);
-           // _entityRepository.Add(fourthLevel);
-           // Level fifthLevel = new Level(ModelId.FifthLevel, false);
-           // _entityRepository.Add(fifthLevel);
-           // Level sixthLevel = new Level(ModelId.SixthLevel, false);
-           // _entityRepository.Add(sixthLevel);
 
-           GameLevels gameLevels = new GameLevels(ModelId.GameLevels, new List<Level>()
-           {
-               new (ModelId.FirstLevel, false),
-               new (ModelId.SecondLevel, false),
-               new (ModelId.ThirdLevel, false),
-               new (ModelId.FourthLevel, false),
-               new (ModelId.FifthLevel, false),
-               new (ModelId.SixthLevel, false),
-           });
+            GameLevels gameLevels = new GameLevels(ModelId.GameLevels);
            _entityRepository.Add(gameLevels);
             
-            PlayerWallet playerWallet = new PlayerWallet(PlayerConst.DefaultMoney, ModelId.PlayerWallet);
+            PlayerWallet playerWallet = new PlayerWallet(ModelId.PlayerWallet);
             _entityRepository.Add(playerWallet);
             
             Player player = new Player(playerWallet);
 
-            SkinChanger skinChanger = 
-                new SkinChanger(SkinType.First, MaterialType.Default, DecalType.Default, ModelId.SkinChanger);
+            SkinChanger skinChanger = new SkinChanger(ModelId.SkinChanger);
             _entityRepository.Add(skinChanger);
 
-            List<InventorySlot> slots = CreateSlots();
-
-            InventoryGrid grid = new InventoryGrid(slots);
+            InventoryGrid grid = new InventoryGrid(ModelId.InventoryGrid);
+            _entityRepository.Add(grid);
 
             LevelAvailability levelAvailability = new LevelAvailability(gameLevels.Levels);
-               // new List<Level>()
-               // {
-               //     firstLevel,
-               //     secondLevel,
-               //     thirdLevel,
-               //     fourthLevel,
-               //     fifthLevel,
-               //     sixthLevel,
-               // });
 
             _loadService.SaveAll();
 
             return new MainMenuModels(
                 volume,
-               // firstLevel,
-               // secondLevel,
-               // thirdLevel,
-               // fourthLevel,
-               // fifthLevel,
-               // sixthLevel,
                 gameLevels,
                 levelAvailability,
                 gameData,
@@ -158,50 +121,13 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
 
         private Volume CreateVolume()
         {
-            if (_loadService.HasKey(ModelId.Volume))
-                return _loadService.Load<Volume>(ModelId.Volume);
+            //if (_loadService.HasKey(ModelId.Volume))
+            //    return _loadService.Load<Volume>(ModelId.Volume);
 
-            Volume volume = new Volume(VolumeConst.BaseAudioValue, ModelId.Volume);
+            Volume volume = new Volume(ModelId.Volume);
             _entityRepository.Add(volume);
             
             return volume;
-        }
-
-        private List<InventorySlot> CreateSlots()
-        {
-            InventorySlot firstSlot = new InventorySlot(ModelId.FirstSlot, true, InventoryTankConst.DefaultTankLevel);
-            _entityRepository.Add(firstSlot);
-            InventorySlot secondSlot = new InventorySlot(ModelId.SecondSlot, true, InventoryTankConst.DefaultTankLevel);
-            _entityRepository.Add(secondSlot);
-            InventorySlot thirdSlot = new InventorySlot(ModelId.ThirdSlot, true, InventoryTankConst.DefaultTankLevel);
-            _entityRepository.Add(thirdSlot);
-            InventorySlot fourthSlot = new InventorySlot(ModelId.FourthSlot, true, InventoryTankConst.DefaultTankLevel);
-            _entityRepository.Add(fourthSlot);
-            InventorySlot fifthSlot = new InventorySlot(ModelId.FifthSlot, false, InventoryTankConst.DefaultTankLevel);
-            _entityRepository.Add(fifthSlot);
-            InventorySlot sixthSlot = new InventorySlot(ModelId.SixthSlot, true, InventoryTankConst.DefaultTankLevel);
-            _entityRepository.Add(sixthSlot);
-            InventorySlot seventhSlot = new InventorySlot(ModelId.SeventhSlot, true, InventoryTankConst.DefaultTankLevel);
-            _entityRepository.Add(seventhSlot);
-            InventorySlot eighthSlot = new InventorySlot(ModelId.EighthSlot, true, InventoryTankConst.DefaultTankLevel);
-            _entityRepository.Add(eighthSlot);
-            InventorySlot ninthSlot = new InventorySlot(ModelId.NinthSlot, true, InventoryTankConst.DefaultTankLevel);
-            _entityRepository.Add(ninthSlot);
-
-            List<InventorySlot> slots = new List<InventorySlot>
-            {
-                firstSlot,
-                secondSlot,
-                thirdSlot,
-                fourthSlot,
-                fifthSlot,
-                sixthSlot,
-                seventhSlot,
-                eighthSlot,
-                ninthSlot
-            };
-
-            return slots;
         }
     }
 }

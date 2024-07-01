@@ -6,14 +6,28 @@ namespace Sources.Scripts.Domain.Models.Gameplay
 {
     public class GameData : IEntity
     {
-        public GameData(string id, bool wasLaunched)
+        private GameDataData gameDataData = new ();
+        private bool _wasLaunched;
+        
+        public GameData(string id)
         {
             Id = id;
-            WasLaunched = wasLaunched;
+            _wasLaunched = true;
         }
 
         public string Id { get; }
-        public Type Type => GetType();
-        public bool WasLaunched { get; private set; }
+
+        public void Save()
+        {
+            gameDataData.Id = Id;
+            gameDataData.WasLaunched = _wasLaunched;
+            gameDataData.Save(Id);
+        }
+
+        public void Load()
+        {
+            gameDataData = gameDataData.Load(Id);
+            _wasLaunched = gameDataData.WasLaunched;
+        }
     }
 }

@@ -28,14 +28,14 @@ namespace Sources.Scripts.Infrastructure.Services.Tutorials
             
             Signal.Send(StreamId.MainMenu.ShowAddTankTutorial);
         }
+        public void Complete()
+        {
+            _tutorial.Complete();
+            _loadService.Save(_tutorial);
+        }
 
         public void Construct(Tutorial tutorial) => 
             _tutorial = tutorial ?? throw new ArgumentNullException(nameof(tutorial));
 
-        public void Complete()
-        {
-            _tutorial.HasCompleted = true;
-            _loadService.Save(_tutorial);
-        }
     }
 }

@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using Sources.Scripts.Domain.Models.Gameplay;
+using Sources.Scripts.Domain.Models.Inventory;
 using Sources.Scripts.Domain.Models.Players;
+using Sources.Scripts.Domain.Models.Settings;
+using Sources.Scripts.Domain.Models.Upgrades;
+using Sources.Scripts.DomainInterfaces.Models.Entities;
 
 namespace Sources.Scripts.Domain.Models.Data.Ids
 {
@@ -16,23 +20,7 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
         public const string Upgrader = "Upgrader";
         public const string SkinChanger = "SkinChanger";
         public const string GameLevels = "GameLevels";
-        
-        public const string FirstLevel = "FirstLevel";
-        public const string SecondLevel = "SecondLevel";
-        public const string ThirdLevel = "ThirdLevel";
-        public const string FourthLevel = "FourthLevel";
-        public const string FifthLevel = "FifthLevel";
-        public const string SixthLevel = "SixthLevel";
-        
-        public const string FirstSlot = "FirstSlot";
-        public const string SecondSlot = "SecondSlot";
-        public const string ThirdSlot = "ThirdSlot";
-        public const string FourthSlot = "FourthSlot";
-        public const string FifthSlot = "FifthSlot";
-        public const string SixthSlot = "SixthSlot";
-        public const string SeventhSlot = "SeventhSlot";
-        public const string EighthSlot = "EighthSlot";
-        public const string NinthSlot = "NinthSlot";
+        public const string InventoryGrid = "InventoryGrid";
         
         
         public static IReadOnlyList<string> DeletedModelsIds = new List<string>()
@@ -49,48 +37,33 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
             Upgrader,
             SkinChanger,
             GameLevels,
-            //FirstLevel,
-            //SecondLevel,
-            //ThirdLevel,
-            //FourthLevel,
-            //FifthLevel,
-            //SixthLevel,
-            FirstSlot,
-            SecondSlot,
-            ThirdSlot,
-            FourthSlot,
-            FifthSlot,
-            SixthSlot,
-            SeventhSlot,
-            EighthSlot,
-            NinthSlot
+            InventoryGrid,
         };
 
         public static IReadOnlyDictionary<string, Type> DtoTypes = new Dictionary<string, Type>()
         {
-            [GameData] = typeof(GameDataDto),
-            [SavedLevel] = typeof(SavedLevelDto),
-            [Volume] = typeof(VolumeDto),
-            [PlayerWallet] = typeof(PlayerWalletDto),
-            [Tutorial] = typeof(TutorialDto),
-            [Upgrader] = typeof(UpgradeDto),
-            [SkinChanger] = typeof(SkinChangerDto),
-            [GameLevels] = typeof(LevelDto),
-            //[FirstLevel] = typeof(LevelDto),
-            //[SecondLevel] = typeof(LevelDto),
-            //[ThirdLevel] = typeof(LevelDto),
-            //[FourthLevel] = typeof(LevelDto),
-            //[FifthLevel] = typeof(LevelDto),
-            //[SixthLevel] = typeof(LevelDto),
-            [FirstSlot] = typeof(InventorySlotDto),
-            [SecondSlot] = typeof(InventorySlotDto),
-            [ThirdSlot] = typeof(InventorySlotDto),
-            [FourthSlot] = typeof(InventorySlotDto),
-            [FifthSlot] = typeof(InventorySlotDto),
-            [SixthSlot] = typeof(InventorySlotDto),
-            [SeventhSlot] = typeof(InventorySlotDto),
-            [EighthSlot] = typeof(InventorySlotDto),
-            [NinthSlot] = typeof(InventorySlotDto),
+            [GameData] = typeof(GameDataData),
+            [SavedLevel] = typeof(SavedLevelData),
+            [Volume] = typeof(VolumeData),
+            [PlayerWallet] = typeof(PlayerWalletData),
+            [Tutorial] = typeof(TutorialData),
+            [Upgrader] = typeof(UpgradeData),
+            [SkinChanger] = typeof(SkinChangerData),
+            [GameLevels] = typeof(LevelData),
+            [InventoryGrid] = typeof(InventoryGridData),
+        };
+
+        public static IReadOnlyDictionary<string, IEntity> Entities = new Dictionary<string, IEntity>()
+        {
+            [GameData] = new GameData(GameData),
+            [SavedLevel] = new SavedLevel(SavedLevel),
+            [Volume] = new Volume(Volume),
+            [PlayerWallet] = new PlayerWallet(PlayerWallet),
+            [Tutorial] = new Tutorial(Tutorial),
+            [Upgrader] = new Upgrader(Upgrader),
+            [SkinChanger] = new SkinChanger(SkinChanger),
+            [GameLevels] = new GameLevels(GameLevels),
+            [InventoryGrid] = new InventoryGrid(InventoryGrid),
         };
     }
 }

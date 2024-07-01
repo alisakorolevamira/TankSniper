@@ -82,17 +82,18 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
         protected override GameModels LoadModels(IScenePayload scenePayload)
         {
-            Volume volume = CreateVolume();
+            Volume volume = new Volume(ModelId.Volume);
+            _entityRepository.Add(volume);
 
             //Level level = CreateLevel(scenePayload.SceneId);
 
             GameLevels gameLevels = CreateGamelevels();
             Level level = gameLevels.Levels.Find(level => level.Id == scenePayload.SceneId);
 
-            SavedLevel savedLevel = new SavedLevel(ModelId.SavedLevel, scenePayload.SceneId);
+            SavedLevel savedLevel = new SavedLevel(ModelId.SavedLevel);
             _entityRepository.Add(savedLevel);
 
-            PlayerWallet playerWallet = new PlayerWallet(PlayerConst.DefaultMoney, ModelId.PlayerWallet);
+            PlayerWallet playerWallet = new PlayerWallet(ModelId.PlayerWallet);
             _entityRepository.Add(playerWallet);
 
             KilledEnemiesCounter killedEnemiesCounter = new KilledEnemiesCounter();
@@ -103,11 +104,10 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
             Weapon weapon = new Weapon(PlayerConst.Damage);
 
-            Upgrader upgrader = new Upgrader(PlayerConst.DefaultLevel, ModelId.Upgrader);
+            Upgrader upgrader = new Upgrader(ModelId.Upgrader);
             _entityRepository.Add(upgrader);
 
-            SkinChanger skinChanger =
-                new SkinChanger(SkinType.First, MaterialType.Default, DecalType.Default, ModelId.SkinChanger);
+            SkinChanger skinChanger = new SkinChanger(ModelId.SkinChanger);
             _entityRepository.Add(skinChanger);
             
             PlayerAttacker playerAttacker = new PlayerAttacker(weapon); //переделать
@@ -130,10 +130,10 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
         private Volume CreateVolume()
         {
-            if (_loadService.HasKey(ModelId.Volume))
-                return _loadService.Load<Volume>(ModelId.Volume);
+            //if (_loadService.HasKey(ModelId.Volume))
+            //    return _loadService.Load<Volume>(ModelId.Volume);
 
-            Volume volume = new Volume(VolumeConst.BaseAudioValue, ModelId.Volume);
+            Volume volume = new Volume(ModelId.Volume);
             _entityRepository.Add(volume);
 
             return volume;
@@ -152,18 +152,10 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
         private GameLevels CreateGamelevels()
         {
-            if (_loadService.HasKey(ModelId.GameLevels))
-                return _loadService.Load<GameLevels>(ModelId.GameLevels);
-            
-            GameLevels gameLevels = new GameLevels(ModelId.GameLevels, new List<Level>()
-            {
-                new (ModelId.FirstLevel, false),
-                new (ModelId.SecondLevel, false),
-                new (ModelId.ThirdLevel, false),
-                new (ModelId.FourthLevel, false),
-                new (ModelId.FifthLevel, false),
-                new (ModelId.SixthLevel, false),
-            });
+           // if (_loadService.HasKey(ModelId.GameLevels))
+           //     return _loadService.Load<GameLevels>(ModelId.GameLevels);
+
+           GameLevels gameLevels = new GameLevels(ModelId.GameLevels);
             
             _entityRepository.Add(gameLevels);
 

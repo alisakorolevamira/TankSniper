@@ -5,7 +5,7 @@ using Sources.Scripts.Presentations.Views.Players.Skins.MaterialTypes;
 
 namespace Sources.Scripts.Domain.Models.Shop
 {
-    public class ShopPatternButton : IEntity, IShopPatternButton
+    public class ShopPatternButton : IShopPatternButton
     {
         public ShopPatternButton(string id, bool isBought, MaterialType materialType)
         {
@@ -17,6 +17,5 @@ namespace Sources.Scripts.Domain.Models.Shop
         public string Id { get; }
         public bool IsBought { get; private set; }
         public MaterialType MaterialType { get; private set; }
-        public Type Type => GetType();
     }
 }

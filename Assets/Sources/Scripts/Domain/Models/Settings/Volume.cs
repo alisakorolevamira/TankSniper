@@ -8,12 +8,13 @@ namespace Sources.Scripts.Domain.Models.Settings
 {
     public class Volume : IEntity
     {
+        private VolumeData _data = new ();
         private int _audioVolume;
         
-        public Volume(int audioVolume, string id)
+        public Volume(string id)
         {
-            _audioVolume = audioVolume;
             Id = id;
+            _audioVolume = VolumeConst.BaseAudioValue;
         }
         
         public event Action AudioVolumeChanged;
@@ -29,6 +30,18 @@ namespace Sources.Scripts.Domain.Models.Settings
         }
 
         public string Id { get; }
-        public Type Type => GetType();
+
+        public void Save()
+        {
+            _data.Id = Id;
+            _data.AudioValue = _audioVolume;
+            _data.Save(Id);
+        }
+
+        public void Load()
+        {
+            _data = _data.Load(Id);
+            _audioVolume = _data.AudioValue;
+        }
     }
 }

@@ -1,13 +1,13 @@
 ﻿using Doozy.Runtime.UIManager;
 using Doozy.Runtime.UIManager.Components;
-using Sources.Scripts.Controllers.Presenters.Shop;
+using Sources.Scripts.Controllers.Presenters.Shops;
 using Sources.Scripts.Presentations.Views.Players.Skins.DecalsType;
-using Sources.Scripts.PresentationsInterfaces.Views.Shop;
+using Sources.Scripts.PresentationsInterfaces.Views.Shops;
 using Sources.Scripts.UIFramework.Presentations.Images;
 using Sources.Scripts.UIFramework.Presentations.Texts;
 using UnityEngine;
 
-namespace Sources.Scripts.Presentations.Views.Shop
+namespace Sources.Scripts.Presentations.Views.Shops
 {
     public class ShopDecalButtonView : PresentableView<ShopDecalButtonPresenter>, IShopDecalButtonView
     {

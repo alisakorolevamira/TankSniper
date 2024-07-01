@@ -1,22 +1,26 @@
 ﻿using System;
 using System.Linq;
+using Sources.Scripts.Domain.Models.Shops;
 using Sources.Scripts.Domain.Models.Upgrades;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpgradeServices;
-using Sources.Scripts.PresentationsInterfaces.Views.Shop;
+using Sources.Scripts.Presentations.Views.Shops;
+using Sources.Scripts.PresentationsInterfaces.Views.Shops;
 
-namespace Sources.Scripts.Controllers.Presenters.Shop
+namespace Sources.Scripts.Controllers.Presenters.Shops
 {
     public class ShopPresenter : PresenterBase
     {
         private readonly IShopView _shopView;
         private readonly IUpgradeService _upgradeService;
         private readonly Upgrader _upgrader;
+        private readonly PlayerShop playerShop;
 
-        public ShopPresenter(IShopView view, IUpgradeService upgradeService, Upgrader upgrader)
+        public ShopPresenter(IShopView view, IUpgradeService upgradeService, Upgrader upgrader, PlayerShop playerShop)
         {
             _shopView = view ?? throw new ArgumentNullException(nameof(view));
             _upgradeService = upgradeService ?? throw new ArgumentNullException(nameof(upgradeService));
             _upgrader = upgrader ?? throw new ArgumentNullException(nameof(upgrader));
+            this.playerShop = playerShop ?? throw new ArgumentNullException(nameof(playerShop));
         }
 
         public override void Enable()
@@ -24,12 +28,11 @@ namespace Sources.Scripts.Controllers.Presenters.Shop
             _upgradeService.LevelChanged += ShowTankButton;
             HideAllButtons();
             ShowAvailableButtons();
+            Fill();
         }
 
-        public override void Disable()
-        {
+        public override void Disable() => 
             _upgradeService.LevelChanged -= ShowTankButton;
-        }
 
         private void ShowTankButton(int level)
         {
@@ -51,6 +54,15 @@ namespace Sources.Scripts.Controllers.Presenters.Shop
         {
             foreach (IShopTankButtonView buttonView in _shopView.TankButtons) 
                 buttonView.Hide();
+        }
+
+        private void Fill()
+        {
+            foreach (ShopPatternButtonView buttonView in _shopView.PatternButtons)
+            {
+                var button = playerShop.PatternButtons.First(x => x.MaterialType== buttonView.MaterialType);
+                buttonView.Construct(button);
+            }
         }
     }
 }

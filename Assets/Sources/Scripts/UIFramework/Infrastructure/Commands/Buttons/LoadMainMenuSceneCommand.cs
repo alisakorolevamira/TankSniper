@@ -28,11 +28,12 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
         public void Handle()
         {
             SavedLevel savedLevel = _entityRepository.Get<SavedLevel>(ModelId.SavedLevel);
-            //_sceneService.ChangeSceneAsync(
-            //    ModelId.MainMenu, new ScenePayload(savedLevel.CurrentLevelId, false, true));
             
             _sceneService.ChangeSceneAsync(
-                ModelId.MainMenu, new ScenePayload(ModelId.MainMenu, true, true));
+                ModelId.MainMenu, new ScenePayload(savedLevel.CurrentLevelId, false, true));
+            
+            //_sceneService.ChangeSceneAsync(
+            //    ModelId.MainMenu, new ScenePayload(ModelId.MainMenu, true, true));
         }
     }
 }

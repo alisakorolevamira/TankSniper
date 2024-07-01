@@ -1,13 +1,14 @@
 ﻿using Doozy.Runtime.UIManager;
 using Doozy.Runtime.UIManager.Components;
-using Sources.Scripts.Controllers.Presenters.Shop;
+using Sources.Scripts.Controllers.Presenters.Shops;
+using Sources.Scripts.Domain.Models.Shops;
 using Sources.Scripts.Presentations.Views.Players.Skins.MaterialTypes;
-using Sources.Scripts.PresentationsInterfaces.Views.Shop;
+using Sources.Scripts.PresentationsInterfaces.Views.Shops;
 using Sources.Scripts.UIFramework.Presentations.Images;
 using Sources.Scripts.UIFramework.Presentations.Texts;
 using UnityEngine;
 
-namespace Sources.Scripts.Presentations.Views.Shop
+namespace Sources.Scripts.Presentations.Views.Shops
 {
     public class ShopPatternButtonView : PresentableView<ShopPatternButtonPresenter>, IShopPatternButtonView
     {
@@ -19,6 +20,8 @@ namespace Sources.Scripts.Presentations.Views.Shop
         [SerializeField] private UIButton _buyButton;
         [SerializeField] private MaterialType _materialType;
 
+        private ShopPatternButton _shopPatternButton;
+
         public UIButton Button => _button;
         public UIText PriceText => _price;
         public UIText FreeText => _freeText;
@@ -26,7 +29,7 @@ namespace Sources.Scripts.Presentations.Views.Shop
         public ImageView AdImage => _adImage;
         public UIButton BuyButton => _buyButton;
         public MaterialType MaterialType => _materialType;
-        public bool IsBought { get; private set; }
+        public bool IsBought => _shopPatternButton.IsBought;
         
         public void Hide()
         {
@@ -42,7 +45,10 @@ namespace Sources.Scripts.Presentations.Views.Shop
             _button.SetState(UISelectionState.Normal);
             _buyButton.enabled = false;
             _buyButton.SetState(UISelectionState.Disabled);
-            IsBought = true;
+            _shopPatternButton.IsBought = true;
         }
+
+        public void Construct(ShopPatternButton button) => 
+            _shopPatternButton = button;
     }
 }

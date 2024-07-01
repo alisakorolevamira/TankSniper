@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Sources.Scripts.Domain.Models.Inventory
 {
-    public class InventoryGrid : IEntity, IInventoryGrid
+    public class InventoryGrid : IEntity
     {
         private readonly Vector2Int _size = new(3, 3);
         

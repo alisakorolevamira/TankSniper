@@ -14,10 +14,9 @@ namespace Sources.Scripts.Presentations.Views.Inventory
         public bool IsEmpty => _slot.IsEmpty;
         public int Level => _slot.Level;
         public IInventoryTankView CurrentTank { get; private set; }
-        public void Construct(InventorySlot slot)
-        {
+        
+        public void Construct(InventorySlot slot) => 
             _slot = slot;
-        }
 
         public void SetTank(IInventoryTankView tankView)
         {

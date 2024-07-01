@@ -2,6 +2,7 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Doozy.Runtime.Signals;
+using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Players;
@@ -58,25 +59,21 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
                 return;
 
             AllEnemiesKilled = true;
+
+            int reward = _enemySpawner.SpawnedEnemies * PlayerConst.RewardCoefficient;
             
-            LevelCompleted?.Invoke(_enemySpawner.SpawnedEnemies * 100);
+            LevelCompleted?.Invoke(reward);
             PlayerWallet playerWallet = _entityRepository.Get<PlayerWallet>(ModelId.PlayerWallet);
-            playerWallet.AddMoney(_enemySpawner.SpawnedEnemies * 100);
-            
-            
+            playerWallet.AddMoney(reward);
             
             SavedLevel savedLevel = _entityRepository.Get<SavedLevel>(ModelId.SavedLevel);
             GameLevels gameLevels = _entityRepository.Get<GameLevels>(ModelId.GameLevels);
             Level level = gameLevels.Levels.Find(level => level.Id == savedLevel.CurrentLevelId);
-            //Level level = _entityRepository.Get<Level>(savedLevel.CurrentLevelId);
             
             level.Complete();
             _loadService.SaveAll();
-            //_loadService.Save(level);
-
-            Signal.Send(StreamId.Gameplay.LevelCompleted);
-            //_loadService.ClearAll();
-            //StartTimer(_cancellationTokenSource.Token);
+            
+            StartTimer(_cancellationTokenSource.Token);
             //_interstitialAdService.ShowInterstitial();
         }
 
@@ -86,7 +83,7 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
             {
                 await UniTask.Delay(_delay, cancellationToken: cancellationToken);
                 
-                //_formService.Show(FormId.LevelCompleted);
+                Signal.Send(StreamId.Gameplay.LevelCompleted);
             }
             catch (OperationCanceledException)
             {

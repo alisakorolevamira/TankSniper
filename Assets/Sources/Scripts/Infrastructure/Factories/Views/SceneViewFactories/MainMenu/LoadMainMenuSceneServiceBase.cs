@@ -6,7 +6,7 @@ using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Inventory;
 using Sources.Scripts.Infrastructure.Factories.Views.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
-using Sources.Scripts.Infrastructure.Factories.Views.Shop;
+using Sources.Scripts.Infrastructure.Factories.Views.Shops;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactories;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
@@ -16,7 +16,7 @@ using Sources.Scripts.InfrastructureInterfaces.Services.UpgradeServices;
 using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.Presentations.Views.Players.Skins;
-using Sources.Scripts.Presentations.Views.Shop;
+using Sources.Scripts.Presentations.Views.Shops;
 
 namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.MainMenu
 {
@@ -109,7 +109,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             
             _skinChangerService.Construct(models.SkinChanger);
 
-            _shopViewFactory.Create(_mainMenuHud.ShopView, models.Upgrader);
+            _shopViewFactory.Create(_mainMenuHud.ShopView, models.Upgrader, models.Shop);
 
             foreach (ShopPatternButtonView patternButton in _mainMenuHud.ShopView.PatternButtons)
                 _shopPatternButtonViewFactory.Create(patternButton, models.Player.PlayerWallet);

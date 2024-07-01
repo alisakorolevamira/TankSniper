@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Sources.Scripts.Presentations.Views.Shop;
+using Sources.Scripts.Presentations.Views.Shops;
 
-namespace Sources.Scripts.PresentationsInterfaces.Views.Shop
+namespace Sources.Scripts.PresentationsInterfaces.Views.Shops
 {
     public interface IShopView
     {

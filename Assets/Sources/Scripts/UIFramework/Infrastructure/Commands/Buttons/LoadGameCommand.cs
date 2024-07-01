@@ -8,6 +8,7 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
 using Sources.Scripts.InfrastructureInterfaces.Services.SceneServices;
 using Sources.Scripts.UIFramework.Domain.Commands;
 using Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Buttons;
+using UnityEngine;
 
 namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
 {
@@ -51,20 +52,10 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
         private string FindNewLevel(string savedLevelId)
         {
             GameLevels gameLevels = _entityRepository.Get<GameLevels>(ModelId.GameLevels);
-            
-            //int savedLevelId = _levels.First(x => x.Value == savedLevel).Key;
             Level savedLevel = gameLevels.Levels.Find(level => level.Id == savedLevelId);
             int savedLevelIndex = gameLevels.Levels.IndexOf(savedLevel);
-            
-            //Level level = _entityRepository.Get<Level>(savedLevel);
 
-            if (savedLevel.IsCompleted)
-                _newLevel = gameLevels.Levels[savedLevelIndex + 1];
-            //_newLevel = _levels.FirstOrDefault(x => x.Key == savedLevelId + 1).Value;
-
-            else
-                _newLevel = savedLevel;
-                //newLevel = _levels.First(x => x.Key == savedLevelId).Value;
+            _newLevel = savedLevel.IsCompleted ? gameLevels.Levels[savedLevelIndex + 1] : savedLevel;
 
             if (_newLevel == null)
                 return LevelConst.FirstLevel;

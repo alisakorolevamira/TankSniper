@@ -1,11 +1,10 @@
-﻿using System;
-using Doozy.Runtime.UIManager;
+﻿using Doozy.Runtime.UIManager;
 using Doozy.Runtime.UIManager.Components;
-using Sources.Scripts.PresentationsInterfaces.Views.Shop;
+using Sources.Scripts.PresentationsInterfaces.Views.Shops;
 using Sources.Scripts.UIFramework.Presentations.Images;
 using UnityEngine;
 
-namespace Sources.Scripts.Presentations.Views.Shop
+namespace Sources.Scripts.Presentations.Views.Shops
 {
     public class ShopTankButtonView : View, IShopTankButtonView
     {

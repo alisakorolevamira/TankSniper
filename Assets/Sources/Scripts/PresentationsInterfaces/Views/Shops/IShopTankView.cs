@@ -1,4 +1,4 @@
-﻿namespace Sources.Scripts.PresentationsInterfaces.Views.Shop
+﻿namespace Sources.Scripts.PresentationsInterfaces.Views.Shops
 {
     public interface IShopTankView
     {

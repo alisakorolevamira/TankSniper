@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Data;
 using Sources.Scripts.DomainInterfaces.Models.Entities;
@@ -9,6 +8,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
     public class GameLevels : IEntity
     {
         private LevelData _data = new ();
+        
         public GameLevels(string id)
         {
             Id = id;
@@ -24,8 +24,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         }
         
         public string Id { get; }
-        public List<Level> Levels { get; }
-        public Type Type => GetType();
+        public List<Level> Levels { get; private set; }
         
         public void Save()
         {
@@ -37,6 +36,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         public void Load()
         {
             _data = _data.Load(Id);
+            Levels = _data.Levels;
         }
     }
 }

@@ -152,8 +152,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
         private GameLevels CreateGamelevels()
         {
-           // if (_loadService.HasKey(ModelId.GameLevels))
-           //     return _loadService.Load<GameLevels>(ModelId.GameLevels);
+            if (_loadService.HasKey(ModelId.GameLevels))
+                return _loadService.Load(ModelId.GameLevels) as GameLevels;
 
            GameLevels gameLevels = new GameLevels(ModelId.GameLevels);
             

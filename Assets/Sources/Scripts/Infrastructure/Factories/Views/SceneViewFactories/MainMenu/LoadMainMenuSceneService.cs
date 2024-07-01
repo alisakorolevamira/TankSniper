@@ -5,13 +5,14 @@ using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Inventory;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
+using Sources.Scripts.Domain.Models.Shops;
 using Sources.Scripts.Domain.Models.Upgrades;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Inventory;
 using Sources.Scripts.Infrastructure.Factories.Views.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
-using Sources.Scripts.Infrastructure.Factories.Views.Shop;
+using Sources.Scripts.Infrastructure.Factories.Views.Shops;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
@@ -91,6 +92,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
 
             InventoryGrid inventoryGrid = _loadService.Load(ModelId.InventoryGrid) as InventoryGrid;
             
+            PlayerShop playerShop = _loadService.Load(ModelId.PlayerShop) as PlayerShop;
+            
             return new MainMenuModels(
                 volume,
                 gameLevels,
@@ -101,7 +104,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 upgrader,
                 skinChanger,
                 savedLevel,
-                inventoryGrid);
+                inventoryGrid,
+                playerShop);
         }
     }
 }

@@ -447,7 +447,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.11711311, y: -0.006134033}
+  m_AnchoredPosition: {x: -0.11711311, y: -0.015380859}
   m_SizeDelta: {x: 1876.88, y: -0.01}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &9076316517028528951
@@ -3709,7 +3709,7 @@ MonoBehaviour:
   _moneyIcon: {fileID: 1809793471892311786}
   _adImage: {fileID: 8818867077636588880}
   _buyButton: {fileID: 6937819216074921060}
-  _decal: {fileID: 21300000, guid: 0e32044b672ae024f867cadfa7b05f20, type: 3}
+  _decal: 3
 --- !u!1 &644544496089655202
 GameObject:
   m_ObjectHideFlags: 0
@@ -9841,7 +9841,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.11711311, y: -0.005126953}
+  m_AnchoredPosition: {x: -0.11711311, y: -0.014373779}
   m_SizeDelta: {x: 679.84, y: -0.01}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &6053912987910216128
@@ -10230,7 +10230,7 @@ MonoBehaviour:
   _moneyIcon: {fileID: 1943901905323797298}
   _adImage: {fileID: 8996583749087019120}
   _buyButton: {fileID: 5946868539661333937}
-  _decal: {fileID: 21300000, guid: 0581ce4029f0b46458b31c5e6c732eeb, type: 3}
+  _decal: 8
 --- !u!1 &1194988871149620029
 GameObject:
   m_ObjectHideFlags: 0
@@ -10399,7 +10399,7 @@ MonoBehaviour:
   _moneyIcon: {fileID: 4789379758763013922}
   _adImage: {fileID: 4923738211435856682}
   _buyButton: {fileID: 75781612977273945}
-  _decal: {fileID: 21300000, guid: 8585c8327e860074dab2539d8769a4ce, type: 3}
+  _decal: 4
 --- !u!1 &1205593111906350001
 GameObject:
   m_ObjectHideFlags: 0
@@ -10880,7 +10880,7 @@ MonoBehaviour:
   _moneyIcon: {fileID: 7099034476871027027}
   _adImage: {fileID: 756920111338386505}
   _buyButton: {fileID: 2389485802085093485}
-  _decal: {fileID: 21300000, guid: 5d1fe41bd23b8c445a3bd88788c542d7, type: 3}
+  _decal: 7
 --- !u!1 &1261281159256100132
 GameObject:
   m_ObjectHideFlags: 0
@@ -26038,7 +26038,7 @@ MonoBehaviour:
   _moneyIcon: {fileID: 4890168348007090000}
   _adImage: {fileID: 447685944121998129}
   _buyButton: {fileID: 6494637465996265937}
-  _decal: {fileID: 21300000, guid: 3263739f9001d2b4285e697bd19212bb, type: 3}
+  _decal: 1
 --- !u!1 &2415290636572836122
 GameObject:
   m_ObjectHideFlags: 0
@@ -49046,7 +49046,7 @@ MonoBehaviour:
   _moneyIcon: {fileID: 7882594648757392739}
   _adImage: {fileID: 2120001951754450596}
   _buyButton: {fileID: 4311054569049325900}
-  _decal: {fileID: 21300000, guid: 64301764fb53c314ab2a1d29040ef060, type: 3}
+  _decal: 10
 --- !u!1 &3661067952341021774
 GameObject:
   m_ObjectHideFlags: 0
@@ -50958,8 +50958,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 4795687468170102174}
-  _skinType: 8
-  _onClickCommandId: 01000000
+  _skinType: 0
+  _onClickCommandId: 02000000
 --- !u!1 &3813901402893443622
 GameObject:
   m_ObjectHideFlags: 0
@@ -58338,7 +58338,7 @@ MonoBehaviour:
   _moneyIcon: {fileID: 1371177682961625032}
   _adImage: {fileID: 1638999946748735971}
   _buyButton: {fileID: 2906595611090200292}
-  _decal: {fileID: 21300000, guid: fbba2bde73efe3f41abe2577ca7629b4, type: 3}
+  _decal: 2
 --- !u!1 &4179724370839163908
 GameObject:
   m_ObjectHideFlags: 0
@@ -62486,7 +62486,7 @@ MonoBehaviour:
   _moneyIcon: {fileID: 3802948486450188075}
   _adImage: {fileID: 1652980955270000568}
   _buyButton: {fileID: 2643438686820377163}
-  _decal: {fileID: 21300000, guid: 96f7c72334e4e5e44a2e3265d0b2b9f2, type: 3}
+  _decal: 13
 --- !u!1 &4467304877209173400
 GameObject:
   m_ObjectHideFlags: 0
@@ -89496,7 +89496,7 @@ MonoBehaviour:
   _moneyIcon: {fileID: 1520298402051868737}
   _adImage: {fileID: 7195840348864525818}
   _buyButton: {fileID: 8497147444321187461}
-  _decal: {fileID: 21300000, guid: d4bab21e027a92b45936bde567b2d477, type: 3}
+  _decal: 9
 --- !u!1 &6514443599087637109
 GameObject:
   m_ObjectHideFlags: 0
@@ -95131,7 +95131,7 @@ MonoBehaviour:
   _moneyIcon: {fileID: 7200009753728449171}
   _adImage: {fileID: 7600491870712038315}
   _buyButton: {fileID: 8732147706001122328}
-  _decal: {fileID: 21300000, guid: 0740289f3477fb84b82ef60615082390, type: 3}
+  _decal: 5
 --- !u!1 &6939837104091614443
 GameObject:
   m_ObjectHideFlags: 0
@@ -96863,7 +96863,7 @@ MonoBehaviour:
   _moneyIcon: {fileID: 733577725150495902}
   _adImage: {fileID: 8174744209130241460}
   _buyButton: {fileID: 7404395194198288433}
-  _decal: {fileID: 21300000, guid: baee9133d55c4a741aa4e97e4836e2e9, type: 3}
+  _decal: 12
 --- !u!1 &7264574555650485592
 GameObject:
   m_ObjectHideFlags: 0
@@ -113344,7 +113344,7 @@ MonoBehaviour:
   _moneyIcon: {fileID: 1313753454321537477}
   _adImage: {fileID: 5299461471222069752}
   _buyButton: {fileID: 3965907477042421123}
-  _decal: {fileID: 21300000, guid: ff8f6689952d01341990f2d34a1de3ae, type: 3}
+  _decal: 6
 --- !u!1 &8414165869836946704
 GameObject:
   m_ObjectHideFlags: 0
@@ -118149,7 +118149,7 @@ MonoBehaviour:
   _moneyIcon: {fileID: 8479963180772279987}
   _adImage: {fileID: 943821959021200756}
   _buyButton: {fileID: 4807016597406837979}
-  _decal: {fileID: 21300000, guid: cb86607b86e22b04fae1075c0c00eb84, type: 3}
+  _decal: 11
 --- !u!1 &8957705592134637113
 GameObject:
   m_ObjectHideFlags: 0

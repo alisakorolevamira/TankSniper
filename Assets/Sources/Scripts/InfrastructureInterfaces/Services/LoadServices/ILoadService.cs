@@ -9,9 +9,6 @@ namespace Sources.Scripts.InfrastructureInterfaces.Services.LoadServices
         void Save(string id);
         void LoadAll();
         void SaveAll();
-        void Clear(IEntity entity);
-        void Clear(string id);
-        void ClearAll();
         bool HasKey(string id);
     }
 }

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Sources.Scripts.Controllers.Presenters.Shop;
-using Sources.Scripts.PresentationsInterfaces.Views.Shop;
+using Sources.Scripts.Controllers.Presenters.Shops;
+using Sources.Scripts.PresentationsInterfaces.Views.Shops;
 using UnityEngine;
 
-namespace Sources.Scripts.Presentations.Views.Shop
+namespace Sources.Scripts.Presentations.Views.Shops
 {
     public class ShopView : PresentableView<ShopPresenter>, IShopView
     {

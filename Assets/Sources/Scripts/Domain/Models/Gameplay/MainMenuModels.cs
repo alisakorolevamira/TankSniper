@@ -1,6 +1,7 @@
 ﻿using Sources.Scripts.Domain.Models.Inventory;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
+using Sources.Scripts.Domain.Models.Shops;
 using Sources.Scripts.Domain.Models.Upgrades;
 
 namespace Sources.Scripts.Domain.Models.Gameplay
@@ -9,12 +10,6 @@ namespace Sources.Scripts.Domain.Models.Gameplay
     {
         public MainMenuModels(
             Volume volume,
-            //Level firstLevel,
-            //Level secondLevel,
-            //Level thirdLevel,
-            //Level fourthLevel,
-            //Level fifthLevel,
-            //Level sixthLevel,
             GameLevels levels,
             LevelAvailability levelAvailability,
             GameData gameData,
@@ -23,15 +18,10 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             Upgrader upgrader,
             SkinChanger skinChanger,
             SavedLevel savedLevel,
-            InventoryGrid grid)
+            InventoryGrid grid,
+            PlayerShop shop)
         {
             Volume = volume;
-            //FirstLevel = firstLevel;
-            //SecondLevel = secondLevel;
-            //ThirdLevel = thirdLevel;
-            //FourthLevel = fourthLevel;
-            //FifthLevel = fifthLevel;
-            //SixthLevel = sixthLevel;
             Levels = levels;
             LevelAvailability = levelAvailability;
             GameData = gameData;
@@ -41,15 +31,10 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             SkinChanger = skinChanger;
             SavedLevel = savedLevel;
             InventoryGrid = grid;
+            Shop = shop;
         }
 
         public Volume Volume { get; }
-        //public Level FirstLevel { get; }
-        //public Level SecondLevel { get; }
-        //public Level ThirdLevel { get; }
-        //public Level FourthLevel { get; }
-        //public Level FifthLevel { get; }
-        //public Level SixthLevel { get; }
         public GameLevels Levels { get; }
         public LevelAvailability LevelAvailability { get; }
         public GameData GameData { get; }
@@ -59,5 +44,6 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         public Upgrader Upgrader { get; }
         public InventoryGrid InventoryGrid { get; }
         public SkinChanger SkinChanger { get; }
+        public PlayerShop Shop { get; }
     }
 }

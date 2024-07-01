@@ -1,8 +1,7 @@
-﻿using System;
-using Sources.Scripts.PresentationsInterfaces.Views.Shop;
+﻿using Sources.Scripts.PresentationsInterfaces.Views.Shops;
 using UnityEngine;
 
-namespace Sources.Scripts.Presentations.Views.Shop
+namespace Sources.Scripts.Presentations.Views.Shops
 {
     public class ShopTankView : View, IShopTankView
     {

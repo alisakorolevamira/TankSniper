@@ -1,11 +1,11 @@
 ﻿using System;
-using JetBrains.Annotations;
-using Sources.Scripts.Controllers.Presenters.Shop;
+using Sources.Scripts.Controllers.Presenters.Shops;
 using Sources.Scripts.Domain.Models.Upgrades;
+using Sources.Scripts.Domain.Models.Shops;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpgradeServices;
-using Sources.Scripts.PresentationsInterfaces.Views.Shop;
+using Sources.Scripts.PresentationsInterfaces.Views.Shops;
 
-namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Shop
+namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Shops
 {
     public class ShopPresenterFactory
     {
@@ -16,9 +16,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Shop
             _upgradeService = upgradeService ?? throw new ArgumentNullException(nameof(upgradeService));
         }
         
-        public ShopPresenter Create(IShopView view, Upgrader upgrader)
+        public ShopPresenter Create(IShopView view, Upgrader upgrader, PlayerShop shop)
         {
-            return new ShopPresenter(view, _upgradeService, upgrader);
+            return new ShopPresenter(view, _upgradeService, upgrader, shop);
         }
     }
 }

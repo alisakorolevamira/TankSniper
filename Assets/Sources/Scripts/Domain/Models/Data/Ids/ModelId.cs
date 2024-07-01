@@ -4,6 +4,7 @@ using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Inventory;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
+using Sources.Scripts.Domain.Models.Shops;
 using Sources.Scripts.Domain.Models.Upgrades;
 using Sources.Scripts.DomainInterfaces.Models.Entities;
 
@@ -21,11 +22,8 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
         public const string SkinChanger = "SkinChanger";
         public const string GameLevels = "GameLevels";
         public const string InventoryGrid = "InventoryGrid";
+        public const string PlayerShop = "PlayerShop";
         
-        
-        public static IReadOnlyList<string> DeletedModelsIds = new List<string>()
-        {
-        };
         
         public static IReadOnlyList<string> ModelsIds = new List<string>()
         {
@@ -38,6 +36,7 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
             SkinChanger,
             GameLevels,
             InventoryGrid,
+            PlayerShop,
         };
 
         public static IReadOnlyDictionary<string, Type> DtoTypes = new Dictionary<string, Type>()
@@ -64,6 +63,7 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
             [SkinChanger] = new SkinChanger(SkinChanger),
             [GameLevels] = new GameLevels(GameLevels),
             [InventoryGrid] = new InventoryGrid(InventoryGrid),
+            [PlayerShop] = new PlayerShop(PlayerShop),
         };
     }
 }

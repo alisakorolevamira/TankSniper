@@ -1,10 +1,10 @@
 ﻿using System;
-using Sources.Scripts.Controllers.Presenters.Shop;
+using Sources.Scripts.Controllers.Presenters.Shops;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
 using Sources.Scripts.InfrastructureInterfaces.Services.Yandex;
-using Sources.Scripts.PresentationsInterfaces.Views.Shop;
+using Sources.Scripts.PresentationsInterfaces.Views.Shops;
 
 namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Shop
 {

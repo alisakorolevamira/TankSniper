@@ -2,6 +2,7 @@
 using System.Linq;
 using Sources.Scripts.Domain.Models.Inventory;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
+using Sources.Scripts.Presentations.Views.Inventory;
 using Sources.Scripts.PresentationsInterfaces.Views.Inventory;
 using UnityEngine;
 
@@ -28,9 +29,9 @@ namespace Sources.Scripts.Controllers.Presenters.Inventory
 
         private void Fill()
         {
-            foreach (var slotView in _view.Slots)
+            foreach (InventorySlotView slotView in _view.Slots)
             {
-               var slot =
+               var slot = 
                    _grid.Slots.First(slot => slotView.Position == slot.Key);
                slotView.Construct(slot.Value);
                

@@ -41,7 +41,6 @@ namespace Sources.Scripts.Infrastructure.Services.GameOver
                 return;
             
             _isGameOver = true;
-            _loadService.ClearAll();
             Signal.Send(StreamId.Gameplay.GameOver);
             //_interstitialAdService.ShowInterstitial();
         }

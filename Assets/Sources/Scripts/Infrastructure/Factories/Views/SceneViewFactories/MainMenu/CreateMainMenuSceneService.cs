@@ -6,13 +6,14 @@ using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Inventory;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
+using Sources.Scripts.Domain.Models.Shops;
 using Sources.Scripts.Domain.Models.Upgrades;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Inventory;
 using Sources.Scripts.Infrastructure.Factories.Views.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
-using Sources.Scripts.Infrastructure.Factories.Views.Shop;
+using Sources.Scripts.Infrastructure.Factories.Views.Shops;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
@@ -102,6 +103,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             InventoryGrid grid = new InventoryGrid(ModelId.InventoryGrid);
             _entityRepository.Add(grid);
 
+            PlayerShop playerShop = new PlayerShop(ModelId.PlayerShop);
+            _entityRepository.Add(playerShop);
+
             LevelAvailability levelAvailability = new LevelAvailability(gameLevels.Levels);
 
             _loadService.SaveAll();
@@ -116,7 +120,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 upgrader,
                 skinChanger,
                 savedLevel,
-                grid);
+                grid,
+                playerShop);
         }
 
         private Volume CreateVolume()

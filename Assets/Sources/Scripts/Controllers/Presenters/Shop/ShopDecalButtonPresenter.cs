@@ -64,7 +64,7 @@ namespace Sources.Scripts.Controllers.Presenters.Shop
         }
 
         private void SetSprite() =>
-            _skinChangerService.ChangeDecal(_view.Decal);
+            _skinChangerService.ChangeDecal(_view.DecalType);
 
         private void SetPriceText()
         {

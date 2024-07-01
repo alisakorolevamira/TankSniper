@@ -12,8 +12,13 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Common
         public override void InstallBindings()
         {
             Container
-                .Bind<PlayerViewMaterialsConfig>()
-                .FromResource("Configs/PlayerViewMaterialsConfig")
+                .Bind<MaterialViewsConfig>()
+                .FromResource("Configs/MaterialViewsConfig")
+                .AsSingle();
+            
+            Container
+                .Bind<DecalViewsConfig>()
+                .FromResource("Configs/DecalViewsConfig")
                 .AsSingle();
             
             Container.Bind<PlayerWalletPresenterFactory>().AsSingle();

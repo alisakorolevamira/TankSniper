@@ -1,4 +1,5 @@
 ﻿using Doozy.Runtime.UIManager.Components;
+using Sources.Scripts.Presentations.Views.Players.Skins.DecalsType;
 using Sources.Scripts.UIFramework.Presentations.Images;
 using Sources.Scripts.UIFramework.Presentations.Texts;
 using UnityEngine;
@@ -13,7 +14,7 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Shop
         public UIText FreeText { get; }
         public ImageView MoneyIcon { get; }
         public ImageView AdImage { get; }
-        public Sprite Decal { get; }
+        public DecalType DecalType { get; }
         public bool IsBought { get; }
 
         void Show();

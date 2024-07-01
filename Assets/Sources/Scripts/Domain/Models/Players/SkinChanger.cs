@@ -1,6 +1,7 @@
 ﻿using System;
 using Sources.Scripts.Domain.Models.Data;
 using Sources.Scripts.DomainInterfaces.Models.Entities;
+using Sources.Scripts.Presentations.Views.Decals;
 using Sources.Scripts.Presentations.Views.Materials;
 using Sources.Scripts.Presentations.Views.Players.Skins.DecalsType;
 using Sources.Scripts.Presentations.Views.Players.Skins.MaterialTypes;
@@ -67,10 +68,10 @@ namespace Sources.Scripts.Domain.Models.Players
         public void SetDefaultMaterial() => 
             DefaultMaterialSetted?.Invoke();
 
-        public void ChangeDecal(Sprite decal)
+        public void ChangeDecal(DecalView decalView)
         {
-            //сделать деколвью
-            CurrentDecalChanged?.Invoke(decal);
+            CurrentDecal = decalView.Type;
+            CurrentDecalChanged?.Invoke(decalView.Decal);
         }
 
         public void RemoveDecal() => 

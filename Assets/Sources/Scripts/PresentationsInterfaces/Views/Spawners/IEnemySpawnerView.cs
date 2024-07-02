@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
-using Sources.Scripts.Presentations.Views.Common;
+using Sources.Scripts.Presentations.Views.Enemies.Base;
 using Sources.Scripts.Presentations.Views.Players;
-using Sources.Scripts.PresentationsInterfaces.Views.Common;
 
 namespace Sources.Scripts.PresentationsInterfaces.Views.Spawners
 {
     public interface IEnemySpawnerView
     {
-        IReadOnlyList<IEnemySpawnPoint> SpawnPoints { get; }
+        IReadOnlyList<EnemyViewBase> EnemyViews { get; }
 
         PlayerView PlayerView { get; }
 

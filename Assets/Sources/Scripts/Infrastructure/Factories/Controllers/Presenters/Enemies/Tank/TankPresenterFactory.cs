@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base.States;
+using Sources.Scripts.Controllers.Presenters.Enemies.Tank.States;
 using Sources.Scripts.Domain.Models.Enemies.Tank;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.Transitions;
@@ -33,10 +34,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
             TankEnemy enemy,
             KilledEnemiesCounter killedEnemiesCounter,
             ITankEnemyView tankEnemyView,
-            ITankEnemyAnimation enemyAnimation,
-            IEnemySpawnPoint spawnPoint)
+            ITankEnemyAnimation enemyAnimation)
         {
-            EnemyMovementState movementState = new EnemyMovementState(enemyAnimation, tankEnemyView, spawnPoint);
+            TankMovementState movementState = new TankMovementState(enemyAnimation, tankEnemyView);
             EnemyAttackState attackState = new EnemyAttackState(enemy, tankEnemyView, enemyAnimation);
             EnemyDieState dieState = new EnemyDieState(killedEnemiesCounter, tankEnemyView, _enemyCollection, enemyAnimation);
             

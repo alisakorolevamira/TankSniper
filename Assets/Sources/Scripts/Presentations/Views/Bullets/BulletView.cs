@@ -37,8 +37,6 @@ namespace Sources.Scripts.Presentations.Views.Bullets
                 Vector3 endPoint = hit.point;
 
                 ChangePosition(endPoint);
-                
-                hit.collider.SendMessage("Shatter", hit.point, SendMessageOptions.DontRequireReceiver);
             }
             
             _cancellationTokenSource.Cancel();
@@ -67,11 +65,16 @@ namespace Sources.Scripts.Presentations.Views.Bullets
             if(_isDisposed)
                 return;
 
-            if(collision.gameObject.TryGetComponent(out IEnemyHealthView enemyHealthView)) 
+            if (collision.gameObject.TryGetComponent(out IEnemyHealthView enemyHealthView))
+            {
                 _weaponView.DealDamage(enemyHealthView);
+                SpawnEffectOnDestroy();
+                
+                return;
+            }
             
+            collision.collider.SendMessage("Shatter", collision.transform.position, SendMessageOptions.DontRequireReceiver);
             SpawnEffectOnDestroy();
-            _poolableObjectDestroyerService.Destroy(this);
         }
         
         private void SpawnEffectOnDestroy()
@@ -79,6 +82,7 @@ namespace Sources.Scripts.Presentations.Views.Bullets
             ParticleSystem effect = Instantiate(_onDestroyEffect, transform.position, Quaternion.identity);
             effect.Play();
             Destroy(effect.gameObject, BulletConst.EffectDelay);
+            _poolableObjectDestroyerService.Destroy(this);
         }
     }
 }

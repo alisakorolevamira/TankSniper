@@ -21,7 +21,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Boss
         private readonly BossEnemyPresenterFactory _bossEnemyPresenterFactory;
         //private readonly IObjectPool<BossEnemyView> _bossEnemyPool;
         private readonly EnemyHealthViewFactory _enemyHealthViewFactory;
-        private readonly HealthBarUIFactory _healthBarUIFactory;
         private readonly HealthUITextViewFactory _healthUITextViewFactory;
 
 

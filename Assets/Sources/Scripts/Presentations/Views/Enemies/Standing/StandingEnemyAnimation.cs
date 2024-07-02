@@ -35,7 +35,8 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Standing
 
         public void PlayDying()
         {
-            
+            //Destroy(gameObject);
+            Hide();
         }
 
         private void StopIdle()

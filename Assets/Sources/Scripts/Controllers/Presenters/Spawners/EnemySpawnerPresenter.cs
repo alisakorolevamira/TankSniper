@@ -1,23 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading;
-using Cysharp.Threading.Tasks;
-using JetBrains.Annotations;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Spawners;
 using Sources.Scripts.Domain.Models.Spawners.Types;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
-using Sources.Scripts.Presentations.Views.Common;
-using Sources.Scripts.Presentations.Views.Enemies.Helicopter;
-using Sources.Scripts.Presentations.Views.Players;
-using Sources.Scripts.PresentationsInterfaces.Views.Common;
-using Sources.Scripts.PresentationsInterfaces.Views.Enemies;
-using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopter;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Standing;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tank;
 using Sources.Scripts.PresentationsInterfaces.Views.Spawners;
-using UnityEngine;
 
 namespace Sources.Scripts.Controllers.Presenters.Spawners
 {
@@ -54,55 +44,38 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
                                      throw new ArgumentNullException(nameof(bossEnemySpawnerService));
         }
 
-        public override void Enable()
-        {
-            _cancellationTokenSource = new CancellationTokenSource();
-            Spawn(_cancellationTokenSource.Token);
-        }
+        public override void Enable() => 
+            SpawnEnemy();
 
-        public override void Disable() =>
-            _cancellationTokenSource.Cancel();
-
-        private void Spawn(CancellationToken cancellationToken)
+        private void SpawnEnemy()
         {
-            try
+            foreach (var enemyView in _enemySpawnerView.EnemyViews)
             {
-                foreach (IEnemySpawnPoint spawnPoint in _enemySpawnerView.SpawnPoints)
+                if (enemyView.EnemyType == EnemyType.Tank)
                 {
-                    SpawnEnemy(spawnPoint, _enemySpawnerView.PlayerView);
-                    //SpawnBoss(spawnPoint.Position, _enemySpawnerView.PlayerView);
+                    ITankEnemyView tankEnemyView = _tankEnemySpawnerService.Spawn(_killedEnemiesCounter, enemyView);
+                    
+                    tankEnemyView.SetPlayerHealthView(_enemySpawnerView.PlayerView.PlayerHealthView);
                 }
-            }
-            catch (OperationCanceledException)
-            {
-            }
-        }
-
-        private void SpawnEnemy(IEnemySpawnPoint spawnPoint, PlayerView playerView)
-        {
-            if (spawnPoint.EnemyType == EnemyType.Tank)
-            {
-                ITankEnemyView tankEnemyView = _tankEnemySpawnerService.Spawn(_killedEnemiesCounter, spawnPoint);
-                tankEnemyView.SetPlayerHealthView(playerView.PlayerHealthView);
-            }
-            
-            else if (spawnPoint.EnemyType == EnemyType.Standing)
-            {
-                IStandingEnemyView standingEnemyView =
-                    _standingEnemySpawnerService.Spawn(_killedEnemiesCounter, spawnPoint);
+                    
+                else if (enemyView.EnemyType == EnemyType.Standing)
+                {
+                    IStandingEnemyView standingEnemyView =
+                        _standingEnemySpawnerService.Spawn(_killedEnemiesCounter, enemyView);
+                    
+                    standingEnemyView.SetPlayerHealthView(_enemySpawnerView.PlayerView.PlayerHealthView);
+                }
                 
-                standingEnemyView.SetPlayerHealthView(playerView.PlayerHealthView);
-            }
-
-            else if (spawnPoint.EnemyType == EnemyType.Helicopter)
-            {
-                IHelicopterEnemyView helicopterEnemyView =
-                    _helicopterEnemySpawnerService.Spawn(_killedEnemiesCounter, spawnPoint);
+                else if (enemyView.EnemyType == EnemyType.Helicopter)
+                {
+                    IHelicopterEnemyView helicopterEnemyView =
+                        _helicopterEnemySpawnerService.Spawn(_killedEnemiesCounter, enemyView);
                 
-                helicopterEnemyView.SetPlayerHealthView(playerView.PlayerHealthView);
-            }
+                    helicopterEnemyView.SetPlayerHealthView(_enemySpawnerView.PlayerView.PlayerHealthView);
+                }
 
-            _enemySpawner.SpawnedEnemies++;
+                _enemySpawner.SpawnedEnemies++;
+            }
         }
     }
 }

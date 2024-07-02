@@ -3,9 +3,7 @@ using Sources.Scripts.Controllers.Presenters.Common;
 using Sources.Scripts.DomainInterfaces.Models.Healths;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Common;
 using Sources.Scripts.Presentations.Views.Common;
-using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.PresentationsInterfaces.Views.Common;
-using Sources.Scripts.PresentationsInterfaces.Views.Players;
 
 namespace Sources.Scripts.Infrastructure.Factories.Views.Common
 {
@@ -16,7 +14,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Common
         public HealthBarUIFactory(HealthBarUIPresenterFactory healthBarUIPresenterFactory)
         {
             _healthBarUIPresenterFactory = healthBarUIPresenterFactory ??
-                                        throw new ArgumentNullException(nameof(healthBarUIPresenterFactory));
+                                           throw new ArgumentNullException(nameof(healthBarUIPresenterFactory));
         }
 
         public IHealthBarUI Create(IHealth health, HealthBarUI healthBarUI)

@@ -1,4 +1,6 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
+using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Presentations.Views.Animations;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tank;
 using UnityEngine;
@@ -9,6 +11,7 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Tank
     {
         [SerializeField] private ParticleSystem _movementParticle;
         [SerializeField] private ParticleSystem _attackParticle;
+        [SerializeField] private Collider _collider;
         
         public event Action Attacking;
         
@@ -26,7 +29,10 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Tank
 
         public void PlayDying()
         {
+            _attackParticle.Stop();
+            _movementParticle.Stop();
             
+            _collider.SendMessage("Shatter", transform.position, SendMessageOptions.DontRequireReceiver);
         }
     }
 }

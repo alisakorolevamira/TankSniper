@@ -3,17 +3,13 @@ using System.Collections.Generic;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base.States;
 using Sources.Scripts.Controllers.Presenters.Enemies.Helicopter;
-using Sources.Scripts.Controllers.Presenters.Enemies.Standing.States;
 using Sources.Scripts.Domain.Models.Enemies.Helicopter;
-using Sources.Scripts.Domain.Models.Enemies.Standing;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.Transitions;
 using Sources.Scripts.InfrastructureInterfaces.Services.Players;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpdateServices;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopter;
-using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Standing;
-using Sources.Scripts.PresentationsInterfaces.Views.Spawners;
 
 namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Helicopter
 {
@@ -37,8 +33,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
             HelicopterEnemy enemy,
             KilledEnemiesCounter killedEnemiesCounter,
             IHelicopterEnemyView enemyView,
-            IHelicopterEnemyAnimation enemyAnimation,
-            IEnemySpawnPoint spawnPoint)
+            IHelicopterEnemyAnimation enemyAnimation)
         {
             EnemyIdleState idleState = new EnemyIdleState(enemyAnimation);
             HelicopterAttackState attackState = new HelicopterAttackState(enemy, enemyView, enemyAnimation);

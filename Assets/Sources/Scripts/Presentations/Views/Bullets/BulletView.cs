@@ -69,6 +69,7 @@ namespace Sources.Scripts.Presentations.Views.Bullets
             {
                 _weaponView.DealDamage(enemyHealthView);
                 SpawnEffectOnDestroy();
+                Debug.Log("on enemy");
                 
                 return;
             }

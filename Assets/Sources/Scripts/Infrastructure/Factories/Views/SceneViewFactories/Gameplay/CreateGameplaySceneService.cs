@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Sources.Scripts.Domain.Models.Common;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Data.Ids;
@@ -25,9 +24,6 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
 using Sources.Scripts.InfrastructureInterfaces.Services.Saves;
 using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
 using Sources.Scripts.Presentations.UI.Huds;
-using Sources.Scripts.Presentations.Views.Players.Skins.DecalsType;
-using Sources.Scripts.Presentations.Views.Players.Skins.MaterialTypes;
-using Sources.Scripts.Presentations.Views.Players.Skins.SkinTypes;
 using Sources.Scripts.Presentations.Views.RootGameObjects;
 
 namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Gameplay
@@ -49,6 +45,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             VolumeViewFactory volumeViewFactory,
             RewardViewFactory rewardViewFactory,
             SkinChangerViewFactory skinChangerViewFactory,
+            LevelAvailabilityViewFactory levelAvailabilityViewFactory,
             IGameOverService gameOverService,
             ICameraService cameraService,
             IVolumeService volumeService,
@@ -68,6 +65,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 volumeViewFactory,
                 rewardViewFactory,
                 skinChangerViewFactory,
+                levelAvailabilityViewFactory,
                 gameOverService,
                 cameraService,
                 volumeService,
@@ -101,6 +99,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             EnemySpawner enemySpawner = new EnemySpawner();
             
             CharacterHealth characterHealth = new CharacterHealth();
+            
+            LevelAvailability levelAvailability = new LevelAvailability(gameLevels.Levels);
 
             Weapon weapon = new Weapon(PlayerConst.Damage);
 
@@ -125,37 +125,16 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 enemySpawner,
                 upgrader,
                 skinChanger,
+                levelAvailability,
                 savedLevel);
         }
-
-        private Volume CreateVolume()
-        {
-            //if (_loadService.HasKey(ModelId.Volume))
-            //    return _loadService.Load<Volume>(ModelId.Volume);
-
-            Volume volume = new Volume(ModelId.Volume);
-            _entityRepository.Add(volume);
-
-            return volume;
-        }
-
-       // private Level CreateLevel(string sceneId)
-       // {
-       //     if (_loadService.HasKey(sceneId))
-       //         return _loadService.Load<Level>(sceneId);
-       //     
-       //     Level level = new Level(sceneId, false);
-       //     _entityRepository.Add(level);
-//
-       //     return level;
-       // }
 
         private GameLevels CreateGamelevels()
         {
             if (_loadService.HasKey(ModelId.GameLevels))
                 return _loadService.Load(ModelId.GameLevels) as GameLevels;
 
-           GameLevels gameLevels = new GameLevels(ModelId.GameLevels);
+            GameLevels gameLevels = new GameLevels(ModelId.GameLevels);
             
             _entityRepository.Add(gameLevels);
 

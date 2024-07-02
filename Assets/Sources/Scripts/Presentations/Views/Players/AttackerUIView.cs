@@ -2,11 +2,11 @@
 using Sources.Scripts.Controllers.Presenters.Players;
 using Sources.Scripts.Presentations.Views.Bullets;
 using Sources.Scripts.Presentations.Views.Lightnings;
-using Sources.Scripts.PresentationsInterfaces.UI.Images;
 using Sources.Scripts.PresentationsInterfaces.Views.Bullets;
 using Sources.Scripts.PresentationsInterfaces.Views.Lightnings;
 using Sources.Scripts.PresentationsInterfaces.Views.Players;
 using Sources.Scripts.UIFramework.Presentations.Images;
+using Sources.Scripts.UIFramework.PresentationsInterfaces.Images;
 using UnityEngine;
 
 namespace Sources.Scripts.Presentations.Views.Players

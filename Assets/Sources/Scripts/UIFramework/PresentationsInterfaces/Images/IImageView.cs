@@ -2,7 +2,7 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace Sources.Scripts.PresentationsInterfaces.UI.Images
+namespace Sources.Scripts.UIFramework.PresentationsInterfaces.Images
 {
     public interface IImageView
     {
@@ -13,5 +13,6 @@ namespace Sources.Scripts.PresentationsInterfaces.UI.Images
         UniTask FillMoveTowardsAsync(float duration, CancellationToken cancellationToken);
         void ShowImage();
         void HideImage();
+        void SetColor(Color color);
     }
 }

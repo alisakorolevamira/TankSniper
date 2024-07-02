@@ -14,6 +14,7 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpgradeServices;
 using Sources.Scripts.Presentations.UI.Huds;
+using Sources.Scripts.Presentations.Views.Gameplay;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.Presentations.Views.Players.Skins;
 using Sources.Scripts.Presentations.Views.Shops;
@@ -96,8 +97,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             
             _upgradeService.Register(models.Upgrader, models.SkinChanger);
             
-            _levelAvailabilityViewFactory.Create(models.LevelAvailability, _mainMenuHud.LevelAvailabilityView);
-            
             _inventoryGridViewFactory.Create(_mainMenuHud.InventoryGridView, models.InventoryGrid);
             _inventoryTankSpawnerService.AddSlots(_mainMenuHud.InventoryGridView.Slots);
             _inventoryTankButtonViewFactory.Create(
@@ -116,6 +115,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
 
             foreach (ShopDecalButtonView decalButton in _mainMenuHud.ShopView.DecalButtons) 
                 _shopDecalButtonViewFactory.Create(decalButton, models.Player.PlayerWallet);
+
+            foreach (LevelAvailabilityView view in _mainMenuHud.LevelAvailabilityViews) 
+                _levelAvailabilityViewFactory.Create(models.LevelAvailability, view);
             
         }
         

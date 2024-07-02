@@ -10,12 +10,6 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Standing
         [SerializeField] private ParticleSystem _gunShoot;
         
         public event Action Attacking;
-        
-        private void Awake()
-        {
-            //StoppingAnimations.Add(StopIdle);
-            //StoppingAnimations.Add(StopAttack);
-        }
 
         public void PlayIdle()
         {
@@ -33,11 +27,8 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Standing
             //_gunShoot.Play();
         }
 
-        public void PlayDying()
-        {
-            //Destroy(gameObject);
+        public void PlayDying() => 
             Hide();
-        }
 
         private void StopIdle()
         {

@@ -1,4 +1,4 @@
-﻿using Sources.Scripts.PresentationsInterfaces.UI.Images;
+﻿using Sources.Scripts.UIFramework.PresentationsInterfaces.Images;
 
 namespace Sources.Scripts.PresentationsInterfaces.Views.Lightnings
 {

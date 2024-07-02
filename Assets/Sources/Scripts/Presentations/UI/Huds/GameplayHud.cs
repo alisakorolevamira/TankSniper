@@ -33,13 +33,14 @@ namespace Sources.Scripts.Presentations.UI.Huds
 
         [Header("Weapon")]
         [SerializeField] private ReloadWeaponView _reloadWeaponView;
-        //[SerializeField] private RectTransform _shootZone;
         [SerializeField] private List<UIButton> _shootButtons;
+
+        [Header("Levels")]
+        [SerializeField] private LevelAvailabilityView _levelAvailabilityView;
         
         public IReadOnlyList<IUIAudioSource> UIAudioSources => _uiAudioSources;
         
         public CameraView CameraView => cameraView;
-        //public RectTransform ShootZone => _shootZone;
         public IReadOnlyList<UIButton> ShootButtons => _shootButtons;
         
         public IReadOnlyList<WalletUI> WalletsUI => _walletsUI;
@@ -52,5 +53,6 @@ namespace Sources.Scripts.Presentations.UI.Huds
         public AttackerUIView AttackerUIView => _attackerUIView;
         public ReloadWeaponView ReloadWeaponView => _reloadWeaponView;
         public RewardView RewardView => _rewardView;
+        public LevelAvailabilityView LevelAvailabilityView => _levelAvailabilityView;
     }
 }

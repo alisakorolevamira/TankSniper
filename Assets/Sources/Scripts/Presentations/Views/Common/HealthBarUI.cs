@@ -1,8 +1,8 @@
 ﻿using Sources.Scripts.Controllers.Presenters.Common;
-using Sources.Scripts.PresentationsInterfaces.UI.Images;
 using Sources.Scripts.PresentationsInterfaces.Views.Common;
 using Sources.Scripts.PresentationsInterfaces.Views.Players;
 using Sources.Scripts.UIFramework.Presentations.Images;
+using Sources.Scripts.UIFramework.PresentationsInterfaces.Images;
 using UnityEngine;
 
 namespace Sources.Scripts.Presentations.Views.Common

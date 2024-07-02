@@ -20,6 +20,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             EnemySpawner enemySpawner,
             Upgrader upgrader,
             SkinChanger skinChanger,
+            LevelAvailability levelAvailability,
             SavedLevel savedLevel)
         {
             CharacterHealth = characterHealth;
@@ -33,6 +34,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             SavedLevel = savedLevel;
             SkinChanger = skinChanger;
             Upgrader = upgrader;
+            LevelAvailability = levelAvailability;
         }
 
         public CharacterHealth CharacterHealth { get; }
@@ -46,5 +48,6 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         public SavedLevel SavedLevel { get; }
         public Upgrader Upgrader { get; }
         public SkinChanger SkinChanger { get; }
+        public LevelAvailability LevelAvailability { get; }
     }
 }

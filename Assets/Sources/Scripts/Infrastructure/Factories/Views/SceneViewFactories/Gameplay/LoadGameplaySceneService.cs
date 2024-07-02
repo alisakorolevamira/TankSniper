@@ -45,6 +45,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             VolumeViewFactory volumeViewFactory,
             RewardViewFactory rewardViewFactory,
             SkinChangerViewFactory skinChangerViewFactory,
+            LevelAvailabilityViewFactory levelAvailabilityViewFactory,
             ILoadService loadService, 
             IGameOverService gameOverService, 
             ICameraService cameraService, 
@@ -64,6 +65,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 volumeViewFactory,
                 rewardViewFactory,
                 skinChangerViewFactory,
+                levelAvailabilityViewFactory,
                 gameOverService, 
                 cameraService, 
                 volumeService,
@@ -103,6 +105,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
             PlayerAttacker playerAttacker = new PlayerAttacker(weapon);
             
+            LevelAvailability levelAvailability = new LevelAvailability(gameLevels.Levels);
+            
             GameplayPlayer player = new GameplayPlayer(playerWallet, characterHealth, playerAttacker, weapon);
             
             return new GameModels(
@@ -116,6 +120,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 enemySpawner,
                 upgrader,
                 skinChanger,
+                levelAvailability,
                 savedLevel);
         }
     }

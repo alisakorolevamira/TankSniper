@@ -2,7 +2,7 @@
 using Cysharp.Threading.Tasks;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Presentations.Views;
-using Sources.Scripts.PresentationsInterfaces.UI.Images;
+using Sources.Scripts.UIFramework.PresentationsInterfaces.Images;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,5 +28,10 @@ namespace Sources.Scripts.UIFramework.Presentations.Images
 
         public void HideImage() => 
             _image.fillAmount = 0f;
+
+        public void SetColor(Color color)
+        {
+            _image.color = color;
+        }
     }
 }

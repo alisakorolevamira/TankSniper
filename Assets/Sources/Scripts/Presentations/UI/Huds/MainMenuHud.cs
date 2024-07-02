@@ -19,7 +19,7 @@ namespace Sources.Scripts.Presentations.UI.Huds
         [SerializeField] private VolumeView _volumeView;
         
         [Header("Levels")]
-        [SerializeField] private LevelAvailabilityView _levelAvailabilityView;
+        [SerializeField] private List<LevelAvailabilityView> _levelAvailabilityViews;
         
         [Header("Wallet")]
         [SerializeField] private List<WalletUI> _walletsUI;
@@ -35,7 +35,7 @@ namespace Sources.Scripts.Presentations.UI.Huds
         [SerializeField] private ShopView _shopView;
         
         public IReadOnlyList<IUIAudioSource> UIAudioSources => _uiAudioSources;
-        public LevelAvailabilityView LevelAvailabilityView => _levelAvailabilityView;
+        public IReadOnlyList<LevelAvailabilityView> LevelAvailabilityViews => _levelAvailabilityViews;
         public VolumeView VolumeView => _volumeView;
         public IReadOnlyList<WalletUI> WalletsUI => _walletsUI;
         public InventoryGridView InventoryGridView => _gridView;

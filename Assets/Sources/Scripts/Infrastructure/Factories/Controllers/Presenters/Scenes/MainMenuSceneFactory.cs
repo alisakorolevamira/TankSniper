@@ -8,6 +8,7 @@ using Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.MainMenu
 using Sources.Scripts.InfrastructureInterfaces.Factories.Controllers.Scenes;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactories;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
+using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;

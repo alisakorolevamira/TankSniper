@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Sources.Scripts.PresentationsInterfaces.UI.Images;
 using Sources.Scripts.PresentationsInterfaces.Views.Bullets;
 using Sources.Scripts.PresentationsInterfaces.Views.Lightnings;
+using Sources.Scripts.UIFramework.PresentationsInterfaces.Images;
 using UnityEngine;
 
 namespace Sources.Scripts.PresentationsInterfaces.Views.Players

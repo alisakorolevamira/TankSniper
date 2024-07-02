@@ -16343,7 +16343,8 @@ GameObject:
   - component: {fileID: 4784051233032404686}
   - component: {fileID: 7611163325827268866}
   - component: {fileID: 8865171993953347413}
-  - component: {fileID: 848156449054267813}
+  - component: {fileID: 7754332901732416381}
+  - component: {fileID: 2602916156892186107}
   m_Layer: 0
   m_Name: StandingEnemyView
   m_TagString: Untagged
@@ -16383,6 +16384,7 @@ MonoBehaviour:
   _navMeshAgent: {fileID: 0}
   _healthView: {fileID: 8865171993953347413}
   _healthUIText: {fileID: 5836055317558170551}
+  _enemyType: 2
   _enemyAnimation: {fileID: 7611163325827268866}
 --- !u!114 &7611163325827268866
 MonoBehaviour:
@@ -16410,7 +16412,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e91c045298145fea8e21f88215cc74f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &848156449054267813
+--- !u!114 &7754332901732416381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7625160230402186198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b9da142b71b40e6ada0cf8dc2aa245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredVelocity: 1
+  cooldownTime: 0.5
+--- !u!136 &2602916156892186107
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16429,10 +16445,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.38160148
-  m_Height: 1.1105636
+  m_Radius: 0.39372954
+  m_Height: 1.0419766
   m_Direction: 1
-  m_Center: {x: -0.021262228, y: 0.4691866, z: -0.050281852}
+  m_Center: {x: -0.01358065, y: 0.49260706, z: -0.08253202}
 --- !u!1 &7640778845708763879
 GameObject:
   m_ObjectHideFlags: 0

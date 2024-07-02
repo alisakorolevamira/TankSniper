@@ -1,5 +1,7 @@
 ﻿using Sources.Scripts.Domain.Models.Players.Configs;
+using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Players;
+using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Players;
 using Sources.Scripts.Infrastructure.Services.Shop;
 using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
@@ -29,6 +31,9 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Common
 
             Container.Bind<SkinChangerPresenterFactory>().AsSingle();
             Container.Bind<SkinChangerViewFactory>().AsSingle();
+            
+            Container.Bind<LevelAvailabilityPresenterFactory>().AsSingle();
+            Container.Bind<LevelAvailabilityViewFactory>().AsSingle();
             
             Container.Bind<ISkinChangerService>().To<SkinChangerService>().AsSingle();
         }

@@ -5,6 +5,7 @@ using Sources.Scripts.ControllersInterfaces.Scenes;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactories;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
+using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
 using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;

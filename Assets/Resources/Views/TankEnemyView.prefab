@@ -5022,7 +5022,6 @@ GameObject:
   - component: {fileID: 5078712833480917590}
   - component: {fileID: 8454660409129241173}
   - component: {fileID: 9206865953977365802}
-  - component: {fileID: 7613824831863649503}
   - component: {fileID: 8706536652448089526}
   - component: {fileID: 7793436371866416770}
   m_Layer: 0
@@ -5067,7 +5066,9 @@ MonoBehaviour:
   _navMeshAgent: {fileID: 62155376381038095}
   _healthView: {fileID: 7793436371866416770}
   _healthUIText: {fileID: 4452255869343400125}
+  _enemyType: 1
   _enemyAnimation: {fileID: 1365557265592155925}
+  _movementPoints: []
 --- !u!114 &1365557265592155925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5212,20 +5213,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: {x: 1, y: 1}
---- !u!114 &7613824831863649503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3414925319192649251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b9da142b71b40e6ada0cf8dc2aa245, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  requiredVelocity: 1
-  cooldownTime: 0.5
 --- !u!114 &8706536652448089526
 MonoBehaviour:
   m_ObjectHideFlags: 0

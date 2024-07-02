@@ -1,6 +1,6 @@
-﻿using Sources.Scripts.PresentationsInterfaces.UI.Images;
-using Sources.Scripts.PresentationsInterfaces.Views.Lightnings;
+﻿using Sources.Scripts.PresentationsInterfaces.Views.Lightnings;
 using Sources.Scripts.UIFramework.Presentations.Images;
+using Sources.Scripts.UIFramework.PresentationsInterfaces.Images;
 using UnityEngine;
 
 namespace Sources.Scripts.Presentations.Views.Lightnings

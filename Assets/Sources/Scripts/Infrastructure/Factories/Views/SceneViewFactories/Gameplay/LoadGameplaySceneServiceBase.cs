@@ -38,6 +38,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
         private readonly VolumeViewFactory _volumeViewFactory;
         private readonly RewardViewFactory _rewardViewFactory;
         private readonly SkinChangerViewFactory _skinChangerViewFactory;
+        private readonly LevelAvailabilityViewFactory _levelAvailabilityViewFactory;
         private readonly IGameOverService _gameOverService;
         private readonly ICameraService _cameraService;
         private readonly IVolumeService _volumeService;
@@ -58,6 +59,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             VolumeViewFactory volumeViewFactory,
             RewardViewFactory rewardViewFactory,
             SkinChangerViewFactory skinChangerViewFactory,
+            LevelAvailabilityViewFactory levelAvailabilityViewFactory,
             IGameOverService gameOverService,
             ICameraService cameraService,
             IVolumeService volumeService,
@@ -75,13 +77,17 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                                        throw new ArgumentNullException(nameof(enemySpawnerViewFactory));
             _killedEnemiesCounterViewFactory = killedEnemiesCounterViewFactory ?? 
                                                throw new ArgumentNullException(nameof(killedEnemiesCounterViewFactory));
-            _reloadWeaponViewFactory = reloadWeaponViewFactory ?? throw new ArgumentNullException(nameof(reloadWeaponViewFactory));
+            _reloadWeaponViewFactory = reloadWeaponViewFactory ??
+                                       throw new ArgumentNullException(nameof(reloadWeaponViewFactory));
             _gameOverService = gameOverService ?? throw new ArgumentNullException(nameof(gameOverService));
             _cameraViewFactory = cameraViewFactory ?? throw new ArgumentNullException(nameof(cameraViewFactory));
             _cameraService = cameraService ?? throw new ArgumentNullException(nameof(cameraService));
             _volumeViewFactory = volumeViewFactory ?? throw new ArgumentNullException(nameof(volumeViewFactory));
             _rewardViewFactory = rewardViewFactory ?? throw new ArgumentNullException(nameof(rewardViewFactory));
-            _skinChangerViewFactory = skinChangerViewFactory ?? throw new ArgumentNullException(nameof(skinChangerViewFactory));
+            _skinChangerViewFactory = skinChangerViewFactory ??
+                                      throw new ArgumentNullException(nameof(skinChangerViewFactory));
+            _levelAvailabilityViewFactory = levelAvailabilityViewFactory ??
+                                            throw new ArgumentNullException(nameof(levelAvailabilityViewFactory));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
             _saveService = saveService ?? throw new ArgumentNullException(nameof(saveService));
             _skinChangerService = skinChangerService ?? throw new ArgumentNullException(nameof(skinChangerService));
@@ -132,6 +138,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
             _skinChangerService.Construct(gameModels.SkinChanger);
             _skinChangerViewFactory.Create(gameModels.SkinChanger, _gameplayRootGameObject.SkinChangerView);
+            
+            _levelAvailabilityViewFactory.Create(gameModels.LevelAvailability, _gameplayHud.LevelAvailabilityView);
         }
 
         protected abstract GameModels LoadModels(IScenePayload scenePayload);

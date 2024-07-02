@@ -1,6 +1,5 @@
 ﻿using System;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base;
-using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Enemies.Tank;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Tank;
@@ -9,9 +8,6 @@ using Sources.Scripts.InfrastructureInterfaces.Factories.Views.Enemies;
 using Sources.Scripts.Presentations.Views.Enemies.Base;
 using Sources.Scripts.Presentations.Views.Enemies.Tank;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tank;
-using Sources.Scripts.PresentationsInterfaces.Views.Spawners;
-using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Tank
 {
@@ -36,9 +32,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Tank
 
         public ITankEnemyView Create(TankEnemy tankEnemy, KilledEnemiesCounter killedEnemiesCounter, EnemyViewBase enemyViewBase)
         {
-           // TankEnemyView view = Object.Instantiate(
-           //     Resources.Load<TankEnemyView>(PrefabPath.TankEnemy));
-
            TankEnemyView view = enemyViewBase as TankEnemyView;
 
             EnemyPresenter presenter = _tankPresenterFactory.Create(

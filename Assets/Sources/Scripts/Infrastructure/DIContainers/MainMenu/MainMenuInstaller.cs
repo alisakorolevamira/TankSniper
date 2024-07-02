@@ -32,7 +32,6 @@ namespace Sources.Scripts.Infrastructure.DIContainers.MainMenu
             Container.BindInterfacesAndSelfTo<MainMenuSceneFactory>().AsSingle();
             
             BindServices();
-            BindLevelAvailability();
             BindMainMenuLoadService();
         }
         
@@ -48,12 +47,6 @@ namespace Sources.Scripts.Infrastructure.DIContainers.MainMenu
         {
             Container.Bind<CreateMainMenuSceneService>().AsSingle();
             Container.Bind<LoadMainMenuSceneService>().AsSingle();
-        }
-        
-        private void BindLevelAvailability()
-        {
-            Container.Bind<LevelAvailabilityPresenterFactory>().AsSingle();
-            Container.Bind<LevelAvailabilityViewFactory>().AsSingle();
         }
     }
 }

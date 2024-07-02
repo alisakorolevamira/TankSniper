@@ -1,4 +1,4 @@
-﻿using Sources.Scripts.PresentationsInterfaces.UI.Images;
+﻿using Sources.Scripts.UIFramework.PresentationsInterfaces.Images;
 using UnityEngine;
 
 namespace Sources.Scripts.PresentationsInterfaces.Views.Settings

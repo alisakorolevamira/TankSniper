@@ -1201,7 +1201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 7142335105820221714}
   _gunShoot: {fileID: 5352828398476887748}
-  _destructible: {fileID: 6686252706891399966}
+  _destructible: {fileID: 0}
   _bazookaAnimator: {fileID: 8266315012893704235}
 --- !u!1 &3071159334148462638
 GameObject:
@@ -1741,7 +1741,6 @@ GameObject:
   - component: {fileID: 7142335105820221714}
   - component: {fileID: 7330171542488357504}
   - component: {fileID: 3197383934003619604}
-  - component: {fileID: 6686252706891399966}
   m_Layer: 0
   m_Name: Helicopter
   m_TagString: Untagged
@@ -1876,56 +1875,6 @@ CapsuleCollider:
   m_Height: 493.9296
   m_Direction: 2
   m_Center: {x: 0, y: 246.1265, z: -263.1855}
---- !u!114 &6686252706891399966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5129366304408542470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _totalHitPoints: 50
-  _currentHitPoints: 50
-  damageLevels: []
-  destroyedPrefab: {fileID: 0}
-  destroyedPrefabParent: {fileID: 0}
-  fallbackParticle: {fileID: 0}
-  fallbackParticleMatOption: 0
-  damageEffects: []
-  velocityReduction: 0.5
-  limitDamage: 0
-  minDamage: 10
-  maxDamage: 100
-  minDamageTime: 0
-  ignoreCollisionsUnder: 2
-  unparentOnDestroy: []
-  disableKinematicOnUparentedChildren: 1
-  replaceMaterials: []
-  replaceParticleMats: []
-  canBeDestroyed: 1
-  canBeRepaired: 1
-  debrisToReParentByName: []
-  debrisToReParentIsKinematic: 0
-  childrenToReParentByName: []
-  isDebrisChipAway: 0
-  chipAwayDebrisMass: 1
-  chipAwayDebrisDrag: 0
-  chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
-  useFallbackParticle: 1
-  centerPointOverride: {x: 0, y: 0, z: 0}
-  fallbackParticleScale: {x: 1, y: 1, z: 1}
-  fallbackParticleParent: {fileID: 0}
-  sinkWhenDestroyed: 0
-  shouldDeactivate: 0
-  isTerrainTree: 0
-  destroyedSound: {fileID: 0}
-  damagedSound: {fileID: 0}
-  repairedSound: {fileID: 0}
 --- !u!1 &5282858650469138881
 GameObject:
   m_ObjectHideFlags: 0

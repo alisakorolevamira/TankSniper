@@ -1,5 +1,4 @@
 ﻿using System;
-using DestroyIt;
 using Sources.Scripts.Presentations.Views.Animations;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopter;
 using UnityEngine;
@@ -9,7 +8,6 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Helicopter
     public class HelicopterEnemyAnimation : AnimationViewBase, IHelicopterEnemyAnimation
     {
         [SerializeField] private ParticleSystem _gunShoot;
-        [SerializeField] private Destructible _destructible;
         [SerializeField] private Animator _bazookaAnimator;
         
         private static int s_isIdle = Animator.StringToHash("IsIdle");
@@ -35,7 +33,7 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Helicopter
 
         public void PlayDying()
         {
-            _destructible.Destroy();
+            
         }
     }
 }

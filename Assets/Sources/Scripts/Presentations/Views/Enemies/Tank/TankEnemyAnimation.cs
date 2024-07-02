@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using DestroyIt;
 using Sources.Scripts.Presentations.Views.Animations;
-using Sources.Scripts.Presentations.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tank;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Sources.Scripts.Presentations.Views.Enemies.Tank
 {
@@ -13,7 +9,6 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Tank
     {
         [SerializeField] private ParticleSystem _movementParticle;
         [SerializeField] private ParticleSystem _attackParticle;
-        [SerializeField] private Destructible _destructible;
         
         public event Action Attacking;
         
@@ -31,7 +26,7 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Tank
 
         public void PlayDying()
         {
-            _destructible.Destroy();
+            
         }
     }
 }

@@ -16485,7 +16485,6 @@ GameObject:
   - component: {fileID: 7611163325827268866}
   - component: {fileID: 8865171993953347413}
   - component: {fileID: 2295363492333614151}
-  - component: {fileID: -4276252091964249331}
   m_Layer: 0
   m_Name: StandingEnemyView
   m_TagString: Untagged
@@ -16541,7 +16540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 3991745393256036761}
   _gunShoot: {fileID: 8501287142282690017}
-  _destructible: {fileID: -4276252091964249331}
+  _destructible: {fileID: 0}
 --- !u!114 &8865171993953347413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16577,83 +16576,6 @@ CapsuleCollider:
   m_Height: 1.4130152
   m_Direction: 1
   m_Center: {x: 0.011073887, y: 0.52603996, z: 0.13468379}
---- !u!114 &-4276252091964249331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7625160230402186198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _totalHitPoints: 50
-  _currentHitPoints: 50
-  damageLevels:
-  - maxHitPoints: 50
-    minHitPoints: 40.1
-    healthPercent: 100
-    hasError: 0
-    visibleDamageLevel: 0
-  - maxHitPoints: 40
-    minHitPoints: 30.099998
-    healthPercent: 80
-    hasError: 0
-    visibleDamageLevel: 2
-  - maxHitPoints: 30
-    minHitPoints: 20.1
-    healthPercent: 60
-    hasError: 0
-    visibleDamageLevel: 4
-  - maxHitPoints: 20
-    minHitPoints: 10.099999
-    healthPercent: 40
-    hasError: 0
-    visibleDamageLevel: 6
-  - maxHitPoints: 10
-    minHitPoints: 0
-    healthPercent: 20
-    hasError: 0
-    visibleDamageLevel: 8
-  destroyedPrefab: {fileID: 0}
-  destroyedPrefabParent: {fileID: 0}
-  fallbackParticle: {fileID: 19800004, guid: 6b46cad447c64dd48b8b715df6e3d2ad, type: 3}
-  fallbackParticleMatOption: 2
-  damageEffects: []
-  velocityReduction: 0.5
-  limitDamage: 0
-  minDamage: 10
-  maxDamage: 100
-  minDamageTime: 0
-  ignoreCollisionsUnder: 2
-  unparentOnDestroy: []
-  disableKinematicOnUparentedChildren: 1
-  replaceMaterials: []
-  replaceParticleMats:
-  - SourceMaterial: {fileID: 2100000, guid: 3f1003b33ee2eef4b8569e9555dab0b9, type: 2}
-    ReplacementMaterial: {fileID: 2100000, guid: 1e6a2687185849947b2c8a8f7cb56b28, type: 2}
-  canBeDestroyed: 1
-  canBeRepaired: 1
-  debrisToReParentByName: []
-  debrisToReParentIsKinematic: 0
-  childrenToReParentByName: []
-  isDebrisChipAway: 0
-  chipAwayDebrisMass: 1
-  chipAwayDebrisDrag: 0
-  chipAwayDebrisAngularDrag: 0.05
-  autoPoolDestroyedPrefab: 1
-  useFallbackParticle: 1
-  centerPointOverride: {x: 0, y: 0, z: 0}
-  fallbackParticleScale: {x: 1, y: 1, z: 1}
-  fallbackParticleParent: {fileID: 0}
-  sinkWhenDestroyed: 0
-  shouldDeactivate: 0
-  isTerrainTree: 0
-  destroyedSound: {fileID: 0}
-  damagedSound: {fileID: 0}
-  repairedSound: {fileID: 0}
 --- !u!1 &7640778845708763879
 GameObject:
   m_ObjectHideFlags: 0

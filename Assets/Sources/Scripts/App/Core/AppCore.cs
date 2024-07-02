@@ -1,4 +1,5 @@
 ﻿using System;
+using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Domain.Models.Payloads;
 using Sources.Scripts.InfrastructureInterfaces.Services.SceneServices;
@@ -18,9 +19,9 @@ namespace Sources.Scripts.App.Core
             try
             {
                 await _sceneService.ChangeSceneAsync(
-                    ModelId.MainMenu,
-                    //ModelId.FirstLevel,
-                    new ScenePayload(ModelId.MainMenu, false, false));
+                    //ModelId.MainMenu,
+                    LevelConst.SecondLevel,
+                    new ScenePayload(LevelConst.SecondLevel, false, false));
             }
             catch(ArgumentNullException)
             {

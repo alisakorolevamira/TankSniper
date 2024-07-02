@@ -32,11 +32,13 @@ namespace Sources.Scripts.Presentations.Views.Bullets
             _cancellationTokenSource = new CancellationTokenSource();
             Ray ray = new Ray(transform.position, direction);
 
-            if (Physics.Raycast(ray, out RaycastHit hitInfo, _distance))
+            if (Physics.Raycast(ray, out RaycastHit hit, _distance))
             {
-                Vector3 endPoint = hitInfo.point;
+                Vector3 endPoint = hit.point;
 
                 ChangePosition(endPoint);
+                
+                hit.collider.SendMessage("Shatter", hit.point, SendMessageOptions.DontRequireReceiver);
             }
             
             _cancellationTokenSource.Cancel();

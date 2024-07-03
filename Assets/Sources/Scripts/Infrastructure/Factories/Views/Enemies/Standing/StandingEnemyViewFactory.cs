@@ -29,10 +29,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Standing
                                        throw new ArgumentNullException(nameof(healthUITextViewFactory));
         }
 
-        public IStandingEnemyView Create(StandingEnemy enemy, KilledEnemiesCounter killedEnemiesCounter, EnemyViewBase enemyViewBase)
+        public IStandingEnemyView Create(StandingEnemy enemy, KilledEnemiesCounter killedEnemiesCounter, StandingEnemyView view)
         {
-           StandingEnemyView view = enemyViewBase as StandingEnemyView;
-
             EnemyPresenter presenter = _presenterFactory.Create(
                 enemy, killedEnemiesCounter, view, view.EnemyAnimation);
             

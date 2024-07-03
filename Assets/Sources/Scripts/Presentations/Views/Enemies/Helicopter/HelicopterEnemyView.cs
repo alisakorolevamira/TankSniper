@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading;
-using Cysharp.Threading.Tasks;
-using Sources.Scripts.Domain.Models.Constants;
+﻿using System.Collections.Generic;
+using Sources.Scripts.Controllers.Presenters.Enemies.Base;
+using Sources.Scripts.Domain.Models.Spawners.Types;
+using Sources.Scripts.Presentations.Views.Common;
 using Sources.Scripts.Presentations.Views.Enemies.Base;
+using Sources.Scripts.PresentationsInterfaces.Views.Common;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopter;
 using UnityEngine;
 
@@ -12,36 +12,22 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Helicopter
     public class HelicopterEnemyView : EnemyViewBase, IHelicopterEnemyView
     {
         [SerializeField] private HelicopterEnemyAnimation _enemyAnimation;
-
-        public HelicopterEnemyAnimation EnemyAnimation => _enemyAnimation;
-        private CancellationTokenSource _cancellationTokenSource;
-        private readonly TimeSpan _delay = TimeSpan.FromMilliseconds(3f);
-
-        public void Move(Vector3 direction)
-        {
-            _cancellationTokenSource = new CancellationTokenSource();
-            
-            ChangePosition(direction);
-            
-            _cancellationTokenSource.Cancel();
-        }
+        [SerializeField] private List<Transform> _movementPoints;
+        [SerializeField] private float _speed = 1;
+        [SerializeField] private Transform _rotar;
+        [SerializeField] private float _rotationRotar = 1;
         
-        private async void ChangePosition(Vector3 endPoint)
-        {
-            float step =  50 * Time.deltaTime;
-            
-            try
-            {
-                while (Vector3.Distance(transform.position, endPoint) > BulletConst.MinDistance)
-                {
-                    transform.position = Vector3.MoveTowards(transform.position, endPoint, step);
+        public HelicopterEnemyAnimation EnemyAnimation => _enemyAnimation;
+        public IReadOnlyList<Transform> MovementPoints => _movementPoints;
+        public Vector3 Position => transform.position;
 
-                    await UniTask.Delay(_delay);
-                }
-            }
-            catch (OperationCanceledException)
-            {
-            }
-        }
+        public void MoveToPoint(Vector3 direction) => 
+            transform.position = Vector3.MoveTowards(transform.position, direction, _speed * Time.deltaTime);
+
+        public void SetRotation(float angle) => 
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0,angle, 0), 4f);
+
+        public void RotateRotor() => 
+            _rotar.Rotate(new Vector3(0,_rotationRotar,0));
     }
 }

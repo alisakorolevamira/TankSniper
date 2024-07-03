@@ -1130,11 +1130,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10deb1187de4992b8627b80b8f89259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _navMeshAgent: {fileID: 0}
   _healthView: {fileID: 7330171542488357504}
   _healthUIText: {fileID: 491379515560827209}
   _enemyType: 3
   _enemyAnimation: {fileID: 3748769131238687909}
+  _movementPoints: []
+  _speed: 1
+  _rotar: {fileID: 6513652938675688803}
+  _rotationRotar: 1
 --- !u!114 &3748769131238687909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1147,9 +1150,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3666e0880b384e9d8edba6eb4cfc6f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 7142335105820221714}
   _gunShoot: {fileID: 5352828398476887748}
   _bazookaAnimator: {fileID: 8266315012893704235}
+  _rigidbody: {fileID: 6135665449986699270}
+  _collider: {fileID: 3197383934003619604}
+  _dieEffect: {fileID: 0}
 --- !u!1 &3335625304251933846
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,6 +1198,8 @@ GameObject:
   - component: {fileID: 6513652938675688803}
   - component: {fileID: 2647162960490464662}
   - component: {fileID: 120414696091290460}
+  - component: {fileID: 1075197050826943027}
+  - component: {fileID: 1149356939604952978}
   m_Layer: 0
   m_Name: Top_rotor
   m_TagString: Untagged
@@ -1265,6 +1272,43 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1075197050826943027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3680857523635059906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f62b7025d7cc0442fbf846681e55cb7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generation: 1
+  generationLimit: 2
+  cuts: 2
+  fillCut: 1
+  sendPreSplitMessage: 1
+  sendPostSplitMessage: 1
+  internalHullType: 0
+--- !u!114 &1149356939604952978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3680857523635059906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c728461752fef45f5b5ea82696f5b916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attachPieceToParent: 1
+  maxPieceToParentDistance: 1
+  addRbToDetachedPieces: 1
+  attachChildrenToPieces: 1
+  maxChildToPieceDistance: 1
+  addRbToDetachedChildren: 1
 --- !u!1 &3983626465634546914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1438,6 +1482,8 @@ GameObject:
   - component: {fileID: 3062715263845727814}
   - component: {fileID: 7631328635425437966}
   - component: {fileID: 3709597312671791613}
+  - component: {fileID: 6377074460232594109}
+  - component: {fileID: 8232061666563966614}
   m_Layer: 0
   m_Name: Cockpit
   m_TagString: Untagged
@@ -1510,6 +1556,43 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6377074460232594109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4806421732518397120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f62b7025d7cc0442fbf846681e55cb7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generation: 1
+  generationLimit: 2
+  cuts: 2
+  fillCut: 1
+  sendPreSplitMessage: 1
+  sendPostSplitMessage: 1
+  internalHullType: 0
+--- !u!114 &8232061666563966614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4806421732518397120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c728461752fef45f5b5ea82696f5b916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attachPieceToParent: 1
+  maxPieceToParentDistance: 1
+  addRbToDetachedPieces: 1
+  attachChildrenToPieces: 1
+  maxChildToPieceDistance: 1
+  addRbToDetachedChildren: 1
 --- !u!1 &5129366304408542470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1521,9 +1604,12 @@ GameObject:
   - component: {fileID: 1759103537891593099}
   - component: {fileID: 5000081285336737768}
   - component: {fileID: 2888140472181641199}
-  - component: {fileID: 7142335105820221714}
   - component: {fileID: 7330171542488357504}
   - component: {fileID: 3197383934003619604}
+  - component: {fileID: 6135665449986699270}
+  - component: {fileID: 7798669876943587532}
+  - component: {fileID: 8114306719363193069}
+  - component: {fileID: 8770731465647130462}
   m_Layer: 0
   m_Name: Helicopter
   m_TagString: Untagged
@@ -1602,27 +1688,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &7142335105820221714
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5129366304408542470}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1847ffd384556fb40b53285402689266, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &7330171542488357504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1658,6 +1723,84 @@ CapsuleCollider:
   m_Height: 493.9296
   m_Direction: 2
   m_Center: {x: 0, y: 246.1265, z: -263.1855}
+--- !u!54 &6135665449986699270
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5129366304408542470}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &7798669876943587532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5129366304408542470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f62b7025d7cc0442fbf846681e55cb7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generation: 1
+  generationLimit: 3
+  cuts: 2
+  fillCut: 1
+  sendPreSplitMessage: 1
+  sendPostSplitMessage: 1
+  internalHullType: 0
+--- !u!114 &8114306719363193069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5129366304408542470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b9da142b71b40e6ada0cf8dc2aa245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredVelocity: 1
+  cooldownTime: 0.5
+--- !u!114 &8770731465647130462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5129366304408542470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c728461752fef45f5b5ea82696f5b916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attachPieceToParent: 1
+  maxPieceToParentDistance: 1
+  addRbToDetachedPieces: 1
+  attachChildrenToPieces: 1
+  maxChildToPieceDistance: 1
+  addRbToDetachedChildren: 1
 --- !u!1 &5282858650469138881
 GameObject:
   m_ObjectHideFlags: 0
@@ -1908,6 +2051,8 @@ GameObject:
   - component: {fileID: 5056195647736326734}
   - component: {fileID: 2808287093844925532}
   - component: {fileID: 35275124808579473}
+  - component: {fileID: 5450618881375558637}
+  - component: {fileID: 8436298389809933298}
   m_Layer: 0
   m_Name: Glass
   m_TagString: Untagged
@@ -1980,6 +2125,43 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5450618881375558637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6295299343635358282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f62b7025d7cc0442fbf846681e55cb7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generation: 1
+  generationLimit: 2
+  cuts: 2
+  fillCut: 1
+  sendPreSplitMessage: 1
+  sendPostSplitMessage: 1
+  internalHullType: 0
+--- !u!114 &8436298389809933298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6295299343635358282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c728461752fef45f5b5ea82696f5b916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attachPieceToParent: 1
+  maxPieceToParentDistance: 1
+  addRbToDetachedPieces: 1
+  attachChildrenToPieces: 1
+  maxChildToPieceDistance: 1
+  addRbToDetachedChildren: 1
 --- !u!1 &6430083510479619871
 GameObject:
   m_ObjectHideFlags: 0
@@ -2362,6 +2544,8 @@ GameObject:
   - component: {fileID: 2220773532151473272}
   - component: {fileID: 4872440593926528628}
   - component: {fileID: 3909160373947521970}
+  - component: {fileID: 5762884014186129499}
+  - component: {fileID: 4083134015942497693}
   m_Layer: 0
   m_Name: Tail_Rotor
   m_TagString: Untagged
@@ -2434,6 +2618,43 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5762884014186129499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7879332370792456384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f62b7025d7cc0442fbf846681e55cb7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generation: 1
+  generationLimit: 2
+  cuts: 2
+  fillCut: 1
+  sendPreSplitMessage: 1
+  sendPostSplitMessage: 1
+  internalHullType: 0
+--- !u!114 &4083134015942497693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7879332370792456384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c728461752fef45f5b5ea82696f5b916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attachPieceToParent: 1
+  maxPieceToParentDistance: 1
+  addRbToDetachedPieces: 1
+  attachChildrenToPieces: 1
+  maxChildToPieceDistance: 1
+  addRbToDetachedChildren: 1
 --- !u!1 &7987403758193277105
 GameObject:
   m_ObjectHideFlags: 0

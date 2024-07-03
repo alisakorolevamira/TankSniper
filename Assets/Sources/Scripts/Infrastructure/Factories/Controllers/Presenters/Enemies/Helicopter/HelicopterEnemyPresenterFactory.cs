@@ -35,19 +35,20 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
             IHelicopterEnemyView enemyView,
             IHelicopterEnemyAnimation enemyAnimation)
         {
-            EnemyIdleState idleState = new EnemyIdleState(enemyAnimation);
+            //EnemyIdleState idleState = new EnemyIdleState(enemyAnimation);
+            HelicopterMovementState movementState = new HelicopterMovementState(enemyAnimation, enemyView);
             HelicopterAttackState attackState = new HelicopterAttackState(enemy, enemyView, enemyAnimation);
             EnemyDieState dieState = new EnemyDieState(killedEnemiesCounter, enemyView, _enemyCollection, enemyAnimation);
             
             FiniteTransitionBase toAttackTransition = new FiniteTransitionBase(
                 attackState, () => _playerAttackService.PlayerAttacked);
-            idleState.AddTransition(toAttackTransition);
+            movementState.AddTransition(toAttackTransition);
 
             FiniteTransition toDieTransition = new FiniteTransitionBase(
                 dieState, () => enemy.EnemyHealth.CurrentHealth <= 0);
             attackState.AddTransition(toDieTransition);
 
-            return new EnemyPresenter(idleState, _updateRegister);
+            return new EnemyPresenter(movementState, _updateRegister);
         }
     }
 }

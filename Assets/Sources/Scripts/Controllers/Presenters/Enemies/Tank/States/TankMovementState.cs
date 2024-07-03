@@ -26,15 +26,15 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Tank.States
             ChangeCurrentTargetPoint();
         }
 
-        public override void Exit() => 
-            _enemyView.Stop();
+        public override void Exit()  {}
+            //_enemyView.Stop();
 
         public override void Update(float deltaTime)
         {
-            _enemyView.Move(_currentTargetPoint);
-            
-            if (Vector3.Distance(_enemyView.Position, _currentTargetPoint) < 0.1f)
-                ChangeCurrentTargetPoint();
+           // _enemyView.Move(_currentTargetPoint);
+           // 
+           // if (Vector3.Distance(_enemyView.Position, _currentTargetPoint) < 0.1f)
+           //     ChangeCurrentTargetPoint();
         }
 
         private void ChangeCurrentTargetPoint()

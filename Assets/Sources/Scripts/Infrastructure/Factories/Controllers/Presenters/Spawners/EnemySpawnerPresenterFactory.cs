@@ -12,19 +12,22 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Spawne
         private readonly ITankEnemySpawnerService _tankEnemySpawnerService;
         private readonly IBossEnemySpawnerService _bossEnemySpawnerService;
         private readonly IStandingEnemySpawnerService _standingEnemySpawnerService;
+        private readonly IJeepEnemySpawnerService _jeepEnemySpawnerService;
         private readonly IHelicopterEnemySpawnerService _helicopterEnemySpawnerService;
 
         public EnemySpawnerPresenterFactory(
             ITankEnemySpawnerService tankEnemySpawnerService,
             IBossEnemySpawnerService bossEnemySpawnerService,
             IStandingEnemySpawnerService standingEnemySpawnerService,
+            IJeepEnemySpawnerService jeepEnemySpawnerService,
             IHelicopterEnemySpawnerService helicopterEnemySpawnerService)
         {
             _tankEnemySpawnerService = tankEnemySpawnerService ?? throw new ArgumentNullException(nameof(tankEnemySpawnerService));
             _standingEnemySpawnerService = standingEnemySpawnerService ??
                                            throw new ArgumentNullException(nameof(standingEnemySpawnerService));
+            _jeepEnemySpawnerService = jeepEnemySpawnerService ?? throw new ArgumentNullException(nameof(jeepEnemySpawnerService));
             _helicopterEnemySpawnerService = helicopterEnemySpawnerService ??
-                                            throw new ArgumentNullException(nameof(helicopterEnemySpawnerService));
+                                             throw new ArgumentNullException(nameof(helicopterEnemySpawnerService));
             _bossEnemySpawnerService = bossEnemySpawnerService ??
                                      throw new ArgumentNullException(nameof(bossEnemySpawnerService));
         }
@@ -41,6 +44,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Spawne
                 _tankEnemySpawnerService,
                 _standingEnemySpawnerService,
                 _helicopterEnemySpawnerService,
+                _jeepEnemySpawnerService,
                 _bossEnemySpawnerService);
         }
     }

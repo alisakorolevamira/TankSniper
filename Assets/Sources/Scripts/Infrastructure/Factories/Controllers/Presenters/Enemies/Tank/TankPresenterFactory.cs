@@ -10,7 +10,6 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Players;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpdateServices;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tank;
-using Sources.Scripts.PresentationsInterfaces.Views.Spawners;
 
 namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Tank
 {
@@ -36,7 +35,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
             ITankEnemyView tankEnemyView,
             ITankEnemyAnimation enemyAnimation)
         {
-            TankMovementState movementState = new TankMovementState(enemyAnimation, tankEnemyView);
+            TestTankMovementState movementState = new TestTankMovementState(enemyAnimation, tankEnemyView);
             EnemyAttackState attackState = new EnemyAttackState(enemy, tankEnemyView, enemyAnimation);
             EnemyDieState dieState = new EnemyDieState(killedEnemiesCounter, tankEnemyView, _enemyCollection, enemyAnimation);
             

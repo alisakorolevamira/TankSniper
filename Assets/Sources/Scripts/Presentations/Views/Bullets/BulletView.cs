@@ -54,6 +54,8 @@ namespace Sources.Scripts.Presentations.Views.Bullets
 
                     await UniTask.Delay(_delay);
                 }
+                
+                SpawnEffectOnDestroy();
             }
             catch (OperationCanceledException)
             {
@@ -69,13 +71,12 @@ namespace Sources.Scripts.Presentations.Views.Bullets
             {
                 _weaponView.DealDamage(enemyHealthView);
                 SpawnEffectOnDestroy();
-                Debug.Log("on enemy");
                 
                 return;
             }
             
             collision.collider.SendMessage("Shatter", collision.transform.position, SendMessageOptions.DontRequireReceiver);
-            SpawnEffectOnDestroy();
+            //SpawnEffectOnDestroy();
         }
         
         private void SpawnEffectOnDestroy()

@@ -30,10 +30,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Tank
                                        throw new ArgumentNullException(nameof(healthUITextViewFactory));
         }
 
-        public ITankEnemyView Create(TankEnemy tankEnemy, KilledEnemiesCounter killedEnemiesCounter, EnemyViewBase enemyViewBase)
+        public ITankEnemyView Create(TankEnemy tankEnemy, KilledEnemiesCounter killedEnemiesCounter, TankEnemyView view)
         {
-           TankEnemyView view = enemyViewBase as TankEnemyView;
-
             EnemyPresenter presenter = _tankPresenterFactory.Create(
                 tankEnemy, killedEnemiesCounter, view, view.EnemyAnimation);
             

@@ -5,7 +5,6 @@ using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Helicopter;
 using Sources.Scripts.Infrastructure.Factories.Views.Common;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.Enemies;
-using Sources.Scripts.Presentations.Views.Enemies.Base;
 using Sources.Scripts.Presentations.Views.Enemies.Helicopter;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopter;
 
@@ -29,9 +28,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Helicopter
                                        throw new ArgumentNullException(nameof(healthUITextViewFactory));
         }
 
-        public IHelicopterEnemyView Create(HelicopterEnemy enemy, KilledEnemiesCounter killedEnemiesCounter, EnemyViewBase enemyViewBase)
+        public IHelicopterEnemyView Create(HelicopterEnemy enemy, KilledEnemiesCounter killedEnemiesCounter, HelicopterEnemyView view)
         {
-            HelicopterEnemyView view = enemyViewBase as HelicopterEnemyView;
             EnemyPresenter presenter = _presenterFactory.Create(enemy, killedEnemiesCounter, view, view.EnemyAnimation);
             
             view.Construct(presenter);

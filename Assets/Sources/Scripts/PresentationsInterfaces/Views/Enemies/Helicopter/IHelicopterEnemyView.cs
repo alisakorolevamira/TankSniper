@@ -6,5 +6,11 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopter
 {
     public interface IHelicopterEnemyView : IEnemyViewBase
     {
+        IReadOnlyList<Transform> MovementPoints { get; }
+        Vector3 Position { get; }
+        
+        void MoveToPoint(Vector3 target);
+        void SetRotation(float angle);
+        void RotateRotor();
     }
 }

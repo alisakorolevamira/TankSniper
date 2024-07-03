@@ -1,12 +1,19 @@
 ﻿using System.Collections.Generic;
 using Sources.Scripts.Presentations.Views.Enemies.Base;
+using Sources.Scripts.Presentations.Views.Enemies.Helicopter;
+using Sources.Scripts.Presentations.Views.Enemies.Jeep;
+using Sources.Scripts.Presentations.Views.Enemies.Standing;
+using Sources.Scripts.Presentations.Views.Enemies.Tank;
 using Sources.Scripts.Presentations.Views.Players;
 
 namespace Sources.Scripts.PresentationsInterfaces.Views.Spawners
 {
     public interface IEnemySpawnerView
     {
-        IReadOnlyList<EnemyViewBase> EnemyViews { get; }
+        IReadOnlyList<TankEnemyView> Tanks { get; }
+        IReadOnlyList<StandingEnemyView> Standings { get; }
+        IReadOnlyList<HelicopterEnemyView> Helicopters { get; }
+        IReadOnlyList<JeepEnemyView> Jeeps { get; }
 
         PlayerView PlayerView { get; }
 

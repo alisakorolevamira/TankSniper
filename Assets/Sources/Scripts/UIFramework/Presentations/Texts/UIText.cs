@@ -36,7 +36,7 @@ namespace Sources.Scripts.UIFramework.Presentations.Texts
                 while (_tmpText.color.a > 0)
                 {
                     _tmpText.color = Vector4.MoveTowards(
-                        _tmpText.color, Vector4.zero, 0.005f);
+                        _tmpText.color, Vector4.zero, 0.01f);
 
                     await UniTask.Yield(cancellationToken);
                 }

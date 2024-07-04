@@ -1,30 +1,27 @@
 ﻿using System;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.States;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
-using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Jeep;
-using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tank;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Boss;
 using UnityEngine;
 
-namespace Sources.Scripts.Controllers.Presenters.Enemies.Tank.States
+namespace Sources.Scripts.Controllers.Presenters.Enemies.Boss.States
 {
-    public class TestTankMovementState : FiniteState
+    public class BossMovementState : FiniteState
     {
         private readonly IEnemyAnimation _enemyAnimation;
-        private readonly ITankEnemyView _enemyView;
+        private readonly IBossEnemyView _enemyView;
         
         private int _targetPositionIndex = 0;
         private Vector3 _targetPoint;
 
-        public TestTankMovementState(IEnemyAnimation enemyAnimation, ITankEnemyView enemyView)
+        public BossMovementState(IEnemyAnimation enemyAnimation, IBossEnemyView enemyView)
         {
             _enemyAnimation = enemyAnimation ?? throw new ArgumentNullException(nameof(enemyAnimation));
             _enemyView = enemyView ?? throw new ArgumentNullException(nameof(enemyView));
         }
 
-        public override void Enter()
-        {
+        public override void Enter() => 
             _enemyAnimation.PlayIdle();
-        }
 
         public override void Update(float deltaTime)
         {

@@ -36,7 +36,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Tank
                 tankEnemy, killedEnemiesCounter, view, view.EnemyAnimation);
             
             view.Construct(presenter);
-            
             _enemyHealthViewFactory.Create(tankEnemy.EnemyHealth, view.EnemyHealthView);
             _healthUITextViewFactory.Create(tankEnemy.EnemyHealth, view.HealthUIText);
 

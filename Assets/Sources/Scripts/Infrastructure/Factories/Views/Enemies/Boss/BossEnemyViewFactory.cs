@@ -19,19 +19,31 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Boss
     public class BossEnemyViewFactory : IBossEnemyViewFactory
     {
         private readonly BossEnemyPresenterFactory _bossEnemyPresenterFactory;
-        //private readonly IObjectPool<BossEnemyView> _bossEnemyPool;
         private readonly EnemyHealthViewFactory _enemyHealthViewFactory;
         private readonly HealthUITextViewFactory _healthUITextViewFactory;
-
-
-        public IBossEnemyView Create(BossEnemy bossEnemy, KilledEnemiesCounter killedEnemiesCounter)
+        
+        public BossEnemyViewFactory(
+            BossEnemyPresenterFactory presenterFactory,
+            EnemyHealthViewFactory enemyHealthViewFactory,
+            HealthUITextViewFactory healthUITextViewFactory)
         {
-            throw new NotImplementedException();
+            _bossEnemyPresenterFactory = presenterFactory ?? throw new ArgumentNullException(nameof(presenterFactory));
+            _enemyHealthViewFactory = enemyHealthViewFactory ??
+                                      throw new ArgumentNullException(nameof(enemyHealthViewFactory));
+            _healthUITextViewFactory = healthUITextViewFactory ??
+                                       throw new ArgumentNullException(nameof(healthUITextViewFactory));
         }
 
-        public IBossEnemyView Create(BossEnemy bossEnemy, KilledEnemiesCounter killedEnemiesCounter, BossEnemyView bossEnemyView)
+        public IBossEnemyView Create(BossEnemy bossEnemy, KilledEnemiesCounter killedEnemiesCounter, BossEnemyView view)
         {
-            throw new NotImplementedException();
+            EnemyPresenter presenter = _bossEnemyPresenterFactory.Create(
+                bossEnemy, killedEnemiesCounter, view, view.EnemyAnimation);
+            
+            view.Construct(presenter);
+            _enemyHealthViewFactory.Create(bossEnemy.EnemyHealth, view.EnemyHealthView);
+            _healthUITextViewFactory.Create(bossEnemy.EnemyHealth, view.HealthUIText);
+            
+            return view;
         }
     }
 }

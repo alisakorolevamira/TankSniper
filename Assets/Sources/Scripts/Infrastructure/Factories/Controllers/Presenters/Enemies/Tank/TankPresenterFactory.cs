@@ -35,7 +35,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
             ITankEnemyView tankEnemyView,
             ITankEnemyAnimation enemyAnimation)
         {
-            TestTankMovementState movementState = new TestTankMovementState(enemyAnimation, tankEnemyView);
+            TankMovementState movementState = new TankMovementState(enemyAnimation, tankEnemyView);
             EnemyAttackState attackState = new EnemyAttackState(enemy, tankEnemyView, enemyAnimation);
             EnemyDieState dieState = new EnemyDieState(killedEnemiesCounter, tankEnemyView, _enemyCollection, enemyAnimation);
             

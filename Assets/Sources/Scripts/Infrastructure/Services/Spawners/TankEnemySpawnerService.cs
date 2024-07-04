@@ -29,11 +29,6 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners
 
             ITankEnemyView tankEnemyView = _viewFactory.Create(tank, killedEnemiesCounter, view);
 
-            //tankEnemyView.DisableNavmeshAgent();
-            //tankEnemyView.SetPosition(spawnPoint.Position);
-            //tankEnemyView.EnableNavmeshAgent();
-            //tankEnemyView.Show();
-
             return tankEnemyView;
         }
     }

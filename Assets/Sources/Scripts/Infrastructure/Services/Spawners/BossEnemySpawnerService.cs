@@ -5,8 +5,8 @@ using Sources.Scripts.Domain.Models.Enemies.Boss;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.Enemies;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
+using Sources.Scripts.Presentations.Views.Enemies.Boss;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Boss;
-using UnityEngine;
 
 namespace Sources.Scripts.Infrastructure.Services.Spawners
 {
@@ -21,20 +21,11 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners
                                     ?? throw new ArgumentNullException(nameof(bossEnemyViewFactory));
         }
 
-        public IBossEnemyView Spawn(KilledEnemiesCounter killedEnemiesCounter, Vector3 position)
+        public IBossEnemyView Spawn(KilledEnemiesCounter killedEnemiesCounter, BossEnemyView view)
         {
-            BossEnemy bossEnemy = new BossEnemy(
-                new EnemyHealth(BossEnemyConst.Health),
-                new EnemyAttacker(BossEnemyConst.Damage),
-                BossEnemyConst.StunTime,
-                BossEnemyConst.WalkSpeed,
-                BossEnemyConst.RunSpeed);
+            BossEnemy bossEnemy = new BossEnemy(new EnemyHealth(EnemyConst.BossHealth), new EnemyAttacker(EnemyConst.BossDamage));
             
-            IBossEnemyView bossEnemyView = _bossEnemyViewFactory.Create(bossEnemy, killedEnemiesCounter);
-            bossEnemyView.DisableNavmeshAgent();
-            bossEnemyView.SetPosition(position);
-            bossEnemyView.EnableNavmeshAgent();
-            bossEnemyView.Show();
+            IBossEnemyView bossEnemyView = _bossEnemyViewFactory.Create(bossEnemy, killedEnemiesCounter, view);
 
             return bossEnemyView;
         }

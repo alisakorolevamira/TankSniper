@@ -4,10 +4,12 @@ using JetBrains.Annotations;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
+using Sources.Scripts.Presentations.Views.Enemies.Boss;
 using Sources.Scripts.Presentations.Views.Enemies.Helicopter;
 using Sources.Scripts.Presentations.Views.Enemies.Jeep;
 using Sources.Scripts.Presentations.Views.Enemies.Standing;
 using Sources.Scripts.Presentations.Views.Enemies.Tank;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Boss;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopter;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Jeep;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Standing;
@@ -84,6 +86,14 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
             foreach (JeepEnemyView jeep in _enemySpawnerView.Jeeps)
             {
                 IJeepEnemyView view = _jeepEnemySpawnerService.Spawn(_killedEnemiesCounter, jeep);
+                
+                view.SetPlayerHealthView(_enemySpawnerView.PlayerView.PlayerHealthView);
+                _enemySpawner.SpawnedEnemies++;
+            }
+
+            foreach (BossEnemyView boss in _enemySpawnerView.Bosses)
+            {
+                IBossEnemyView view = _bossEnemySpawnerService.Spawn(_killedEnemiesCounter, boss);
                 
                 view.SetPlayerHealthView(_enemySpawnerView.PlayerView.PlayerHealthView);
                 _enemySpawner.SpawnedEnemies++;

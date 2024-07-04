@@ -7,8 +7,6 @@ namespace Sources.Scripts.InfrastructureInterfaces.Factories.Views.Enemies
 {
     public interface IBossEnemyViewFactory
     {
-        IBossEnemyView Create(BossEnemy bossEnemy, KilledEnemiesCounter killedEnemiesCounter);
-
         IBossEnemyView Create(BossEnemy bossEnemy, KilledEnemiesCounter killedEnemiesCounter, BossEnemyView bossEnemyView);
     }
 }

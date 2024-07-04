@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Sources.Scripts.Presentations.Views.Enemies.Base;
+using Sources.Scripts.Presentations.Views.Enemies.Boss;
 using Sources.Scripts.Presentations.Views.Enemies.Helicopter;
 using Sources.Scripts.Presentations.Views.Enemies.Jeep;
 using Sources.Scripts.Presentations.Views.Enemies.Standing;
@@ -14,6 +15,7 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Spawners
         IReadOnlyList<StandingEnemyView> Standings { get; }
         IReadOnlyList<HelicopterEnemyView> Helicopters { get; }
         IReadOnlyList<JeepEnemyView> Jeeps { get; }
+        IReadOnlyList<BossEnemyView> Bosses { get; }
 
         PlayerView PlayerView { get; }
 

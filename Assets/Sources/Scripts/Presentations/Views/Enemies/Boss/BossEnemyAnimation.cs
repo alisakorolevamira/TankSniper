@@ -6,31 +6,28 @@ using UnityEngine;
 
 namespace Sources.Scripts.Presentations.Views.Enemies.Boss
 {
-    public class BossEnemyAnimation : EnemyAnimation, IBossEnemyAnimation
+    public class BossEnemyAnimation : View, IBossEnemyAnimation
     {
-        private static int s_isRun = Animator.StringToHash("IsRun");
-
-        public event Action ScreamAnimationEnded;
-
-        public void PlayRun()
+        [SerializeField] private ParticleSystem _movementParticle;
+        [SerializeField] private ParticleSystem _attackParticle;
+        [SerializeField] private Collider _collider;
+        [SerializeField] private Animator _animator;
+        
+        public event Action Attacking;
+        
+        public void PlayIdle()
         {
-            ExceptAnimation(StopRun);
-            Animator.SetBool(s_isRun, true);
+            _animator.Play("Move");
         }
 
-        protected override void OnAfterAwake() =>
-            StoppingAnimations.Add(StopRun);
-
-        private void StopRun()
+        public void PlayAttack()
         {
-            if (Animator.GetBool(s_isRun) == false)
-                return;
-
-            Animator.SetBool(s_isRun, false);
+            
         }
 
-        [UsedImplicitly]
-        private void OnScreamAnimationEnded() =>
-            ScreamAnimationEnded?.Invoke();
+        public void PlayDying()
+        {
+            _collider.SendMessage("Shatter", transform.position, SendMessageOptions.DontRequireReceiver);
+        }
     }
 }

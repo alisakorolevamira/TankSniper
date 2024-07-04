@@ -19,7 +19,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
     public class BossEnemyPresenterFactory
     {
         private readonly List<IEnemyViewBase> _enemyCollection;
-        private readonly IPlayerAttackService _playerAttackService;
         private readonly IUpdateRegister _updateRegister;
 
         public BossEnemyPresenterFactory(
@@ -29,7 +28,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
         {
             _updateRegister = updateRegister ?? throw new ArgumentNullException(nameof(updateRegister));
             _enemyCollection = enemyCollection ?? throw new ArgumentNullException(nameof(enemyCollection));
-            _playerAttackService = playerAttackService ?? throw new ArgumentNullException(nameof(playerAttackService));
         }
 
         public EnemyPresenter Create(
@@ -38,19 +36,14 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
             IBossEnemyView enemyView,
             IBossEnemyAnimation enemyAnimation)
         {
-            BossMovementState movementState = new BossMovementState(enemyAnimation, enemyView);
-            EnemyAttackState attackState = new EnemyAttackState(enemy, enemyView, enemyAnimation);
-            EnemyDieState dieState = new EnemyDieState(killedEnemiesCounter, enemyView, _enemyCollection, enemyAnimation);
-            
-            FiniteTransitionBase toAttackTransition = new FiniteTransitionBase(
-                attackState, () => _playerAttackService.PlayerAttacked);
-            movementState.AddTransition(toAttackTransition);
+            BossAttackState attackState = new BossAttackState(enemy, enemyView, enemyAnimation);
+            BossDieState dieState = new BossDieState(killedEnemiesCounter, enemyView, _enemyCollection, enemyAnimation);
 
             FiniteTransition toDieTransition = new FiniteTransitionBase(
                 dieState, () => enemy.EnemyHealth.CurrentHealth <= 0);
             attackState.AddTransition(toDieTransition);
 
-            return new EnemyPresenter(movementState, _updateRegister);
+            return new EnemyPresenter(attackState, _updateRegister);
         }
     }
 }

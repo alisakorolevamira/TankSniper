@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.States;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Boss;
 
-namespace Sources.Scripts.Controllers.Presenters.Enemies.Base.States
+namespace Sources.Scripts.Controllers.Presenters.Enemies.Boss.States
 {
-    public class EnemyDieState : FiniteState
+    public class BossDieState : FiniteState
     {
         private readonly KilledEnemiesCounter _killedEnemiesCounter;
-        private readonly IEnemyViewBase _enemyView;
+        private readonly IBossEnemyView _enemyView;
         private readonly List<IEnemyViewBase> _enemyCollection;
-        private readonly IEnemyAnimation _enemyAnimation;
+        private readonly IBossEnemyAnimation _enemyAnimation;
 
-        public EnemyDieState(
+        public BossDieState(
             KilledEnemiesCounter killedEnemiesCounter,
-            IEnemyViewBase enemyView,
+            IBossEnemyView enemyView,
             List<IEnemyViewBase> enemyCollection,
-            IEnemyAnimation enemyAnimation)
+            IBossEnemyAnimation enemyAnimation)
         {
             _killedEnemiesCounter = killedEnemiesCounter ?? throw new ArgumentNullException(nameof(killedEnemiesCounter));
             _enemyView = enemyView ?? throw new ArgumentNullException(nameof(enemyView));
@@ -33,6 +34,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Base.States
             _killedEnemiesCounter.IncreaseKilledEnemiesCount();
             _enemyCollection.Remove(_enemyView);
             _enemyAnimation.PlayDying();
+            _enemyView.Explode();
         }
     }
 }

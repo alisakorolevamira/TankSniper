@@ -11,5 +11,6 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Enemies.Boss
 
         void MoveToPoint(Vector3 target);
         void SetRotation(float angle);
+        void Explode();
     }
 }

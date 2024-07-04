@@ -7,7 +7,7 @@
         public const int TankDamage = 50;
         public const int StandingDamage = 20;
         public const int HelicopterDamage = 70;
-        public const int BossHealth = 8000;
+        public const int BossHealth = 2000;
         public const int BossDamage = 100;
     }
 }

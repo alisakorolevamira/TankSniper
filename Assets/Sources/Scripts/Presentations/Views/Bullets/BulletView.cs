@@ -19,6 +19,7 @@ namespace Sources.Scripts.Presentations.Views.Bullets
             new PoolableObjectDestroyerService();
         
         private IWeaponView _weaponView;
+        private bool _isDisposed;
         private CancellationTokenSource _cancellationTokenSource;
         private float _distance = Mathf.Infinity;
         private readonly TimeSpan _delay = TimeSpan.FromMilliseconds(BulletConst.Delay);
@@ -35,13 +36,13 @@ namespace Sources.Scripts.Presentations.Views.Bullets
             {
                 Vector3 endPoint = hit.point;
 
-                ChangePosition(endPoint, _cancellationTokenSource.Token);
+                ChangePosition(endPoint);
             }
             
             _cancellationTokenSource.Cancel();
         }
 
-        private async void ChangePosition(Vector3 endPoint, CancellationToken token)
+        private async void ChangePosition(Vector3 endPoint)
         {
             float step =  BulletConst.Step * Time.deltaTime;
             
@@ -51,7 +52,7 @@ namespace Sources.Scripts.Presentations.Views.Bullets
                 {
                     transform.position = Vector3.MoveTowards(transform.position, endPoint, step);
 
-                    await UniTask.Delay(_delay, cancellationToken: token);
+                    await UniTask.Delay(_delay);
                 }
                 
                 SpawnEffectOnDestroy();
@@ -63,6 +64,9 @@ namespace Sources.Scripts.Presentations.Views.Bullets
         
         private void OnCollisionEnter(Collision collision)
         {
+            if(_isDisposed)
+                return;
+
             if (collision.gameObject.TryGetComponent(out IEnemyHealthView enemyHealthView))
             {
                 _weaponView.DealDamage(enemyHealthView);
@@ -72,6 +76,7 @@ namespace Sources.Scripts.Presentations.Views.Bullets
             }
             
             collision.collider.SendMessage("Shatter", collision.transform.position, SendMessageOptions.DontRequireReceiver);
+            //SpawnEffectOnDestroy();
         }
         
         private void SpawnEffectOnDestroy()

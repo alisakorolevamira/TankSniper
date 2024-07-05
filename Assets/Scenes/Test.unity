@@ -7624,8 +7624,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37083787207a481eb478e0284ff9ab63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameObject: {fileID: 0}
+  _gameObject2: {fileID: 0}
   _collider: {fileID: 0}
-  IsDestroyed: 0
+  _button: {fileID: 1952811532}
+  _animator: {fileID: 0}
 --- !u!33 &998143370
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -11450,7 +11453,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6335dfabf5b64270912ff1ed3e229072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _movementParticle: {fileID: 0}
   _attackParticle: {fileID: 0}
+  _collider: {fileID: 1594182503}
   _animator: {fileID: 1594182507}
 --- !u!114 &1594182505
 MonoBehaviour:
@@ -11483,7 +11488,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  _peaces: []
 --- !u!95 &1594182507
 Animator:
   serializedVersion: 5
@@ -21581,6 +21585,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2918045375784576935}
   - component: {fileID: 2918045375784576937}
+  - component: {fileID: 2918045375784576936}
   m_Layer: 0
   m_Name: Robot_humanoid@Walking
   m_TagString: Untagged
@@ -22140,7 +22145,7 @@ Transform:
   m_GameObject: {fileID: 2536980572277587229}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.9955767, z: -0, w: 0.09395297}
-  m_LocalPosition: {x: -1.79, y: 0, z: -11.46}
+  m_LocalPosition: {x: -0.4919616, y: 0, z: -12.907582}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22148,6 +22153,23 @@ Transform:
   - {fileID: 385475505}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -169.218, z: 0}
+--- !u!114 &2918045375784576936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2536980572277587229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37083787207a481eb478e0284ff9ab63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameObject: {fileID: 1594182495}
+  _gameObject2: {fileID: 385475504}
+  _collider: {fileID: 0}
+  _button: {fileID: 1952811532}
+  _animator: {fileID: 2918045375784576937}
 --- !u!95 &2918045375784576937
 Animator:
   serializedVersion: 5

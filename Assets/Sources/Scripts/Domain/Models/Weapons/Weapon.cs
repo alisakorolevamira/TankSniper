@@ -14,7 +14,7 @@ namespace Sources.Scripts.Domain.Models.Weapons
             Damage = damage;
         }
         
-        public float Damage { get; }
+        public float Damage { get; private set; }
         
         public void Attack() => 
             Attacked?.Invoke();

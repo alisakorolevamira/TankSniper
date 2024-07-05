@@ -1,18 +1,12 @@
 ﻿using System;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base;
-using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Enemies.Boss;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Boss;
 using Sources.Scripts.Infrastructure.Factories.Views.Common;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.Enemies;
-using Sources.Scripts.InfrastructureInterfaces.Services.ObjectPool.Generic;
 using Sources.Scripts.Presentations.Views.Enemies.Boss;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Boss;
-using Sources.Scripts.PresentationsInterfaces.Views.ObjectPool;
-using Unity.VisualScripting;
-using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Boss
 {

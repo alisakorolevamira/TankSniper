@@ -17,8 +17,9 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Boss.States
         
         private CancellationTokenSource _cancellationTokenSource;
         private TimeSpan _attackDelay;
-        private int _targetPositionIndex = 0;
+        private int _targetPositionIndex;
         private Vector3 _targetPoint;
+        private bool _isAttacking = false;
 
         public BossAttackState(
             BossEnemy enemy,
@@ -44,6 +45,9 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Boss.States
         
         public override void Update(float deltaTime)
         {
+            if (_isAttacking)
+                return;
+            
             Vector3 currentTarget = _enemyView.MovementPoints[_targetPositionIndex].position;
             _enemyView.MoveToPoint(currentTarget);
             ChangeRotation();
@@ -60,7 +64,12 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Boss.States
                 {
                     await UniTask.Delay(_attackDelay, cancellationToken: cancellationToken);
 
+                    _isAttacking = true;
                     Attack();
+                    
+                    await UniTask.Delay(TimeSpan.FromSeconds(2f), cancellationToken: cancellationToken);
+                    
+                    _isAttacking = false;
                     _enemyAnimation.PlayIdle();
                 }
             }

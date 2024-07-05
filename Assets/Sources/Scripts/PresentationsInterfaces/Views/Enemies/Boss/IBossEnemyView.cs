@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Sources.Scripts.Presentations.Views.Common;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Enemies.Boss
     {
         IReadOnlyList<Transform> MovementPoints { get; }
         Vector3 Position { get; }
+        HealthBarUI HealthBar { get; }
 
         void MoveToPoint(Vector3 target);
         void SetRotation(float angle);

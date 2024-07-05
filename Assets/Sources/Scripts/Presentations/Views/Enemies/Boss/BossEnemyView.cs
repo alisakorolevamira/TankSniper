@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Sources.Scripts.Presentations.Views.BossPeaces;
+using Sources.Scripts.Presentations.Views.Common;
 using Sources.Scripts.Presentations.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Bullets;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Boss;
@@ -13,10 +14,12 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Boss
         [SerializeField] private BossEnemyAnimation _bossEnemyAnimation;
         [SerializeField] private List<Transform> _movementPoints;
         [SerializeField] private List<BossPieceView> _peaces;
+        [SerializeField] private HealthBarUI _healthBar;
 
         public BossEnemyAnimation EnemyAnimation => _bossEnemyAnimation;
         public IReadOnlyList<Transform> MovementPoints => _movementPoints;
         public Vector3 Position => transform.position;
+        public HealthBarUI HealthBar => _healthBar;
 
         public void MoveToPoint(Vector3 direction) => 
             transform.position = Vector3.MoveTowards(transform.position, direction, 0.2f * Time.deltaTime);

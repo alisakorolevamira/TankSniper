@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Enemies.Boss;
@@ -21,17 +22,20 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Boss
         private readonly BossEnemyPresenterFactory _bossEnemyPresenterFactory;
         private readonly EnemyHealthViewFactory _enemyHealthViewFactory;
         private readonly HealthUITextViewFactory _healthUITextViewFactory;
-        
+        private readonly HealthBarUIFactory _healthBarUIFactory;
+
         public BossEnemyViewFactory(
             BossEnemyPresenterFactory presenterFactory,
             EnemyHealthViewFactory enemyHealthViewFactory,
-            HealthUITextViewFactory healthUITextViewFactory)
+            HealthUITextViewFactory healthUITextViewFactory,
+            HealthBarUIFactory healthBarUIFactory)
         {
             _bossEnemyPresenterFactory = presenterFactory ?? throw new ArgumentNullException(nameof(presenterFactory));
             _enemyHealthViewFactory = enemyHealthViewFactory ??
                                       throw new ArgumentNullException(nameof(enemyHealthViewFactory));
             _healthUITextViewFactory = healthUITextViewFactory ??
                                        throw new ArgumentNullException(nameof(healthUITextViewFactory));
+            _healthBarUIFactory = healthBarUIFactory ?? throw new ArgumentNullException(nameof(healthBarUIFactory));
         }
 
         public IBossEnemyView Create(BossEnemy bossEnemy, KilledEnemiesCounter killedEnemiesCounter, BossEnemyView view)
@@ -42,6 +46,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Boss
             view.Construct(presenter);
             _enemyHealthViewFactory.Create(bossEnemy.EnemyHealth, view.EnemyHealthView);
             _healthUITextViewFactory.Create(bossEnemy.EnemyHealth, view.HealthUIText);
+            _healthBarUIFactory.Create(bossEnemy.EnemyHealth, view.HealthBar);
             
             return view;
         }

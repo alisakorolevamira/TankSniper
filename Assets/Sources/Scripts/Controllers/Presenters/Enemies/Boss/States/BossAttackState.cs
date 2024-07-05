@@ -16,9 +16,11 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Boss.States
         private readonly IBossEnemyAnimation _enemyAnimation;
         
         private CancellationTokenSource _cancellationTokenSource;
-        private TimeSpan _attackDelay;
+        private TimeSpan _attackDelay = TimeSpan.FromSeconds(EnemyConst.AttackDelay);
+        private TimeSpan _attackTime = TimeSpan.FromSeconds(EnemyConst.AttackTime);
         private int _targetPositionIndex = 0;
         private Vector3 _targetPoint;
+        private bool _isAttacking;
 
         public BossAttackState(
             BossEnemy enemy,
@@ -33,7 +35,6 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Boss.States
         public override void Enter()
         {
             _cancellationTokenSource = new CancellationTokenSource();
-            _attackDelay = TimeSpan.FromSeconds(EnemyConst.AttackDelay);
             
             _enemyAnimation.PlayIdle();
             SetTimer(_cancellationTokenSource.Token);
@@ -44,6 +45,9 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Boss.States
         
         public override void Update(float deltaTime)
         {
+            if (_isAttacking)
+                return;
+            
             Vector3 currentTarget = _enemyView.MovementPoints[_targetPositionIndex].position;
             _enemyView.MoveToPoint(currentTarget);
             ChangeRotation();
@@ -60,7 +64,12 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Boss.States
                 {
                     await UniTask.Delay(_attackDelay, cancellationToken: cancellationToken);
 
+                    _isAttacking = true;
                     Attack();
+                    
+                    await UniTask.Delay(_attackTime, cancellationToken: cancellationToken);
+
+                    _isAttacking = false;
                     _enemyAnimation.PlayIdle();
                 }
             }

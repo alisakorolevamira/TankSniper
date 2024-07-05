@@ -112,7 +112,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             PlayerShop playerShop = new PlayerShop(ModelId.PlayerShop);
             _entityRepository.Add(playerShop);
 
-            LevelAvailability levelAvailability = new LevelAvailability(gameLevels.Levels);
+            LevelAvailability levelAvailability = new LevelAvailability(gameLevels.Levels, mainMenu.Index);
 
             _loadService.SaveAll();
 

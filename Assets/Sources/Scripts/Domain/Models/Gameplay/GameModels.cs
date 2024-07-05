@@ -10,6 +10,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
     public class GameModels
     {
         public GameModels(
+            MainMenuAppearance mainMenu,
             CharacterHealth characterHealth,
             PlayerWallet playerWallet,
             PlayerAttacker playerAttacker,
@@ -35,6 +36,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             SkinChanger = skinChanger;
             Upgrader = upgrader;
             LevelAvailability = levelAvailability;
+            MainMenu = mainMenu;
         }
 
         public CharacterHealth CharacterHealth { get; }
@@ -49,5 +51,6 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         public Upgrader Upgrader { get; }
         public SkinChanger SkinChanger { get; }
         public LevelAvailability LevelAvailability { get; }
+        public MainMenuAppearance MainMenu { get; }
     }
 }

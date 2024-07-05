@@ -21,7 +21,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Gameplay
             LevelAvailability levelAvailability,
             LevelAvailabilityView levelAvailabilityView)
         {
-            LevelAvailabilityPresenter presenter = _presenterFactory.Create(levelAvailability, levelAvailabilityView);
+            LevelAvailabilityPresenter presenter =
+                _presenterFactory.Create(levelAvailability, levelAvailabilityView);
             
             levelAvailabilityView.Construct(presenter);
             

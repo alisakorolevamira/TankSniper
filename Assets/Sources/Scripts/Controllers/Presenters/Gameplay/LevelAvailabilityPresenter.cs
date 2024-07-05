@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using JetBrains.Annotations;
 using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Payloads;
@@ -14,10 +15,11 @@ namespace Sources.Scripts.Controllers.Presenters.Gameplay
     public class LevelAvailabilityPresenter : PresenterBase
     {
         private readonly LevelAvailability _levelAvailability;
+        private readonly MainMenuAppearance _mainMenuAppearance;
         private readonly ILevelAvailabilityView _levelAvailabilityView;
         
         public LevelAvailabilityPresenter(
-            LevelAvailability levelAvailability, 
+            LevelAvailability levelAvailability,
             ILevelAvailabilityView levelAvailabilityView)
         {
             _levelAvailability = levelAvailability ?? 
@@ -38,6 +40,17 @@ namespace Sources.Scripts.Controllers.Presenters.Gameplay
         private void ShowAvailableLevels()
         {
             int completedLevels = _levelAvailability.Levels.Count(x => x.IsCompleted);
+
+            switch (_levelAvailability.Index)
+            {
+                case 2:
+                    completedLevels -= 6;
+                    break;
+                
+                case 3:
+                    completedLevels -= 12;
+                    break;
+            }
 
             for (int i = 0; i < completedLevels; i++)
             {

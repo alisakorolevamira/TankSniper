@@ -84,6 +84,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             
             Volume volume = _entityRepository.Get<Volume>(ModelId.Volume);
 
+            MainMenuAppearance mainMenu = _entityRepository.Get<MainMenuAppearance>(ModelId.MainMenuAppearance);
+
             GameLevels gameLevels = _entityRepository.Get<GameLevels>(ModelId.GameLevels);
             Level level = gameLevels.Levels.Find(level => level.Id == scenePayload.SceneId);
             
@@ -105,11 +107,12 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
             PlayerAttacker playerAttacker = new PlayerAttacker(weapon);
             
-            LevelAvailability levelAvailability = new LevelAvailability(gameLevels.Levels);
+            LevelAvailability levelAvailability = new LevelAvailability(gameLevels.Levels, mainMenu.Index);
             
             GameplayPlayer player = new GameplayPlayer(playerWallet, characterHealth, playerAttacker, weapon);
             
             return new GameModels(
+                mainMenu,
                 characterHealth,
                 playerWallet,
                 playerAttacker,

@@ -87,7 +87,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
 
             GameLevels gameLevels = _loadService.Load(ModelId.GameLevels) as GameLevels;
 
-            LevelAvailability levelAvailability = new LevelAvailability(gameLevels.Levels);
+            LevelAvailability levelAvailability = new LevelAvailability(gameLevels.Levels, mainMenu.Index);
             
             PlayerWallet playerWallet = _loadService.Load(ModelId.PlayerWallet) as PlayerWallet;
 

@@ -19,9 +19,9 @@ namespace Sources.Scripts.App.Core
             try
             {
                 await _sceneService.ChangeSceneAsync(
-                    //ModelId.MainMenu,
-                    LevelConst.SixthLevel,
-                    new ScenePayload(LevelConst.SixthLevel, false, false));
+                    ModelId.MainMenu,
+                    //LevelConst.SixthLevel,
+                    new ScenePayload(ModelId.MainMenu, false, false));
             }
             catch(ArgumentNullException)
             {

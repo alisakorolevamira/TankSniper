@@ -11,6 +11,7 @@ using Sources.Scripts.Domain.Models.Upgrades;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Inventory;
+using Sources.Scripts.Infrastructure.Factories.Views.MainMenu;
 using Sources.Scripts.Infrastructure.Factories.Views.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
 using Sources.Scripts.Infrastructure.Factories.Views.Shops;
@@ -46,6 +47,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             ShopDecalButtonViewFactory shopDecalButtonViewFactory,
             WalletUIFactory walletUIFactory,
             InventoryTankButtonViewFactory inventoryTankButtonViewFactory,
+            MainMenuViewFactory mainMenuViewFactory,
             IVolumeService volumeService,
             ITutorialService tutorialService,
             IUpgradeService upgradeService,
@@ -62,6 +64,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 shopDecalButtonViewFactory,
                 walletUIFactory,
                 inventoryTankButtonViewFactory,
+                mainMenuViewFactory,
                 volumeService,
                 tutorialService,
                 inventoryTankSpawnerService,
@@ -74,6 +77,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
 
         protected override MainMenuModels LoadModels(IScenePayload scenePayload)
         {
+            MainMenuAppearance mainMenu = new MainMenuAppearance(ModelId.MainMenuAppearance);
+            _entityRepository.Add(mainMenu);
+            
             Tutorial tutorial = new Tutorial(ModelId.Tutorial);
             _entityRepository.Add(tutorial);
 
@@ -111,6 +117,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             _loadService.SaveAll();
 
             return new MainMenuModels(
+                mainMenu,
                 volume,
                 gameLevels,
                 levelAvailability,

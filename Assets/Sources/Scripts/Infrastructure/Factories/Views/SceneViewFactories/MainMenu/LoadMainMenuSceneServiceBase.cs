@@ -4,6 +4,7 @@ using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Inventory;
+using Sources.Scripts.Infrastructure.Factories.Views.MainMenu;
 using Sources.Scripts.Infrastructure.Factories.Views.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
 using Sources.Scripts.Infrastructure.Factories.Views.Shops;
@@ -33,6 +34,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
         private readonly ShopDecalButtonViewFactory _shopDecalButtonViewFactory;
         private readonly WalletUIFactory _walletUIFactory;
         private readonly InventoryTankButtonViewFactory _inventoryTankButtonViewFactory;
+        private readonly MainMenuViewFactory _mainMenuViewFactory;
         private readonly IVolumeService _volumeService;
         private readonly ITutorialService _tutorialService;
         private readonly IInventoryTankSpawnerService _inventoryTankSpawnerService;
@@ -50,6 +52,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             ShopDecalButtonViewFactory shopDecalButtonViewFactory,
             WalletUIFactory walletUIFactory,
             InventoryTankButtonViewFactory inventoryTankButtonViewFactory,
+            MainMenuViewFactory mainMenuViewFactory,
             IVolumeService volumeService,
             ITutorialService tutorialService,
             IInventoryTankSpawnerService inventoryTankSpawnerService,
@@ -72,6 +75,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             _walletUIFactory = walletUIFactory ?? throw new ArgumentNullException(nameof(walletUIFactory));
             _inventoryTankButtonViewFactory = inventoryTankButtonViewFactory ??
                                               throw new ArgumentNullException(nameof(inventoryTankButtonViewFactory));
+            _mainMenuViewFactory = mainMenuViewFactory ?? throw new ArgumentNullException(nameof(mainMenuViewFactory));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
             _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
             _skinChangerService = skinChangerService ?? throw new ArgumentNullException(nameof(skinChangerService));
@@ -109,6 +113,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             _skinChangerService.Construct(models.SkinChanger);
 
             _shopViewFactory.Create(_mainMenuHud.ShopView, models.Upgrader, models.Shop);
+
+            _mainMenuViewFactory.Create(_mainMenuHud.MainMenuView, models.MainMenuAppearance);
 
             foreach (ShopPatternButtonView patternButton in _mainMenuHud.ShopView.PatternButtons)
                 _shopPatternButtonViewFactory.Create(patternButton, models.Player.PlayerWallet);

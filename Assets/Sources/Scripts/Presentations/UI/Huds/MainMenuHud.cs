@@ -2,6 +2,7 @@
 using Sources.Scripts.Presentations.Views;
 using Sources.Scripts.Presentations.Views.Gameplay;
 using Sources.Scripts.Presentations.Views.Inventory;
+using Sources.Scripts.Presentations.Views.MainMenu;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.Presentations.Views.Players.Skins;
 using Sources.Scripts.Presentations.Views.Settings;
@@ -34,6 +35,9 @@ namespace Sources.Scripts.Presentations.UI.Huds
         [Header("Shop")]
         [SerializeField] private ShopView _shopView;
         
+        [Header("Appearance")]
+        [SerializeField] private MainMenuView _mainMenuView;
+        
         public IReadOnlyList<IUIAudioSource> UIAudioSources => _uiAudioSources;
         public IReadOnlyList<LevelAvailabilityView> LevelAvailabilityViews => _levelAvailabilityViews;
         public VolumeView VolumeView => _volumeView;
@@ -42,5 +46,6 @@ namespace Sources.Scripts.Presentations.UI.Huds
         public IReadOnlyList<SkinChangerView> SkinChangerViews => _skinChangerViews;
         public ShopView ShopView => _shopView;
         public InventoryTankButtonView AddTankButtonView => _addTankButtonView;
+        public MainMenuView MainMenuView => _mainMenuView;
     }
 }

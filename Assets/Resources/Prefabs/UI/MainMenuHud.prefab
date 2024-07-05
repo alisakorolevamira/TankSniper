@@ -214,7 +214,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiAudioSources: []
   _volumeView: {fileID: 8584189586544925939}
-  _levelAvailabilityView: {fileID: 2209807982209284666}
+  _levelAvailabilityViews:
+  - {fileID: 2209807982209284666}
+  - {fileID: 6120040343784648269}
+  - {fileID: 4835208611094691824}
+  - {fileID: 1571857206161575343}
   _walletsUI:
   - {fileID: 6813249180566008282}
   - {fileID: 4445992059599131526}
@@ -227,6 +231,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 7207926911744563508}
   _shopView: {fileID: 6832965324571986345}
+  _mainMenuView: {fileID: 0}
 --- !u!114 &1417960260856077810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,7 +452,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.11711311, y: -0.015380859}
+  m_AnchoredPosition: {x: -0.11711311, y: -0.009338379}
   m_SizeDelta: {x: 1876.88, y: -0.01}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &9076316517028528951
@@ -9841,7 +9846,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.11711311, y: -0.014373779}
+  m_AnchoredPosition: {x: -0.11711311, y: -0.008331299}
   m_SizeDelta: {x: 679.84, y: -0.01}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &6053912987910216128
@@ -78310,6 +78315,7 @@ GameObject:
   - component: {fileID: 7357991583129604471}
   - component: {fileID: 7879862137091053966}
   - component: {fileID: 5256343906647056943}
+  - component: {fileID: 1569777284008224367}
   m_Layer: 5
   m_Name: Icon_Image
   m_TagString: Untagged
@@ -78374,6 +78380,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1569777284008224367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5336034333397900155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00ff0260c1594fbaba7e7aa163d3d4c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _image: {fileID: 5256343906647056943}
 --- !u!1 &5347592927340194382
 GameObject:
   m_ObjectHideFlags: 0
@@ -79843,6 +79862,7 @@ GameObject:
   - component: {fileID: 6348108553931717075}
   - component: {fileID: 2899814516567310902}
   - component: {fileID: 5626626776236804685}
+  - component: {fileID: 4443335699195931674}
   m_Layer: 5
   m_Name: Icon_Image
   m_TagString: Untagged
@@ -79907,6 +79927,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4443335699195931674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5462724320394282559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00ff0260c1594fbaba7e7aa163d3d4c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _image: {fileID: 5626626776236804685}
 --- !u!1 &5465043080873201764
 GameObject:
   m_ObjectHideFlags: 0

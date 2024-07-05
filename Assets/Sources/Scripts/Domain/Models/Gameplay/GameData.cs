@@ -1,5 +1,4 @@
-﻿using System;
-using Sources.Scripts.Domain.Models.Data;
+﻿using Sources.Scripts.Domain.Models.Data;
 using Sources.Scripts.DomainInterfaces.Models.Entities;
 
 namespace Sources.Scripts.Domain.Models.Gameplay

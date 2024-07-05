@@ -1,4 +1,5 @@
-﻿using Sources.Scripts.Domain.Models.Inventory;
+﻿using Sources.Scripts.Domain.Models.Data;
+using Sources.Scripts.Domain.Models.Inventory;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
 using Sources.Scripts.Domain.Models.Shops;
@@ -9,6 +10,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
     public class MainMenuModels
     {
         public MainMenuModels(
+            MainMenuAppearance mainMenuAppearance,
             Volume volume,
             GameLevels levels,
             LevelAvailability levelAvailability,
@@ -21,6 +23,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             InventoryGrid grid,
             PlayerShop shop)
         {
+            MainMenuAppearance = mainMenuAppearance;
             Volume = volume;
             Levels = levels;
             LevelAvailability = levelAvailability;
@@ -45,5 +48,6 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         public InventoryGrid InventoryGrid { get; }
         public SkinChanger SkinChanger { get; }
         public PlayerShop Shop { get; }
+        public MainMenuAppearance MainMenuAppearance { get; }
     }
 }

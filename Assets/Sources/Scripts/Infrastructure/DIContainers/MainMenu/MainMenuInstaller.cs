@@ -1,6 +1,9 @@
-﻿using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Gameplay;
+﻿using Sources.Scripts.Domain.Models.Gameplay.Configs;
+using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Gameplay;
+using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.MainMenu;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
+using Sources.Scripts.Infrastructure.Factories.Views.MainMenu;
 using Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.MainMenu;
 using Sources.Scripts.Infrastructure.Services.PauseServices;
 using Sources.Scripts.Infrastructure.Services.Shop;
@@ -33,6 +36,8 @@ namespace Sources.Scripts.Infrastructure.DIContainers.MainMenu
             
             BindServices();
             BindMainMenuLoadService();
+            BindConfigs();
+            BindFactories();
         }
         
         private void BindServices()
@@ -47,6 +52,20 @@ namespace Sources.Scripts.Infrastructure.DIContainers.MainMenu
         {
             Container.Bind<CreateMainMenuSceneService>().AsSingle();
             Container.Bind<LoadMainMenuSceneService>().AsSingle();
+        }
+
+        private void BindConfigs()
+        {
+            Container
+                .Bind<LocationSpritesConfig>()
+                .FromResource("Configs/LocationSpritesConfig")
+                .AsSingle();
+        }
+
+        private void BindFactories()
+        {
+            Container.Bind<MainMenuPresenterFactory>().AsSingle();
+            Container.Bind<MainMenuViewFactory>().AsSingle();
         }
     }
 }

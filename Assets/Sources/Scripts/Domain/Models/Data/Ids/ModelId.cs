@@ -23,6 +23,7 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
         public const string GameLevels = "GameLevels";
         public const string InventoryGrid = "InventoryGrid";
         public const string PlayerShop = "PlayerShop";
+        public const string MainMenuAppearance = "MainMenuAppearance";
         
         
         public static IReadOnlyList<string> ModelsIds = new List<string>()
@@ -37,6 +38,7 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
             GameLevels,
             InventoryGrid,
             PlayerShop,
+            MainMenuAppearance,
         };
 
         public static IReadOnlyDictionary<string, Type> DtoTypes = new Dictionary<string, Type>()
@@ -50,6 +52,7 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
             [SkinChanger] = typeof(SkinChangerData),
             [GameLevels] = typeof(LevelData),
             [InventoryGrid] = typeof(InventoryGridData),
+            [MainMenuAppearance] = typeof(MainMenuData)
         };
 
         public static IReadOnlyDictionary<string, IEntity> Entities = new Dictionary<string, IEntity>()
@@ -64,6 +67,7 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
             [GameLevels] = new GameLevels(GameLevels),
             [InventoryGrid] = new InventoryGrid(InventoryGrid),
             [PlayerShop] = new PlayerShop(PlayerShop),
+            [MainMenuAppearance] = new MainMenuAppearance(MainMenuAppearance)
         };
     }
 }

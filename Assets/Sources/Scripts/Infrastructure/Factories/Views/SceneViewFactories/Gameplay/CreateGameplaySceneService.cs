@@ -84,6 +84,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             _entityRepository.Add(volume);
 
             MainMenuAppearance mainMenu = new MainMenuAppearance(ModelId.MainMenuAppearance);
+            _entityRepository.Add(mainMenu);
 
             GameLevels gameLevels = CreateGamelevels();
             Level level = gameLevels.Levels.Find(level => level.Id == scenePayload.SceneId);

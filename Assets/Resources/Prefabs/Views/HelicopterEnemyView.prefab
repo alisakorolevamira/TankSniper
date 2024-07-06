@@ -1135,8 +1135,8 @@ MonoBehaviour:
   _movementPoints: []
   _speed: 1
   _enemyAnimation: {fileID: 3748769131238687909}
-  _rotar: {fileID: 6513652938675688803}
-  _rotationRotar: 1
+  _rotor: {fileID: 6513652938675688803}
+  _rotationRotor: 1
 --- !u!114 &3748769131238687909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1151,9 +1151,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gunShoot: {fileID: 5352828398476887748}
   _bazookaAnimator: {fileID: 8266315012893704235}
-  _rigidbody: {fileID: 6135665449986699270}
+  _rigidbodies:
+  - {fileID: 6135665449986699270}
+  - {fileID: 3682593986207953184}
+  - {fileID: 4312692076377261604}
+  - {fileID: 8790920238075471732}
+  - {fileID: 9048101162988943487}
   _collider: {fileID: 3197383934003619604}
-  _enemy: {fileID: 0}
 --- !u!1 &3335625304251933846
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,6 +1204,7 @@ GameObject:
   - component: {fileID: 1075197050826943027}
   - component: {fileID: 1149356939604952978}
   - component: {fileID: 3615830511907276157}
+  - component: {fileID: 9048101162988943487}
   m_Layer: 0
   m_Name: Top_rotor
   m_TagString: Untagged
@@ -1322,6 +1327,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: {x: 1, y: 1}
+--- !u!54 &9048101162988943487
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3680857523635059906}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3983626465634546914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1498,6 +1530,7 @@ GameObject:
   - component: {fileID: 6377074460232594109}
   - component: {fileID: 8232061666563966614}
   - component: {fileID: 5772052671877623878}
+  - component: {fileID: 3682593986207953184}
   m_Layer: 0
   m_Name: Cockpit
   m_TagString: Untagged
@@ -1620,6 +1653,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: {x: 1, y: 1}
+--- !u!54 &3682593986207953184
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4806421732518397120}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5129366304408542470
 GameObject:
   m_ObjectHideFlags: 0
@@ -2095,6 +2155,7 @@ GameObject:
   - component: {fileID: 5450618881375558637}
   - component: {fileID: 8436298389809933298}
   - component: {fileID: 2716751569838109610}
+  - component: {fileID: 4312692076377261604}
   m_Layer: 0
   m_Name: Glass
   m_TagString: Untagged
@@ -2217,6 +2278,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: {x: 1, y: 1}
+--- !u!54 &4312692076377261604
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6295299343635358282}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6430083510479619871
 GameObject:
   m_ObjectHideFlags: 0
@@ -2602,6 +2690,7 @@ GameObject:
   - component: {fileID: 5762884014186129499}
   - component: {fileID: 4083134015942497693}
   - component: {fileID: 2606463773470334525}
+  - component: {fileID: 8790920238075471732}
   m_Layer: 0
   m_Name: Tail_Rotor
   m_TagString: Untagged
@@ -2724,6 +2813,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: {x: 1, y: 1}
+--- !u!54 &8790920238075471732
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7879332370792456384}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7987403758193277105
 GameObject:
   m_ObjectHideFlags: 0

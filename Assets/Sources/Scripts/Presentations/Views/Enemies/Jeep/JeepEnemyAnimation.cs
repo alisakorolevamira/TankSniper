@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using Sources.Scripts.Presentations.Views.Animations;
+﻿using System.Collections.Generic;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Jeep;
 using UnityEngine;
 
 namespace Sources.Scripts.Presentations.Views.Enemies.Jeep
 {
-    public class JeepEnemyAnimation : AnimationViewBase, IJeepEnemyAnimation
+    public class JeepEnemyAnimation : View, IJeepEnemyAnimation
     {
         [SerializeField] private Collider _collider;
         [SerializeField] private List<GameObject> _enemies;
         [SerializeField] private List<Animator> _animators;
-        
-        public event Action Attacking;
         
         public void PlayIdle()
         {
@@ -22,8 +18,6 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Jeep
 
         public void PlayAttack()
         {
-            Attacking?.Invoke();
-            
             foreach (var animator in _animators) 
                 animator.SetBool("Shoot", true);
         }

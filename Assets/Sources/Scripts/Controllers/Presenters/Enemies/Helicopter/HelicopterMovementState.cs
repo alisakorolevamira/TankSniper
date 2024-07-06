@@ -11,7 +11,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Helicopter
         private readonly IEnemyAnimation _enemyAnimation;
         private readonly IHelicopterEnemyView _enemyView;
 
-        private int _targetPositionIndex = 0;
+        private int _targetPositionIndex;
 
         public HelicopterMovementState(IEnemyAnimation enemyAnimation, IHelicopterEnemyView enemyView)
         {

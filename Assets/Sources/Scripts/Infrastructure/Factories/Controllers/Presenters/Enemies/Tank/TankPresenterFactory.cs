@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base.States;
-using Sources.Scripts.Controllers.Presenters.Enemies.Tank.States;
 using Sources.Scripts.Domain.Models.Enemies.Tank;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.Transitions;

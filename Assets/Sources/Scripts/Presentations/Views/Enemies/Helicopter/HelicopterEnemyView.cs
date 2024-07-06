@@ -7,12 +7,12 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Helicopter
     public class HelicopterEnemyView : MovingEnemyViewBase, IHelicopterEnemyView
     {
         [SerializeField] private HelicopterEnemyAnimation _enemyAnimation;
-        [SerializeField] private Transform _rotar;
-        [SerializeField] private float _rotationRotar = 1;
+        [SerializeField] private Transform _rotor;
+        [SerializeField] private float _rotationRotor = 1;
         
         public HelicopterEnemyAnimation EnemyAnimation => _enemyAnimation;
 
         public void RotateRotor() => 
-            _rotar.Rotate(new Vector3(0,_rotationRotar,0));
+            _rotor.Rotate(new Vector3(0,_rotationRotor,0));
     }
 }

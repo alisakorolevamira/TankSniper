@@ -9,5 +9,11 @@
         public const string FourthLevel = "FourthLevel";
         public const string FifthLevel = "FifthLevel";
         public const string SixthLevel = "SixthLevel";
+        public const string SeventhLevel = "SeventhLevel";
+        public const string EighthLevel = "EighthLevel";
+        public const string NinthLevel = "NinthLevel";
+        public const string TenthLevel = "TenthLevel";
+        public const string EleventhLevel = "EleventhLevel";
+        public const string TwelfthLevel = "TwelfthLevel";
     }
 }

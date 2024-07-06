@@ -7,14 +7,7 @@ using UnityEngine;
 
 namespace Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tank
 {
-    public interface ITankEnemyView : IEnemyViewBase //INavMeshAgent
+    public interface ITankEnemyView : IMovingEnemyViewBase
     {
-        IReadOnlyList<Transform> MovementPoints { get; }
-        Vector3 Position { get; }
-        
-        void MoveToPoint(Vector3 target);
-        void SetRotation(float angle);
-        //EnemyHealthView EnemyHealthView { get; }
-        //HealthUIText HealthUIText { get; }
     }
 }

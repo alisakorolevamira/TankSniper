@@ -18,6 +18,7 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
             Container.Bind<LoadGameCommand>().AsSingle();
             Container.Bind<ChangeVolumeCommand>().AsSingle();
             Container.Bind<UnpauseCommand>().AsSingle();
+            Container.Bind<ChangeMainMenuIndexCommand>().AsSingle();
             
             Container.Bind<IUIViewCommandHandler>().To<GameplayUIViewCommandHandler>().AsSingle();
             

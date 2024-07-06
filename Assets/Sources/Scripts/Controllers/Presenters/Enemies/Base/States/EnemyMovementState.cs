@@ -1,20 +1,19 @@
 ﻿using System;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.States;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
-using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Jeep;
 using UnityEngine;
 
-namespace Sources.Scripts.Controllers.Presenters.Enemies.Jeep.States
+namespace Sources.Scripts.Controllers.Presenters.Enemies.Base.States
 {
-    public class JeepMovementState : FiniteState
+    public class EnemyMovementState : FiniteState
     {
         private readonly IEnemyAnimation _enemyAnimation;
-        private readonly IJeepEnemyView _enemyView;
+        private readonly IMovingEnemyViewBase _enemyView;
         
         private int _targetPositionIndex = 0;
         private Vector3 _targetPoint;
 
-        public JeepMovementState(IEnemyAnimation enemyAnimation, IJeepEnemyView enemyView)
+        public EnemyMovementState(IEnemyAnimation enemyAnimation, IMovingEnemyViewBase enemyView)
         {
             _enemyAnimation = enemyAnimation ?? throw new ArgumentNullException(nameof(enemyAnimation));
             _enemyView = enemyView ?? throw new ArgumentNullException(nameof(enemyView));

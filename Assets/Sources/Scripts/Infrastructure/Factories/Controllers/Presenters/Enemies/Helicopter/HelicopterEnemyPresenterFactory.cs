@@ -35,7 +35,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
             IHelicopterEnemyView enemyView,
             IHelicopterEnemyAnimation enemyAnimation)
         {
-            //EnemyIdleState idleState = new EnemyIdleState(enemyAnimation);
             HelicopterMovementState movementState = new HelicopterMovementState(enemyAnimation, enemyView);
             HelicopterAttackState attackState = new HelicopterAttackState(enemy, enemyView, enemyAnimation);
             EnemyDieState dieState = new EnemyDieState(killedEnemiesCounter, enemyView, _enemyCollection, enemyAnimation);

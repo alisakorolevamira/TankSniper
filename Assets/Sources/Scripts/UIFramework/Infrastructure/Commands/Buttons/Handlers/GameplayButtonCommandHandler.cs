@@ -13,6 +13,7 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons.Handlers
             LoadMainMenuSceneCommand loadMainMenuSceneCommand,
             LoadGameCommand loadGameCommand,
             UnpauseCommand unpauseCommand,
+            ChangeMainMenuIndexCommand changeMainMenuIndexCommand,
             ChangeVolumeCommand changeVolumeCommand)
             //ShowRewardedAdvertisingButtonCommand showRewardedAdvertisingButtonCommand,
 
@@ -21,6 +22,7 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons.Handlers
             _commands[loadGameCommand.Id] = loadGameCommand;
             _commands[unpauseCommand.Id] = unpauseCommand;
             _commands[changeVolumeCommand.Id] = changeVolumeCommand;
+            _commands[changeMainMenuIndexCommand.Id] = changeMainMenuIndexCommand;
             //_commands[showRewardedAdvertisingButtonCommand.Id] = showRewardedAdvertisingButtonCommand;
         }
 

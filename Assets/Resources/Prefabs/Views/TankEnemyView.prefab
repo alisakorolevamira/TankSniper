@@ -5064,10 +5064,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthView: {fileID: 7793436371866416770}
   _healthUIText: {fileID: 4452255869343400125}
-  _enemyAnimation: {fileID: 1365557265592155925}
   _movementPoints:
   - {fileID: 0}
   - {fileID: 0}
+  _speed: 1
+  _enemyAnimation: {fileID: 1365557265592155925}
 --- !u!114 &1365557265592155925
 MonoBehaviour:
   m_ObjectHideFlags: 0

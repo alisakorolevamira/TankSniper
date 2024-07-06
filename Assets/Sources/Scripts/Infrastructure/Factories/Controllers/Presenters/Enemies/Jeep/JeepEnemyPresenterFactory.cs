@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base.States;
-using Sources.Scripts.Controllers.Presenters.Enemies.Jeep.States;
 using Sources.Scripts.Controllers.Presenters.Enemies.Tank.States;
 using Sources.Scripts.Domain.Models.Enemies.Jeep;
 using Sources.Scripts.Domain.Models.Enemies.Tank;
@@ -39,7 +38,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
             IJeepEnemyAnimation enemyAnimation)
         {
             EnemyIdleState idleState = new EnemyIdleState(enemyAnimation);
-            JeepMovementState movementState = new JeepMovementState(enemyAnimation, enemyView);
+            EnemyMovementState movementState = new EnemyMovementState(enemyAnimation, enemyView);
             EnemyDieState dieState = new EnemyDieState(killedEnemiesCounter, enemyView, _enemyCollection, enemyAnimation);
             
             FiniteTransitionBase toAttackTransition = new FiniteTransitionBase(

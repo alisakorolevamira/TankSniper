@@ -5,14 +5,10 @@ using UnityEngine;
 
 namespace Sources.Scripts.PresentationsInterfaces.Views.Enemies.Boss
 {
-    public interface IBossEnemyView : IEnemyViewBase
+    public interface IBossEnemyView : IMovingEnemyViewBase
     {
-        IReadOnlyList<Transform> MovementPoints { get; }
-        Vector3 Position { get; }
         HealthBarUI HealthBar { get; }
-
-        void MoveToPoint(Vector3 target);
-        void SetRotation(float angle);
+        
         void Explode();
     }
 }

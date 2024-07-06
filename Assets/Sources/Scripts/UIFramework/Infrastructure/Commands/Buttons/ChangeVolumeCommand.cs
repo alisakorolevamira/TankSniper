@@ -13,7 +13,7 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
         private readonly IVolumeService _volumeService;
         private readonly ILoadService _loadService;
 
-        public ChangeVolumeCommand(IVolumeService volumeService, [NotNull] ILoadService loadService)
+        public ChangeVolumeCommand(IVolumeService volumeService, ILoadService loadService)
         {
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));

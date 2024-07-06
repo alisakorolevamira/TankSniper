@@ -1132,9 +1132,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthView: {fileID: 7330171542488357504}
   _healthUIText: {fileID: 491379515560827209}
-  _enemyAnimation: {fileID: 3748769131238687909}
   _movementPoints: []
   _speed: 1
+  _enemyAnimation: {fileID: 3748769131238687909}
   _rotar: {fileID: 6513652938675688803}
   _rotationRotar: 1
 --- !u!114 &3748769131238687909
@@ -1199,6 +1199,7 @@ GameObject:
   - component: {fileID: 120414696091290460}
   - component: {fileID: 1075197050826943027}
   - component: {fileID: 1149356939604952978}
+  - component: {fileID: 3615830511907276157}
   m_Layer: 0
   m_Name: Top_rotor
   m_TagString: Untagged
@@ -1308,6 +1309,19 @@ MonoBehaviour:
   attachChildrenToPieces: 1
   maxChildToPieceDistance: 1
   addRbToDetachedChildren: 1
+--- !u!114 &3615830511907276157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3680857523635059906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ffc51ee67eb749739cd646e30301d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scale: {x: 1, y: 1}
 --- !u!1 &3983626465634546914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,6 +1497,7 @@ GameObject:
   - component: {fileID: 3709597312671791613}
   - component: {fileID: 6377074460232594109}
   - component: {fileID: 8232061666563966614}
+  - component: {fileID: 5772052671877623878}
   m_Layer: 0
   m_Name: Cockpit
   m_TagString: Untagged
@@ -1592,6 +1607,19 @@ MonoBehaviour:
   attachChildrenToPieces: 1
   maxChildToPieceDistance: 1
   addRbToDetachedChildren: 1
+--- !u!114 &5772052671877623878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4806421732518397120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ffc51ee67eb749739cd646e30301d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scale: {x: 1, y: 1}
 --- !u!1 &5129366304408542470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1609,6 +1637,7 @@ GameObject:
   - component: {fileID: 7798669876943587532}
   - component: {fileID: 8114306719363193069}
   - component: {fileID: 8770731465647130462}
+  - component: {fileID: 3617378905191453144}
   m_Layer: 0
   m_Name: Helicopter
   m_TagString: Untagged
@@ -1800,6 +1829,19 @@ MonoBehaviour:
   attachChildrenToPieces: 1
   maxChildToPieceDistance: 1
   addRbToDetachedChildren: 1
+--- !u!114 &3617378905191453144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5129366304408542470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ffc51ee67eb749739cd646e30301d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scale: {x: 1, y: 1}
 --- !u!1 &5282858650469138881
 GameObject:
   m_ObjectHideFlags: 0
@@ -2052,6 +2094,7 @@ GameObject:
   - component: {fileID: 35275124808579473}
   - component: {fileID: 5450618881375558637}
   - component: {fileID: 8436298389809933298}
+  - component: {fileID: 2716751569838109610}
   m_Layer: 0
   m_Name: Glass
   m_TagString: Untagged
@@ -2161,6 +2204,19 @@ MonoBehaviour:
   attachChildrenToPieces: 1
   maxChildToPieceDistance: 1
   addRbToDetachedChildren: 1
+--- !u!114 &2716751569838109610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6295299343635358282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ffc51ee67eb749739cd646e30301d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scale: {x: 1, y: 1}
 --- !u!1 &6430083510479619871
 GameObject:
   m_ObjectHideFlags: 0
@@ -2545,6 +2601,7 @@ GameObject:
   - component: {fileID: 3909160373947521970}
   - component: {fileID: 5762884014186129499}
   - component: {fileID: 4083134015942497693}
+  - component: {fileID: 2606463773470334525}
   m_Layer: 0
   m_Name: Tail_Rotor
   m_TagString: Untagged
@@ -2654,6 +2711,19 @@ MonoBehaviour:
   attachChildrenToPieces: 1
   maxChildToPieceDistance: 1
   addRbToDetachedChildren: 1
+--- !u!114 &2606463773470334525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7879332370792456384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ffc51ee67eb749739cd646e30301d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scale: {x: 1, y: 1}
 --- !u!1 &7987403758193277105
 GameObject:
   m_ObjectHideFlags: 0

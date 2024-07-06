@@ -36696,7 +36696,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthView: {fileID: 7056495830223188866}
   _healthUIText: {fileID: 3457125052215479785}
-  _enemyAnimation: {fileID: 6640356959206382999}
   _movementPoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -36705,6 +36704,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  _speed: 5
+  _enemyAnimation: {fileID: 6640356959206382999}
 --- !u!114 &6640356959206382999
 MonoBehaviour:
   m_ObjectHideFlags: 0

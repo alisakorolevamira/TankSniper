@@ -4,14 +4,12 @@ using Sources.Scripts.Domain.Models.Enemies.Standing;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Standing;
 using Sources.Scripts.Infrastructure.Factories.Views.Common;
-using Sources.Scripts.InfrastructureInterfaces.Factories.Views.Enemies;
-using Sources.Scripts.Presentations.Views.Enemies.Base;
 using Sources.Scripts.Presentations.Views.Enemies.Standing;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Standing;
 
 namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Standing
 {
-    public class StandingEnemyViewFactory : IStandingEnemyViewFactory
+    public class StandingEnemyViewFactory
     {
         private readonly StandingEnemyPresenterFactory _presenterFactory;
         private readonly EnemyHealthViewFactory _enemyHealthViewFactory;

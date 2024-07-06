@@ -2,6 +2,7 @@
 using Sources.Scripts.Controllers.Presenters.Spawners;
 using Sources.Scripts.Presentations.Views.Enemies.Base;
 using Sources.Scripts.Presentations.Views.Enemies.Boss;
+using Sources.Scripts.Presentations.Views.Enemies.Dron;
 using Sources.Scripts.Presentations.Views.Enemies.Helicopter;
 using Sources.Scripts.Presentations.Views.Enemies.Jeep;
 using Sources.Scripts.Presentations.Views.Enemies.Standing;
@@ -20,12 +21,14 @@ namespace Sources.Scripts.Presentations.Views.Spawners
         [SerializeField] private List<StandingEnemyView> _standings;
         [SerializeField] private List<JeepEnemyView> _jeeps;
         [SerializeField] private List<BossEnemyView> _bosses;
+        [SerializeField] private List<DronEnemyView> _drons;
         
         public IReadOnlyList<TankEnemyView> Tanks => _tanks;
         public IReadOnlyList<HelicopterEnemyView> Helicopters => _helicopters;
         public IReadOnlyList<StandingEnemyView> Standings => _standings;
         public IReadOnlyList<JeepEnemyView> Jeeps => _jeeps;
         public IReadOnlyList<BossEnemyView> Bosses => _bosses;
+        public IReadOnlyList<DronEnemyView> Drons => _drons;
 
         public PlayerView PlayerView { get; private set; }
 

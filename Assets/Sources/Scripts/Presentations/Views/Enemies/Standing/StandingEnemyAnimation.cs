@@ -8,22 +8,21 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Standing
     public class StandingEnemyAnimation : AnimationViewBase, IStandingEnemyAnimation
     {
         [SerializeField] private ParticleSystem _gunShoot;
+        [SerializeField] private Animator _animator;
         
         public event Action Attacking;
 
         public void PlayIdle()
         {
             ExceptAnimation(StopIdle);
-            //Animator.SetBool(s_isIdle, true);
-            Animator.Play("Idle");
+            _animator.Play("Idle");
         }
 
         public void PlayAttack()
         {
             Attacking?.Invoke();
             ExceptAnimation(StopAttack);
-            //Animator.SetBool(s_isAttack, true);
-            Animator.SetBool("Shoot", true);
+            _animator.SetBool("Shoot", true);
             //_gunShoot.Play();
         }
 

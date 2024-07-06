@@ -1,12 +1,13 @@
 ﻿using System;
 using JetBrains.Annotations;
+using Sources.Scripts.Presentations.Views.Animations;
 using Sources.Scripts.Presentations.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Boss;
 using UnityEngine;
 
 namespace Sources.Scripts.Presentations.Views.Enemies.Boss
 {
-    public class BossEnemyAnimation : View, IBossEnemyAnimation
+    public class BossEnemyAnimation : AnimationViewBase, IBossEnemyAnimation
     {
         [SerializeField] private ParticleSystem _attackParticle;
         [SerializeField] private Animator _animator;

@@ -4,12 +4,16 @@ using JetBrains.Annotations;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
+using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies;
 using Sources.Scripts.Presentations.Views.Enemies.Boss;
+using Sources.Scripts.Presentations.Views.Enemies.Dron;
 using Sources.Scripts.Presentations.Views.Enemies.Helicopter;
 using Sources.Scripts.Presentations.Views.Enemies.Jeep;
 using Sources.Scripts.Presentations.Views.Enemies.Standing;
 using Sources.Scripts.Presentations.Views.Enemies.Tank;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Boss;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Dron;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopter;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Jeep;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Standing;
@@ -28,6 +32,7 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
         private readonly IHelicopterEnemySpawnerService _helicopterEnemySpawnerService;
         private readonly IJeepEnemySpawnerService _jeepEnemySpawnerService;
         private readonly IBossEnemySpawnerService _bossEnemySpawnerService;
+        private readonly IDronEnemySpawnerService _dronEnemySpawnerService;
 
         private CancellationTokenSource _cancellationTokenSource;
 
@@ -39,19 +44,25 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
             IStandingEnemySpawnerService standingEnemySpawnerService,
             IHelicopterEnemySpawnerService helicopterEnemySpawnerService,
             IJeepEnemySpawnerService jeepEnemySpawnerService,
-            IBossEnemySpawnerService bossEnemySpawnerService)
+            IBossEnemySpawnerService bossEnemySpawnerService,
+            IDronEnemySpawnerService dronEnemySpawnerService)
         {
-            _killedEnemiesCounter = killedEnemiesCounter ?? throw new ArgumentNullException(nameof(killedEnemiesCounter));
+            _killedEnemiesCounter = killedEnemiesCounter ??
+                                    throw new ArgumentNullException(nameof(killedEnemiesCounter));
             _enemySpawner = enemySpawner ?? throw new ArgumentNullException(nameof(enemySpawner));
             _enemySpawnerView = enemySpawnerView ?? throw new ArgumentNullException(nameof(enemySpawnerView));
-            _tankEnemySpawnerService = tankEnemySpawnerService ?? throw new ArgumentNullException(nameof(tankEnemySpawnerService));
+            _tankEnemySpawnerService = tankEnemySpawnerService ??
+                                       throw new ArgumentNullException(nameof(tankEnemySpawnerService));
             _standingEnemySpawnerService = standingEnemySpawnerService ??
                                            throw new ArgumentNullException(nameof(standingEnemySpawnerService));
             _helicopterEnemySpawnerService = helicopterEnemySpawnerService ??
                                             throw new ArgumentNullException(nameof(helicopterEnemySpawnerService));
-            _jeepEnemySpawnerService = jeepEnemySpawnerService ?? throw new ArgumentNullException(nameof(jeepEnemySpawnerService));
+            _jeepEnemySpawnerService = jeepEnemySpawnerService ??
+                                       throw new ArgumentNullException(nameof(jeepEnemySpawnerService));
             _bossEnemySpawnerService = bossEnemySpawnerService ??
                                        throw new ArgumentNullException(nameof(bossEnemySpawnerService));
+            _dronEnemySpawnerService = dronEnemySpawnerService ??
+                                       throw new ArgumentNullException(nameof(dronEnemySpawnerService));
         }
 
         public override void Enable() => 
@@ -61,43 +72,51 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
         {
             foreach (TankEnemyView tank in _enemySpawnerView.Tanks)
             {
-                ITankEnemyView tankEnemyView = _tankEnemySpawnerService.Spawn(_killedEnemiesCounter, tank);
+                ITankEnemyView view = _tankEnemySpawnerService.Spawn(_killedEnemiesCounter, tank);
                     
-                tankEnemyView.SetPlayerHealthView(_enemySpawnerView.PlayerView.PlayerHealthView);
-                _enemySpawner.SpawnedEnemies++;
+                SetPlayerHealthView(view);
             }
 
             foreach (HelicopterEnemyView helicopter in _enemySpawnerView.Helicopters)
             {
                 IHelicopterEnemyView view = _helicopterEnemySpawnerService.Spawn(_killedEnemiesCounter, helicopter);
                 
-                view.SetPlayerHealthView(_enemySpawnerView.PlayerView.PlayerHealthView);
-                _enemySpawner.SpawnedEnemies++;
+                SetPlayerHealthView(view);
             }
 
             foreach (StandingEnemyView standing in _enemySpawnerView.Standings)
             {
                 IStandingEnemyView view = _standingEnemySpawnerService.Spawn(_killedEnemiesCounter, standing);
                 
-                view.SetPlayerHealthView(_enemySpawnerView.PlayerView.PlayerHealthView);
-                _enemySpawner.SpawnedEnemies++;
+                SetPlayerHealthView(view);
             }
             
             foreach (JeepEnemyView jeep in _enemySpawnerView.Jeeps)
             {
                 IJeepEnemyView view = _jeepEnemySpawnerService.Spawn(_killedEnemiesCounter, jeep);
                 
-                view.SetPlayerHealthView(_enemySpawnerView.PlayerView.PlayerHealthView);
-                _enemySpawner.SpawnedEnemies++;
+                SetPlayerHealthView(view);
             }
 
             foreach (BossEnemyView boss in _enemySpawnerView.Bosses)
             {
                 IBossEnemyView view = _bossEnemySpawnerService.Spawn(_killedEnemiesCounter, boss);
                 
-                view.SetPlayerHealthView(_enemySpawnerView.PlayerView.PlayerHealthView);
-                _enemySpawner.SpawnedEnemies++;
+                SetPlayerHealthView(view);
             }
+
+            foreach (DronEnemyView dron in _enemySpawnerView.Drons)
+            {
+                IDronEnemyView view = _dronEnemySpawnerService.Spawn(_killedEnemiesCounter, dron);
+                
+                SetPlayerHealthView(view);
+            }
+        }
+
+        private void SetPlayerHealthView(IEnemyViewBase view)
+        {
+            view.SetPlayerHealthView(_enemySpawnerView.PlayerView.PlayerHealthView);
+            _enemySpawner.SpawnedEnemies++;
         }
     }
 }

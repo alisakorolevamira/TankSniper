@@ -2,7 +2,7 @@
 using Sources.Scripts.Presentations.Views.Enemies.Jeep;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Jeep;
 
-namespace Sources.Scripts.InfrastructureInterfaces.Services.Spawners
+namespace Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies
 {
     public interface IJeepEnemySpawnerService
     {

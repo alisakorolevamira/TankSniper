@@ -3,18 +3,18 @@ using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Enemies;
 using Sources.Scripts.Domain.Models.Enemies.Jeep;
 using Sources.Scripts.Domain.Models.Gameplay;
-using Sources.Scripts.InfrastructureInterfaces.Factories.Views.Enemies;
-using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
+using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Jeep;
+using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies;
 using Sources.Scripts.Presentations.Views.Enemies.Jeep;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Jeep;
 
-namespace Sources.Scripts.Infrastructure.Services.Spawners
+namespace Sources.Scripts.Infrastructure.Services.Spawners.Enemies
 {
     public class JeepEnemySpawnerService : IJeepEnemySpawnerService
     {
-        private readonly IJeepEnemyViewFactory _viewFactory;
+        private readonly JeepEnemyViewFactory _viewFactory;
 
-        public JeepEnemySpawnerService(IJeepEnemyViewFactory viewFactory)
+        public JeepEnemySpawnerService(JeepEnemyViewFactory viewFactory)
         {
             _viewFactory = viewFactory ?? throw new ArgumentNullException(nameof(viewFactory));
         }

@@ -3,19 +3,18 @@ using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Enemies;
 using Sources.Scripts.Domain.Models.Enemies.Helicopter;
 using Sources.Scripts.Domain.Models.Gameplay;
-using Sources.Scripts.InfrastructureInterfaces.Factories.Views.Enemies;
-using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
+using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Helicopter;
+using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies;
 using Sources.Scripts.Presentations.Views.Enemies.Helicopter;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopter;
 
-namespace Sources.Scripts.Infrastructure.Services.Spawners
+namespace Sources.Scripts.Infrastructure.Services.Spawners.Enemies
 {
     public class HelicopterEnemySpawnerService : IHelicopterEnemySpawnerService
     {
-        private readonly IHelicopterEnemyViewFactory _viewFactory;
+        private readonly HelicopterEnemyViewFactory _viewFactory;
 
-        public HelicopterEnemySpawnerService(
-            IHelicopterEnemyViewFactory viewFactory)
+        public HelicopterEnemySpawnerService(HelicopterEnemyViewFactory viewFactory)
         {
             _viewFactory = viewFactory ?? throw new ArgumentNullException(nameof(viewFactory));
         }

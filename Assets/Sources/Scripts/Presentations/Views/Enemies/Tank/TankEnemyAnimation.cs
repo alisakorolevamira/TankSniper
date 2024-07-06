@@ -1,10 +1,11 @@
 ﻿using System;
+using Sources.Scripts.Presentations.Views.Animations;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tank;
 using UnityEngine;
 
 namespace Sources.Scripts.Presentations.Views.Enemies.Tank
 {
-    public class TankEnemyAnimation : View, ITankEnemyAnimation
+    public class TankEnemyAnimation : AnimationViewBase, ITankEnemyAnimation
     {
         [SerializeField] private ParticleSystem _movementParticle;
         [SerializeField] private ParticleSystem _attackParticle;

@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Sources.Scripts.Presentations.Views.Enemies.Jeep
 {
-    public class JeepEnemyAnimation : View, IJeepEnemyAnimation
+    public class JeepEnemyAnimation : AnimationViewBase, IJeepEnemyAnimation
     {
         [SerializeField] private Collider _collider;
         [SerializeField] private List<GameObject> _enemies;

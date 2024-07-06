@@ -4,13 +4,12 @@ using Sources.Scripts.Domain.Models.Enemies.Jeep;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Jeep;
 using Sources.Scripts.Infrastructure.Factories.Views.Common;
-using Sources.Scripts.InfrastructureInterfaces.Factories.Views.Enemies;
 using Sources.Scripts.Presentations.Views.Enemies.Jeep;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Jeep;
 
 namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Jeep
 {
-    public class JeepEnemyViewFactory : IJeepEnemyViewFactory
+    public class JeepEnemyViewFactory
     {
         private readonly JeepEnemyPresenterFactory _presenterFactory;
         private readonly EnemyHealthViewFactory _enemyHealthViewFactory;

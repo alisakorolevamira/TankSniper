@@ -4,14 +4,12 @@ using Sources.Scripts.Domain.Models.Enemies.Tank;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Tank;
 using Sources.Scripts.Infrastructure.Factories.Views.Common;
-using Sources.Scripts.InfrastructureInterfaces.Factories.Views.Enemies;
-using Sources.Scripts.Presentations.Views.Enemies.Base;
 using Sources.Scripts.Presentations.Views.Enemies.Tank;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tank;
 
 namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Tank
 {
-    public class TankEnemyViewFactory : ITankEnemyViewFactory
+    public class TankEnemyViewFactory
     {
         private readonly TankPresenterFactory _tankPresenterFactory;
         private readonly EnemyHealthViewFactory _enemyHealthViewFactory;

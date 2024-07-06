@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Sources.Scripts.Presentations.Views.Enemies.Base;
+﻿using Sources.Scripts.Presentations.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Jeep;
 using UnityEngine;
 

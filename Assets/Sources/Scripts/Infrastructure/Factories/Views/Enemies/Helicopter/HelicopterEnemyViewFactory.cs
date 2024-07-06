@@ -4,13 +4,12 @@ using Sources.Scripts.Domain.Models.Enemies.Helicopter;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Helicopter;
 using Sources.Scripts.Infrastructure.Factories.Views.Common;
-using Sources.Scripts.InfrastructureInterfaces.Factories.Views.Enemies;
 using Sources.Scripts.Presentations.Views.Enemies.Helicopter;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopter;
 
 namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Helicopter
 {
-    public class HelicopterEnemyViewFactory : IHelicopterEnemyViewFactory
+    public class HelicopterEnemyViewFactory
     {
         private readonly HelicopterEnemyPresenterFactory _presenterFactory;
         private readonly EnemyHealthViewFactory _enemyHealthViewFactory;

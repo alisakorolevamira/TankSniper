@@ -4,7 +4,6 @@ using Sources.Scripts.Domain.Models.Enemies;
 using Sources.Scripts.Domain.Models.Enemies.Boss;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Boss;
-using Sources.Scripts.InfrastructureInterfaces.Factories.Views.Enemies;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.Presentations.Views.Enemies.Boss;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Boss;

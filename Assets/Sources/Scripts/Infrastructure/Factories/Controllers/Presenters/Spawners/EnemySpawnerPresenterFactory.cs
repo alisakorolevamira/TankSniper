@@ -16,6 +16,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Spawne
         private readonly IJeepEnemySpawnerService _jeepEnemySpawnerService;
         private readonly IHelicopterEnemySpawnerService _helicopterEnemySpawnerService;
         private readonly IDronEnemySpawnerService _dronEnemySpawnerService;
+        private readonly IWalkingEnemySpawnerService walkingEnemySpawnerService;
 
         public EnemySpawnerPresenterFactory(
             ITankEnemySpawnerService tankEnemySpawnerService,
@@ -23,7 +24,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Spawne
             IStandingEnemySpawnerService standingEnemySpawnerService,
             IJeepEnemySpawnerService jeepEnemySpawnerService,
             IHelicopterEnemySpawnerService helicopterEnemySpawnerService,
-            IDronEnemySpawnerService dronEnemySpawnerService)
+            IDronEnemySpawnerService dronEnemySpawnerService,
+            IWalkingEnemySpawnerService walkingEnemySpawnerService)
         {
             _tankEnemySpawnerService = tankEnemySpawnerService ??
                                        throw new ArgumentNullException(nameof(tankEnemySpawnerService));
@@ -37,6 +39,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Spawne
                                        throw new ArgumentNullException(nameof(dronEnemySpawnerService));
             _bossEnemySpawnerService = bossEnemySpawnerService ??
                                        throw new ArgumentNullException(nameof(bossEnemySpawnerService));
+            this.walkingEnemySpawnerService = walkingEnemySpawnerService ??
+                                              throw new ArgumentNullException(nameof(walkingEnemySpawnerService));
         }
 
         public EnemySpawnerPresenter Create(
@@ -53,7 +57,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Spawne
                 _helicopterEnemySpawnerService,
                 _jeepEnemySpawnerService,
                 _bossEnemySpawnerService,
-                _dronEnemySpawnerService);
+                _dronEnemySpawnerService,
+                walkingEnemySpawnerService);
         }
     }
 }

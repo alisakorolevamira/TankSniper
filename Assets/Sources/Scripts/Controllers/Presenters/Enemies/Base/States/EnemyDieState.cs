@@ -31,7 +31,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Base.States
                 return;
 
             _killedEnemiesCounter.IncreaseKilledEnemiesCount();
-            _enemyCollection.Remove(_enemyView);
+            //_enemyCollection.Remove(_enemyView);
             _enemyAnimation.PlayDying();
         }
     }

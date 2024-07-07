@@ -6426,11 +6426,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255162592}
   m_Mesh: {fileID: -8964106073494916162, guid: 3d210b2be9d4b9144b53828dfc2e73e3, type: 3}
---- !u!1 &1289127743 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5282858650469138881, guid: 59f0480e210f3894592115f4ab04542a, type: 3}
-  m_PrefabInstance: {fileID: 8477415544053169881}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1289330871
 GameObject:
   m_ObjectHideFlags: 0
@@ -10741,6 +10736,8 @@ MonoBehaviour:
   - {fileID: 978446800}
   - {fileID: 1194817763}
   _jeeps: []
+  _bosses: []
+  _drons: []
 --- !u!4 &2129106123
 Transform:
   m_ObjectHideFlags: 0
@@ -10925,7 +10922,7 @@ PrefabInstance:
     - target: {fileID: 3748769131238687909, guid: 59f0480e210f3894592115f4ab04542a, type: 3}
       propertyPath: _enemy
       value: 
-      objectReference: {fileID: 1289127743}
+      objectReference: {fileID: 8477415544053169885}
     - target: {fileID: 3748769131238687909, guid: 59f0480e210f3894592115f4ab04542a, type: 3}
       propertyPath: _animator
       value: 
@@ -11062,6 +11059,11 @@ Transform:
 --- !u!4 &8477415544053169884 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6513652938675688803, guid: 59f0480e210f3894592115f4ab04542a, type: 3}
+  m_PrefabInstance: {fileID: 8477415544053169881}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8477415544053169885 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 911717841629044706, guid: 59f0480e210f3894592115f4ab04542a, type: 3}
   m_PrefabInstance: {fileID: 8477415544053169881}
   m_PrefabAsset: {fileID: 0}
 --- !u!64 &8477415544053169889

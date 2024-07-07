@@ -6,6 +6,7 @@ using Sources.Scripts.Presentations.Views.Enemies.Helicopter;
 using Sources.Scripts.Presentations.Views.Enemies.Jeep;
 using Sources.Scripts.Presentations.Views.Enemies.Standing;
 using Sources.Scripts.Presentations.Views.Enemies.Tank;
+using Sources.Scripts.Presentations.Views.Enemies.WalkingEnemy;
 using Sources.Scripts.Presentations.Views.Players;
 
 namespace Sources.Scripts.PresentationsInterfaces.Views.Spawners
@@ -18,6 +19,7 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Spawners
         IReadOnlyList<JeepEnemyView> Jeeps { get; }
         IReadOnlyList<BossEnemyView> Bosses { get; }
         IReadOnlyList<DronEnemyView> Drons { get; }
+        IReadOnlyList<WalkingEnemyView> Walkings { get; }
 
         PlayerView PlayerView { get; }
 

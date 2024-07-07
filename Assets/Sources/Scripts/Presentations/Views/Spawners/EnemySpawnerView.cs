@@ -7,6 +7,7 @@ using Sources.Scripts.Presentations.Views.Enemies.Helicopter;
 using Sources.Scripts.Presentations.Views.Enemies.Jeep;
 using Sources.Scripts.Presentations.Views.Enemies.Standing;
 using Sources.Scripts.Presentations.Views.Enemies.Tank;
+using Sources.Scripts.Presentations.Views.Enemies.WalkingEnemy;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Spawners;
@@ -22,6 +23,7 @@ namespace Sources.Scripts.Presentations.Views.Spawners
         [SerializeField] private List<JeepEnemyView> _jeeps;
         [SerializeField] private List<BossEnemyView> _bosses;
         [SerializeField] private List<DronEnemyView> _drons;
+        [SerializeField] private List<WalkingEnemyView> _walkings;
         
         public IReadOnlyList<TankEnemyView> Tanks => _tanks;
         public IReadOnlyList<HelicopterEnemyView> Helicopters => _helicopters;
@@ -29,6 +31,7 @@ namespace Sources.Scripts.Presentations.Views.Spawners
         public IReadOnlyList<JeepEnemyView> Jeeps => _jeeps;
         public IReadOnlyList<BossEnemyView> Bosses => _bosses;
         public IReadOnlyList<DronEnemyView> Drons => _drons;
+        public IReadOnlyList<WalkingEnemyView> Walkings => _walkings;
 
         public PlayerView PlayerView { get; private set; }
 

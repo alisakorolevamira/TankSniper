@@ -8,14 +8,13 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Helicopter
     {
         [SerializeField] private ParticleSystem _gunShoot;
         [SerializeField] private Animator _bazookaAnimator;
-        [SerializeField] private List<Rigidbody> _rigidbodies;
+        [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private Collider _collider;
-        //[SerializeField] private GameObject _enemy;
+        [SerializeField] private GameObject _enemy;
 
         public void PlayIdle()
         {
-            foreach (Rigidbody rigidbody in _rigidbodies) 
-                rigidbody.isKinematic = true;
+            _rigidbody.isKinematic = true;
             
             _bazookaAnimator.Play("Idle");
         }
@@ -29,11 +28,11 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Helicopter
         public void PlayDying()
         {
             _gunShoot.Stop();
+            _bazookaAnimator.SetBool("Shoot", false);
+            Destroy(_enemy);
             
-            foreach (Rigidbody rigidbody in _rigidbodies) 
-                rigidbody.isKinematic = true;
+            _rigidbody.isKinematic = false;
             
-            Destroy(gameObject);
             _collider.SendMessage("Shatter", transform.position, SendMessageOptions.DontRequireReceiver);
         }
     }

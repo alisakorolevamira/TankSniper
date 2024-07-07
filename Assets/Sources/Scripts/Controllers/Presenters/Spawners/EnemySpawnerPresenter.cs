@@ -11,11 +11,13 @@ using Sources.Scripts.Presentations.Views.Enemies.Helicopter;
 using Sources.Scripts.Presentations.Views.Enemies.Jeep;
 using Sources.Scripts.Presentations.Views.Enemies.Standing;
 using Sources.Scripts.Presentations.Views.Enemies.Tank;
+using Sources.Scripts.Presentations.Views.Enemies.WalkingEnemy;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Boss;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Dron;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopter;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Jeep;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.MovingEnemy;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Standing;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tank;
 using Sources.Scripts.PresentationsInterfaces.Views.Spawners;
@@ -33,6 +35,7 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
         private readonly IJeepEnemySpawnerService _jeepEnemySpawnerService;
         private readonly IBossEnemySpawnerService _bossEnemySpawnerService;
         private readonly IDronEnemySpawnerService _dronEnemySpawnerService;
+        private readonly IWalkingEnemySpawnerService walkingEnemySpawnerService;
 
         private CancellationTokenSource _cancellationTokenSource;
 
@@ -45,7 +48,8 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
             IHelicopterEnemySpawnerService helicopterEnemySpawnerService,
             IJeepEnemySpawnerService jeepEnemySpawnerService,
             IBossEnemySpawnerService bossEnemySpawnerService,
-            IDronEnemySpawnerService dronEnemySpawnerService)
+            IDronEnemySpawnerService dronEnemySpawnerService,
+            IWalkingEnemySpawnerService walkingEnemySpawnerService)
         {
             _killedEnemiesCounter = killedEnemiesCounter ??
                                     throw new ArgumentNullException(nameof(killedEnemiesCounter));
@@ -63,6 +67,8 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
                                        throw new ArgumentNullException(nameof(bossEnemySpawnerService));
             _dronEnemySpawnerService = dronEnemySpawnerService ??
                                        throw new ArgumentNullException(nameof(dronEnemySpawnerService));
+            this.walkingEnemySpawnerService = walkingEnemySpawnerService ??
+                                              throw new ArgumentNullException(nameof(walkingEnemySpawnerService));
         }
 
         public override void Enable() => 
@@ -108,6 +114,13 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
             foreach (DronEnemyView dron in _enemySpawnerView.Drons)
             {
                 IDronEnemyView view = _dronEnemySpawnerService.Spawn(_killedEnemiesCounter, dron);
+                
+                SetPlayerHealthView(view);
+            }
+            
+            foreach (WalkingEnemyView moving in _enemySpawnerView.Walkings)
+            {
+                IWalkingEnemyView view = walkingEnemySpawnerService.Spawn(_killedEnemiesCounter, moving);
                 
                 SetPlayerHealthView(view);
             }

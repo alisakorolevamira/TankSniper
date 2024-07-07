@@ -1,7 +1,5 @@
 ﻿using System;
-using JetBrains.Annotations;
 using Sources.Scripts.Domain.Models.Gameplay;
-using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Cameras;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
@@ -14,7 +12,6 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.Cameras;
 using Sources.Scripts.InfrastructureInterfaces.Services.GameOver;
 using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
-using Sources.Scripts.InfrastructureInterfaces.Services.Saves;
 using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
 using Sources.Scripts.Presentations.UI.Huds;
 using Sources.Scripts.Presentations.Views.Cameras;
@@ -42,7 +39,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
         private readonly IGameOverService _gameOverService;
         private readonly ICameraService _cameraService;
         private readonly IVolumeService _volumeService;
-        private readonly ISaveService _saveService;
         private readonly ISkinChangerService _skinChangerService;
 
         private readonly ILevelCompletedService _levelCompletedService;
@@ -63,7 +59,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             IGameOverService gameOverService,
             ICameraService cameraService,
             IVolumeService volumeService,
-            ISaveService saveService,
             ISkinChangerService skinChangerService,
             ILevelCompletedService levelCompletedService)
             //IAdvertisingService advertisingService,
@@ -89,7 +84,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             _levelAvailabilityViewFactory = levelAvailabilityViewFactory ??
                                             throw new ArgumentNullException(nameof(levelAvailabilityViewFactory));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
-            _saveService = saveService ?? throw new ArgumentNullException(nameof(saveService));
             _skinChangerService = skinChangerService ?? throw new ArgumentNullException(nameof(skinChangerService));
             _levelCompletedService = levelCompletedService ?? 
                                      throw new ArgumentNullException(nameof(levelCompletedService));
@@ -109,8 +103,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             
             _volumeService.Register(gameModels.Volume);
             _volumeViewFactory.Create(_volumeService, _gameplayHud.VolumeView);
-            
-            _saveService.Register(gameModels.EnemySpawner);
             
             PlayerView playerView = _playerViewFactory.Create(gameModels.Player);
             

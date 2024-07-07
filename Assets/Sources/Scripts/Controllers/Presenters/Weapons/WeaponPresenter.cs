@@ -1,10 +1,8 @@
 ﻿using System;
 using Sources.Scripts.Domain.Models.Weapons;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
-using Sources.Scripts.PresentationsInterfaces.Views.Bullets;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies;
 using Sources.Scripts.PresentationsInterfaces.Views.Weapons;
-using UnityEngine;
 
 namespace Sources.Scripts.Controllers.Presenters.Weapons
 {

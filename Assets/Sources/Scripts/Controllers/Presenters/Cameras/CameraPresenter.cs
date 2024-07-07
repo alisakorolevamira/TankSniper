@@ -3,7 +3,6 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.InfrastructureInterfaces.Services.Cameras;
-using Sources.Scripts.Presentations.Views.Cameras.Types;
 using Sources.Scripts.PresentationsInterfaces.Views.Cameras;
 using UnityEngine;
 
@@ -16,7 +15,6 @@ namespace Sources.Scripts.Controllers.Presenters.Cameras
         
         private float _horizontal;
         private float _vertical;
-        //private PositionId _currentPosition;
         
         private CancellationTokenSource _cancellationTokenSource;
         
@@ -44,8 +42,6 @@ namespace Sources.Scripts.Controllers.Presenters.Cameras
         {
             try
             {
-                //_currentPosition = position.Id;
-                
                 while (Vector3.Distance(_cameraView.CurrentPosition, position.Position) > 0.001f)
                 {
                     _cameraView.SetPosition(position.Position);

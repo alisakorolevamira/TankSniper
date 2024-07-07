@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using Sources.Scripts.Domain.Models.Inventory;
 using Sources.Scripts.Domain.Models.Shops;
 using Sources.Scripts.DomainInterfaces.Models.Data;
 using UnityEngine;

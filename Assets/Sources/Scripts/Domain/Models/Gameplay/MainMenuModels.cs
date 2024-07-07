@@ -1,5 +1,4 @@
-﻿using Sources.Scripts.Domain.Models.Data;
-using Sources.Scripts.Domain.Models.Inventory;
+﻿using Sources.Scripts.Domain.Models.Inventory;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
 using Sources.Scripts.Domain.Models.Shops;

@@ -8,5 +8,6 @@
         public const int DefaultMoney = 100;
         public const int MaxLevel = 8;
         public const int RewardCoefficient = 100;
+        public const int RewardIndex = 500;
     }
 }

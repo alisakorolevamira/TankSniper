@@ -12,9 +12,6 @@ namespace Sources.Scripts.Domain.Models.Data
         
         [JsonProperty("savedLevelId")]
         public string SavedLevelId { get; set; }
-        
-        //[JsonProperty("index")]
-        //public int Index { get; set; }
 
         public void Save(string key)
         {

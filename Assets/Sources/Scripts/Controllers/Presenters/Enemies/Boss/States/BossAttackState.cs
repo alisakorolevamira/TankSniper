@@ -15,16 +15,13 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Boss.States
         private readonly IBossEnemyView _enemyView;
         private readonly IBossEnemyAnimation _enemyAnimation;
         
-        private CancellationTokenSource _cancellationTokenSource;
         private TimeSpan _attackDelay = TimeSpan.FromSeconds(EnemyConst.BossAttackDelay);
         private TimeSpan _attackTime = TimeSpan.FromSeconds(EnemyConst.BossAttackTime);
+        private CancellationTokenSource _cancellationTokenSource;
         private int _targetPositionIndex;
         private bool _isAttacking;
 
-        public BossAttackState(
-            BossEnemy enemy,
-            IBossEnemyView enemyView,
-            IBossEnemyAnimation enemyAnimation)
+        public BossAttackState(BossEnemy enemy, IBossEnemyView enemyView, IBossEnemyAnimation enemyAnimation)
         {
             _enemy = enemy ?? throw new ArgumentNullException(nameof(enemy));
             _enemyView = enemyView ?? throw new ArgumentNullException(nameof(enemyView));

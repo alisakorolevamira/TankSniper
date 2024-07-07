@@ -11,18 +11,15 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Boss.States
     {
         private readonly KilledEnemiesCounter _killedEnemiesCounter;
         private readonly IBossEnemyView _enemyView;
-        private readonly List<IEnemyViewBase> _enemyCollection;
         private readonly IBossEnemyAnimation _enemyAnimation;
 
         public BossDieState(
             KilledEnemiesCounter killedEnemiesCounter,
             IBossEnemyView enemyView,
-            List<IEnemyViewBase> enemyCollection,
             IBossEnemyAnimation enemyAnimation)
         {
             _killedEnemiesCounter = killedEnemiesCounter ?? throw new ArgumentNullException(nameof(killedEnemiesCounter));
             _enemyView = enemyView ?? throw new ArgumentNullException(nameof(enemyView));
-            _enemyCollection = enemyCollection ?? throw new ArgumentNullException(nameof(enemyCollection));
             _enemyAnimation = enemyAnimation ?? throw new ArgumentNullException(nameof(enemyAnimation));
         }
 
@@ -32,7 +29,6 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Boss.States
                 return;
 
             _killedEnemiesCounter.IncreaseKilledEnemiesCount();
-            _enemyCollection.Remove(_enemyView);
             _enemyAnimation.PlayDying();
             _enemyView.Explode();
         }

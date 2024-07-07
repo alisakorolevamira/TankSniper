@@ -21,7 +21,8 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners.Enemies
 
         public IDronEnemyView Spawn(KilledEnemiesCounter killedEnemiesCounter, DronEnemyView view)
         {
-            DronEnemy enemy = new DronEnemy(new EnemyHealth(EnemyConst.Health), new EnemyAttacker(EnemyConst.TankDamage));
+            DronEnemy enemy =
+                new DronEnemy(new EnemyHealth(EnemyConst.Health), new EnemyAttacker(EnemyConst.TankDamage));
 
             IDronEnemyView dronEnemyView = _viewFactory.Create(enemy, killedEnemiesCounter, view);
 

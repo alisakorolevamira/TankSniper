@@ -16,8 +16,9 @@ namespace Sources.Scripts.Controllers.Presenters.Inventory
         private readonly IRewardedAdService _rewardedAdService;
         private readonly PlayerWallet _playerWallet;
         private readonly Upgrader _upgrader;
+        private readonly string _free = "FREE";
 
-        private int _price => _upgrader.CurrentLevel * 500;
+        private int _price => _upgrader.CurrentLevel * PlayerConst.RewardIndex;
 
         public InventoryTankButtonPresenter(
             IInventoryTankButtonView tankButtonView,
@@ -35,7 +36,6 @@ namespace Sources.Scripts.Controllers.Presenters.Inventory
 
         public override void Enable()
         {
-            Debug.Log("enable");
             _tankButtonView.Button.onClickEvent.AddListener(OnButtonClick);
             SetPriceText();
             
@@ -74,7 +74,7 @@ namespace Sources.Scripts.Controllers.Presenters.Inventory
             else
             {
                 _tankButtonView.PriceText.SetText(string.Empty);
-                _tankButtonView.FreeText.SetText("FREE");
+                _tankButtonView.FreeText.SetText(_free);
                 _tankButtonView.MoneyIcon.HideImage();
                 _tankButtonView.AdImage.ShowImage();
             }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Doozy.Runtime.Signals;
 using Doozy.Runtime.UIManager.Components;
 using Sources.Scripts.InfrastructureInterfaces.Services.InputServices;
@@ -16,7 +15,7 @@ namespace Sources.Scripts.Infrastructure.Services.InputServices
 
         public GameplayInputService(GameplayHud hud)
         {
-            _hud = hud ?? throw new ArgumentNullException(nameof(hud));
+            _hud = hud ? hud : throw new ArgumentNullException(nameof(hud));
         }
 
         public event Action<Vector2> RotationInputReceived;

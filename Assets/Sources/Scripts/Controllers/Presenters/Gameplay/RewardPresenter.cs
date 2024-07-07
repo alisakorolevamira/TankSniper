@@ -9,9 +9,7 @@ namespace Sources.Scripts.Controllers.Presenters.Gameplay
         private readonly ILevelCompletedService _levelCompletedService;
         private readonly IRewardView _rewardView;
 
-        public RewardPresenter(
-            ILevelCompletedService levelCompletedService,
-            IRewardView rewardView)
+        public RewardPresenter(ILevelCompletedService levelCompletedService, IRewardView rewardView)
         {
             _levelCompletedService = levelCompletedService ??
                                      throw new ArgumentNullException(nameof(levelCompletedService));

@@ -15,7 +15,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Players
         private readonly GameplayRootGameObject _gameplayRootGameObject;
         private readonly PlayerAttackerViewFactory _playerAttackerViewFactory;
         private readonly CharacterHealthViewFactory _characterHealthViewFactory;
-        private readonly PlayerWalletViewFactory _playerWalletViewFactory;
         private readonly WalletUIFactory _walletUIFactory;
         private readonly HealthBarUIFactory _healthBarUIFactory;
         private readonly WeaponViewFactory _weaponViewFactory;
@@ -41,8 +40,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Players
             _walletUIFactory = walletUIFactory ?? throw new ArgumentNullException(nameof(walletUIFactory));
             _characterHealthViewFactory = characterHealthViewFactory ??
                                               throw new ArgumentNullException(nameof(characterHealthViewFactory));
-            _playerWalletViewFactory = playerWalletViewFactory ??
-                                       throw new ArgumentNullException(nameof(playerWalletViewFactory));
             _weaponViewFactory = weaponViewFactory ?? throw new ArgumentNullException(nameof(weaponViewFactory));
             _attackerUIViewFactory = attackerUIViewFactory ??
                                      throw new ArgumentNullException(nameof(attackerUIViewFactory));

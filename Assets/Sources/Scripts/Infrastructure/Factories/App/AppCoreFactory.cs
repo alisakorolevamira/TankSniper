@@ -4,7 +4,6 @@ using Cysharp.Threading.Tasks;
 using Sources.Scripts.App.Core;
 using Sources.Scripts.ControllersInterfaces.Scenes;
 using Sources.Scripts.Domain.Models.Constants;
-using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes;
 using Sources.Scripts.Infrastructure.Services.SceneServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.SceneLoaderServices;

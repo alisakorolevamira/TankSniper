@@ -15,7 +15,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Base.States
         private readonly IEnemyAnimation _enemyAnimation;
         
         private CancellationTokenSource _cancellationTokenSource;
-        private TimeSpan _attackDelay;
+        private TimeSpan _attackDelay = TimeSpan.FromSeconds(EnemyConst.AttackDelay);
 
         public EnemyAttackState(
             Enemy enemy,
@@ -30,7 +30,6 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Base.States
         public override void Enter()
         {
             _cancellationTokenSource = new CancellationTokenSource();
-            _attackDelay = TimeSpan.FromSeconds(EnemyConst.AttackDelay);
             
             _enemyView.SetLookAtPlayer();
             SetTimer(_cancellationTokenSource.Token);

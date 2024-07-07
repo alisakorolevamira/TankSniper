@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using JetBrains.Annotations;
+using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Gameplay.Configs;
 using Sources.Scripts.PresentationsInterfaces.Views.MainMenu;
@@ -36,7 +36,7 @@ namespace Sources.Scripts.Controllers.Presenters.MainMenu
         {
             switch (_mainMenuAppearance.Index)
             {
-                case 1:
+                case MainMenuConst.FirstView:
                 {
                     _view.CurrentLocation.SetSprite(_spritesConfig.FirstLocation);
                     _view.NextLocation.SetSprite(_spritesConfig.SecondLocation);
@@ -44,7 +44,7 @@ namespace Sources.Scripts.Controllers.Presenters.MainMenu
                     break;
                 }
 
-                case 2:
+                case MainMenuConst.SecondView:
                 {
                     _view.CurrentLocation.SetSprite(_spritesConfig.SecondLocation);
                     _view.NextLocation.SetSprite(_spritesConfig.ThirdLocation);
@@ -52,7 +52,7 @@ namespace Sources.Scripts.Controllers.Presenters.MainMenu
                     break;
                 }
 
-                case 3:
+                case MainMenuConst.ThirdViewIndex:
                 {
                     _view.CurrentLocation.SetSprite(_spritesConfig.ThirdLocation);
                     _view.NextLocation.SetSprite(_spritesConfig.FirstLocation);

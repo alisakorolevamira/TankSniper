@@ -12,9 +12,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Base
         private readonly FiniteState _dieState;
         private readonly IUpdateRegister _updateRegister;
 
-        public EnemyPresenter(
-            FiniteState firstState,
-            IUpdateRegister updateRegister)
+        public EnemyPresenter(FiniteState firstState, IUpdateRegister updateRegister)
         {
             _firstState = firstState ?? throw new ArgumentNullException(nameof(firstState));
             _updateRegister = updateRegister ?? throw new ArgumentNullException(nameof(updateRegister));

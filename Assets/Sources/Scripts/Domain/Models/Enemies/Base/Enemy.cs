@@ -10,8 +10,6 @@ namespace Sources.Scripts.Domain.Models.Enemies.Base
             EnemyAttacker = enemyAttacker;
         }
 
-        public bool IsInitialized { get; set; }
-
         public EnemyHealth EnemyHealth { get; set; }
 
         public EnemyAttacker EnemyAttacker { get; }

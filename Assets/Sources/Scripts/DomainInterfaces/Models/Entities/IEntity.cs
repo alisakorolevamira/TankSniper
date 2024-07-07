@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Sources.Scripts.DomainInterfaces.Models.Entities
+﻿namespace Sources.Scripts.DomainInterfaces.Models.Entities
 {
     public interface IEntity
     {

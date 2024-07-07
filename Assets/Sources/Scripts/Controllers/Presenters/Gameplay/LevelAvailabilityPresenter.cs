@@ -26,9 +26,6 @@ namespace Sources.Scripts.Controllers.Presenters.Gameplay
                                  throw new ArgumentNullException(nameof(levelAvailability));
             _levelAvailabilityView = levelAvailabilityView ?? 
                                      throw new ArgumentNullException(nameof(levelAvailabilityView));
-
-            if (_levelAvailabilityView.Levels.Count != _levelAvailability.Levels.Count)
-                throw new IndexOutOfRangeException(nameof(_levelAvailability.Levels));
         }
         
         public override void Enable()

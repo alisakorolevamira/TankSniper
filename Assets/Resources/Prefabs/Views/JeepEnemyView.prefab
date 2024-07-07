@@ -1212,7 +1212,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3936756109614833059}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.8899235, z: -0, w: 0.45610988}
+  m_LocalRotation: {x: 0, y: -0.8899224, z: 0, w: 0.45611203}
   m_LocalPosition: {x: 1.49, y: 0, z: 20.68}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
@@ -1244,7 +1244,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   _speed: 5
   _enemyAnimation: {fileID: 6640356959206382999}
 --- !u!114 &6640356959206382999
@@ -1261,11 +1260,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collider: {fileID: 2548629888106567654}
   _enemies:
-  - {fileID: 0}
-  - {fileID: 0}
-  _animators:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4148699015306927831}
+  - {fileID: 552611469108465202}
 --- !u!114 &7056495830223188866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2877,6 +2873,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 52.824
       objectReference: {fileID: 0}
+    - target: {fileID: 3650667757254378171, guid: 2b487ab19270d61498ec5ecf6fb69bd8, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d207928bff8c133479eff84805029d02, type: 2}
     - target: {fileID: 7625160230402186198, guid: 2b487ab19270d61498ec5ecf6fb69bd8, type: 3}
       propertyPath: m_Name
       value: StandingEnemyView (1)
@@ -2937,6 +2937,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8496070253855976498, guid: 2b487ab19270d61498ec5ecf6fb69bd8, type: 3}
   m_PrefabInstance: {fileID: 5782939759457273089}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4148699015306927831 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7625160230402186198, guid: 2b487ab19270d61498ec5ecf6fb69bd8, type: 3}
+  m_PrefabInstance: {fileID: 5782939759457273089}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7960472845422335460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2981,6 +2986,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 52.824
       objectReference: {fileID: 0}
+    - target: {fileID: 3650667757254378171, guid: 2b487ab19270d61498ec5ecf6fb69bd8, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d207928bff8c133479eff84805029d02, type: 2}
     - target: {fileID: 7625160230402186198, guid: 2b487ab19270d61498ec5ecf6fb69bd8, type: 3}
       propertyPath: m_Name
       value: StandingEnemyView
@@ -3036,6 +3045,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b487ab19270d61498ec5ecf6fb69bd8, type: 3}
+--- !u!1 &552611469108465202 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7625160230402186198, guid: 2b487ab19270d61498ec5ecf6fb69bd8, type: 3}
+  m_PrefabInstance: {fileID: 7960472845422335460}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1986471173152815574 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8496070253855976498, guid: 2b487ab19270d61498ec5ecf6fb69bd8, type: 3}

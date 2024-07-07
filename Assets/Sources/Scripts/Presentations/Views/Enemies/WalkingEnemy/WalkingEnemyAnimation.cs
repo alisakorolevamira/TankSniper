@@ -8,7 +8,7 @@ namespace Sources.Scripts.Presentations.Views.Enemies.WalkingEnemy
         [SerializeField] private Animator _animator;
 
         public void PlayIdle() => 
-            _animator.Play("Move");
+            _animator.Play("Walk");
 
         public void PlayAttack()
         {

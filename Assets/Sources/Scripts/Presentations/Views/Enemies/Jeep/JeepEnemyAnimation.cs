@@ -8,18 +8,13 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Jeep
     {
         [SerializeField] private Collider _collider;
         [SerializeField] private List<GameObject> _enemies;
-        [SerializeField] private List<Animator> _animators;
         
         public void PlayIdle()
         {
-            foreach (var animator in _animators) 
-                animator.Play("Idle");
         }
 
         public void PlayAttack()
         {
-            foreach (var animator in _animators) 
-                animator.SetBool("Shoot", true);
         }
 
         public void PlayDying()

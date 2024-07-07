@@ -5,6 +5,7 @@ using Sources.Scripts.Domain.Models.Upgrades;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Yandex;
 using Sources.Scripts.PresentationsInterfaces.Views.Inventory;
+using UnityEngine;
 
 namespace Sources.Scripts.Controllers.Presenters.Inventory
 {
@@ -34,6 +35,7 @@ namespace Sources.Scripts.Controllers.Presenters.Inventory
 
         public override void Enable()
         {
+            Debug.Log("enable");
             _tankButtonView.Button.onClickEvent.AddListener(OnButtonClick);
             SetPriceText();
             
@@ -46,9 +48,13 @@ namespace Sources.Scripts.Controllers.Presenters.Inventory
 
         private void OnButtonClick()
         {
+            Debug.Log(_price);
+            Debug.Log(_playerWallet.Money);
+            
             if (_playerWallet.TryRemoveMoney(_price))
             {
                 _spawnerService.Spawn(InventoryTankConst.DefaultTankLevel);
+                SetPriceText();
                 return;
             }
             

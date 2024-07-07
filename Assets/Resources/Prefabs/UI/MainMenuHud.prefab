@@ -452,7 +452,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.11711311, y: -0.016571045}
+  m_AnchoredPosition: {x: -0.11711311, y: -0.0067749023}
   m_SizeDelta: {x: 1876.88, y: -0.01}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &9076316517028528951
@@ -2876,7 +2876,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 491429079565354463}
     Selectable: {fileID: 1232027960924979622}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -3682,7 +3682,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 628697760609508698}
     Selectable: {fileID: 5834959944739547695}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -5961,7 +5961,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 821774017760052168}
     Selectable: {fileID: 8589492441502165944}
-  Cooldown: 0
+  Cooldown: 2
   DisableWhenInCooldown: 0
   Id:
     Category: MainMenu
@@ -8450,7 +8450,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 918758808281918911}
     Selectable: {fileID: 4664044573547901473}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -8469,7 +8469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 4664044573547901473}
-  _skinType: 2
+  _skinType: 3
   _onClickCommandId: 00000000
 --- !u!225 &4394021469145654970
 CanvasGroup:
@@ -9846,7 +9846,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.11711311, y: -0.015563965}
+  m_AnchoredPosition: {x: -0.11711311, y: -0.0057678223}
   m_SizeDelta: {x: 679.84, y: -0.01}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &6053912987910216128
@@ -10019,7 +10019,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 1126491297021898218}
     Selectable: {fileID: 7671209386717759431}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -10038,7 +10038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 7671209386717759431}
-  _skinType: 4
+  _skinType: 5
   _onClickCommandId: 00000000
 --- !u!225 &2757718687790253049
 CanvasGroup:
@@ -10203,7 +10203,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 1135772453512129663}
     Selectable: {fileID: 2639163806876979648}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -10372,7 +10372,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 1194988871149620029}
     Selectable: {fileID: 9097903954509951335}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -10853,7 +10853,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 1242733023706747485}
     Selectable: {fileID: 1243047121384303178}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -15749,7 +15749,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 1678466065073710535}
     Selectable: {fileID: 2437310762534892467}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: MainMenu
@@ -18221,7 +18221,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 1910879335903477797}
     Selectable: {fileID: 9016068098373161103}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -18240,7 +18240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 9016068098373161103}
-  _skinType: 6
+  _skinType: 7
   _onClickCommandId: 00000000
 --- !u!225 &4240224509163038085
 CanvasGroup:
@@ -18889,7 +18889,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 1982477751956470638}
     Selectable: {fileID: 7286838936542721299}
-  Cooldown: 0
+  Cooldown: 2
   DisableWhenInCooldown: 0
   Id:
     Category: MainMenu
@@ -25842,7 +25842,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 2363107312387862415}
     Selectable: {fileID: 6463598112145600850}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -26011,7 +26011,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 2389535732849215221}
     Selectable: {fileID: 1858836275813578588}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -26704,7 +26704,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 2415494931190362689}
     Selectable: {fileID: 6764761005751684904}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -26723,7 +26723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 6764761005751684904}
-  _skinType: 7
+  _skinType: 8
   _onClickCommandId: 00000000
 --- !u!225 &663849319507504753
 CanvasGroup:
@@ -37102,7 +37102,7 @@ MonoBehaviour:
     SignalSource: {fileID: 3111476662385528712}
     Selectable: {fileID: 5935341846389207186}
   Cooldown: 2
-  DisableWhenInCooldown: 1
+  DisableWhenInCooldown: 0
   Id:
     Category: MainMenu
     Name: AddTank
@@ -38674,7 +38674,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 3113034278488355378}
     Selectable: {fileID: 5703838943188128830}
-  Cooldown: 0
+  Cooldown: 2
   DisableWhenInCooldown: 0
   Id:
     Category: MainMenu
@@ -40379,7 +40379,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 3209238702947840866}
     Selectable: {fileID: 4759044554991557616}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -40398,7 +40398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 4759044554991557616}
-  _skinType: 5
+  _skinType: 6
   _onClickCommandId: 00000000
 --- !u!225 &4439975514833515180
 CanvasGroup:
@@ -43328,7 +43328,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 3459876263134024357}
     Selectable: {fileID: 3558103288487014625}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: MainMenu
@@ -47904,7 +47904,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 3594278817743950712}
     Selectable: {fileID: 7641161650206805795}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -49019,7 +49019,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 3660109223378423851}
     Selectable: {fileID: 4635575929023599830}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -50906,7 +50906,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 3781969930041552454}
     Selectable: {fileID: 4795687468170102174}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -53073,7 +53073,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 3964297200554315950}
     Selectable: {fileID: 5769957194370937651}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -58311,7 +58311,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 4145152559677298925}
     Selectable: {fileID: 4690252591058136478}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -62459,7 +62459,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 4447840968322344610}
     Selectable: {fileID: 8149814631043555533}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -70962,7 +70962,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 4833709745414850830}
     Selectable: {fileID: 2501650443108845859}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -70981,7 +70981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 2501650443108845859}
-  _skinType: 3
+  _skinType: 4
   _onClickCommandId: 00000000
 --- !u!225 &2820262604165413555
 CanvasGroup:
@@ -80625,7 +80625,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 5554145006306277248}
     Selectable: {fileID: 809944322283597761}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: MainMenu
@@ -82410,7 +82410,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 5708913189515749480}
     Selectable: {fileID: 7461872206068560397}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -82877,7 +82877,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 5794817577418284535}
     Selectable: {fileID: 3701173306475796940}
-  Cooldown: 0
+  Cooldown: 2
   DisableWhenInCooldown: 0
   Id:
     Category: MainMenu
@@ -89497,7 +89497,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 6439225469707940614}
     Selectable: {fileID: 4795277968027675251}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -92155,7 +92155,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 6761224787214556738}
     Selectable: {fileID: 3439366506054861158}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -95132,7 +95132,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 6922688629029815908}
     Selectable: {fileID: 1869534259565447356}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -96864,7 +96864,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 7259759373138403581}
     Selectable: {fileID: 1611832978515428979}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -103171,7 +103171,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 7665559653044438382}
     Selectable: {fileID: 1625092534906783190}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: MainMenu
@@ -113345,7 +113345,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 8373513465011437325}
     Selectable: {fileID: 5313639400941638732}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -113522,7 +113522,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 8414165869836946704}
     Selectable: {fileID: 7365928325412382690}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -113541,7 +113541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 7365928325412382690}
-  _skinType: 1
+  _skinType: 2
   _onClickCommandId: 00000000
 --- !u!225 &5390125769812210200
 CanvasGroup:
@@ -114350,7 +114350,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 8629051261315243323}
     Selectable: {fileID: 8795227961355978917}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop
@@ -114369,7 +114369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 8795227961355978917}
-  _skinType: 0
+  _skinType: 1
   _onClickCommandId: 00000000
 --- !u!225 &3899407202231381430
 CanvasGroup:
@@ -118150,7 +118150,7 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 8946618315404409785}
     Selectable: {fileID: 5565873293247884648}
-  Cooldown: 0
+  Cooldown: 1
   DisableWhenInCooldown: 0
   Id:
     Category: Shop

@@ -23,7 +23,7 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Dron
         {
             _attackParticle.Stop();
             
-            foreach (Rigidbody rigidbody in _rigidbodies) 
+            foreach (Rigidbody rigidbody in _rigidbodies)
                 rigidbody.isKinematic = false;
             
             Destroy(gameObject);

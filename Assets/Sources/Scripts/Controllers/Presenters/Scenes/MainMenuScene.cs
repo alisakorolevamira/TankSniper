@@ -1,13 +1,10 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
-using JetBrains.Annotations;
 using Sources.Scripts.ControllersInterfaces.Scenes;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactories;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
-using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
 using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
-using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.InfrastructureInterfaces.Services.Yandex;
 using Sources.Scripts.Presentations.UI.Curtain;
@@ -15,7 +12,6 @@ using Sources.Scripts.UIFramework.ControllerInterfaces.Buttons;
 using Sources.Scripts.UIFramework.ControllerInterfaces.Shop;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
 using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;
-using UnityEngine;
 
 namespace Sources.Scripts.Controllers.Presenters.Scenes
 {
@@ -102,7 +98,6 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             
             _sdkInitializeService.EnableCallbackLogging();
             await _sdkInitializeService.Initialize();
-            //можно добавить инициализацию магазина сюда
         }
 
         private UniTask GameReady(IScenePayload payload)

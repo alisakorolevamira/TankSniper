@@ -1,15 +1,12 @@
 ﻿using Sources.Scripts.Controllers.Presenters.Common;
 using Sources.Scripts.DomainInterfaces.Models.Healths;
-using Sources.Scripts.PresentationsInterfaces.UI.Texts;
 using Sources.Scripts.PresentationsInterfaces.Views.Common;
 
 namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Common
 {
     public class HealthUITextPresenterFactory
     {
-        public HealthUITextPresenter Create(IHealth health, IHealthUIText healthUiText)
-        {
-            return new HealthUITextPresenter(health, healthUiText);
-        }
+        public HealthUITextPresenter Create(IHealth health, IHealthUIText healthUiText) => 
+            new(health, healthUiText);
     }
 }

@@ -16,11 +16,11 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Dron.States
         private readonly IEnemyAnimation _enemyAnimation;
         private readonly IDronEnemyView _enemyView;
 
+        private TimeSpan _attackDelay = TimeSpan.FromSeconds(EnemyConst.AttackDelay);
+        private TimeSpan _attackTime = TimeSpan.FromSeconds(EnemyConst.DronAttackTime);
         private int _targetPositionIndex;
         private bool _isAttacking;
         private CancellationTokenSource _cancellationTokenSource;
-        private TimeSpan _attackDelay = TimeSpan.FromSeconds(EnemyConst.AttackDelay);
-        private TimeSpan _attackTime = TimeSpan.FromSeconds(EnemyConst.DronAttackTime);
 
         public DronAttackState(IEnemyAnimation enemyAnimation, IDronEnemyView enemyView, DronEnemy enemy)
         {

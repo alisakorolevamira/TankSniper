@@ -3,7 +3,6 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Players;
-using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.Presentations.Views.Players.Skins;
 using Sources.Scripts.PresentationsInterfaces.Views.Players;
 using UnityEngine;

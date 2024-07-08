@@ -4,7 +4,6 @@ using Cysharp.Threading.Tasks;
 using Sources.Scripts.App.Core;
 using Sources.Scripts.ControllersInterfaces.Scenes;
 using Sources.Scripts.Domain.Models.Constants;
-using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes;
 using Sources.Scripts.Infrastructure.Services.SceneServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.SceneLoaderServices;
@@ -53,6 +52,8 @@ namespace Sources.Scripts.Infrastructure.Factories.App
             sceneFactories[LevelConst.SeventhLevel] = (payload, sceneContext) =>
                 sceneContext.Container.Resolve<GameplaySceneFactory>().Create(payload);
             sceneFactories[LevelConst.EighthLevel] = (payload, sceneContext) =>
+                sceneContext.Container.Resolve<GameplaySceneFactory>().Create(payload);
+            sceneFactories[LevelConst.NinthLevel] = (payload, sceneContext) =>
                 sceneContext.Container.Resolve<GameplaySceneFactory>().Create(payload);
             
             sceneService.AddBeforeSceneChangeHandler(async _ => await curtainView.ShowCurtain());

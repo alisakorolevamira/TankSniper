@@ -4,7 +4,6 @@ using Sources.Scripts.Domain.Models.Inventory;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.Presentations.Views.Inventory;
 using Sources.Scripts.PresentationsInterfaces.Views.Inventory;
-using UnityEngine;
 
 namespace Sources.Scripts.Controllers.Presenters.Inventory
 {

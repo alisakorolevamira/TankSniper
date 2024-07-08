@@ -14,17 +14,12 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
 {
     public class JeepEnemyPresenterFactory
     {
-        private readonly List<IEnemyViewBase> _enemyCollection;
         private readonly IPlayerAttackService _playerAttackService;
         private readonly IUpdateRegister _updateRegister;
 
-        public JeepEnemyPresenterFactory(
-            IUpdateRegister updateRegister,
-            List<IEnemyViewBase> enemyCollection,
-            IPlayerAttackService playerAttackService)
+        public JeepEnemyPresenterFactory(IUpdateRegister updateRegister, IPlayerAttackService playerAttackService)
         {
             _updateRegister = updateRegister ?? throw new ArgumentNullException(nameof(updateRegister));
-            _enemyCollection = enemyCollection ?? throw new ArgumentNullException(nameof(enemyCollection));
             _playerAttackService = playerAttackService ?? throw new ArgumentNullException(nameof(playerAttackService));
         }
 
@@ -36,7 +31,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
         {
             EnemyIdleState idleState = new EnemyIdleState(enemyAnimation);
             EnemyMovementState movementState = new EnemyMovementState(enemyAnimation, enemyView);
-            EnemyDieState dieState = new EnemyDieState(killedEnemiesCounter, enemyView, _enemyCollection, enemyAnimation);
+            EnemyDieState dieState = new EnemyDieState(killedEnemiesCounter, enemyView, enemyAnimation);
             
             FiniteTransitionBase toAttackTransition = new FiniteTransitionBase(
                 movementState, () => _playerAttackService.PlayerAttacked);

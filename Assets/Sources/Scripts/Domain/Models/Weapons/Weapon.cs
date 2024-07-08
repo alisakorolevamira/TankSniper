@@ -1,7 +1,5 @@
 ﻿using System;
-using Sources.Scripts.Domain.Models.Upgrades;
 using Sources.Scripts.DomainInterfaces.Models.Weapons;
-using UnityEngine;
 
 namespace Sources.Scripts.Domain.Models.Weapons
 {

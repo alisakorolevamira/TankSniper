@@ -14,8 +14,8 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Helicopter
         private readonly IHelicopterEnemyView _enemyView;
         private readonly IHelicopterEnemyAnimation _enemyAnimation;
         
+        private TimeSpan _attackDelay = TimeSpan.FromSeconds(EnemyConst.AttackDelay);
         private CancellationTokenSource _cancellationTokenSource;
-        private TimeSpan _attackDelay;
 
         public HelicopterAttackState(
             HelicopterEnemy enemy,
@@ -30,7 +30,6 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Helicopter
         public override void Enter()
         {
             _cancellationTokenSource = new CancellationTokenSource();
-            _attackDelay = TimeSpan.FromSeconds(EnemyConst.AttackDelay);
             
             SetTimer(_cancellationTokenSource.Token);
         }

@@ -10,7 +10,10 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Inventory
 {
     public class InventoryTankViewFactory : IInventoryTankViewFactory
     {
-        public IInventoryTankView Create(int level, InventorySlotView inventorySlotView, IInventoryTankSpawnerService spawnerService)
+        public IInventoryTankView Create(
+            int level,
+            InventorySlotView inventorySlotView,
+            IInventoryTankSpawnerService spawnerService)
         {
             InventoryTankView view = CreateView(level);
             view.SetPosition(inventorySlotView.transform.position);

@@ -2,7 +2,6 @@
 using Sources.Scripts.Controllers.Presenters.Players;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Players;
-using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.Presentations.Views.Players.Skins;
 using Sources.Scripts.PresentationsInterfaces.Views.Players;
 

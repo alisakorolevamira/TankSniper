@@ -7,7 +7,6 @@ using Sources.Scripts.Presentations.Views.Materials;
 using Sources.Scripts.Presentations.Views.Players.Skins.DecalsType;
 using Sources.Scripts.Presentations.Views.Players.Skins.MaterialTypes;
 using Sources.Scripts.Presentations.Views.Players.Skins.SkinTypes;
-using UnityEngine;
 
 namespace Sources.Scripts.Infrastructure.Services.Shop
 {

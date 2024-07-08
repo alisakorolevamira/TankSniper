@@ -1,4 +1,5 @@
-﻿using Sources.Scripts.Domain.Models.Data;
+﻿using Sources.Scripts.Domain.Models.Constants;
+using Sources.Scripts.Domain.Models.Data;
 using Sources.Scripts.DomainInterfaces.Models.Entities;
 
 namespace Sources.Scripts.Domain.Models.Gameplay
@@ -10,7 +11,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         public MainMenuAppearance(string id)
         {
             Id = id;
-            Index = 1;
+            Index = MainMenuConst.FirstView;
         }
         
         public string Id { get; }

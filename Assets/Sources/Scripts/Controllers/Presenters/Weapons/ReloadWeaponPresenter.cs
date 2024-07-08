@@ -27,10 +27,7 @@ namespace Sources.Scripts.Controllers.Presenters.Weapons
         public override void Enable()
         {
             _cancellationTokenSource = new CancellationTokenSource();
-            //_fillingAmount = ImageConst.Min;
             
-            //_view.ImageView.SetFillAmount(_fillingAmount);
-            //StartTimer(_cancellationTokenSource.Token);
             _reloadWeaponService.StartTimer += OnStartTimer;
         }
 

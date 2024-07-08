@@ -1,5 +1,4 @@
 ﻿using System;
-using JetBrains.Annotations;
 using Sources.Scripts.Controllers.Presenters.Weapons;
 using Sources.Scripts.Domain.Models.Weapons;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Weapons;

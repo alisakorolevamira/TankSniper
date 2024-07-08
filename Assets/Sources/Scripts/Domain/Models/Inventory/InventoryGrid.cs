@@ -3,7 +3,6 @@ using System.Linq;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Data;
 using Sources.Scripts.DomainInterfaces.Models.Entities;
-using Sources.Scripts.DomainInterfaces.Models.Inventory;
 using UnityEngine;
 
 namespace Sources.Scripts.Domain.Models.Inventory

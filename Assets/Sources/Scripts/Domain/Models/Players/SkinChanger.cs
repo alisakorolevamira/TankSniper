@@ -33,8 +33,6 @@ namespace Sources.Scripts.Domain.Models.Players
         public event Action DecalRemoved;
         public event Action<Sprite> CurrentDecalChanged; 
         
-        //сделать диктионари об открытых и закрытых модельках
-        
         public void Save()
         {
             _data.Id = Id;

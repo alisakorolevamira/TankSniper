@@ -13,14 +13,14 @@ namespace Sources.Scripts.Controllers.Presenters.Shops
         private readonly IShopView _shopView;
         private readonly IUpgradeService _upgradeService;
         private readonly Upgrader _upgrader;
-        private readonly PlayerShop playerShop;
+        private readonly PlayerShop _playerShop;
 
         public ShopPresenter(IShopView view, IUpgradeService upgradeService, Upgrader upgrader, PlayerShop playerShop)
         {
             _shopView = view ?? throw new ArgumentNullException(nameof(view));
             _upgradeService = upgradeService ?? throw new ArgumentNullException(nameof(upgradeService));
             _upgrader = upgrader ?? throw new ArgumentNullException(nameof(upgrader));
-            this.playerShop = playerShop ?? throw new ArgumentNullException(nameof(playerShop));
+            _playerShop = playerShop ?? throw new ArgumentNullException(nameof(playerShop));
         }
 
         public override void Enable()
@@ -60,7 +60,8 @@ namespace Sources.Scripts.Controllers.Presenters.Shops
         {
             foreach (ShopPatternButtonView buttonView in _shopView.PatternButtons)
             {
-                var button = playerShop.PatternButtons.First(x => x.MaterialType== buttonView.MaterialType);
+                ShopPatternButton button =
+                    _playerShop.PatternButtons.First(x => x.MaterialType== buttonView.MaterialType);
                 buttonView.Construct(button);
             }
         }

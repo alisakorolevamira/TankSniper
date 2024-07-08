@@ -1,7 +1,6 @@
 ﻿using System;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Data;
-using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.DomainInterfaces.Models.Entities;
 
 namespace Sources.Scripts.Domain.Models.Settings

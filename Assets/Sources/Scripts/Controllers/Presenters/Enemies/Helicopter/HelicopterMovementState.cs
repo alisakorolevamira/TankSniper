@@ -19,10 +19,8 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Helicopter
             _enemyView = enemyView ?? throw new ArgumentNullException(nameof(enemyView));
         }
 
-        public override void Enter()
-        {
+        public override void Enter() => 
             _enemyAnimation.PlayIdle();
-        }
 
         public override void Update(float deltaTime)
         {

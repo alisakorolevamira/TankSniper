@@ -10,7 +10,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Base.States
         private readonly IEnemyAnimation _enemyAnimation;
         private readonly IMovingEnemyViewBase _enemyView;
         
-        private int _targetPositionIndex = 0;
+        private int _targetPositionIndex;
         private Vector3 _targetPoint;
 
         public EnemyMovementState(IEnemyAnimation enemyAnimation, IMovingEnemyViewBase enemyView)
@@ -22,6 +22,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Base.States
         public override void Enter()
         {
             _enemyAnimation.PlayIdle();
+            _targetPositionIndex = 0;
         }
 
         public override void Update(float deltaTime)

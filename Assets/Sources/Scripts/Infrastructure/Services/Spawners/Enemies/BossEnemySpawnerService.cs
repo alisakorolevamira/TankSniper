@@ -22,7 +22,8 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners.Enemies
 
         public IBossEnemyView Spawn(KilledEnemiesCounter killedEnemiesCounter, BossEnemyView view)
         {
-            BossEnemy bossEnemy = new BossEnemy(new EnemyHealth(EnemyConst.BossHealth), new EnemyAttacker(EnemyConst.BossDamage));
+            BossEnemy bossEnemy =
+                new BossEnemy(new EnemyHealth(EnemyConst.BossHealth), new EnemyAttacker(EnemyConst.BossDamage));
             
             IBossEnemyView bossEnemyView = _bossEnemyViewFactory.Create(bossEnemy, killedEnemiesCounter, view);
 

@@ -5,6 +5,7 @@ using Sources.Scripts.Domain.Models.Upgrades;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Yandex;
 using Sources.Scripts.PresentationsInterfaces.Views.Inventory;
+using UnityEngine;
 
 namespace Sources.Scripts.Controllers.Presenters.Inventory
 {
@@ -15,8 +16,9 @@ namespace Sources.Scripts.Controllers.Presenters.Inventory
         private readonly IRewardedAdService _rewardedAdService;
         private readonly PlayerWallet _playerWallet;
         private readonly Upgrader _upgrader;
+        private readonly string _free = "FREE";
 
-        private int _price => _upgrader.CurrentLevel * 500;
+        private int _price => _upgrader.CurrentLevel * PlayerConst.RewardIndex;
 
         public InventoryTankButtonPresenter(
             IInventoryTankButtonView tankButtonView,
@@ -46,9 +48,13 @@ namespace Sources.Scripts.Controllers.Presenters.Inventory
 
         private void OnButtonClick()
         {
+            Debug.Log(_price);
+            Debug.Log(_playerWallet.Money);
+            
             if (_playerWallet.TryRemoveMoney(_price))
             {
                 _spawnerService.Spawn(InventoryTankConst.DefaultTankLevel);
+                SetPriceText();
                 return;
             }
             
@@ -68,7 +74,7 @@ namespace Sources.Scripts.Controllers.Presenters.Inventory
             else
             {
                 _tankButtonView.PriceText.SetText(string.Empty);
-                _tankButtonView.FreeText.SetText("FREE");
+                _tankButtonView.FreeText.SetText(_free);
                 _tankButtonView.MoneyIcon.HideImage();
                 _tankButtonView.AdImage.ShowImage();
             }

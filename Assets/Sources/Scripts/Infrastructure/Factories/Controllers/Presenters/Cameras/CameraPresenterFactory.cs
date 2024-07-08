@@ -14,9 +14,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Camera
             _cameraService = cameraService ?? throw new ArgumentNullException(nameof(cameraService));
         }
         
-        public CameraPresenter Create(ICameraView cameraView)
-        {
-            return new CameraPresenter(cameraView, _cameraService);
-        }
+        public CameraPresenter Create(ICameraView cameraView) => 
+            new(cameraView, _cameraService);
     }
 }

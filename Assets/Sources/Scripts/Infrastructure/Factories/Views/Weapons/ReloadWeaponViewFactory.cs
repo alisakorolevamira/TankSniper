@@ -1,5 +1,4 @@
 ﻿using System;
-using JetBrains.Annotations;
 using Sources.Scripts.Controllers.Presenters.Weapons;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Weapons;
 using Sources.Scripts.InfrastructureInterfaces.Services.Weapons;
@@ -13,7 +12,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Weapons
         private readonly ReloadWeaponPresenterFactory _presenterFactory;
         private readonly IReloadWeaponService _reloadWeaponService;
 
-        public ReloadWeaponViewFactory(ReloadWeaponPresenterFactory presenterFactory, [NotNull] IReloadWeaponService reloadWeaponService)
+        public ReloadWeaponViewFactory(
+            ReloadWeaponPresenterFactory presenterFactory,
+            IReloadWeaponService reloadWeaponService)
         {
             _presenterFactory = presenterFactory ?? throw new ArgumentNullException(nameof(presenterFactory));
             _reloadWeaponService = reloadWeaponService ?? throw new ArgumentNullException(nameof(reloadWeaponService));

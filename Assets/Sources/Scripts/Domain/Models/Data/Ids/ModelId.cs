@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Inventory;
 using Sources.Scripts.Domain.Models.Players;
@@ -39,20 +38,6 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
             InventoryGrid,
             PlayerShop,
             MainMenuAppearance,
-        };
-
-        public static IReadOnlyDictionary<string, Type> DtoTypes = new Dictionary<string, Type>()
-        {
-            [GameData] = typeof(GameDataData),
-            [SavedLevel] = typeof(SavedLevelData),
-            [Volume] = typeof(VolumeData),
-            [PlayerWallet] = typeof(PlayerWalletData),
-            [Tutorial] = typeof(TutorialData),
-            [Upgrader] = typeof(UpgradeData),
-            [SkinChanger] = typeof(SkinChangerData),
-            [GameLevels] = typeof(LevelData),
-            [InventoryGrid] = typeof(InventoryGridData),
-            [MainMenuAppearance] = typeof(MainMenuData)
         };
 
         public static IReadOnlyDictionary<string, IEntity> Entities = new Dictionary<string, IEntity>()

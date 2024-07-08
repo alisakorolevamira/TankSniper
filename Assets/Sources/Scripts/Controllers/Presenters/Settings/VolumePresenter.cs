@@ -1,7 +1,4 @@
 ﻿using System;
-using Doozy.Runtime.UIManager.Components;
-using JetBrains.Annotations;
-using Sources.Scripts.Domain.Models.Settings;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.PresentationsInterfaces.Views.Settings;
 

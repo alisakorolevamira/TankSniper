@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Common;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies;
-using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Base;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Boss;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Dron;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Helicopter;
@@ -45,7 +44,6 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
 
             Container.Bind<EnemyHealthPresenterFactory>().AsSingle();
             Container.Bind<EnemyHealthViewFactory>().AsSingle();
-            Container.Bind<EnemyPresenterFactory>().AsSingle();
 
             Container.Bind<TankPresenterFactory>().AsSingle();
             Container.Bind<TankEnemyViewFactory>().AsSingle();

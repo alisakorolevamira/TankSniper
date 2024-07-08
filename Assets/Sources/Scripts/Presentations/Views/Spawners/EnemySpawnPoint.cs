@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Sources.Scripts.Domain.Models.Spawners.Types;
-using Sources.Scripts.Presentations.Views.Enemies.Tank;
 using Sources.Scripts.PresentationsInterfaces.Views.Spawners;
 using UnityEngine;
 

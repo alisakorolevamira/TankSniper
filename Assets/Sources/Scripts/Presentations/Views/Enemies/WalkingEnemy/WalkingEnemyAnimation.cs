@@ -6,6 +6,7 @@ namespace Sources.Scripts.Presentations.Views.Enemies.WalkingEnemy
     public class WalkingEnemyAnimation : View, IWalkingEnemyAnimation
     {
         [SerializeField] private Animator _animator;
+        [SerializeField] private ParticleSystem _gunShoot;
 
         public void PlayIdle() => 
             _animator.Play("Walk");
@@ -13,7 +14,7 @@ namespace Sources.Scripts.Presentations.Views.Enemies.WalkingEnemy
         public void PlayAttack()
         {
             _animator.SetBool("Shoot", true);
-            //_gunShoot.Play();
+            _gunShoot.Play();
         }
 
         public void PlayDying() => 

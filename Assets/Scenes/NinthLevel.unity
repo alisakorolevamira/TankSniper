@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: f9ec1c0318dcc3149b0e9ae62a6d8cdf, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.71125656, g: 0.8500661, b: 0.84217066, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7057,6 +7057,7 @@ MonoBehaviour:
   _drons: []
   _walkings:
   - {fileID: 448199265}
+  _standingTanks: []
 --- !u!4 &1457841085
 Transform:
   m_ObjectHideFlags: 0
@@ -7667,7 +7668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5852049439591900005, guid: 52c56be5996e3ca4cb0a99757f2dd114, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.55
+      value: -10.32
       objectReference: {fileID: 0}
     - target: {fileID: 5852049439591900005, guid: 52c56be5996e3ca4cb0a99757f2dd114, type: 3}
       propertyPath: m_LocalPosition.y

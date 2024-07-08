@@ -15,7 +15,7 @@ using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
 using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpdateServices;
 using Sources.Scripts.Presentations.UI.Curtain;
-using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tank;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tanks;
 using Sources.Scripts.UIFramework.ControllerInterfaces.Buttons;
 using Sources.Scripts.UIFramework.ControllerInterfaces.Forms;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;

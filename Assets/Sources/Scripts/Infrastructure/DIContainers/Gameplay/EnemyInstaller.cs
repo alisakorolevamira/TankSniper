@@ -7,7 +7,7 @@ using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.He
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Jeep;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Moving;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Standing;
-using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Tank;
+using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Tanks;
 using Sources.Scripts.Infrastructure.Factories.Views.Common;
 using Sources.Scripts.Infrastructure.Factories.Views.Enemies;
 using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Boss;
@@ -16,10 +16,22 @@ using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Helicopter;
 using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Jeep;
 using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Moving;
 using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Standing;
-using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Tank;
+using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Tanks;
 using Sources.Scripts.Infrastructure.Services.Spawners.Enemies;
+using Sources.Scripts.Infrastructure.Services.Spawners.Enemies.Boss;
+using Sources.Scripts.Infrastructure.Services.Spawners.Enemies.Dron;
+using Sources.Scripts.Infrastructure.Services.Spawners.Enemies.Helicopter;
+using Sources.Scripts.Infrastructure.Services.Spawners.Enemies.Jeep;
+using Sources.Scripts.Infrastructure.Services.Spawners.Enemies.Stickmen;
+using Sources.Scripts.Infrastructure.Services.Spawners.Enemies.Tanks;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies;
+using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies.Boss;
+using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies.Dron;
+using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies.Helicopter;
+using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies.Jeep;
+using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies.Stickmen;
+using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies.Tanks;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Zenject;
 
@@ -38,6 +50,7 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
             Container.Bind<IJeepEnemySpawnerService>().To<JeepEnemySpawnerService>().AsSingle();
             Container.Bind<IDronEnemySpawnerService>().To<DronEnemySpawnerService>().AsSingle();
             Container.Bind<IWalkingEnemySpawnerService>().To<WalkingEnemySpawnerService>().AsSingle();
+            Container.Bind<IStandingTankEnemySpawnerService>().To<StandingTankEnemySpawnerService>().AsSingle();
             
             Container.Bind<HealthUITextPresenterFactory>().AsSingle();
             Container.Bind<HealthUITextViewFactory>().AsSingle();
@@ -65,6 +78,9 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
             
             Container.Bind<WalkingEnemyPresenterFactory>().AsSingle();
             Container.Bind<WalkingEnemyViewFactory>().AsSingle();
+            
+            Container.Bind<StandingTankPresenterFactory>().AsSingle();
+            Container.Bind<StandingTankEnemyViewFactory>().AsSingle();
         }
     }
 }

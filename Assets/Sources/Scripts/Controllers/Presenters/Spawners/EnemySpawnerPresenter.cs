@@ -1,15 +1,22 @@
 ﻿using System;
 using System.Threading;
+using JetBrains.Annotations;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies;
+using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies.Boss;
+using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies.Dron;
+using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies.Helicopter;
+using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies.Jeep;
+using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies.Stickmen;
+using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies.Tanks;
 using Sources.Scripts.Presentations.Views.Enemies.Boss;
 using Sources.Scripts.Presentations.Views.Enemies.Dron;
 using Sources.Scripts.Presentations.Views.Enemies.Helicopter;
 using Sources.Scripts.Presentations.Views.Enemies.Jeep;
 using Sources.Scripts.Presentations.Views.Enemies.Standing;
-using Sources.Scripts.Presentations.Views.Enemies.Tank;
+using Sources.Scripts.Presentations.Views.Enemies.Tanks;
 using Sources.Scripts.Presentations.Views.Enemies.WalkingEnemy;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Boss;
@@ -18,7 +25,7 @@ using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopter;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Jeep;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.MovingEnemy;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Standing;
-using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tank;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tanks;
 using Sources.Scripts.PresentationsInterfaces.Views.Spawners;
 
 namespace Sources.Scripts.Controllers.Presenters.Spawners
@@ -34,7 +41,8 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
         private readonly IJeepEnemySpawnerService _jeepEnemySpawnerService;
         private readonly IBossEnemySpawnerService _bossEnemySpawnerService;
         private readonly IDronEnemySpawnerService _dronEnemySpawnerService;
-        private readonly IWalkingEnemySpawnerService walkingEnemySpawnerService;
+        private readonly IWalkingEnemySpawnerService _walkingEnemySpawnerService;
+        private readonly IStandingTankEnemySpawnerService _standingTankEnemySpawnerService;
 
         private CancellationTokenSource _cancellationTokenSource;
 
@@ -48,7 +56,8 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
             IJeepEnemySpawnerService jeepEnemySpawnerService,
             IBossEnemySpawnerService bossEnemySpawnerService,
             IDronEnemySpawnerService dronEnemySpawnerService,
-            IWalkingEnemySpawnerService walkingEnemySpawnerService)
+            IWalkingEnemySpawnerService walkingEnemySpawnerService,
+            IStandingTankEnemySpawnerService standingTankEnemySpawnerService)
         {
             _killedEnemiesCounter = killedEnemiesCounter ??
                                     throw new ArgumentNullException(nameof(killedEnemiesCounter));
@@ -66,8 +75,10 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
                                        throw new ArgumentNullException(nameof(bossEnemySpawnerService));
             _dronEnemySpawnerService = dronEnemySpawnerService ??
                                        throw new ArgumentNullException(nameof(dronEnemySpawnerService));
-            this.walkingEnemySpawnerService = walkingEnemySpawnerService ??
+            _walkingEnemySpawnerService = walkingEnemySpawnerService ??
                                               throw new ArgumentNullException(nameof(walkingEnemySpawnerService));
+            _standingTankEnemySpawnerService = standingTankEnemySpawnerService ??
+                                               throw new ArgumentNullException(nameof(standingTankEnemySpawnerService));
         }
 
         public override void Enable() => 
@@ -119,7 +130,14 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
             
             foreach (WalkingEnemyView moving in _enemySpawnerView.Walkings)
             {
-                IWalkingEnemyView view = walkingEnemySpawnerService.Spawn(_killedEnemiesCounter, moving);
+                IWalkingEnemyView view = _walkingEnemySpawnerService.Spawn(_killedEnemiesCounter, moving);
+                
+                SetPlayerHealthView(view);
+            }
+            
+            foreach (StandingTankEnemyView tank in _enemySpawnerView.StandingTanks)
+            {
+                IStandingTankEnemyView view = _standingTankEnemySpawnerService.Spawn(_killedEnemiesCounter, tank);
                 
                 SetPlayerHealthView(view);
             }

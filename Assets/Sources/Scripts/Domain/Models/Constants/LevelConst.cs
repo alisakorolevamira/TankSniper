@@ -15,5 +15,11 @@
         public const string TenthLevel = "TenthLevel";
         public const string EleventhLevel = "EleventhLevel";
         public const string TwelfthLevel = "TwelfthLevel";
+        public const string ThirteenthLevel = "ThirteenthLevel";
+        public const string FourteenthLevel = "FourteenthLevel";
+        public const string FifteenthLevel = "FifteenthLevel";
+        public const string SixteenthLevel = "SixteenthLevel";
+        public const string SeventeenthLevel = "SeventeenthLevel";
+        public const string EighthteenthLevel = "EighthteenthLevel";
     }
 }

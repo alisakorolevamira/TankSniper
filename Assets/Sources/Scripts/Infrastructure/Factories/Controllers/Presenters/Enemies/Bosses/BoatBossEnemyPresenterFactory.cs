@@ -26,7 +26,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
             IBoatBossEnemyView enemyView,
             IEnemyAnimation enemyAnimation)
         {
-            EnemyAttackState attackState = new EnemyAttackState(enemy, enemyView, enemyAnimation);
+            BoatBossAttackState attackState = new BoatBossAttackState(enemy, enemyView, enemyAnimation);
             EnemyDieState dieState = new EnemyDieState(killedEnemiesCounter, enemyView, enemyAnimation);
 
             FiniteTransition toDieTransition = new FiniteTransitionBase(

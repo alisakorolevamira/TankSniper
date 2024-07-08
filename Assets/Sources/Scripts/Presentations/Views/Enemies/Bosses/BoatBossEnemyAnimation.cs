@@ -6,6 +6,8 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Bosses
     public class BoatBossEnemyAnimation : View, IEnemyAnimation
     {
         [SerializeField] private ParticleSystem _attackParticle;
+        [SerializeField] private Collider _collider;
+        [SerializeField] private Rigidbody _rigidbody;
         
         public void PlayIdle()
         {
@@ -19,6 +21,9 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Bosses
 
         public void PlayDying()
         {
+            _attackParticle.Stop();
+            _rigidbody.isKinematic = false;
+            _collider.SendMessage("Shatter", transform.position, SendMessageOptions.DontRequireReceiver);
             Hide();
         }
     }

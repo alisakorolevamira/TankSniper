@@ -7,7 +7,6 @@
         LoadGame = 2,
         UnPause = 3,
         AddTank = 4,
-        ChangeVolume = 5,
-        ChangeMainMenuIndex = 6
+        ChangeVolume = 5
     }
 }

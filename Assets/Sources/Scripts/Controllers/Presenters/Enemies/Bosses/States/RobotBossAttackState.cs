@@ -4,16 +4,17 @@ using Cysharp.Threading.Tasks;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Enemies.Boss;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.States;
-using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Boss;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Bosses;
 using UnityEngine;
 
-namespace Sources.Scripts.Controllers.Presenters.Enemies.Boss.States
+namespace Sources.Scripts.Controllers.Presenters.Enemies.Bosses.States
 {
-    public class BossAttackState : FiniteState
+    public class RobotBossAttackState : FiniteState
     {
         private readonly BossEnemy _enemy;
-        private readonly IBossEnemyView _enemyView;
-        private readonly IBossEnemyAnimation _enemyAnimation;
+        private readonly IRobotBossEnemyView _enemyView;
+        private readonly IEnemyAnimation _enemyAnimation;
         
         private TimeSpan _attackDelay = TimeSpan.FromSeconds(EnemyConst.BossAttackDelay);
         private TimeSpan _attackTime = TimeSpan.FromSeconds(EnemyConst.BossAttackTime);
@@ -21,7 +22,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Boss.States
         private int _targetPositionIndex;
         private bool _isAttacking;
 
-        public BossAttackState(BossEnemy enemy, IBossEnemyView enemyView, IBossEnemyAnimation enemyAnimation)
+        public RobotBossAttackState(BossEnemy enemy, IRobotBossEnemyView enemyView, IEnemyAnimation enemyAnimation)
         {
             _enemy = enemy ?? throw new ArgumentNullException(nameof(enemy));
             _enemyView = enemyView ?? throw new ArgumentNullException(nameof(enemyView));

@@ -1,4 +1,5 @@
 ﻿using Sources.Scripts.Presentations.Views.Enemies.Base;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Standing;
 using UnityEngine;
 
@@ -8,6 +9,6 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Standing
     {
         [SerializeField] private StandingEnemyAnimation _enemyAnimation;
 
-        public StandingEnemyAnimation EnemyAnimation => _enemyAnimation;
+        public IEnemyAnimation EnemyAnimation => _enemyAnimation;
     }
 }

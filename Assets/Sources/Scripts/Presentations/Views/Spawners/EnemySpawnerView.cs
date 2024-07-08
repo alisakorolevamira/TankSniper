@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Sources.Scripts.Controllers.Presenters.Spawners;
 using Sources.Scripts.Presentations.Views.Enemies.Base;
-using Sources.Scripts.Presentations.Views.Enemies.Boss;
+using Sources.Scripts.Presentations.Views.Enemies.Bosses;
 using Sources.Scripts.Presentations.Views.Enemies.Dron;
 using Sources.Scripts.Presentations.Views.Enemies.Helicopter;
 using Sources.Scripts.Presentations.Views.Enemies.Jeep;
@@ -17,23 +17,28 @@ namespace Sources.Scripts.Presentations.Views.Spawners
 {
     public class EnemySpawnerView : PresentableView<EnemySpawnerPresenter>, IEnemySpawnerView
     {
+        [Header("Enemies")]
         [SerializeField] private List<TankEnemyView> _tanks;
         [SerializeField] private List<HelicopterEnemyView> _helicopters;
         [SerializeField] private List<StandingEnemyView> _standings;
         [SerializeField] private List<JeepEnemyView> _jeeps;
-        [SerializeField] private List<BossEnemyView> _bosses;
         [SerializeField] private List<DronEnemyView> _drons;
         [SerializeField] private List<WalkingEnemyView> _walkings;
         [SerializeField] private List<StandingTankEnemyView> _standingTanks;
+        
+        [Header("Bosses")]
+        [SerializeField] private List<RobotBossEnemyView> _robotBosses;
+        [SerializeField] private List<BoatBossEnemyView> _boatBosses;
         
         public IReadOnlyList<TankEnemyView> Tanks => _tanks;
         public IReadOnlyList<HelicopterEnemyView> Helicopters => _helicopters;
         public IReadOnlyList<StandingEnemyView> Standings => _standings;
         public IReadOnlyList<JeepEnemyView> Jeeps => _jeeps;
-        public IReadOnlyList<BossEnemyView> Bosses => _bosses;
         public IReadOnlyList<DronEnemyView> Drons => _drons;
         public IReadOnlyList<WalkingEnemyView> Walkings => _walkings;
         public IReadOnlyList<StandingTankEnemyView> StandingTanks => _standingTanks;
+        public IReadOnlyList<RobotBossEnemyView> RobotBosses => _robotBosses;
+        public IReadOnlyList<BoatBossEnemyView> BoatBosses => _boatBosses;
 
         public PlayerView PlayerView { get; private set; }
 

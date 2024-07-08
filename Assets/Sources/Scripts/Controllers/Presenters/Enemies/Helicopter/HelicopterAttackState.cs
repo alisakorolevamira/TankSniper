@@ -4,7 +4,9 @@ using Cysharp.Threading.Tasks;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Enemies.Helicopter;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.States;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopter;
+using UnityEngine;
 
 namespace Sources.Scripts.Controllers.Presenters.Enemies.Helicopter
 {
@@ -12,15 +14,16 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Helicopter
     {
         private readonly HelicopterEnemy _enemy;
         private readonly IHelicopterEnemyView _enemyView;
-        private readonly IHelicopterEnemyAnimation _enemyAnimation;
+        private readonly IEnemyAnimation _enemyAnimation;
         
         private TimeSpan _attackDelay = TimeSpan.FromSeconds(EnemyConst.AttackDelay);
         private CancellationTokenSource _cancellationTokenSource;
+        private int _targetPositionIndex;
 
         public HelicopterAttackState(
             HelicopterEnemy enemy,
             IHelicopterEnemyView enemyView,
-            IHelicopterEnemyAnimation enemyAnimation)
+            IEnemyAnimation enemyAnimation)
         {
             _enemy = enemy ?? throw new ArgumentNullException(nameof(enemy));
             _enemyView = enemyView ?? throw new ArgumentNullException(nameof(enemyView));
@@ -33,9 +36,20 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Helicopter
             
             SetTimer(_cancellationTokenSource.Token);
         }
-
+        
         public override void Exit() => 
             _cancellationTokenSource.Cancel();
+        
+        public override void Update(float deltaTime)
+        {
+            Vector3 currentTarget = _enemyView.MovementPoints[_targetPositionIndex].position;
+            _enemyView.MoveToPoint(currentTarget);
+            ChangeRotation();
+            _enemyView.RotateRotor();
+            
+            if (Vector3.Distance(_enemyView.Position, currentTarget) < 0.1f)
+                ChangeCurrentTargetPoint();
+        }
 
         private async void SetTimer(CancellationToken cancellationToken)
         {
@@ -57,6 +71,22 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Helicopter
         {
             _enemyView.PlayerHealthView.TakeDamage(_enemy.EnemyAttacker.Damage);
             _enemyAnimation.PlayAttack();
+        }
+        
+        private void ChangeCurrentTargetPoint()
+        {
+            _targetPositionIndex++;
+
+            if (_targetPositionIndex >= _enemyView.MovementPoints.Count)
+                _targetPositionIndex = 0;
+        }
+
+        private void ChangeRotation()
+        {
+            Vector3 direction = _enemyView.MovementPoints[_targetPositionIndex].position - _enemyView.Position;
+            float targetAngle = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
+            
+            _enemyView.SetRotation(targetAngle);
         }
     }
 }

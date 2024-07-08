@@ -7,6 +7,7 @@ using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.Transitions;
 using Sources.Scripts.InfrastructureInterfaces.Services.Players;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpdateServices;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopter;
 
 namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Helicopter
@@ -26,7 +27,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
             HelicopterEnemy enemy,
             KilledEnemiesCounter killedEnemiesCounter,
             IHelicopterEnemyView enemyView,
-            IHelicopterEnemyAnimation enemyAnimation)
+            IEnemyAnimation enemyAnimation)
         {
             HelicopterMovementState movementState = new HelicopterMovementState(enemyAnimation, enemyView);
             HelicopterAttackState attackState = new HelicopterAttackState(enemy, enemyView, enemyAnimation);
@@ -40,7 +41,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
                 dieState, () => enemy.EnemyHealth.CurrentHealth <= 0);
             attackState.AddTransition(toDieTransition);
 
-            return new EnemyPresenter(movementState, _updateRegister);
+            return new EnemyPresenter(attackState, _updateRegister);
         }
     }
 }

@@ -5,6 +5,6 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Enemies.Standing
 {
     public interface IStandingEnemyView : IEnemyViewBase
     {
-        StandingEnemyAnimation EnemyAnimation { get; }
+        IEnemyAnimation EnemyAnimation { get; }
     }
 }

@@ -4,7 +4,7 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Enemies.Dron
 {
     public interface IDronEnemyView : IMovingEnemyViewBase
     {
-        IDronEnemyAnimation EnemyAnimation { get; }
+        IEnemyAnimation EnemyAnimation { get; }
         void RotateRotors();
     }
 }

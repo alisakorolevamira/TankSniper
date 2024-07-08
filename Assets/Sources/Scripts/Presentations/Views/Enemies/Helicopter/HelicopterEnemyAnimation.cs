@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopter;
 using UnityEngine;
 
 namespace Sources.Scripts.Presentations.Views.Enemies.Helicopter
 {
-    public class HelicopterEnemyAnimation : View, IHelicopterEnemyAnimation
+    public class HelicopterEnemyAnimation : View, IEnemyAnimation
     {
         [SerializeField] private ParticleSystem _gunShoot;
         [SerializeField] private Animator _bazookaAnimator;

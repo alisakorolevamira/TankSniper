@@ -1,4 +1,5 @@
 ﻿using Sources.Scripts.Presentations.Views.Enemies.Base;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Jeep;
 using UnityEngine;
 
@@ -8,6 +9,6 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Jeep
     {
         [SerializeField] private JeepEnemyAnimation _enemyAnimation;
         
-        public IJeepEnemyAnimation EnemyAnimation => _enemyAnimation;
+        public IEnemyAnimation EnemyAnimation => _enemyAnimation;
     }
 }

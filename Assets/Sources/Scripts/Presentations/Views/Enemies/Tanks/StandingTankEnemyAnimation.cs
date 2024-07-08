@@ -1,9 +1,9 @@
-﻿using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tanks;
+﻿using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using UnityEngine;
 
 namespace Sources.Scripts.Presentations.Views.Enemies.Tanks
 {
-    public class StandingTankEnemyAnimation : View, IStandingTankEnemyAnimation
+    public class StandingTankEnemyAnimation : View, IEnemyAnimation
     {
         [SerializeField] private ParticleSystem _gunShoot;
 

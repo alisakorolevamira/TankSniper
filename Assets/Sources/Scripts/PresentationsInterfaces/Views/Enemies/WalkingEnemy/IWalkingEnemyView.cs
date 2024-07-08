@@ -5,6 +5,6 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Enemies.MovingEnemy
 {
     public interface IWalkingEnemyView : IMovingEnemyViewBase
     {
-        WalkingEnemyAnimation EnemyAnimation { get; }
+        IEnemyAnimation EnemyAnimation { get; }
     }
 }

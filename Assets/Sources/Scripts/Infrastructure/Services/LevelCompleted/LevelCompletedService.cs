@@ -71,6 +71,7 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
             Level level = gameLevels.Levels.Find(level => level.Id == savedLevel.CurrentLevelId);
             
             level.Complete();
+            CheckMenuIndex(level);
             _loadService.SaveAll();
             
             StartTimer(_cancellationTokenSource.Token);
@@ -88,6 +89,17 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
             catch (OperationCanceledException)
             {
             }
+        }
+
+        private void CheckMenuIndex(Level level)
+        {
+            MainMenuAppearance mainMenu = _entityRepository.Get<MainMenuAppearance>(ModelId.MainMenuAppearance);
+
+            if (level.Id == LevelConst.SixthLevel)
+                mainMenu.Index = MainMenuConst.SecondView;
+            
+            else if (level.Id == LevelConst.TwelfthLevel) 
+                mainMenu.Index = MainMenuConst.ThirdView;
         }
     }
 }

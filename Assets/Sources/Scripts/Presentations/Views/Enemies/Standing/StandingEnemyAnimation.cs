@@ -1,9 +1,9 @@
-﻿using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Standing;
+﻿using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using UnityEngine;
 
 namespace Sources.Scripts.Presentations.Views.Enemies.Standing
 {
-    public class StandingEnemyAnimation : View, IStandingEnemyAnimation
+    public class StandingEnemyAnimation : View, IEnemyAnimation
     {
         [SerializeField] private ParticleSystem _gunShoot;
         [SerializeField] private Animator _animator;

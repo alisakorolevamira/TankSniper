@@ -6,6 +6,7 @@ using Sources.Scripts.Domain.Models.Enemies.Dron;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.Transitions;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpdateServices;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Dron;
 
 namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Dron
@@ -23,7 +24,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
             DronEnemy enemy,
             KilledEnemiesCounter killedEnemiesCounter,
             IDronEnemyView enemyView,
-            IDronEnemyAnimation enemyAnimation)
+            IEnemyAnimation enemyAnimation)
         {
             DronAttackState attackState = new DronAttackState(enemyAnimation, enemyView, enemy);
             EnemyDieState dieState = new EnemyDieState(killedEnemiesCounter, enemyView, enemyAnimation);

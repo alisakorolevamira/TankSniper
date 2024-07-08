@@ -5,7 +5,7 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopter
 {
     public interface IHelicopterEnemyView : IMovingEnemyViewBase
     {
-        HelicopterEnemyAnimation EnemyAnimation { get; }
+        IEnemyAnimation EnemyAnimation { get; }
         void RotateRotor();
     }
 }

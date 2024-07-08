@@ -1,22 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.States;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
-using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Boss;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Bosses;
 
-namespace Sources.Scripts.Controllers.Presenters.Enemies.Boss.States
+namespace Sources.Scripts.Controllers.Presenters.Enemies.Bosses.States
 {
-    public class BossDieState : FiniteState
+    public class RobotBossDieState : FiniteState
     {
         private readonly KilledEnemiesCounter _killedEnemiesCounter;
-        private readonly IBossEnemyView _enemyView;
-        private readonly IBossEnemyAnimation _enemyAnimation;
+        private readonly IRobotBossEnemyView _enemyView;
+        private readonly IEnemyAnimation _enemyAnimation;
 
-        public BossDieState(
+        public RobotBossDieState(
             KilledEnemiesCounter killedEnemiesCounter,
-            IBossEnemyView enemyView,
-            IBossEnemyAnimation enemyAnimation)
+            IRobotBossEnemyView enemyView,
+            IEnemyAnimation enemyAnimation)
         {
             _killedEnemiesCounter = killedEnemiesCounter ?? throw new ArgumentNullException(nameof(killedEnemiesCounter));
             _enemyView = enemyView ?? throw new ArgumentNullException(nameof(enemyView));

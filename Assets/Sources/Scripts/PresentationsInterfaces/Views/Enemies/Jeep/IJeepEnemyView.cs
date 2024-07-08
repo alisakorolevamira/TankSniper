@@ -4,6 +4,6 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Enemies.Jeep
 {
     public interface IJeepEnemyView : IMovingEnemyViewBase
     {
-        IJeepEnemyAnimation EnemyAnimation { get; }
+        IEnemyAnimation EnemyAnimation { get; }
     }
 }

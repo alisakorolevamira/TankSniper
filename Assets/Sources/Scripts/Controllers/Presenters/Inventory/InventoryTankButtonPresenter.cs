@@ -48,9 +48,6 @@ namespace Sources.Scripts.Controllers.Presenters.Inventory
 
         private void OnButtonClick()
         {
-            Debug.Log(_price);
-            Debug.Log(_playerWallet.Money);
-            
             if (_playerWallet.TryRemoveMoney(_price))
             {
                 _spawnerService.Spawn(InventoryTankConst.DefaultTankLevel);

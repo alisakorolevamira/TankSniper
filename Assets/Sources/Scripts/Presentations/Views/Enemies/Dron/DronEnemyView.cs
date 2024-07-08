@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Sources.Scripts.Presentations.Views.Enemies.Base;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Dron;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Dron
         [SerializeField] private List<Transform> _rotors;
         [SerializeField] private float _rotationRotor = 100;
         
-        public IDronEnemyAnimation EnemyAnimation => _enemyAnimation;
+        public IEnemyAnimation EnemyAnimation => _enemyAnimation;
 
         public void RotateRotors()
         {

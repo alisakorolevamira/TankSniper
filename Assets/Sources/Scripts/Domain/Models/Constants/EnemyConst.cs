@@ -5,7 +5,8 @@
         public const float BossAttackDelay = 5f;
         public const float BossAttackTime = 3f;
         public const int BossHealth = 7000;
-        public const int BossDamage = 100;
+        public const int RobotBossDamage = 100;
+        public const int BoatBossDamage = 150;
         public const float AttackDelay = 3f;
         public const float DronAttackTime = 2f;
         public const int Health = 1000;

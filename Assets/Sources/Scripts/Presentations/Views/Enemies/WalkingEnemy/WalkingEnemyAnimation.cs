@@ -1,9 +1,9 @@
-﻿using Sources.Scripts.PresentationsInterfaces.Views.Enemies.MovingEnemy;
+﻿using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using UnityEngine;
 
 namespace Sources.Scripts.Presentations.Views.Enemies.WalkingEnemy
 {
-    public class WalkingEnemyAnimation : View, IWalkingEnemyAnimation
+    public class WalkingEnemyAnimation : View, IEnemyAnimation
     {
         [SerializeField] private Animator _animator;
         [SerializeField] private ParticleSystem _gunShoot;

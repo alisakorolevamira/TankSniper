@@ -7,6 +7,7 @@ using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.Transitions;
 using Sources.Scripts.InfrastructureInterfaces.Services.Players;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpdateServices;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Jeep;
 
 namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Jeep
@@ -26,7 +27,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
             JeepEnemy enemy,
             KilledEnemiesCounter killedEnemiesCounter,
             IJeepEnemyView enemyView,
-            IJeepEnemyAnimation enemyAnimation)
+            IEnemyAnimation enemyAnimation)
         {
             EnemyIdleState idleState = new EnemyIdleState(enemyAnimation);
             EnemyMovementState movementState = new EnemyMovementState(enemyAnimation, enemyView);

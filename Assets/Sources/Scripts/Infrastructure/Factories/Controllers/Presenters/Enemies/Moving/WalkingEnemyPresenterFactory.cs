@@ -6,6 +6,7 @@ using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.Transitions;
 using Sources.Scripts.InfrastructureInterfaces.Services.Players;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpdateServices;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.MovingEnemy;
 
 namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Moving
@@ -25,7 +26,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
             MovingEnemy enemy,
             KilledEnemiesCounter killedEnemiesCounter,
             IWalkingEnemyView enemyView,
-            IWalkingEnemyAnimation enemyAnimation)
+            IEnemyAnimation enemyAnimation)
         {
             EnemyMovementState movementState = new EnemyMovementState(enemyAnimation, enemyView);
             EnemyAttackState attackState = new EnemyAttackState(enemy, enemyView, enemyAnimation);

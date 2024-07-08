@@ -2183,76 +2183,6 @@ MonoBehaviour:
   _playerHealthView: {fileID: 1263063707}
   _playerAttackerView: {fileID: 781662703}
   _level: 0
---- !u!1001 &268421558
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 743226742}
-    m_Modifications:
-    - target: {fileID: 5476021965169863097, guid: 077138d4c19677c45ad64a17821a67cd, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.29999998
-      objectReference: {fileID: 0}
-    - target: {fileID: 5476021965169863097, guid: 077138d4c19677c45ad64a17821a67cd, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.29999998
-      objectReference: {fileID: 0}
-    - target: {fileID: 5476021965169863097, guid: 077138d4c19677c45ad64a17821a67cd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.1087488
-      objectReference: {fileID: 0}
-    - target: {fileID: 5476021965169863097, guid: 077138d4c19677c45ad64a17821a67cd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.17860346
-      objectReference: {fileID: 0}
-    - target: {fileID: 5476021965169863097, guid: 077138d4c19677c45ad64a17821a67cd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3.1573706
-      objectReference: {fileID: 0}
-    - target: {fileID: 5476021965169863097, guid: 077138d4c19677c45ad64a17821a67cd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.99341017
-      objectReference: {fileID: 0}
-    - target: {fileID: 5476021965169863097, guid: 077138d4c19677c45ad64a17821a67cd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5476021965169863097, guid: 077138d4c19677c45ad64a17821a67cd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.11461385
-      objectReference: {fileID: 0}
-    - target: {fileID: 5476021965169863097, guid: 077138d4c19677c45ad64a17821a67cd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5476021965169863097, guid: 077138d4c19677c45ad64a17821a67cd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5476021965169863097, guid: 077138d4c19677c45ad64a17821a67cd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5476021965169863097, guid: 077138d4c19677c45ad64a17821a67cd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8812411807048030732, guid: 077138d4c19677c45ad64a17821a67cd, type: 3}
-      propertyPath: m_Name
-      value: SM_Bld_TownHouse_06
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 077138d4c19677c45ad64a17821a67cd, type: 3}
---- !u!4 &268421559 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5476021965169863097, guid: 077138d4c19677c45ad64a17821a67cd, type: 3}
-  m_PrefabInstance: {fileID: 268421558}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &289407201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3239,8 +3169,8 @@ Transform:
   m_GameObject: {fileID: 544488279}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.4605, y: -1.6041887, z: -14.38}
-  m_LocalScale: {x: 26.18373, y: 5, z: 6.65}
+  m_LocalPosition: {x: 2.4605, y: -1.6042, z: -16.5729}
+  m_LocalScale: {x: 26.18373, y: 5, z: 11.035675}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 603128278}
@@ -3695,7 +3625,6 @@ Transform:
   - {fileID: 1441734314}
   - {fileID: 446226803}
   - {fileID: 544488280}
-  - {fileID: 743226742}
   - {fileID: 827279173}
   - {fileID: 2129827338}
   - {fileID: 975090909}
@@ -3971,38 +3900,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716486180}
   m_Mesh: {fileID: 4136487858768642163, guid: 3d210b2be9d4b9144b53828dfc2e73e3, type: 3}
---- !u!1 &743226741
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 743226742}
-  m_Layer: 0
-  m_Name: Buildings
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!4 &743226742
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743226741}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.11461385, z: -0, w: 0.99341017}
-  m_LocalPosition: {x: -1.2315053, y: 0, z: -0.07070398}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 268421559}
-  m_Father: {fileID: 603128278}
-  m_LocalEulerAnglesHint: {x: 0, y: 13.163, z: 0}
 --- !u!1001 &764952319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10105,6 +10002,7 @@ MonoBehaviour:
   _bosses: []
   _drons: []
   _walkings: []
+  _standingTanks: []
 --- !u!4 &1879096877
 Transform:
   m_ObjectHideFlags: 0

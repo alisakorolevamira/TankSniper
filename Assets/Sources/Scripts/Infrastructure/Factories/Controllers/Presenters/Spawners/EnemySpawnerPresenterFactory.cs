@@ -1,11 +1,8 @@
 ﻿using System;
-using JetBrains.Annotations;
 using Sources.Scripts.Controllers.Presenters.Spawners;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Spawners;
-using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
-using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies;
-using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies.Boss;
+using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies.Bosses;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies.Dron;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies.Helicopter;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies.Jeep;
@@ -18,23 +15,25 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Spawne
     public class EnemySpawnerPresenterFactory
     {
         private readonly ITankEnemySpawnerService _tankEnemySpawnerService;
-        private readonly IBossEnemySpawnerService _bossEnemySpawnerService;
+        private readonly IRobotBossEnemySpawnerService _robotBossEnemySpawnerService;
         private readonly IStandingEnemySpawnerService _standingEnemySpawnerService;
         private readonly IJeepEnemySpawnerService _jeepEnemySpawnerService;
         private readonly IHelicopterEnemySpawnerService _helicopterEnemySpawnerService;
         private readonly IDronEnemySpawnerService _dronEnemySpawnerService;
         private readonly IWalkingEnemySpawnerService _walkingEnemySpawnerService;
         private readonly IStandingTankEnemySpawnerService _standingTankEnemySpawnerService;
+        private readonly IBoatBossEnemySpawnerService _boatBossEnemySpawnerService;
 
         public EnemySpawnerPresenterFactory(
             ITankEnemySpawnerService tankEnemySpawnerService,
-            IBossEnemySpawnerService bossEnemySpawnerService,
+            IRobotBossEnemySpawnerService robotBossEnemySpawnerService,
             IStandingEnemySpawnerService standingEnemySpawnerService,
             IJeepEnemySpawnerService jeepEnemySpawnerService,
             IHelicopterEnemySpawnerService helicopterEnemySpawnerService,
             IDronEnemySpawnerService dronEnemySpawnerService,
             IWalkingEnemySpawnerService walkingEnemySpawnerService,
-            IStandingTankEnemySpawnerService standingTankEnemySpawnerService)
+            IStandingTankEnemySpawnerService standingTankEnemySpawnerService,
+            IBoatBossEnemySpawnerService boatBossEnemySpawnerService)
         {
             _tankEnemySpawnerService = tankEnemySpawnerService ??
                                        throw new ArgumentNullException(nameof(tankEnemySpawnerService));
@@ -46,12 +45,14 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Spawne
                                              throw new ArgumentNullException(nameof(helicopterEnemySpawnerService));
             _dronEnemySpawnerService = dronEnemySpawnerService ??
                                        throw new ArgumentNullException(nameof(dronEnemySpawnerService));
-            _bossEnemySpawnerService = bossEnemySpawnerService ??
-                                       throw new ArgumentNullException(nameof(bossEnemySpawnerService));
+            _robotBossEnemySpawnerService = robotBossEnemySpawnerService ??
+                                                throw new ArgumentNullException(nameof(robotBossEnemySpawnerService));
             _walkingEnemySpawnerService = walkingEnemySpawnerService ??
                                               throw new ArgumentNullException(nameof(walkingEnemySpawnerService));
             _standingTankEnemySpawnerService = standingTankEnemySpawnerService ??
                                                throw new ArgumentNullException(nameof(standingTankEnemySpawnerService));
+            _boatBossEnemySpawnerService = boatBossEnemySpawnerService ??
+                                           throw new ArgumentNullException(nameof(boatBossEnemySpawnerService));
         }
 
         public EnemySpawnerPresenter Create(
@@ -67,10 +68,11 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Spawne
                 _standingEnemySpawnerService,
                 _helicopterEnemySpawnerService,
                 _jeepEnemySpawnerService,
-                _bossEnemySpawnerService,
+                _robotBossEnemySpawnerService,
                 _dronEnemySpawnerService,
                 _walkingEnemySpawnerService,
-                _standingTankEnemySpawnerService);
+                _standingTankEnemySpawnerService,
+                _boatBossEnemySpawnerService);
         }
     }
 }

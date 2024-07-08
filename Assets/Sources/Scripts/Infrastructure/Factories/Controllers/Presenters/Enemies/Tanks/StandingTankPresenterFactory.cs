@@ -6,6 +6,7 @@ using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.Transitions;
 using Sources.Scripts.InfrastructureInterfaces.Services.Players;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpdateServices;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tanks;
 
 namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Tanks
@@ -25,7 +26,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
             StandingTankEnemy enemy,
             KilledEnemiesCounter killedEnemiesCounter,
             IStandingTankEnemyView tankEnemyView,
-            IStandingTankEnemyAnimation enemyAnimation)
+            IEnemyAnimation enemyAnimation)
         {
             EnemyIdleState idleState = new EnemyIdleState(enemyAnimation);
             EnemyAttackState attackState = new EnemyAttackState(enemy, tankEnemyView, enemyAnimation);

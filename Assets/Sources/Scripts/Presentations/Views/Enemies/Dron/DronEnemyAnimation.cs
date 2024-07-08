@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Dron;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using UnityEngine;
 
 namespace Sources.Scripts.Presentations.Views.Enemies.Dron
 {
-    public class DronEnemyAnimation : View, IDronEnemyAnimation
+    public class DronEnemyAnimation : View, IEnemyAnimation
     {
         [SerializeField] private ParticleSystem _attackParticle;
         [SerializeField] private Collider _collider;
@@ -26,8 +26,8 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Dron
             foreach (Rigidbody rigidbody in _rigidbodies)
                 rigidbody.isKinematic = false;
             
-            Destroy(gameObject);
             _collider.SendMessage("Shatter", transform.position, SendMessageOptions.DontRequireReceiver);
+            Hide();
         }
     }
 }

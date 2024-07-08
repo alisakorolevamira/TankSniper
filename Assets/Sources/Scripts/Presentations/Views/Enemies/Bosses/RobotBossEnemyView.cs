@@ -4,18 +4,19 @@ using Sources.Scripts.Presentations.Views.BossPeaces;
 using Sources.Scripts.Presentations.Views.Common;
 using Sources.Scripts.Presentations.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Bullets;
-using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Boss;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Bosses;
 using UnityEngine;
 
-namespace Sources.Scripts.Presentations.Views.Enemies.Boss
+namespace Sources.Scripts.Presentations.Views.Enemies.Bosses
 {
-    public class BossEnemyView : MovingEnemyViewBase, IBossEnemyView
+    public class RobotBossEnemyView : MovingEnemyViewBase, IRobotBossEnemyView
     {
-        [SerializeField] private BossEnemyAnimation _bossEnemyAnimation;
+        [SerializeField] private RobotBossEnemyAnimation _robotBossEnemyAnimation;
         [SerializeField] private List<BossPieceView> _peaces;
         [SerializeField] private HealthBarUI _healthBar;
 
-        public BossEnemyAnimation EnemyAnimation => _bossEnemyAnimation;
+        public IEnemyAnimation EnemyAnimation => _robotBossEnemyAnimation;
         public HealthBarUI HealthBar => _healthBar;
 
         public void Explode()

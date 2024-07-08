@@ -2,6 +2,7 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sources.Scripts.Domain.Models.Constants;
+using Sources.Scripts.Domain.Models.Enemies.Base;
 using Sources.Scripts.Domain.Models.Enemies.Helicopter;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.States;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
@@ -12,7 +13,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Helicopter
 {
     public class HelicopterAttackState : FiniteState
     {
-        private readonly HelicopterEnemy _enemy;
+        private readonly Enemy _enemy;
         private readonly IHelicopterEnemyView _enemyView;
         private readonly IEnemyAnimation _enemyAnimation;
         
@@ -21,7 +22,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Helicopter
         private int _targetPositionIndex;
 
         public HelicopterAttackState(
-            HelicopterEnemy enemy,
+            Enemy enemy,
             IHelicopterEnemyView enemyView,
             IEnemyAnimation enemyAnimation)
         {

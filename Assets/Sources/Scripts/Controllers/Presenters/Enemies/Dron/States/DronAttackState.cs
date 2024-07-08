@@ -2,6 +2,7 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sources.Scripts.Domain.Models.Constants;
+using Sources.Scripts.Domain.Models.Enemies.Base;
 using Sources.Scripts.Domain.Models.Enemies.Dron;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.States;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
@@ -12,7 +13,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Dron.States
 {
     public class DronAttackState : FiniteState
     {
-        private readonly DronEnemy _enemy;
+        private readonly Enemy _enemy;
         private readonly IEnemyAnimation _enemyAnimation;
         private readonly IDronEnemyView _enemyView;
 
@@ -22,7 +23,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Dron.States
         private bool _isAttacking;
         private CancellationTokenSource _cancellationTokenSource;
 
-        public DronAttackState(IEnemyAnimation enemyAnimation, IDronEnemyView enemyView, DronEnemy enemy)
+        public DronAttackState(IEnemyAnimation enemyAnimation, IDronEnemyView enemyView, Enemy enemy)
         {
             _enemyAnimation = enemyAnimation ?? throw new ArgumentNullException(nameof(enemyAnimation));
             _enemyView = enemyView ?? throw new ArgumentNullException(nameof(enemyView));

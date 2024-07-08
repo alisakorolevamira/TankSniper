@@ -1,5 +1,6 @@
 ﻿using System;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base;
+using Sources.Scripts.Domain.Models.Enemies.Base;
 using Sources.Scripts.Domain.Models.Enemies.Dron;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Dron;
@@ -27,14 +28,13 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Dron
                                        throw new ArgumentNullException(nameof(healthUITextViewFactory));
         }
 
-        public IDronEnemyView Create(DronEnemy dronEnemy, KilledEnemiesCounter killedEnemiesCounter, DronEnemyView view)
+        public IDronEnemyView Create(Enemy enemy, KilledEnemiesCounter killedEnemiesCounter, DronEnemyView view)
         {
-            EnemyPresenter presenter = _presenterFactory.Create(
-                dronEnemy, killedEnemiesCounter, view, view.EnemyAnimation);
+            EnemyPresenter presenter = _presenterFactory.Create(enemy, killedEnemiesCounter, view, view.EnemyAnimation);
             
             view.Construct(presenter);
-            _enemyHealthViewFactory.Create(dronEnemy.EnemyHealth, view.EnemyHealthView);
-            _healthUITextViewFactory.Create(dronEnemy.EnemyHealth, view.HealthUIText);
+            _enemyHealthViewFactory.Create(enemy.EnemyHealth, view.EnemyHealthView);
+            _healthUITextViewFactory.Create(enemy.EnemyHealth, view.HealthUIText);
             
             return view;
         }

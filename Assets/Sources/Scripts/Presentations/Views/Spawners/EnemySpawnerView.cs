@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Sources.Scripts.Controllers.Presenters.Spawners;
 using Sources.Scripts.Presentations.Views.Enemies.Base;
+using Sources.Scripts.Presentations.Views.Enemies.Boat;
 using Sources.Scripts.Presentations.Views.Enemies.Bosses;
 using Sources.Scripts.Presentations.Views.Enemies.Dron;
 using Sources.Scripts.Presentations.Views.Enemies.Helicopter;
@@ -25,6 +26,7 @@ namespace Sources.Scripts.Presentations.Views.Spawners
         [SerializeField] private List<DronEnemyView> _drons;
         [SerializeField] private List<WalkingEnemyView> _walkings;
         [SerializeField] private List<StandingTankEnemyView> _standingTanks;
+        [SerializeField] private List<BoatEnemyView> _boats;
         
         [Header("Bosses")]
         [SerializeField] private List<RobotBossEnemyView> _robotBosses;
@@ -37,6 +39,7 @@ namespace Sources.Scripts.Presentations.Views.Spawners
         public IReadOnlyList<DronEnemyView> Drons => _drons;
         public IReadOnlyList<WalkingEnemyView> Walkings => _walkings;
         public IReadOnlyList<StandingTankEnemyView> StandingTanks => _standingTanks;
+        public IReadOnlyList<BoatEnemyView> Boats => _boats;
         public IReadOnlyList<RobotBossEnemyView> RobotBosses => _robotBosses;
         public IReadOnlyList<BoatBossEnemyView> BoatBosses => _boatBosses;
 

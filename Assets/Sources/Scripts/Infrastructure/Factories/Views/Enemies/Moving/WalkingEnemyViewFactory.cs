@@ -1,5 +1,6 @@
 ﻿using System;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base;
+using Sources.Scripts.Domain.Models.Enemies.Base;
 using Sources.Scripts.Domain.Models.Enemies.Moving;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Moving;
@@ -27,10 +28,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Moving
                                        throw new ArgumentNullException(nameof(healthUITextViewFactory));
         }
 
-        public IWalkingEnemyView Create(MovingEnemy enemy, KilledEnemiesCounter killedEnemiesCounter, WalkingEnemyView view)
+        public IWalkingEnemyView Create(Enemy enemy, KilledEnemiesCounter killedEnemiesCounter, WalkingEnemyView view)
         {
-            EnemyPresenter presenter = _presenterFactory.Create(
-                enemy, killedEnemiesCounter, view, view.EnemyAnimation);
+            EnemyPresenter presenter = _presenterFactory.Create(enemy, killedEnemiesCounter, view, view.EnemyAnimation);
             
             view.Construct(presenter);
             

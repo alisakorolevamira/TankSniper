@@ -16,5 +16,6 @@
         public const int DronDamage = 90;
         public const int StandingDamage = 20;
         public const int HelicopterDamage = 70;
+        public const int BoatDamage = 80;
     }
 }

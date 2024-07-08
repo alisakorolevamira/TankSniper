@@ -24,7 +24,6 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Tanks
             _movementParticle.Stop();
             
             _collider.SendMessage("Shatter", transform.position, SendMessageOptions.DontRequireReceiver);
-            //Hide();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Common;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies;
+using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Boat;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Bosses;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Dron;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Helicopter;
@@ -10,6 +11,7 @@ using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.St
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Tanks;
 using Sources.Scripts.Infrastructure.Factories.Views.Common;
 using Sources.Scripts.Infrastructure.Factories.Views.Enemies;
+using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Boat;
 using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Bosses;
 using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Dron;
 using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Helicopter;
@@ -17,15 +19,14 @@ using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Jeep;
 using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Moving;
 using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Standing;
 using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Tanks;
-using Sources.Scripts.Infrastructure.Services.Spawners.Enemies;
+using Sources.Scripts.Infrastructure.Services.Spawners.Enemies.Boat;
 using Sources.Scripts.Infrastructure.Services.Spawners.Enemies.Bosses;
 using Sources.Scripts.Infrastructure.Services.Spawners.Enemies.Dron;
 using Sources.Scripts.Infrastructure.Services.Spawners.Enemies.Helicopter;
 using Sources.Scripts.Infrastructure.Services.Spawners.Enemies.Jeep;
 using Sources.Scripts.Infrastructure.Services.Spawners.Enemies.Stickmen;
 using Sources.Scripts.Infrastructure.Services.Spawners.Enemies.Tanks;
-using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
-using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies;
+using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies.Boat;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies.Bosses;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies.Dron;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies.Helicopter;
@@ -50,6 +51,7 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
             Container.Bind<IJeepEnemySpawnerService>().To<JeepEnemySpawnerService>().AsSingle();
             Container.Bind<IDronEnemySpawnerService>().To<DronEnemySpawnerService>().AsSingle();
             Container.Bind<IWalkingEnemySpawnerService>().To<WalkingEnemySpawnerService>().AsSingle();
+            Container.Bind<IBoatEnemySpawnerService>().To<BoatEnemySpawnerService>().AsSingle();
             Container.Bind<IStandingTankEnemySpawnerService>().To<StandingTankEnemySpawnerService>().AsSingle();
             Container.Bind<IBoatBossEnemySpawnerService>().To<BoatBossEnemySpawnerService>().AsSingle();
             
@@ -85,6 +87,9 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
             
             Container.Bind<BoatBossEnemyPresenterFactory>().AsSingle();
             Container.Bind<BoatBossEnemyViewFactory>().AsSingle();
+            
+            Container.Bind<BoatEnemyPresenterFactory>().AsSingle();
+            Container.Bind<BoatEnemyViewFactory>().AsSingle();
         }
     }
 }

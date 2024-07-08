@@ -1,6 +1,7 @@
 ﻿using System;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Enemies;
+using Sources.Scripts.Domain.Models.Enemies.Base;
 using Sources.Scripts.Domain.Models.Enemies.Standing;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Standing;
@@ -21,7 +22,7 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners.Enemies.Stickmen
 
         public IStandingEnemyView Spawn(KilledEnemiesCounter killedEnemiesCounter, StandingEnemyView view)
         {
-            StandingEnemy enemy = new StandingEnemy(new EnemyHealth(EnemyConst.Health), new EnemyAttacker(EnemyConst.StandingDamage));
+            Enemy enemy = new Enemy(new EnemyHealth(EnemyConst.Health), new EnemyAttacker(EnemyConst.StandingDamage));
             IStandingEnemyView enemyView = _viewFactory.Create(enemy, killedEnemiesCounter, view);
 
             return enemyView;

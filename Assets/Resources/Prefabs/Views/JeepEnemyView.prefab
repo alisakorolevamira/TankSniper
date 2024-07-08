@@ -1242,8 +1242,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   _speed: 5
   _enemyAnimation: {fileID: 6640356959206382999}
 --- !u!114 &6640356959206382999
@@ -1262,6 +1260,9 @@ MonoBehaviour:
   _enemies:
   - {fileID: 4148699015306927831}
   - {fileID: 552611469108465202}
+  _shootEffects:
+  - {fileID: 5613451532449757813}
+  - {fileID: 8349280768759933584}
 --- !u!114 &7056495830223188866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2942,6 +2943,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7625160230402186198, guid: 2b487ab19270d61498ec5ecf6fb69bd8, type: 3}
   m_PrefabInstance: {fileID: 5782939759457273089}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &8349280768759933584 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2566976527023517585, guid: 2b487ab19270d61498ec5ecf6fb69bd8, type: 3}
+  m_PrefabInstance: {fileID: 5782939759457273089}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7960472845422335460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3053,5 +3059,10 @@ GameObject:
 --- !u!4 &1986471173152815574 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8496070253855976498, guid: 2b487ab19270d61498ec5ecf6fb69bd8, type: 3}
+  m_PrefabInstance: {fileID: 7960472845422335460}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5613451532449757813 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2566976527023517585, guid: 2b487ab19270d61498ec5ecf6fb69bd8, type: 3}
   m_PrefabInstance: {fileID: 7960472845422335460}
   m_PrefabAsset: {fileID: 0}

@@ -1,6 +1,7 @@
 ﻿using System;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Enemies;
+using Sources.Scripts.Domain.Models.Enemies.Base;
 using Sources.Scripts.Domain.Models.Enemies.Helicopter;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Helicopter;
@@ -21,8 +22,7 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners.Enemies.Helicopter
 
         public IHelicopterEnemyView Spawn(KilledEnemiesCounter killedEnemiesCounter, HelicopterEnemyView view)
         {
-            HelicopterEnemy enemy =
-                new HelicopterEnemy(new EnemyHealth(EnemyConst.Health), new EnemyAttacker(EnemyConst.HelicopterDamage));
+            Enemy enemy = new Enemy(new EnemyHealth(EnemyConst.Health), new EnemyAttacker(EnemyConst.HelicopterDamage));
             IHelicopterEnemyView enemyView = _viewFactory.Create(enemy, killedEnemiesCounter, view);
 
             return enemyView;

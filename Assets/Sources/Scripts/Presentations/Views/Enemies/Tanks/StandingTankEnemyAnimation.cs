@@ -6,6 +6,7 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Tanks
     public class StandingTankEnemyAnimation : View, IEnemyAnimation
     {
         [SerializeField] private ParticleSystem _gunShoot;
+        [SerializeField] private Collider _collider;
 
         public void PlayIdle()
         {
@@ -16,7 +17,10 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Tanks
             _gunShoot.Play();
         }
 
-        public void PlayDying() => 
-            Hide();
+        public void PlayDying()
+        {
+            _gunShoot.Stop();
+            _collider.SendMessage("Shatter", transform.position, SendMessageOptions.DontRequireReceiver);
+        }
     }
 }

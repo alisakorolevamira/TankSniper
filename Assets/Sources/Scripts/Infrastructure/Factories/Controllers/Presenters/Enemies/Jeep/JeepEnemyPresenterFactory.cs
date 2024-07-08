@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base.States;
+using Sources.Scripts.Domain.Models.Enemies.Base;
 using Sources.Scripts.Domain.Models.Enemies.Jeep;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.Transitions;
@@ -24,7 +25,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
         }
 
         public EnemyPresenter Create(
-            JeepEnemy enemy,
+            Enemy enemy,
             KilledEnemiesCounter killedEnemiesCounter,
             IJeepEnemyView enemyView,
             IEnemyAnimation enemyAnimation)

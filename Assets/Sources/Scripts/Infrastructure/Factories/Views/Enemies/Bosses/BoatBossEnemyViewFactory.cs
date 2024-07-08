@@ -1,5 +1,6 @@
 ﻿using System;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base;
+using Sources.Scripts.Domain.Models.Enemies.Base;
 using Sources.Scripts.Domain.Models.Enemies.Boss;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Bosses;
@@ -30,18 +31,14 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Bosses
             _healthBarUIFactory = healthBarUIFactory ?? throw new ArgumentNullException(nameof(healthBarUIFactory));
         }
 
-        public IBoatBossEnemyView Create(
-            BossEnemy bossEnemy,
-            KilledEnemiesCounter killedEnemiesCounter,
-            BoatBossEnemyView view)
+        public IBoatBossEnemyView Create(Enemy enemy, KilledEnemiesCounter killedEnemiesCounter, BoatBossEnemyView view)
         {
-            EnemyPresenter presenter = _presenterFactory.Create(
-                bossEnemy, killedEnemiesCounter, view, view.EnemyAnimation);
+            EnemyPresenter presenter = _presenterFactory.Create(enemy, killedEnemiesCounter, view, view.EnemyAnimation);
             
             view.Construct(presenter);
-            _enemyHealthViewFactory.Create(bossEnemy.EnemyHealth, view.EnemyHealthView);
-            _healthUITextViewFactory.Create(bossEnemy.EnemyHealth, view.HealthUIText);
-            _healthBarUIFactory.Create(bossEnemy.EnemyHealth, view.HealthBar);
+            _enemyHealthViewFactory.Create(enemy.EnemyHealth, view.EnemyHealthView);
+            _healthUITextViewFactory.Create(enemy.EnemyHealth, view.HealthUIText);
+            _healthBarUIFactory.Create(enemy.EnemyHealth, view.HealthBar);
             
             return view;
         }

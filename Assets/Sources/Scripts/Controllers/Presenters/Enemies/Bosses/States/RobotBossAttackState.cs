@@ -2,6 +2,7 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sources.Scripts.Domain.Models.Constants;
+using Sources.Scripts.Domain.Models.Enemies.Base;
 using Sources.Scripts.Domain.Models.Enemies.Boss;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.States;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
@@ -12,7 +13,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Bosses.States
 {
     public class RobotBossAttackState : FiniteState
     {
-        private readonly BossEnemy _enemy;
+        private readonly Enemy _enemy;
         private readonly IRobotBossEnemyView _enemyView;
         private readonly IEnemyAnimation _enemyAnimation;
         
@@ -22,7 +23,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Bosses.States
         private int _targetPositionIndex;
         private bool _isAttacking;
 
-        public RobotBossAttackState(BossEnemy enemy, IRobotBossEnemyView enemyView, IEnemyAnimation enemyAnimation)
+        public RobotBossAttackState(Enemy enemy, IRobotBossEnemyView enemyView, IEnemyAnimation enemyAnimation)
         {
             _enemy = enemy ?? throw new ArgumentNullException(nameof(enemy));
             _enemyView = enemyView ?? throw new ArgumentNullException(nameof(enemyView));

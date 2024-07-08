@@ -1,5 +1,6 @@
 ﻿using System;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base;
+using Sources.Scripts.Domain.Models.Enemies.Base;
 using Sources.Scripts.Domain.Models.Enemies.Jeep;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Jeep;
@@ -27,15 +28,14 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Jeep
                                        throw new ArgumentNullException(nameof(healthUITextViewFactory));
         }
         
-        public IJeepEnemyView Create(JeepEnemy tankEnemy, KilledEnemiesCounter killedEnemiesCounter, JeepEnemyView view)
+        public IJeepEnemyView Create(Enemy enemy, KilledEnemiesCounter killedEnemiesCounter, JeepEnemyView view)
         {
-            EnemyPresenter presenter = _presenterFactory.Create(
-                tankEnemy, killedEnemiesCounter, view, view.EnemyAnimation);
+            EnemyPresenter presenter = _presenterFactory.Create(enemy, killedEnemiesCounter, view, view.EnemyAnimation);
             
             view.Construct(presenter);
             
-            _enemyHealthViewFactory.Create(tankEnemy.EnemyHealth, view.EnemyHealthView);
-            _healthUITextViewFactory.Create(tankEnemy.EnemyHealth, view.HealthUIText);
+            _enemyHealthViewFactory.Create(enemy.EnemyHealth, view.EnemyHealthView);
+            _healthUITextViewFactory.Create(enemy.EnemyHealth, view.HealthUIText);
 
             return view;
         }

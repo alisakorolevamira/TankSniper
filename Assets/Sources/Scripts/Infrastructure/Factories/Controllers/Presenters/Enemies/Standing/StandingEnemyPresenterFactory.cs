@@ -1,6 +1,7 @@
 ﻿using System;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base.States;
+using Sources.Scripts.Domain.Models.Enemies.Base;
 using Sources.Scripts.Domain.Models.Enemies.Standing;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.Transitions;
@@ -23,7 +24,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
         }
 
         public EnemyPresenter Create(
-            StandingEnemy enemy,
+            Enemy enemy,
             KilledEnemiesCounter killedEnemiesCounter,
             IStandingEnemyView enemyView,
             IEnemyAnimation enemyAnimation)

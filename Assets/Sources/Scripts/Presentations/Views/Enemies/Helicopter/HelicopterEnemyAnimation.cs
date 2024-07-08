@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
-using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopter;
+﻿using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using UnityEngine;
 
 namespace Sources.Scripts.Presentations.Views.Enemies.Helicopter

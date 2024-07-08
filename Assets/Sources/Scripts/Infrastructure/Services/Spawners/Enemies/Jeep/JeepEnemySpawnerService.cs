@@ -1,6 +1,7 @@
 ﻿using System;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Enemies;
+using Sources.Scripts.Domain.Models.Enemies.Base;
 using Sources.Scripts.Domain.Models.Enemies.Jeep;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Jeep;
@@ -21,7 +22,7 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners.Enemies.Jeep
 
         public IJeepEnemyView Spawn(KilledEnemiesCounter killedEnemiesCounter, JeepEnemyView view)
         {
-            JeepEnemy enemy = new JeepEnemy(new EnemyHealth(EnemyConst.Health), new EnemyAttacker(EnemyConst.JeepDamage));
+            Enemy enemy = new Enemy(new EnemyHealth(EnemyConst.Health), new EnemyAttacker(EnemyConst.JeepDamage));
             IJeepEnemyView enemyView = _viewFactory.Create(enemy, killedEnemiesCounter, view);
 
             return enemyView;

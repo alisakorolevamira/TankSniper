@@ -1,6 +1,7 @@
 ﻿using System;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Enemies;
+using Sources.Scripts.Domain.Models.Enemies.Base;
 using Sources.Scripts.Domain.Models.Enemies.Boss;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Bosses;
@@ -21,12 +22,11 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners.Enemies.Bosses
 
         public IRobotBossEnemyView Spawn(KilledEnemiesCounter killedEnemiesCounter, RobotBossEnemyView view)
         {
-            BossEnemy bossEnemy =
-                new BossEnemy(new EnemyHealth(EnemyConst.BossHealth), new EnemyAttacker(EnemyConst.RobotBossDamage));
-            
-            IRobotBossEnemyView robotBossEnemyView = _viewFactory.Create(bossEnemy, killedEnemiesCounter, view);
+            Enemy bossEnemy = new Enemy(
+                new EnemyHealth(EnemyConst.BossHealth), new EnemyAttacker(EnemyConst.RobotBossDamage));
+            IRobotBossEnemyView enemyView = _viewFactory.Create(bossEnemy, killedEnemiesCounter, view);
 
-            return robotBossEnemyView;
+            return enemyView;
         }
     }
 }

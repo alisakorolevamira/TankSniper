@@ -1,6 +1,7 @@
 ﻿using System;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Enemies;
+using Sources.Scripts.Domain.Models.Enemies.Base;
 using Sources.Scripts.Domain.Models.Enemies.Dron;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Dron;
@@ -21,12 +22,10 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners.Enemies.Dron
 
         public IDronEnemyView Spawn(KilledEnemiesCounter killedEnemiesCounter, DronEnemyView view)
         {
-            DronEnemy enemy =
-                new DronEnemy(new EnemyHealth(EnemyConst.Health), new EnemyAttacker(EnemyConst.DronDamage));
+            Enemy enemy = new Enemy(new EnemyHealth(EnemyConst.Health), new EnemyAttacker(EnemyConst.DronDamage));
+            IDronEnemyView enemyView = _viewFactory.Create(enemy, killedEnemiesCounter, view);
 
-            IDronEnemyView dronEnemyView = _viewFactory.Create(enemy, killedEnemiesCounter, view);
-
-            return dronEnemyView;
+            return enemyView;
         }
     }
 }

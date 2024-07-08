@@ -1,6 +1,7 @@
 ﻿using System;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Enemies;
+using Sources.Scripts.Domain.Models.Enemies.Base;
 using Sources.Scripts.Domain.Models.Enemies.Tanks;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Tanks;
@@ -21,12 +22,11 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners.Enemies.Tanks
 
         public IStandingTankEnemyView Spawn(KilledEnemiesCounter killedEnemiesCounter, StandingTankEnemyView view)
         {
-            StandingTankEnemy tank =
-                new StandingTankEnemy(new EnemyHealth(EnemyConst.Health), new EnemyAttacker(EnemyConst.StandingTankDamage));
+            Enemy tank = new Enemy(
+                new EnemyHealth(EnemyConst.Health), new EnemyAttacker(EnemyConst.StandingTankDamage));
+            IStandingTankEnemyView enemyView = _viewFactory.Create(tank, killedEnemiesCounter, view);
 
-            IStandingTankEnemyView tankEnemyView = _viewFactory.Create(tank, killedEnemiesCounter, view);
-
-            return tankEnemyView;
+            return enemyView;
         }
     }
 }

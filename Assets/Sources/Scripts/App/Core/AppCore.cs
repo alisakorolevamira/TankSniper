@@ -20,8 +20,8 @@ namespace Sources.Scripts.App.Core
             {
                 await _sceneService.ChangeSceneAsync(
                     //ModelId.MainMenu,
-                    LevelConst.FifteenthLevel,
-                    new ScenePayload(LevelConst.FifteenthLevel, false, false));
+                    LevelConst.SixteenthLevel,
+                    new ScenePayload(LevelConst.SixteenthLevel, false, false));
             }
             catch(ArgumentNullException)
             {

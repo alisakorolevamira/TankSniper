@@ -17,7 +17,7 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Dron
         public void RotateRotors()
         {
             foreach (Transform rotor in _rotors) 
-                rotor.Rotate(new Vector3(0,_rotationRotor,0));
+                rotor.Rotate(new Vector3(0,0,_rotationRotor));
         }
     }
 }

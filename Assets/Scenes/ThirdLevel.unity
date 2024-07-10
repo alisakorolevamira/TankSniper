@@ -8330,27 +8330,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f902b41e10cdd2d44aaf1ada606f5d3c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.6429002
+      value: 3.0203211
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f902b41e10cdd2d44aaf1ada606f5d3c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4.143
+      value: 5.3158836
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f902b41e10cdd2d44aaf1ada606f5d3c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.3827
+      value: 3.2959888
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f902b41e10cdd2d44aaf1ada606f5d3c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.123735
+      value: 16.1121
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f902b41e10cdd2d44aaf1ada606f5d3c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.47657
+      value: 1.9191
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f902b41e10cdd2d44aaf1ada606f5d3c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.987303
+      value: 12.1004
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f902b41e10cdd2d44aaf1ada606f5d3c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10736,10 +10736,12 @@ MonoBehaviour:
   - {fileID: 978446800}
   - {fileID: 1194817763}
   _jeeps: []
-  _bosses: []
   _drons: []
   _walkings: []
   _standingTanks: []
+  _boats: []
+  _robotBosses: []
+  _boatBosses: []
 --- !u!4 &2129106123
 Transform:
   m_ObjectHideFlags: 0

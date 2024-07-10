@@ -1,7 +1,7 @@
 ﻿using System;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.States;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
-using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopter;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopters;
 using UnityEngine;
 
 namespace Sources.Scripts.Controllers.Presenters.Enemies.Helicopter
@@ -9,11 +9,11 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Helicopter
     public class HelicopterMovementState : FiniteState
     {
         private readonly IEnemyAnimation _enemyAnimation;
-        private readonly IHelicopterEnemyView _enemyView;
+        private readonly IBazookaHelicopterEnemyView _enemyView;
 
         private int _targetPositionIndex;
 
-        public HelicopterMovementState(IEnemyAnimation enemyAnimation, IHelicopterEnemyView enemyView)
+        public HelicopterMovementState(IEnemyAnimation enemyAnimation, IBazookaHelicopterEnemyView enemyView)
         {
             _enemyAnimation = enemyAnimation ?? throw new ArgumentNullException(nameof(enemyAnimation));
             _enemyView = enemyView ?? throw new ArgumentNullException(nameof(enemyView));

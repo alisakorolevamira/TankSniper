@@ -27,7 +27,7 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Dron
                 rigidbody.isKinematic = false;
             
             _collider.SendMessage("Shatter", transform.position, SendMessageOptions.DontRequireReceiver);
-            //Hide();
+            Hide();
         }
     }
 }

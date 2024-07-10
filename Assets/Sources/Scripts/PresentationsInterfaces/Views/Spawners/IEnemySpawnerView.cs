@@ -3,7 +3,7 @@ using Sources.Scripts.Presentations.Views.Enemies.Base;
 using Sources.Scripts.Presentations.Views.Enemies.Boat;
 using Sources.Scripts.Presentations.Views.Enemies.Bosses;
 using Sources.Scripts.Presentations.Views.Enemies.Dron;
-using Sources.Scripts.Presentations.Views.Enemies.Helicopter;
+using Sources.Scripts.Presentations.Views.Enemies.Helicopters;
 using Sources.Scripts.Presentations.Views.Enemies.Jeep;
 using Sources.Scripts.Presentations.Views.Enemies.Standing;
 using Sources.Scripts.Presentations.Views.Enemies.Tanks;
@@ -16,6 +16,7 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Spawners
     {
         IReadOnlyList<TankEnemyView> Tanks { get; }
         IReadOnlyList<StandingEnemyView> Standings { get; }
+        IReadOnlyList<BazookaHelicopterEnemyView> BazookaHelicopters { get; }
         IReadOnlyList<HelicopterEnemyView> Helicopters { get; }
         IReadOnlyList<JeepEnemyView> Jeeps { get; }
         IReadOnlyList<DronEnemyView> Drons { get; }

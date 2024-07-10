@@ -2084,11 +2084,13 @@ MonoBehaviour:
   - {fileID: 840106703}
   - {fileID: 1690783499}
   _jeeps: []
-  _bosses: []
   _drons:
   - {fileID: 1552431331}
   _walkings: []
   _standingTanks: []
+  _boats: []
+  _robotBosses: []
+  _boatBosses: []
 --- !u!4 &541964469
 Transform:
   m_ObjectHideFlags: 0
@@ -3327,6 +3329,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3695967516300426081, guid: 9412f965ded53204790345861d7cb3f2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: be61a167a180db6439eb509d15a04e56, type: 3}
     - target: {fileID: 4117504240759469341, guid: 9412f965ded53204790345861d7cb3f2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3439,6 +3445,10 @@ PrefabInstance:
       propertyPath: cameraView
       value: 
       objectReference: {fileID: 1630867897}
+    - target: {fileID: 6735310352479954468, guid: 9412f965ded53204790345861d7cb3f2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2818baf0ddfa1d24a92d0e317d11d38c, type: 3}
     - target: {fileID: 7061590967584439489, guid: 9412f965ded53204790345861d7cb3f2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

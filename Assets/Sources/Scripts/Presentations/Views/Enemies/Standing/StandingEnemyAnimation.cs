@@ -14,7 +14,7 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Standing
         public void PlayAttack()
         {
             _animator.SetBool("Shoot", true);
-            _gunShoot.Play();
+            //_gunShoot.Play();
         }
 
         public void PlayDying() => 

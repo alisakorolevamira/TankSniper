@@ -6,7 +6,7 @@ using Sources.Scripts.Domain.Models.Enemies.Base;
 using Sources.Scripts.Domain.Models.Enemies.Helicopter;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.States;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
-using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopter;
+using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopters;
 using UnityEngine;
 
 namespace Sources.Scripts.Controllers.Presenters.Enemies.Helicopter
@@ -14,7 +14,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Helicopter
     public class HelicopterAttackState : FiniteState
     {
         private readonly Enemy _enemy;
-        private readonly IHelicopterEnemyView _enemyView;
+        private readonly IBazookaHelicopterEnemyView _enemyView;
         private readonly IEnemyAnimation _enemyAnimation;
         
         private TimeSpan _attackDelay = TimeSpan.FromSeconds(EnemyConst.AttackDelay);
@@ -23,7 +23,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Helicopter
 
         public HelicopterAttackState(
             Enemy enemy,
-            IHelicopterEnemyView enemyView,
+            IBazookaHelicopterEnemyView enemyView,
             IEnemyAnimation enemyAnimation)
         {
             _enemy = enemy ?? throw new ArgumentNullException(nameof(enemy));

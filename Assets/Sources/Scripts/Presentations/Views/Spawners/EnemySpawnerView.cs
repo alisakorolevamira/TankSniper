@@ -4,7 +4,7 @@ using Sources.Scripts.Presentations.Views.Enemies.Base;
 using Sources.Scripts.Presentations.Views.Enemies.Boat;
 using Sources.Scripts.Presentations.Views.Enemies.Bosses;
 using Sources.Scripts.Presentations.Views.Enemies.Dron;
-using Sources.Scripts.Presentations.Views.Enemies.Helicopter;
+using Sources.Scripts.Presentations.Views.Enemies.Helicopters;
 using Sources.Scripts.Presentations.Views.Enemies.Jeep;
 using Sources.Scripts.Presentations.Views.Enemies.Standing;
 using Sources.Scripts.Presentations.Views.Enemies.Tanks;
@@ -13,6 +13,7 @@ using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Spawners;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Sources.Scripts.Presentations.Views.Spawners
 {
@@ -20,6 +21,7 @@ namespace Sources.Scripts.Presentations.Views.Spawners
     {
         [Header("Enemies")]
         [SerializeField] private List<TankEnemyView> _tanks;
+        [SerializeField] private List<BazookaHelicopterEnemyView> _bazookaHelicopters;
         [SerializeField] private List<HelicopterEnemyView> _helicopters;
         [SerializeField] private List<StandingEnemyView> _standings;
         [SerializeField] private List<JeepEnemyView> _jeeps;
@@ -33,6 +35,7 @@ namespace Sources.Scripts.Presentations.Views.Spawners
         [SerializeField] private List<BoatBossEnemyView> _boatBosses;
         
         public IReadOnlyList<TankEnemyView> Tanks => _tanks;
+        public IReadOnlyList<BazookaHelicopterEnemyView> BazookaHelicopters => _bazookaHelicopters;
         public IReadOnlyList<HelicopterEnemyView> Helicopters => _helicopters;
         public IReadOnlyList<StandingEnemyView> Standings => _standings;
         public IReadOnlyList<JeepEnemyView> Jeeps => _jeeps;

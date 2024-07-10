@@ -655,7 +655,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100006, guid: d06b94986ee731a408bed0b1bf22a8a7, type: 3}
+  - {fileID: 99656467281103303, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2944,6 +2944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tanks:
   - {fileID: 1590293233}
+  _bazookaHelicopters: []
   _helicopters: []
   _standings:
   - {fileID: 1220977214}
@@ -4147,7 +4148,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100006, guid: 5ad20ef734769b344a01cde65c49397f, type: 3}
+  - {fileID: 99656467281103303, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4500,7 +4501,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100034, guid: 9287f3dfc54bce84992db51bd9c66ab4, type: 3}
+  - {fileID: 99656467281103303, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7367,7 +7368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skinType: 6
   _renderer: {fileID: 815937812}
-  _defaultMaterial: {fileID: 2100006, guid: 5ad20ef734769b344a01cde65c49397f, type: 3}
+  _defaultMaterial: {fileID: 99656467281103303, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
   _decalImage: {fileID: 120355798}
 --- !u!1 &1329134237
 GameObject:
@@ -9717,7 +9718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skinType: 5
   _renderer: {fileID: 51682541}
-  _defaultMaterial: {fileID: 2100006, guid: d06b94986ee731a408bed0b1bf22a8a7, type: 3}
+  _defaultMaterial: {fileID: 99656467281103303, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
   _decalImage: {fileID: 436414896}
 --- !u!1 &1757078064
 GameObject:

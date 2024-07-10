@@ -910,7 +910,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100034, guid: 9287f3dfc54bce84992db51bd9c66ab4, type: 3}
+  - {fileID: 99656467281103303, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1165,7 +1165,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100006, guid: 5ad20ef734769b344a01cde65c49397f, type: 3}
+  - {fileID: 99656467281103303, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2275,7 +2275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skinType: 6
   _renderer: {fileID: 263959016}
-  _defaultMaterial: {fileID: 2100006, guid: 5ad20ef734769b344a01cde65c49397f, type: 3}
+  _defaultMaterial: {fileID: 99656467281103303, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
   _decalImage: {fileID: 1588391510}
 --- !u!1 &576906603
 GameObject:
@@ -4152,7 +4152,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100006, guid: d06b94986ee731a408bed0b1bf22a8a7, type: 3}
+  - {fileID: 99656467281103303, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4213,16 +4213,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tanks:
   - {fileID: 1499795248}
+  _bazookaHelicopters: []
   _helicopters: []
   _standings:
   - {fileID: 1425854099}
   - {fileID: 1572184283}
   - {fileID: 2042424607}
   _jeeps: []
-  _bosses: []
   _drons: []
   _walkings: []
   _standingTanks: []
+  _boats: []
+  _robotBosses: []
+  _boatBosses: []
 --- !u!4 &960421016
 Transform:
   m_ObjectHideFlags: 0
@@ -8236,7 +8239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skinType: 5
   _renderer: {fileID: 935688251}
-  _defaultMaterial: {fileID: 2100006, guid: d06b94986ee731a408bed0b1bf22a8a7, type: 3}
+  _defaultMaterial: {fileID: 99656467281103303, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
   _decalImage: {fileID: 63248691}
 --- !u!1 &1835947325
 GameObject:

@@ -3067,7 +3067,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100034, guid: 9287f3dfc54bce84992db51bd9c66ab4, type: 3}
+  - {fileID: 99656467281103303, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5796,7 +5796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skinType: 5
   _renderer: {fileID: 1321703744}
-  _defaultMaterial: {fileID: 2100006, guid: d06b94986ee731a408bed0b1bf22a8a7, type: 3}
+  _defaultMaterial: {fileID: 99656467281103303, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
   _decalImage: {fileID: 93261125}
 --- !u!1 &1159074021
 GameObject:
@@ -6634,7 +6634,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100006, guid: d06b94986ee731a408bed0b1bf22a8a7, type: 3}
+  - {fileID: 99656467281103303, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7088,7 +7088,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100006, guid: 5ad20ef734769b344a01cde65c49397f, type: 3}
+  - {fileID: 99656467281103303, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8309,7 +8309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skinType: 6
   _renderer: {fileID: 1416651898}
-  _defaultMaterial: {fileID: 2100006, guid: 5ad20ef734769b344a01cde65c49397f, type: 3}
+  _defaultMaterial: {fileID: 99656467281103303, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
   _decalImage: {fileID: 1569939395}
 --- !u!4 &1607569447 stripped
 Transform:
@@ -10730,8 +10730,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tanks: []
+  _bazookaHelicopters: []
   _helicopters:
-  - {fileID: 8477415544053169882}
+  - {fileID: 0}
   _standings:
   - {fileID: 978446800}
   - {fileID: 1194817763}
@@ -11044,17 +11045,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8477415544053169889}
   m_SourcePrefab: {fileID: 100100000, guid: 59f0480e210f3894592115f4ab04542a, type: 3}
---- !u!114 &8477415544053169882 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2139564264125966131, guid: 59f0480e210f3894592115f4ab04542a, type: 3}
-  m_PrefabInstance: {fileID: 8477415544053169881}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c10deb1187de4992b8627b80b8f89259, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &8477415544053169883 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6318796341398952710, guid: 59f0480e210f3894592115f4ab04542a, type: 3}

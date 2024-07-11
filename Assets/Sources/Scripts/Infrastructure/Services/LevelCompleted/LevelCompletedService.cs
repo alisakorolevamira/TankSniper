@@ -11,6 +11,7 @@ using Sources.Scripts.DomainInterfaces.Models.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
+using UnityEngine;
 
 namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
 {
@@ -72,9 +73,9 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
             
             level.Complete();
             CheckMenuIndex(level);
-
+            
             if (level.Id == LevelConst.EighteenthLevel) 
-                gameLevels.Clear();
+                gameLevels.SetClearLevels();
             
             _loadService.SaveAll();
             
@@ -104,6 +105,9 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
             
             else if (level.Id == LevelConst.TwelfthLevel) 
                 mainMenu.Index = MainMenuConst.ThirdView;
+            
+            else if (level.Id == LevelConst.EighteenthLevel)
+                mainMenu.Index = MainMenuConst.FirstView;
         }
     }
 }

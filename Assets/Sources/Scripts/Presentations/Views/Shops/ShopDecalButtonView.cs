@@ -1,6 +1,7 @@
 ﻿using Doozy.Runtime.UIManager;
 using Doozy.Runtime.UIManager.Components;
 using Sources.Scripts.Controllers.Presenters.Shops;
+using Sources.Scripts.Domain.Models.Shops;
 using Sources.Scripts.Presentations.Views.Players.Skins.DecalsType;
 using Sources.Scripts.PresentationsInterfaces.Views.Shops;
 using Sources.Scripts.UIFramework.Presentations.Images;
@@ -18,6 +19,8 @@ namespace Sources.Scripts.Presentations.Views.Shops
         [SerializeField] private ImageView _adImage;
         [SerializeField] private UIButton _buyButton;
         [SerializeField] private DecalType _decal;
+        
+        private ShopDecalButton _shopDecalButton;
 
         public UIButton Button => _button;
         public UIText PriceText => _price;
@@ -26,7 +29,7 @@ namespace Sources.Scripts.Presentations.Views.Shops
         public ImageView AdImage => _adImage;
         public UIButton BuyButton => _buyButton;
         public DecalType DecalType => _decal;
-        public bool IsBought { get; private set; }
+        public bool IsBought => _shopDecalButton.IsBought;
         
         public void Hide()
         {
@@ -42,7 +45,10 @@ namespace Sources.Scripts.Presentations.Views.Shops
             _button.SetState(UISelectionState.Normal);
             _buyButton.enabled = false;
             _buyButton.SetState(UISelectionState.Disabled);
-            IsBought = true;
+            _shopDecalButton.IsBought = true;
         }
+        
+        public void Construct(ShopDecalButton button) => 
+            _shopDecalButton = button;
     }
 }

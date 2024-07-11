@@ -1,9 +1,8 @@
-﻿using Sources.Scripts.DomainInterfaces.Models.Shop;
-using Sources.Scripts.Presentations.Views.Players.Skins.MaterialTypes;
+﻿using Sources.Scripts.Presentations.Views.Players.Skins.MaterialTypes;
 
 namespace Sources.Scripts.Domain.Models.Shops
 {
-    public class ShopPatternButton : IShopPatternButton
+    public class ShopPatternButton
     {
         public ShopPatternButton(bool isBought, MaterialType materialType)
         {

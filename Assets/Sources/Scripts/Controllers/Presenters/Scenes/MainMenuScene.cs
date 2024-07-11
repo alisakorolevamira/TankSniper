@@ -60,14 +60,14 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             await Initialize(payload as IScenePayload);
             _focusService.Enable();
             _loadSceneService.Load(payload as IScenePayload);
+            _shopSignalController.Initialize();
+            _buttonSignalController.Initialize();
             _volumeService.Enter();
             _audioService.Enter();
             _skinChangerService.Enable();
-            _buttonSignalController.Initialize();
-            _shopSignalController.Initialize();
             await _curtainView.HideCurtain();
-            await GameReady(payload as IScenePayload);
             _tutorialService.Enable();
+            await GameReady(payload as IScenePayload);
         }
 
         public void Exit()

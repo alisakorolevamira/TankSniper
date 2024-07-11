@@ -6205,6 +6205,7 @@ Transform:
   - {fileID: 2099314746}
   - {fileID: 30573058}
   - {fileID: 637181278}
+  - {fileID: 4258526358530417091}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1553959480
@@ -8629,11 +8630,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1551821898}
     m_Modifications:
     - target: {fileID: 1107458131867311113, guid: 67c5be54c08666a4893657bf1715a4f0, type: 3}
       propertyPath: m_Name
       value: BoatBossEnemyView
+      objectReference: {fileID: 0}
+    - target: {fileID: 5512990869398272734, guid: 67c5be54c08666a4893657bf1715a4f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.96
       objectReference: {fileID: 0}
     - target: {fileID: 6368109704930140470, guid: 67c5be54c08666a4893657bf1715a4f0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8680,6 +8685,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67c5be54c08666a4893657bf1715a4f0, type: 3}
+--- !u!4 &4258526358530417091 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6368109704930140470, guid: 67c5be54c08666a4893657bf1715a4f0, type: 3}
+  m_PrefabInstance: {fileID: 4258526358530417090}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -8693,4 +8703,3 @@ SceneRoots:
   - {fileID: 1551821898}
   - {fileID: 1353287016}
   - {fileID: 876807958}
-  - {fileID: 4258526358530417090}

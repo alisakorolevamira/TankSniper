@@ -50,7 +50,8 @@ namespace Doozy.Runtime.Signals
         {
             AddTank,
             ShowAddTankTutorial,
-            ShowFightTutorial
+            ShowFightTutorial,
+            ShowMainHud
         }         
     }
 }

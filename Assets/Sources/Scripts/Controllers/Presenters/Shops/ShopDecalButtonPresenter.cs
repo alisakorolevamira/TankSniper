@@ -33,6 +33,8 @@ namespace Sources.Scripts.Controllers.Presenters.Shops
         
         public override void Enable()
         {
+            _view.Button.onClickEvent.AddListener(SetSprite);
+            
             if (_view.IsBought)
             {
                 _view.Show();
@@ -41,9 +43,8 @@ namespace Sources.Scripts.Controllers.Presenters.Shops
 
             _view.Hide();
             SetPriceText();
-
+            
             _view.BuyButton.onClickEvent.AddListener(OnBuyButtonClick);
-            _view.Button.onClickEvent.AddListener(SetSprite);
         }
 
         public override void Disable()

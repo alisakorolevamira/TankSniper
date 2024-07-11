@@ -15,25 +15,46 @@ namespace Sources.Scripts.Domain.Models.Data
         [JsonProperty("PatternButtons")]
         public List<ShopPatternButton> PatternButtons { get; set; }
         
+        [JsonProperty("DecalButtons")]
+        public List<ShopDecalButton> DecalButtons { get; set; }
+        
 
         public void Save(string key)
         {
-            string json = JsonConvert.SerializeObject(PatternButtons, Formatting.Indented)?? 
+            string jsonPattern = JsonConvert.SerializeObject(PatternButtons, Formatting.Indented)?? 
                           throw new NullReferenceException();
             
-            PlayerPrefs.SetString(key, json);
+            PlayerPrefs.SetString("Pattern", jsonPattern);
+            
+            string jsonDecal = JsonConvert.SerializeObject(DecalButtons, Formatting.Indented)?? 
+                          throw new NullReferenceException();
+            
+            PlayerPrefs.SetString("Decal", jsonDecal);
         }
         
         public PlayerShopData Load(string key)
         {
-            string json = PlayerPrefs.GetString(key, string.Empty);
+            string jsonPattern = PlayerPrefs.GetString("Pattern", string.Empty);
 
-            if (string.IsNullOrEmpty(json))
+            if (string.IsNullOrEmpty(jsonPattern))
                 throw new NullReferenceException(nameof(key));
             
-            PlayerShopData shopData = new PlayerShopData() {PatternButtons = new List<ShopPatternButton>()};
-            shopData.PatternButtons = JsonConvert.DeserializeObject<List<ShopPatternButton>>(json) ?? 
-                                      throw new NullReferenceException(nameof(json));
+            string jsonDecal = PlayerPrefs.GetString("Decal", string.Empty);
+
+            if (string.IsNullOrEmpty(jsonPattern))
+                throw new NullReferenceException(nameof(key));
+            
+            PlayerShopData shopData = new PlayerShopData
+            {
+                PatternButtons = new List<ShopPatternButton>(),
+                DecalButtons = new List<ShopDecalButton>()
+            };
+            
+            shopData.PatternButtons = JsonConvert.DeserializeObject<List<ShopPatternButton>>(jsonPattern) ?? 
+                                      throw new NullReferenceException(nameof(jsonPattern));
+            
+            shopData.DecalButtons = JsonConvert.DeserializeObject<List<ShopDecalButton>>(jsonDecal) ?? 
+                                    throw new NullReferenceException(nameof(jsonDecal));
 
             return shopData;
         }

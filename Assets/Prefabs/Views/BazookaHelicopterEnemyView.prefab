@@ -10223,7 +10223,7 @@ MonoBehaviour:
   _gunShoot: {fileID: 5764951867347124261}
   _bazookaAnimator: {fileID: 8163030437510773098}
   _rigidbody: {fileID: 6135665449986699270}
-  _collider: {fileID: 3197383934003619604}
+  _collider: {fileID: 52356125042453171}
   _enemy: {fileID: 911717841629044706}
 --- !u!1 &3128784496275052689
 GameObject:
@@ -16154,12 +16154,12 @@ GameObject:
   - component: {fileID: 5000081285336737768}
   - component: {fileID: 2888140472181641199}
   - component: {fileID: 7330171542488357504}
-  - component: {fileID: 3197383934003619604}
   - component: {fileID: 6135665449986699270}
   - component: {fileID: 7798669876943587532}
   - component: {fileID: 8114306719363193069}
   - component: {fileID: 8770731465647130462}
   - component: {fileID: 3617378905191453144}
+  - component: {fileID: 52356125042453171}
   m_Layer: 0
   m_Name: Helicopter
   m_TagString: Untagged
@@ -16250,29 +16250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e91c045298145fea8e21f88215cc74f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &3197383934003619604
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5129366304408542470}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 253.17877
-  m_Height: 1100.2716
-  m_Direction: 2
-  m_Center: {x: 0, y: 159.78636, z: -263.18546}
 --- !u!54 &6135665449986699270
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16364,6 +16341,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: {x: 1, y: 1}
+--- !u!65 &52356125042453171
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5129366304408542470}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 646.7628, y: 493.92957, z: 1100.2716}
+  m_Center: {x: 52.928825, y: 246.1265, z: -263.18546}
 --- !u!1 &5491969604127315006
 GameObject:
   m_ObjectHideFlags: 0

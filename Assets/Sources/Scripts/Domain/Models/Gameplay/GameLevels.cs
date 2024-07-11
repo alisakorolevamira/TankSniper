@@ -13,6 +13,27 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         public GameLevels(string id)
         {
             Id = id;
+            SetClearLevels();
+        }
+        
+        public string Id { get; }
+        public List<Level> Levels { get; private set; }
+        
+        public void Save()
+        {
+            _data.Id = Id;
+            _data.Levels = Levels;
+            _data.Save(Id);
+        }
+
+        public void Load()
+        {
+            _data = _data.Load(Id);
+            Levels = _data.Levels;
+        }
+
+        public void SetClearLevels()
+        {
             Levels = new List<Level>()
             {
                 new(LevelConst.FirstLevel, false),
@@ -34,27 +55,6 @@ namespace Sources.Scripts.Domain.Models.Gameplay
                 new(LevelConst.SeventeenthLevel, false),
                 new(LevelConst.EighteenthLevel, false),
             };
-        }
-        
-        public string Id { get; }
-        public List<Level> Levels { get; private set; }
-        
-        public void Save()
-        {
-            _data.Id = Id;
-            _data.Levels = Levels;
-            _data.Save(Id);
-        }
-
-        public void Load()
-        {
-            _data = _data.Load(Id);
-            Levels = _data.Levels;
-        }
-
-        public void Clear()
-        {
-            PlayerPrefs.DeleteKey(Id);
         }
     }
 }

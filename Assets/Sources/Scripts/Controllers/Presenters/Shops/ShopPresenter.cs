@@ -64,6 +64,13 @@ namespace Sources.Scripts.Controllers.Presenters.Shops
                     _playerShop.PatternButtons.First(x => x.MaterialType== buttonView.MaterialType);
                 buttonView.Construct(button);
             }
+            
+            foreach (ShopDecalButtonView buttonView in _shopView.DecalButtons)
+            {
+                ShopDecalButton button =
+                    _playerShop.DecalButtons.First(x => x.DecalType== buttonView.DecalType);
+                buttonView.Construct(button);
+            }
         }
     }
 }

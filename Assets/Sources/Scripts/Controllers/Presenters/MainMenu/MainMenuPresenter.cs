@@ -52,7 +52,7 @@ namespace Sources.Scripts.Controllers.Presenters.MainMenu
                     break;
                 }
 
-                case MainMenuConst.ThirdViewIndex:
+                case MainMenuConst.ThirdView:
                 {
                     _view.CurrentLocation.SetSprite(_spritesConfig.ThirdLocation);
                     _view.NextLocation.SetSprite(_spritesConfig.FirstLocation);

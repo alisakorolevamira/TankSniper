@@ -51,6 +51,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Bosses.States
             
             Vector3 currentTarget = _enemyView.MovementPoints[_targetPositionIndex].position;
             _enemyView.MoveToPoint(currentTarget);
+            _enemyAnimation.PlayIdle();
             ChangeRotation();
             
             if (Vector3.Distance(_enemyView.Position, currentTarget) < 0.1f)

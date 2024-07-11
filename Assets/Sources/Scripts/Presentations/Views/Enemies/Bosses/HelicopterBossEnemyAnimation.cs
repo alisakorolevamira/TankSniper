@@ -11,17 +11,17 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Bosses
         
         public void PlayIdle()
         {
-            //_attackParticle.Stop();
+            _attackParticle.Stop();
         }
 
         public void PlayAttack()
         {
-            //_attackParticle.Play();
+            _attackParticle.Play();
         }
 
         public void PlayDying()
         {
-            //_attackParticle.Stop();
+            _attackParticle.Stop();
             _rigidbody.isKinematic = false;
             _collider.SendMessage("Shatter", transform.position, SendMessageOptions.DontRequireReceiver);
             Hide();

@@ -2956,6 +2956,7 @@ MonoBehaviour:
   _robotBosses:
   - {fileID: 1946537435}
   _boatBosses: []
+  _helicopterBosses: []
 --- !u!4 &541669421
 Transform:
   m_ObjectHideFlags: 0
@@ -2971,6 +2972,7 @@ Transform:
   m_Children:
   - {fileID: 1590293232}
   - {fileID: 1220977213}
+  - {fileID: 5372829292067166769}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &550450473
@@ -9929,7 +9931,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808234137}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9937,7 +9939,7 @@ Transform:
   - {fileID: 1544647233}
   - {fileID: 564383732}
   - {fileID: 1957345332}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2021829579}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1822675395
 GameObject:
@@ -10593,6 +10595,7 @@ Transform:
   - {fileID: 1374490891}
   - {fileID: 1049512647}
   - {fileID: 1822675396}
+  - {fileID: 1808234138}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2033070854
@@ -10995,7 +10998,7 @@ Transform:
   m_GameObject: {fileID: 2088699566}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.89639676, z: -0, w: 0.44325265}
-  m_LocalPosition: {x: 0.14120635, y: 0.40100002, z: -0.17903487}
+  m_LocalPosition: {x: 0.14120635, y: 0.5, z: -0.17903487}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11069,7 +11072,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 541669421}
     m_Modifications:
     - target: {fileID: 1255563168059988875, guid: 575b629ae2b4f914e841894c45f75fcc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11116,6 +11119,10 @@ PrefabInstance:
       value: BossEnemyView
       objectReference: {fileID: 0}
     - target: {fileID: 6311427247003067864, guid: 575b629ae2b4f914e841894c45f75fcc, type: 3}
+      propertyPath: _robotBossEnemyAnimation
+      value: 
+      objectReference: {fileID: 5372829292067166770}
+    - target: {fileID: 6311427247003067864, guid: 575b629ae2b4f914e841894c45f75fcc, type: 3}
       propertyPath: _movementPoints.Array.data[0]
       value: 
       objectReference: {fileID: 1544647233}
@@ -11132,6 +11139,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 575b629ae2b4f914e841894c45f75fcc, type: 3}
+--- !u!4 &5372829292067166769 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1255563168059988875, guid: 575b629ae2b4f914e841894c45f75fcc, type: 3}
+  m_PrefabInstance: {fileID: 5372829292067166768}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5372829292067166770 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8088974747884686424, guid: 575b629ae2b4f914e841894c45f75fcc, type: 3}
+  m_PrefabInstance: {fileID: 5372829292067166768}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6335dfabf5b64270912ff1ed3e229072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -11145,5 +11168,3 @@ SceneRoots:
   - {fileID: 69475598}
   - {fileID: 2021829579}
   - {fileID: 1430578310}
-  - {fileID: 1808234138}
-  - {fileID: 5372829292067166768}

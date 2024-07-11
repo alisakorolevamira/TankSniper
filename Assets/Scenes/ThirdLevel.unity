@@ -8155,7 +8155,7 @@ Transform:
   m_GameObject: {fileID: 1597364598}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.8963967, z: -0, w: 0.44325265}
-  m_LocalPosition: {x: -1.085, y: 0.401, z: 1.118}
+  m_LocalPosition: {x: -1.085, y: 0.5, z: 1.118}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10730,9 +10730,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tanks: []
-  _bazookaHelicopters: []
-  _helicopters:
-  - {fileID: 0}
+  _bazookaHelicopters:
+  - {fileID: 8477415544053169882}
+  _helicopters: []
   _standings:
   - {fileID: 978446800}
   - {fileID: 1194817763}
@@ -10743,6 +10743,7 @@ MonoBehaviour:
   _boats: []
   _robotBosses: []
   _boatBosses: []
+  _helicopterBosses: []
 --- !u!4 &2129106123
 Transform:
   m_ObjectHideFlags: 0
@@ -11045,6 +11046,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8477415544053169889}
   m_SourcePrefab: {fileID: 100100000, guid: 59f0480e210f3894592115f4ab04542a, type: 3}
+--- !u!114 &8477415544053169882 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2139564264125966131, guid: 59f0480e210f3894592115f4ab04542a, type: 3}
+  m_PrefabInstance: {fileID: 8477415544053169881}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10deb1187de4992b8627b80b8f89259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8477415544053169883 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6318796341398952710, guid: 59f0480e210f3894592115f4ab04542a, type: 3}

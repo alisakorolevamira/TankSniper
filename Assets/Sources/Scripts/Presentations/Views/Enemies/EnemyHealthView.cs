@@ -8,6 +8,6 @@ namespace Sources.Scripts.Presentations.Views.Enemies
         public float CurrentHealth => Presenter.CurrentHealth;
 
         public void TakeDamage(float damage) =>
-            Presenter.TakeDamage(damage);
+            Presenter?.TakeDamage(damage);
     }
 }

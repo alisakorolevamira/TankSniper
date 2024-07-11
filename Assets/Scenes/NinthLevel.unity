@@ -1752,7 +1752,7 @@ Transform:
   m_GameObject: {fileID: 270666554}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.8963967, z: -0, w: 0.44325265}
-  m_LocalPosition: {x: -1.085, y: 0.401, z: 1.118}
+  m_LocalPosition: {x: -1.085, y: 0.5, z: 1.118}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7073,6 +7073,7 @@ MonoBehaviour:
   _boats: []
   _robotBosses: []
   _boatBosses: []
+  _helicopterBosses: []
 --- !u!4 &1457841085
 Transform:
   m_ObjectHideFlags: 0

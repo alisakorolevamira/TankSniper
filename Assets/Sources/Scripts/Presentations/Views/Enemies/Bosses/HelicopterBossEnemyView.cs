@@ -23,10 +23,19 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Bosses
 
         public void RotateRotors()
         {
-            foreach (Transform rotor in _rotors)
-            {
+            foreach (Transform rotor in _rotors) 
                 rotor.Rotate(new Vector3(0,0,_rotationRotor));
+        }
+        
+        public void Explode()
+        {
+            foreach (HelicopterPeaceView peace in _peaces)
+            {
+                if (peace.IsDestroyed == false) 
+                    peace.Explode();
             }
+            
+            Destroy(gameObject);
         }
 
         private void OnCollisionEnter(Collision collision)

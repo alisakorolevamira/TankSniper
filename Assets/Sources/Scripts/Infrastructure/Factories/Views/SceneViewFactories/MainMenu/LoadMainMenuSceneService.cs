@@ -85,7 +85,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
 
             Upgrader upgrader = _loadService.Load(ModelId.Upgrader) as Upgrader;
 
-            GameLevels gameLevels = _loadService.Load(ModelId.GameLevels) as GameLevels;
+            GameLevels gameLevels = CreateGamelevels();
 
             LevelAvailability levelAvailability = new LevelAvailability(gameLevels.Levels, mainMenu.Index);
             
@@ -112,6 +112,18 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 savedLevel,
                 inventoryGrid,
                 playerShop);
+        }
+        
+        private GameLevels CreateGamelevels()
+        {
+            if (_loadService.HasKey(ModelId.GameLevels))
+                return _loadService.Load(ModelId.GameLevels) as GameLevels;
+
+            GameLevels gameLevels = new GameLevels(ModelId.GameLevels);
+            
+            _entityRepository.Add(gameLevels);
+
+            return gameLevels;
         }
     }
 }

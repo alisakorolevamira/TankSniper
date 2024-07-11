@@ -2,6 +2,7 @@
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Data;
 using Sources.Scripts.DomainInterfaces.Models.Entities;
+using UnityEngine;
 
 namespace Sources.Scripts.Domain.Models.Gameplay
 {
@@ -49,6 +50,11 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         {
             _data = _data.Load(Id);
             Levels = _data.Levels;
+        }
+
+        public void Clear()
+        {
+            PlayerPrefs.DeleteKey(Id);
         }
     }
 }

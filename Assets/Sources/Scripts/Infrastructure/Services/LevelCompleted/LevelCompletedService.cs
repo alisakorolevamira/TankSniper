@@ -72,6 +72,10 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
             
             level.Complete();
             CheckMenuIndex(level);
+
+            if (level.Id == LevelConst.EighteenthLevel) 
+                gameLevels.Clear();
+            
             _loadService.SaveAll();
             
             StartTimer(_cancellationTokenSource.Token);

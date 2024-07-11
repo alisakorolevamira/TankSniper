@@ -9,15 +9,15 @@ using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Bosses;
 
 namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Bosses
 {
-    public class BoatBossEnemyViewFactory
+    public class HelicopterBossEnemyViewFactory
     {
-        private readonly BoatBossEnemyPresenterFactory _presenterFactory;
+        private readonly HelicopterBossEnemyPresenterFactory _presenterFactory;
         private readonly EnemyHealthViewFactory _enemyHealthViewFactory;
         private readonly HealthUITextViewFactory _healthUITextViewFactory;
         private readonly HealthBarUIFactory _healthBarUIFactory;
 
-        public BoatBossEnemyViewFactory(
-            BoatBossEnemyPresenterFactory presenterFactory,
+        public HelicopterBossEnemyViewFactory(
+            HelicopterBossEnemyPresenterFactory presenterFactory,
             EnemyHealthViewFactory enemyHealthViewFactory,
             HealthUITextViewFactory healthUITextViewFactory,
             HealthBarUIFactory healthBarUIFactory)
@@ -30,7 +30,10 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Bosses
             _healthBarUIFactory = healthBarUIFactory ?? throw new ArgumentNullException(nameof(healthBarUIFactory));
         }
 
-        public IBoatBossEnemyView Create(Enemy enemy, KilledEnemiesCounter killedEnemiesCounter, BoatBossEnemyView view)
+        public IHelicopterBossEnemyView Create(
+            Enemy enemy,
+            KilledEnemiesCounter killedEnemiesCounter,
+            HelicopterBossEnemyView view)
         {
             EnemyPresenter presenter = _presenterFactory.Create(enemy, killedEnemiesCounter, view, view.EnemyAnimation);
             

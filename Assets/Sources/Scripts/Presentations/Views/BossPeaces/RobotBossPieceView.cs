@@ -1,16 +1,13 @@
-﻿using System;
-using System.Threading;
-using Cysharp.Threading.Tasks;
-using ShatterToolkit;
+﻿using ShatterToolkit;
 using ShatterToolkit.Helpers;
 using Sources.Scripts.PresentationsInterfaces.Views.BossPeaces;
 using UnityEngine;
 
 namespace Sources.Scripts.Presentations.Views.BossPeaces
 {
-    public class BossPieceView : View, IBossPieceView
+    public class RobotBossPieceView : View, IBossPieceView
     {
-        [SerializeField] private Collider _collider;
+        //[SerializeField] private Collider _collider;
         [SerializeField] private ShatterTool _shatter;
         [SerializeField] private PieceRemover _pieceRemover;
 

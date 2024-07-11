@@ -33,6 +33,7 @@ namespace Sources.Scripts.Presentations.Views.Spawners
         [Header("Bosses")]
         [SerializeField] private List<RobotBossEnemyView> _robotBosses;
         [SerializeField] private List<BoatBossEnemyView> _boatBosses;
+        [SerializeField] private List<HelicopterBossEnemyView> _helicopterBosses;
         
         public IReadOnlyList<TankEnemyView> Tanks => _tanks;
         public IReadOnlyList<BazookaHelicopterEnemyView> BazookaHelicopters => _bazookaHelicopters;
@@ -45,6 +46,7 @@ namespace Sources.Scripts.Presentations.Views.Spawners
         public IReadOnlyList<BoatEnemyView> Boats => _boats;
         public IReadOnlyList<RobotBossEnemyView> RobotBosses => _robotBosses;
         public IReadOnlyList<BoatBossEnemyView> BoatBosses => _boatBosses;
+        public IReadOnlyList<HelicopterBossEnemyView> HelicopterBosses => _helicopterBosses;
 
         public PlayerView PlayerView { get; private set; }
 

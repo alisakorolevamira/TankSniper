@@ -31,7 +31,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
                 new(LevelConst.FifteenthLevel, false),
                 new(LevelConst.SixteenthLevel, false),
                 new(LevelConst.SeventeenthLevel, false),
-                new(LevelConst.EighthteenthLevel, false),
+                new(LevelConst.EighteenthLevel, false),
             };
         }
         

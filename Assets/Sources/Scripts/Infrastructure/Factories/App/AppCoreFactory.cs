@@ -71,6 +71,8 @@ namespace Sources.Scripts.Infrastructure.Factories.App
                 sceneContext.Container.Resolve<GameplaySceneFactory>().Create(payload);
             sceneFactories[LevelConst.SeventeenthLevel] = (payload, sceneContext) =>
                 sceneContext.Container.Resolve<GameplaySceneFactory>().Create(payload);
+            sceneFactories[LevelConst.EighteenthLevel] = (payload, sceneContext) =>
+                sceneContext.Container.Resolve<GameplaySceneFactory>().Create(payload);
             
             sceneService.AddBeforeSceneChangeHandler(async _ => await curtainView.ShowCurtain());
             

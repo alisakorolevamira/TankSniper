@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using JetBrains.Annotations;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies.Boat;
@@ -46,6 +47,7 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
         private readonly IHelicopterEnemySpawnerService _helicopterEnemySpawnerService;
         private readonly IStandingTankEnemySpawnerService _standingTankEnemySpawnerService;
         private readonly IBoatBossEnemySpawnerService _boatBossEnemySpawnerService;
+        private readonly IHelicopterBossEnemySpawnerService _helicopterBossEnemySpawnerService;
 
         private CancellationTokenSource _cancellationTokenSource;
 
@@ -63,7 +65,8 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
             IBoatEnemySpawnerService boatEnemySpawnerService,
             IHelicopterEnemySpawnerService helicopterEnemySpawnerService,
             IStandingTankEnemySpawnerService standingTankEnemySpawnerService,
-            IBoatBossEnemySpawnerService boatBossEnemySpawnerService)
+            IBoatBossEnemySpawnerService boatBossEnemySpawnerService,
+            IHelicopterBossEnemySpawnerService helicopterBossEnemySpawnerService)
         {
             _killedEnemiesCounter = killedEnemiesCounter ??
                                     throw new ArgumentNullException(nameof(killedEnemiesCounter));
@@ -91,6 +94,8 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
                                                throw new ArgumentNullException(nameof(standingTankEnemySpawnerService));
             _boatBossEnemySpawnerService = boatBossEnemySpawnerService ??
                                            throw new ArgumentNullException(nameof(boatBossEnemySpawnerService));
+            _helicopterBossEnemySpawnerService = helicopterBossEnemySpawnerService ??
+                                                 throw new ArgumentNullException(nameof(helicopterBossEnemySpawnerService));
         }
 
         public override void Enable() => 
@@ -171,6 +176,13 @@ namespace Sources.Scripts.Controllers.Presenters.Spawners
             foreach (BoatBossEnemyView boat in _enemySpawnerView.BoatBosses)
             {
                 IBoatBossEnemyView view = _boatBossEnemySpawnerService.Spawn(_killedEnemiesCounter, boat);
+                
+                SetPlayerHealthView(view);
+            }
+            
+            foreach (HelicopterBossEnemyView helicopter in _enemySpawnerView.HelicopterBosses)
+            {
+                IHelicopterBossEnemyView view = _helicopterBossEnemySpawnerService.Spawn(_killedEnemiesCounter, helicopter);
                 
                 SetPlayerHealthView(view);
             }

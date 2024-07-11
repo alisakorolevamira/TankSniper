@@ -20,6 +20,6 @@
         public const string FifteenthLevel = "FifteenthLevel";
         public const string SixteenthLevel = "SixteenthLevel";
         public const string SeventeenthLevel = "SeventeenthLevel";
-        public const string EighthteenthLevel = "EighthteenthLevel";
+        public const string EighteenthLevel = "EighteenthLevel";
     }
 }

@@ -55,6 +55,7 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
             Container.Bind<IHelicopterEnemySpawnerService>().To<HelicopterEnemySpawnerService>().AsSingle();
             Container.Bind<IRobotBossEnemySpawnerService>().To<RobotRobotBossEnemySpawnerService>().AsSingle();
             Container.Bind<IBoatBossEnemySpawnerService>().To<BoatBossEnemySpawnerService>().AsSingle();
+            Container.Bind<IHelicopterBossEnemySpawnerService>().To<HelicopterBossEnemySpawnerService>().AsSingle();
             
             Container.Bind<HealthUITextPresenterFactory>().AsSingle();
             Container.Bind<HealthUITextViewFactory>().AsSingle();
@@ -94,6 +95,9 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
             
             Container.Bind<BoatEnemyPresenterFactory>().AsSingle();
             Container.Bind<BoatEnemyViewFactory>().AsSingle();
+            
+            Container.Bind<HelicopterBossEnemyPresenterFactory>().AsSingle();
+            Container.Bind<HelicopterBossEnemyViewFactory>().AsSingle();
         }
     }
 }

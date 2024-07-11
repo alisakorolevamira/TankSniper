@@ -10,32 +10,31 @@ using UnityEngine;
 
 namespace Sources.Scripts.Presentations.Views.Enemies.Bosses
 {
-    public class RobotBossEnemyView : MovingEnemyViewBase, IRobotBossEnemyView
+    public class HelicopterBossEnemyView : MovingEnemyViewBase, IHelicopterBossEnemyView
     {
-        [SerializeField] private RobotBossEnemyAnimation _robotBossEnemyAnimation;
-        [SerializeField] private List<RobotBossPieceView> _peaces;
+        [SerializeField] private HelicopterBossEnemyAnimation _enemyAnimation;
+        [SerializeField] private List<HelicopterPeaceView> _peaces;
         [SerializeField] private HealthBarUI _healthBar;
+        [SerializeField] private List<Transform> _rotors;
+        [SerializeField] private float _rotationRotor = 1;
 
-        public IEnemyAnimation EnemyAnimation => _robotBossEnemyAnimation;
+        public IEnemyAnimation EnemyAnimation => _enemyAnimation;
         public HealthBarUI HealthBar => _healthBar;
 
-        public void Explode()
+        public void RotateRotors()
         {
-            foreach (RobotBossPieceView peace in _peaces)
+            foreach (Transform rotor in _rotors)
             {
-                if (peace.IsDestroyed == false) 
-                    peace.Explode();
+                rotor.Rotate(new Vector3(0,0,_rotationRotor));
             }
-            
-            Destroy(gameObject);
         }
 
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.TryGetComponent(out IBulletView bulletView))
             {
-                RobotBossPieceView piece = _peaces.First(p => p.IsDestroyed == false);
-                piece.Explode();
+                HelicopterPeaceView piece = _peaces.FirstOrDefault(x => x.IsDestroyed == false);
+                piece?.Explode();
             }
         }
     }

@@ -10,20 +10,20 @@ using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Bosses;
 
 namespace Sources.Scripts.Infrastructure.Services.Spawners.Enemies.Bosses
 {
-    public class BoatBossEnemySpawnerService : IBoatBossEnemySpawnerService
+    public class HelicopterBossEnemySpawnerService : IHelicopterBossEnemySpawnerService
     {
-        private readonly BoatBossEnemyViewFactory _viewFactory;
+        private readonly HelicopterBossEnemyViewFactory _viewFactory;
 
-        public BoatBossEnemySpawnerService(BoatBossEnemyViewFactory viewFactory)
+        public HelicopterBossEnemySpawnerService(HelicopterBossEnemyViewFactory viewFactory)
         {
             _viewFactory = viewFactory ?? throw new ArgumentNullException(nameof(viewFactory));
         }
 
-        public IBoatBossEnemyView Spawn(KilledEnemiesCounter killedEnemiesCounter, BoatBossEnemyView view)
+        public IHelicopterBossEnemyView Spawn(KilledEnemiesCounter killedEnemiesCounter, HelicopterBossEnemyView view)
         {
             Enemy bossEnemy = new Enemy(
-                new EnemyHealth(EnemyConst.BossHealth), new EnemyAttacker(EnemyConst.BoatBossDamage));
-            IBoatBossEnemyView enemyView = _viewFactory.Create(bossEnemy, killedEnemiesCounter, view);
+                new EnemyHealth(EnemyConst.BossHealth), new EnemyAttacker(EnemyConst.HelicopterBossDamage));
+            IHelicopterBossEnemyView enemyView = _viewFactory.Create(bossEnemy, killedEnemiesCounter, view);
 
             return enemyView;
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 using Sources.Scripts.Controllers.Presenters.Spawners;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Spawners;
@@ -26,6 +27,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Spawne
         private readonly IStandingTankEnemySpawnerService _standingTankEnemySpawnerService;
         private readonly IHelicopterEnemySpawnerService _helicopterEnemySpawnerService;
         private readonly IBoatBossEnemySpawnerService _boatBossEnemySpawnerService;
+        private readonly IHelicopterBossEnemySpawnerService _helicopterBossEnemySpawnerService;
 
         public EnemySpawnerPresenterFactory(
             ITankEnemySpawnerService tankEnemySpawnerService,
@@ -38,7 +40,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Spawne
             IBoatEnemySpawnerService boatEnemySpawnerService,
             IStandingTankEnemySpawnerService standingTankEnemySpawnerService,
             IHelicopterEnemySpawnerService helicopterEnemySpawnerService,
-            IBoatBossEnemySpawnerService boatBossEnemySpawnerService)
+            IBoatBossEnemySpawnerService boatBossEnemySpawnerService,
+            IHelicopterBossEnemySpawnerService helicopterBossEnemySpawnerService)
         {
             _tankEnemySpawnerService = tankEnemySpawnerService ??
                                        throw new ArgumentNullException(nameof(tankEnemySpawnerService));
@@ -62,6 +65,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Spawne
                                              throw new ArgumentNullException(nameof(helicopterEnemySpawnerService));
             _boatBossEnemySpawnerService = boatBossEnemySpawnerService ??
                                            throw new ArgumentNullException(nameof(boatBossEnemySpawnerService));
+            _helicopterBossEnemySpawnerService = helicopterBossEnemySpawnerService ??
+                                                 throw new ArgumentNullException(nameof(helicopterBossEnemySpawnerService));
         }
 
         public EnemySpawnerPresenter Create(
@@ -83,7 +88,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Spawne
                 _boatEnemySpawnerService,
                 _helicopterEnemySpawnerService,
                 _standingTankEnemySpawnerService,
-                _boatBossEnemySpawnerService);
+                _boatBossEnemySpawnerService,
+                _helicopterBossEnemySpawnerService);
         }
     }
 }

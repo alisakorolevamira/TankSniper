@@ -25,6 +25,7 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Spawners
         IReadOnlyList<BoatEnemyView> Boats { get; }
         IReadOnlyList<RobotBossEnemyView> RobotBosses { get; }
         IReadOnlyList<BoatBossEnemyView> BoatBosses { get; }
+        IReadOnlyList<HelicopterBossEnemyView> HelicopterBosses { get; }
 
         PlayerView PlayerView { get; }
 

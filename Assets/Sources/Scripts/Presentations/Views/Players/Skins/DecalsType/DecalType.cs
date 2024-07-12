@@ -16,5 +16,7 @@
         Unicorn = 11,
         Wolf = 12,
         Wednesday = 13,
+        Swords = 14,
+        Men = 15
     }
 }

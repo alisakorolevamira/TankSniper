@@ -45,6 +45,16 @@ namespace Sources.Scripts.Domain.Models.Shops
                 new (false, MaterialType.Grey),
                 new (false, MaterialType.Sky),
                 new (false, MaterialType.White),
+                new (false, MaterialType.Pink),
+                new (false, MaterialType.Yellow),
+                new (false, MaterialType.Purple),
+                new (false, MaterialType.PurpleDark),
+                new (false, MaterialType.Blue),
+                new (false, MaterialType.BlueDark),
+                new (false, MaterialType.Brown),
+                new (false, MaterialType.Orange),
+                new (false, MaterialType.BrightGreen),
+                new (false, MaterialType.BrightPink),
             };
         }
 
@@ -65,6 +75,8 @@ namespace Sources.Scripts.Domain.Models.Shops
                 new (false, DecalType.Unicorn),
                 new (false, DecalType.Wolf),
                 new (false, DecalType.Wednesday),
+                new (false, DecalType.Swords),
+                new (false, DecalType.Men),
             };
         }
     }

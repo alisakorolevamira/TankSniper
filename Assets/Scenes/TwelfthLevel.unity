@@ -427,7 +427,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 0
 --- !u!4 &83687405
 Transform:
@@ -626,7 +626,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &167322335
 Transform:
@@ -853,6 +853,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_TankTrap_01 Variant (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8072236184195807286, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8075547598164508292, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.9811296
@@ -956,7 +960,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3780671244086486322, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
+  - {fileID: 1306837457758111357, guid: 0ead8f2603d448b489b39dd05c303d15, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1125,6 +1129,10 @@ PrefabInstance:
     - target: {fileID: 8072236184195807286, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
       propertyPath: m_Name
       value: SM_Prop_TankTrap_01 Variant (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072236184195807286, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8075547598164508292, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1332,7 +1340,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 880774007180850119, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
+  - {fileID: 1306837457758111357, guid: 0ead8f2603d448b489b39dd05c303d15, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1804,6 +1812,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: b58e7fdfb89fbc549b36a69243aee4c0, type: 3}
       propertyPath: m_Name
       value: Rock_4 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b58e7fdfb89fbc549b36a69243aee4c0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b58e7fdfb89fbc549b36a69243aee4c0, type: 3}
       propertyPath: m_LocalScale.x
@@ -2496,6 +2508,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_TankTrap_01 Variant (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8072236184195807286, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8075547598164508292, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.8191564
@@ -2594,7 +2610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skinType: 6
   _renderer: {fileID: 1857457714}
-  _defaultMaterial: {fileID: 99656467281103303, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
+  _defaultMaterial: {fileID: -4973734387028869240, guid: 0ead8f2603d448b489b39dd05c303d15, type: 3}
   _decalImage: {fileID: 1312202443}
 --- !u!1001 &637181276
 PrefabInstance:
@@ -2717,7 +2733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skinType: 2
   _renderer: {fileID: 1063986257}
-  _defaultMaterial: {fileID: 99656467281103303, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
+  _defaultMaterial: {fileID: -4973734387028869240, guid: 0ead8f2603d448b489b39dd05c303d15, type: 3}
   _decalImage: {fileID: 991011566}
 --- !u!1 &644100847
 GameObject:
@@ -2871,6 +2887,10 @@ PrefabInstance:
     - target: {fileID: 8072236184195807286, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
       propertyPath: m_Name
       value: SM_Prop_TankTrap_01 Variant (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072236184195807286, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8075547598164508292, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3066,6 +3086,10 @@ PrefabInstance:
     - target: {fileID: 8072236184195807286, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
       propertyPath: m_Name
       value: SM_Prop_TankTrap_01 Variant (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072236184195807286, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8075547598164508292, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3413,7 +3437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skinType: 5
   _renderer: {fileID: 1135349089}
-  _defaultMaterial: {fileID: 99656467281103303, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
+  _defaultMaterial: {fileID: -4973734387028869240, guid: 0ead8f2603d448b489b39dd05c303d15, type: 3}
   _decalImage: {fileID: 972416133}
 --- !u!1001 &817312273
 PrefabInstance:
@@ -3507,7 +3531,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &822955500
 Transform:
@@ -3548,7 +3572,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &850556663
 Transform:
@@ -3832,7 +3856,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &932330747
 Transform:
@@ -4236,7 +4260,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3780671244086486322, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
+  - {fileID: 1306837457758111357, guid: 0ead8f2603d448b489b39dd05c303d15, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4393,7 +4417,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 99656467281103303, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
+  - {fileID: -4973734387028869240, guid: 0ead8f2603d448b489b39dd05c303d15, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4777,7 +4801,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1118471762
 Transform:
@@ -4850,7 +4874,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 99656467281103303, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
+  - {fileID: -4973734387028869240, guid: 0ead8f2603d448b489b39dd05c303d15, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5164,6 +5188,10 @@ PrefabInstance:
     - target: {fileID: 8072236184195807286, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
       propertyPath: m_Name
       value: SM_Prop_TankTrap_01 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072236184195807286, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8075547598164508292, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5793,6 +5821,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_4
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b58e7fdfb89fbc549b36a69243aee4c0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b58e7fdfb89fbc549b36a69243aee4c0, type: 3}
       propertyPath: m_LocalScale.x
       value: 7.949
@@ -5873,7 +5905,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1397386432
 Transform:
@@ -6599,6 +6631,10 @@ PrefabInstance:
     - target: {fileID: 8072236184195807286, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
       propertyPath: m_Name
       value: SM_Prop_TankTrap_01 Variant (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072236184195807286, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8075547598164508292, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7543,7 +7579,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 99656467281103303, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
+  - {fileID: -4973734387028869240, guid: 0ead8f2603d448b489b39dd05c303d15, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7584,6 +7620,10 @@ PrefabInstance:
     - target: {fileID: 8072236184195807286, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
       propertyPath: m_Name
       value: SM_Prop_TankTrap_01 Variant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072236184195807286, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8075547598164508292, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7807,7 +7847,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1937801967
 Transform:
@@ -7909,7 +7949,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 99656467281103303, guid: 83cbf1b22982f644a8f3221ff68bb531, type: 3}
+  - {fileID: -4973734387028869240, guid: 0ead8f2603d448b489b39dd05c303d15, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8290,7 +8330,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2054767012
 Transform:
@@ -8332,6 +8372,10 @@ PrefabInstance:
     - target: {fileID: 8072236184195807286, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
       propertyPath: m_Name
       value: SM_Prop_TankTrap_01 Variant (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072236184195807286, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8075547598164508292, guid: 5c22f2c7acfbe144db45b07a52b2a0c1, type: 3}
       propertyPath: m_LocalPosition.x

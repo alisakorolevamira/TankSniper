@@ -61,11 +61,13 @@ namespace Sources.Scripts.Controllers.Presenters.Shops
             _view.Show();
             _view.Button.SetState(UISelectionState.Pressed);
             SetSprite();
-            _loadService.SaveAll();
         }
 
-        private void SetSprite() =>
+        private void SetSprite()
+        {
             _skinChangerService.ChangeDecal(_view.DecalType);
+            _loadService.SaveAll();
+        }
 
         private void SetPriceText()
         {

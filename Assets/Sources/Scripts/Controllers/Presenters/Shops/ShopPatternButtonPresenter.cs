@@ -61,11 +61,13 @@ namespace Sources.Scripts.Controllers.Presenters.Shops
             _view.Show();
             _view.Button.SetState(UISelectionState.Pressed);
             SetMaterial();
-            _loadService.SaveAll();
         }
 
-        private void SetMaterial() => 
+        private void SetMaterial()
+        {
             _skinChangerService.ChangeMaterial(_view.MaterialType);
+            _loadService.SaveAll();
+        }
 
         private void SetPriceText()
         {

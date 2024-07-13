@@ -63,8 +63,11 @@ namespace Sources.Scripts.Domain.Models.Players
             CurrentMaterialChanged?.Invoke(materialView.Material);
         }
 
-        public void SetDefaultMaterial() => 
+        public void SetDefaultMaterial()
+        {
+            CurrentMaterial = MaterialType.Default;
             DefaultMaterialSetted?.Invoke();
+        }
 
         public void ChangeDecal(DecalView decalView)
         {
@@ -72,7 +75,10 @@ namespace Sources.Scripts.Domain.Models.Players
             CurrentDecalChanged?.Invoke(decalView.Decal);
         }
 
-        public void RemoveDecal() => 
+        public void RemoveDecal()
+        {
+            CurrentDecal = DecalType.Default;
             DecalRemoved?.Invoke();
+        }
     }
 }

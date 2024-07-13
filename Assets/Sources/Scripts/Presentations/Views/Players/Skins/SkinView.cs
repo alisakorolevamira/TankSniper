@@ -18,7 +18,7 @@ namespace Sources.Scripts.Presentations.Views.Players.Skins
         public ImageView DecalImage => _decalImage;
 
         public void SetScale(Vector3 scale) => 
-            transform.localScale = Vector3.MoveTowards(transform.localScale, scale, InventoryTankConst.DistanceDelta);
+            transform.localScale = Vector3.MoveTowards(transform.localScale, scale, ShopConst.DistanceDelta);
 
         public void SetMaterial(Material material) => 
             _renderer.sharedMaterial = material;

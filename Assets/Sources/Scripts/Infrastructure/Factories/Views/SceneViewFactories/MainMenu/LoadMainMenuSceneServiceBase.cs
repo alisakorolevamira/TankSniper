@@ -8,6 +8,7 @@ using Sources.Scripts.Infrastructure.Factories.Views.MainMenu;
 using Sources.Scripts.Infrastructure.Factories.Views.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
 using Sources.Scripts.Infrastructure.Factories.Views.Shops;
+using Sources.Scripts.Infrastructure.Factories.Views.Stickman;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactories;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
@@ -19,6 +20,7 @@ using Sources.Scripts.Presentations.Views.Gameplay;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.Presentations.Views.Players.Skins;
 using Sources.Scripts.Presentations.Views.Shops;
+using Sources.Scripts.Presentations.Views.Stickman;
 
 namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.MainMenu
 {
@@ -29,6 +31,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
         private readonly VolumeViewFactory _volumeViewFactory;
         private readonly InventoryGridViewFactory _inventoryGridViewFactory;
         private readonly SkinChangerViewFactory _skinChangerViewFactory;
+        private readonly StickmanChangerViewFactory _sticmanChangerViewFactory;
         private readonly ShopViewFactory _shopViewFactory;
         private readonly ShopPatternButtonViewFactory _shopPatternButtonViewFactory;
         private readonly ShopDecalButtonViewFactory _shopDecalButtonViewFactory;
@@ -39,6 +42,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
         private readonly ITutorialService _tutorialService;
         private readonly IInventoryTankSpawnerService _inventoryTankSpawnerService;
         private readonly ISkinChangerService _skinChangerService;
+        private readonly IStickmanChangerService _stickmanChangerService;
         private readonly IUpgradeService _upgradeService;
         
         protected LoadMainMenuSceneServiceBase(
@@ -47,6 +51,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             VolumeViewFactory volumeViewFactory,
             InventoryGridViewFactory inventoryGridViewFactory,
             SkinChangerViewFactory skinChangerViewFactory,
+            StickmanChangerViewFactory sticmanChangerViewFactory,
             ShopViewFactory shopViewFactory,
             ShopPatternButtonViewFactory shopPatternButtonViewFactory,
             ShopDecalButtonViewFactory shopDecalButtonViewFactory,
@@ -57,6 +62,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             ITutorialService tutorialService,
             IInventoryTankSpawnerService inventoryTankSpawnerService,
             ISkinChangerService skinChangerService,
+            IStickmanChangerService stickmanChangerService,
             IUpgradeService upgradeService)
         {
             _mainMenuHud = mainMenuHud ? mainMenuHud : throw new ArgumentNullException(nameof(mainMenuHud));
@@ -67,6 +73,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                                         throw new ArgumentNullException(nameof(inventoryGridViewFactory));
             _skinChangerViewFactory = skinChangerViewFactory ??
                                       throw new ArgumentNullException(nameof(skinChangerViewFactory));
+            _sticmanChangerViewFactory = sticmanChangerViewFactory ??
+                                         throw new ArgumentNullException(nameof(sticmanChangerViewFactory));
             _shopViewFactory = shopViewFactory ?? throw new ArgumentNullException(nameof(shopViewFactory));
             _shopPatternButtonViewFactory = shopPatternButtonViewFactory ??
                                             throw new ArgumentNullException(nameof(shopPatternButtonViewFactory));
@@ -79,6 +87,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
             _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
             _skinChangerService = skinChangerService ?? throw new ArgumentNullException(nameof(skinChangerService));
+            _stickmanChangerService = stickmanChangerService ??
+                                      throw new ArgumentNullException(nameof(stickmanChangerService));
             _inventoryTankSpawnerService = inventoryTankSpawnerService ??
                                            throw new ArgumentNullException(nameof(inventoryTankSpawnerService));
             _upgradeService = upgradeService ?? throw new ArgumentNullException(nameof(upgradeService));
@@ -95,6 +105,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
 
             foreach (SkinChangerView skinChangerView in _mainMenuHud.SkinChangerViews) 
                 _skinChangerViewFactory.Create(models.SkinChanger, skinChangerView);
+
+            foreach (StickmanChangerView stickmanChangerView in _mainMenuHud.StickmanChangerViews)
+                _sticmanChangerViewFactory.Create(models.StickmanChanger, stickmanChangerView);
             
             foreach (WalletUI wallet in _mainMenuHud.WalletsUI) 
                 _walletUIFactory.Create(models.Player.PlayerWallet, wallet);
@@ -111,6 +124,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             _tutorialService.Construct(models.Tutorial);
             
             _skinChangerService.Construct(models.SkinChanger);
+            
+            _stickmanChangerService.Construct(models.StickmanChanger);
 
             _shopViewFactory.Create(_mainMenuHud.ShopView, models.Upgrader, models.Shop);
 

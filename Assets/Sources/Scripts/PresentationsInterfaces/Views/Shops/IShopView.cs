@@ -6,6 +6,7 @@ namespace Sources.Scripts.PresentationsInterfaces.Views.Shops
     public interface IShopView
     {
         IReadOnlyList<IShopTankButtonView> TankButtons { get; }
+        IReadOnlyList<IShopStickmanButtonView> StickmanButtons { get; }
         IReadOnlyList<ShopPatternButtonView> PatternButtons { get; }
         IReadOnlyList<ShopDecalButtonView> DecalButtons { get; }
     }

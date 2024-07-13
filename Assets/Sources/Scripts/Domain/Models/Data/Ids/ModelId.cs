@@ -4,6 +4,7 @@ using Sources.Scripts.Domain.Models.Inventory;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
 using Sources.Scripts.Domain.Models.Shops;
+using Sources.Scripts.Domain.Models.Stickman;
 using Sources.Scripts.Domain.Models.Upgrades;
 using Sources.Scripts.DomainInterfaces.Models.Entities;
 
@@ -23,7 +24,7 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
         public const string InventoryGrid = "InventoryGrid";
         public const string PlayerShop = "PlayerShop";
         public const string MainMenuAppearance = "MainMenuAppearance";
-        
+        public const string StickmanChanger = "StickmanChanger";
         
         public static IReadOnlyList<string> ModelsIds = new List<string>()
         {
@@ -38,6 +39,7 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
             InventoryGrid,
             PlayerShop,
             MainMenuAppearance,
+            StickmanChanger
         };
 
         public static IReadOnlyDictionary<string, IEntity> Entities = new Dictionary<string, IEntity>()
@@ -52,7 +54,8 @@ namespace Sources.Scripts.Domain.Models.Data.Ids
             [GameLevels] = new GameLevels(GameLevels),
             [InventoryGrid] = new InventoryGrid(InventoryGrid),
             [PlayerShop] = new PlayerShop(PlayerShop),
-            [MainMenuAppearance] = new MainMenuAppearance(MainMenuAppearance)
+            [MainMenuAppearance] = new MainMenuAppearance(MainMenuAppearance),
+            [StickmanChanger] = new StickmanChanger(StickmanChanger)
         };
     }
 }

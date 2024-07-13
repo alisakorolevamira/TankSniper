@@ -2,6 +2,7 @@
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
 using Sources.Scripts.Domain.Models.Shops;
+using Sources.Scripts.Domain.Models.Stickman;
 using Sources.Scripts.Domain.Models.Upgrades;
 
 namespace Sources.Scripts.Domain.Models.Gameplay
@@ -18,6 +19,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             Player player,
             Upgrader upgrader,
             SkinChanger skinChanger,
+            StickmanChanger stickmanChanger,
             SavedLevel savedLevel,
             InventoryGrid grid,
             PlayerShop shop)
@@ -31,6 +33,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             Player = player;
             Upgrader = upgrader;
             SkinChanger = skinChanger;
+            StickmanChanger = stickmanChanger;
             SavedLevel = savedLevel;
             InventoryGrid = grid;
             Shop = shop;
@@ -48,5 +51,6 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         public SkinChanger SkinChanger { get; }
         public PlayerShop Shop { get; }
         public MainMenuAppearance MainMenuAppearance { get; }
+        public StickmanChanger StickmanChanger { get; }
     }
 }

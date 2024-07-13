@@ -1,8 +1,10 @@
 ﻿using Sources.Scripts.Domain.Models.Players.Configs;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Players;
+using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Stickman;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Players;
+using Sources.Scripts.Infrastructure.Factories.Views.Stickman;
 using Sources.Scripts.Infrastructure.Services.Shop;
 using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
 using Zenject;
@@ -32,10 +34,14 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Common
             Container.Bind<SkinChangerPresenterFactory>().AsSingle();
             Container.Bind<SkinChangerViewFactory>().AsSingle();
             
+            Container.Bind<StickmanChangerPresenterFactory>().AsSingle();
+            Container.Bind<StickmanChangerViewFactory>().AsSingle();
+            
             Container.Bind<LevelAvailabilityPresenterFactory>().AsSingle();
             Container.Bind<LevelAvailabilityViewFactory>().AsSingle();
             
             Container.Bind<ISkinChangerService>().To<SkinChangerService>().AsSingle();
+            Container.Bind<IStickmanChangerService>().To<StickmanChangerService>().AsSingle();
         }
     }
 }

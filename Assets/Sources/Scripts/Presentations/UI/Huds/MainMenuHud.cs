@@ -7,6 +7,7 @@ using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.Presentations.Views.Players.Skins;
 using Sources.Scripts.Presentations.Views.Settings;
 using Sources.Scripts.Presentations.Views.Shops;
+using Sources.Scripts.Presentations.Views.Stickman;
 using Sources.Scripts.UIFramework.Presentations.AudioSources;
 using Sources.Scripts.UIFramework.PresentationsInterfaces.AudioSources;
 using UnityEngine;
@@ -31,6 +32,7 @@ namespace Sources.Scripts.Presentations.UI.Huds
 
         [Header("Player")]
         [SerializeField] private List<SkinChangerView> _skinChangerViews;
+        [SerializeField] private List<StickmanChangerView> _stickmanChangerViews;
 
         [Header("Shop")]
         [SerializeField] private ShopView _shopView;
@@ -44,6 +46,7 @@ namespace Sources.Scripts.Presentations.UI.Huds
         public IReadOnlyList<WalletUI> WalletsUI => _walletsUI;
         public InventoryGridView InventoryGridView => _gridView;
         public IReadOnlyList<SkinChangerView> SkinChangerViews => _skinChangerViews;
+        public IReadOnlyList<StickmanChangerView> StickmanChangerViews => _stickmanChangerViews;
         public ShopView ShopView => _shopView;
         public InventoryTankButtonView AddTankButtonView => _addTankButtonView;
         public MainMenuView MainMenuView => _mainMenuView;

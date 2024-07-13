@@ -40,7 +40,7 @@ namespace Sources.Scripts.UIFramework.Controllers.Shop
                 throw new InvalidOperationException("Signal valueAsObject is not ShopCommandSignal");
 
             foreach (ShopCommandId commandId in value.ShopCommandIds)
-                _shopCommandHandler.Handle(commandId, value.SkinType);
+                _shopCommandHandler.Handle(commandId, value.SkinType, value.StickmanType);
         }
     }
 }

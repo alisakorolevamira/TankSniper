@@ -5,5 +5,6 @@
         ChangeSkin = 0,
         ChangeMaterial = 1,
         RemoveDecal = 2,
+        ChangeStickman = 3
     }
 }

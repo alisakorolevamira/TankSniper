@@ -26,33 +26,54 @@ namespace Sources.Scripts.Controllers.Presenters.Shops
         public override void Enable()
         {
             _upgradeService.LevelChanged += ShowTankButton;
+            _upgradeService.LevelChanged += ShowStickmanButton;
+            
             HideAllButtons();
             ShowAvailableButtons();
             Fill();
         }
 
-        public override void Disable() => 
+        public override void Disable()
+        {
             _upgradeService.LevelChanged -= ShowTankButton;
+            _upgradeService.LevelChanged -= ShowStickmanButton;
+        }
 
         private void ShowTankButton(int level)
         {
-            IShopTankButtonView tankButtonView = _shopView.TankButtons.FirstOrDefault(x => x.Level == level);
+            IShopTankButtonView tankButtonView =
+                _shopView.TankButtons.FirstOrDefault(button => button.Level == level);
 
             tankButtonView?.Show();
+        }
+
+        private void ShowStickmanButton(int level)
+        {
+            IShopStickmanButtonView shopStickmanButtonView =
+                _shopView.StickmanButtons.FirstOrDefault(button => button.Level == level);
+            
+            shopStickmanButtonView?.Show();
         }
 
         private void ShowAvailableButtons()
         {
             for (int i = 1; i <= _upgrader.CurrentLevel; i++)
             {
-                IShopTankButtonView tankButtonView = _shopView.TankButtons.First(x => x.Level == i);
+                IShopTankButtonView tankButtonView = _shopView.TankButtons.First(button => button.Level == i);
+                IShopStickmanButtonView shopStickmanButtonView =
+                    _shopView.StickmanButtons.First(button => button.Level == i);
+                
                 tankButtonView.Show();
+                shopStickmanButtonView.Show();
             }
         }
 
         private void HideAllButtons()
         {
             foreach (IShopTankButtonView buttonView in _shopView.TankButtons) 
+                buttonView.Hide();
+
+            foreach (IShopStickmanButtonView buttonView in _shopView.StickmanButtons) 
                 buttonView.Hide();
         }
 

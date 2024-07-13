@@ -71,7 +71,7 @@ namespace Sources.Scripts.Controllers.Presenters.Players
             
             try
             {
-                await ChangeScale(currentScale * InventoryTankConst.ScaleIndex, _cancellationTokenSource.Token);
+                await ChangeScale(currentScale * ShopConst.ScaleIndex, _cancellationTokenSource.Token);
                 await ChangeScale(currentScale, _cancellationTokenSource.Token);
             }
             catch (OperationCanceledException)
@@ -81,7 +81,7 @@ namespace Sources.Scripts.Controllers.Presenters.Players
 
         private async UniTask ChangeScale(Vector3 to, CancellationToken token)
         {
-            while (Vector3.Distance(_skinChangerView.CurrentSkinView.CurrentScale, to) > InventoryTankConst.DefaultDistance)
+            while (Vector3.Distance(_skinChangerView.CurrentSkinView.CurrentScale, to) > ShopConst.DefaultDistance)
             {
                 _skinChangerView.CurrentSkinView.SetScale(to);
 

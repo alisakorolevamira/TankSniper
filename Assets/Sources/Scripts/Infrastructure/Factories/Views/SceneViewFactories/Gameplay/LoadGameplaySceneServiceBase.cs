@@ -6,6 +6,7 @@ using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
 using Sources.Scripts.Infrastructure.Factories.Views.Spawners;
+using Sources.Scripts.Infrastructure.Factories.Views.Stickman;
 using Sources.Scripts.Infrastructure.Factories.Views.Weapons;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactories;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
@@ -20,6 +21,7 @@ using Sources.Scripts.Presentations.Views.Gameplay;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.Presentations.Views.RootGameObjects;
 using Sources.Scripts.Presentations.Views.Spawners;
+using Sources.Scripts.Presentations.Views.Stickman;
 
 namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Gameplay
 {
@@ -35,12 +37,13 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
         private readonly VolumeViewFactory _volumeViewFactory;
         private readonly RewardViewFactory _rewardViewFactory;
         private readonly SkinChangerViewFactory _skinChangerViewFactory;
+        private readonly StickmanChangerViewFactory _stickmanChangerViewFactory;
         private readonly LevelAvailabilityViewFactory _levelAvailabilityViewFactory;
         private readonly IGameOverService _gameOverService;
         private readonly ICameraService _cameraService;
         private readonly IVolumeService _volumeService;
         private readonly ISkinChangerService _skinChangerService;
-
+        private readonly IStickmanChangerService _stickmanChangerService;
         private readonly ILevelCompletedService _levelCompletedService;
         //private readonly IAdvertisingService _advertisingService;
 
@@ -55,11 +58,13 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             VolumeViewFactory volumeViewFactory,
             RewardViewFactory rewardViewFactory,
             SkinChangerViewFactory skinChangerViewFactory,
+            StickmanChangerViewFactory stickmanChangerViewFactory,
             LevelAvailabilityViewFactory levelAvailabilityViewFactory,
             IGameOverService gameOverService,
             ICameraService cameraService,
             IVolumeService volumeService,
             ISkinChangerService skinChangerService,
+            IStickmanChangerService stickmanChangerService,
             ILevelCompletedService levelCompletedService)
             //IAdvertisingService advertisingService,
         {
@@ -81,10 +86,14 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             _rewardViewFactory = rewardViewFactory ?? throw new ArgumentNullException(nameof(rewardViewFactory));
             _skinChangerViewFactory = skinChangerViewFactory ??
                                       throw new ArgumentNullException(nameof(skinChangerViewFactory));
+            _stickmanChangerViewFactory = stickmanChangerViewFactory ??
+                                          throw new ArgumentNullException(nameof(stickmanChangerViewFactory));
             _levelAvailabilityViewFactory = levelAvailabilityViewFactory ??
                                             throw new ArgumentNullException(nameof(levelAvailabilityViewFactory));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
             _skinChangerService = skinChangerService ?? throw new ArgumentNullException(nameof(skinChangerService));
+            _stickmanChangerService = stickmanChangerService ??
+                                      throw new ArgumentNullException(nameof(stickmanChangerService));
             _levelCompletedService = levelCompletedService ?? 
                                      throw new ArgumentNullException(nameof(levelCompletedService));
             //_advertisingService = advertisingService ?? throw new ArgumentNullException(nameof(advertisingService));
@@ -127,6 +136,9 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
 
             _skinChangerService.Construct(gameModels.SkinChanger);
             _skinChangerViewFactory.Create(gameModels.SkinChanger, _gameplayRootGameObject.SkinChangerView);
+            
+            _stickmanChangerService.Construct(gameModels.StickmanChanger);
+            _stickmanChangerViewFactory.Create(gameModels.StickmanChanger, _gameplayRootGameObject.StickmanChangerView);
             
             _levelAvailabilityViewFactory.Create(gameModels.LevelAvailability, _gameplayHud.LevelAvailabilityView);
         }

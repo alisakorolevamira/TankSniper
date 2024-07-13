@@ -3,6 +3,7 @@ using Sources.Scripts.Presentations.Views.Cameras;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.Presentations.Views.Players.Skins;
 using Sources.Scripts.Presentations.Views.Spawners;
+using Sources.Scripts.Presentations.Views.Stickman;
 using Sources.Scripts.Presentations.Views.Weapons;
 using UnityEngine;
 
@@ -21,6 +22,7 @@ namespace Sources.Scripts.Presentations.Views.RootGameObjects
         [SerializeField] private PlayerView _playerView;
         [SerializeField] private WeaponView _weaponView;
         [SerializeField] private SkinChangerView _skinChangerView;
+        [SerializeField] private StickmanChangerView _stickmanChangerView;
 
         public IReadOnlyList<CameraPositionView> CameraPositions => _cameraPositions;
         public IReadOnlyList<Transform> EnemyMovementPoints => _enemyMovementPoints;
@@ -28,5 +30,6 @@ namespace Sources.Scripts.Presentations.Views.RootGameObjects
         public WeaponView WeaponView => _weaponView;
         public EnemySpawnerView EnemySpawnerView => _enemySpawnerView;
         public SkinChangerView SkinChangerView => _skinChangerView;
+        public StickmanChangerView StickmanChangerView => _stickmanChangerView;
     }
 }

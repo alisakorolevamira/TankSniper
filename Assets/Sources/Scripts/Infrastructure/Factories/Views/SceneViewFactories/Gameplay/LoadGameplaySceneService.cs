@@ -6,6 +6,7 @@ using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
 using Sources.Scripts.Domain.Models.Spawners;
+using Sources.Scripts.Domain.Models.Stickman;
 using Sources.Scripts.Domain.Models.Upgrades;
 using Sources.Scripts.Domain.Models.Weapons;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
@@ -14,6 +15,7 @@ using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
 using Sources.Scripts.Infrastructure.Factories.Views.Spawners;
+using Sources.Scripts.Infrastructure.Factories.Views.Stickman;
 using Sources.Scripts.Infrastructure.Factories.Views.Weapons;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.InfrastructureInterfaces.Services.Cameras;
@@ -44,12 +46,14 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             VolumeViewFactory volumeViewFactory,
             RewardViewFactory rewardViewFactory,
             SkinChangerViewFactory skinChangerViewFactory,
+            StickmanChangerViewFactory stickmanChangerViewFactory,
             LevelAvailabilityViewFactory levelAvailabilityViewFactory,
             ILoadService loadService, 
             IGameOverService gameOverService, 
             ICameraService cameraService, 
             IVolumeService volumeService,
             ISkinChangerService skinChangerService,
+            IStickmanChangerService stickmanChangerService,
             ILevelCompletedService levelCompletedService)
             //IAdvertisingService advertisingService,
             : base(
@@ -63,11 +67,13 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 volumeViewFactory,
                 rewardViewFactory,
                 skinChangerViewFactory,
+                stickmanChangerViewFactory,
                 levelAvailabilityViewFactory,
                 gameOverService, 
                 cameraService, 
                 volumeService,
                 skinChangerService,
+                stickmanChangerService,
                 levelCompletedService)
                 //advertisingService,
         {
@@ -93,6 +99,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             Upgrader upgrader = _entityRepository.Get<Upgrader>(ModelId.Upgrader);
 
             SkinChanger skinChanger = _entityRepository.Get<SkinChanger>(ModelId.SkinChanger);
+
+            StickmanChanger stickmanChanger = _entityRepository.Get<StickmanChanger>(ModelId.StickmanChanger);
             
             KilledEnemiesCounter killedEnemiesCounter = new KilledEnemiesCounter();
 
@@ -120,6 +128,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 enemySpawner,
                 upgrader,
                 skinChanger,
+                stickmanChanger,
                 levelAvailability,
                 savedLevel);
         }

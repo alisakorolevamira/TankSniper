@@ -2,6 +2,7 @@
 using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Settings;
 using Sources.Scripts.Domain.Models.Spawners;
+using Sources.Scripts.Domain.Models.Stickman;
 using Sources.Scripts.Domain.Models.Upgrades;
 
 namespace Sources.Scripts.Domain.Models.Gameplay
@@ -20,6 +21,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             EnemySpawner enemySpawner,
             Upgrader upgrader,
             SkinChanger skinChanger,
+            StickmanChanger stickmanChanger,
             LevelAvailability levelAvailability,
             SavedLevel savedLevel)
         {
@@ -33,6 +35,7 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             EnemySpawner = enemySpawner;
             SavedLevel = savedLevel;
             SkinChanger = skinChanger;
+            StickmanChanger = stickmanChanger;
             Upgrader = upgrader;
             LevelAvailability = levelAvailability;
             MainMenu = mainMenu;
@@ -51,5 +54,6 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         public SkinChanger SkinChanger { get; }
         public LevelAvailability LevelAvailability { get; }
         public MainMenuAppearance MainMenu { get; }
+        public StickmanChanger StickmanChanger { get; }
     }
 }

@@ -34,6 +34,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
         private readonly CreateGameplaySceneService _createGameplaySceneService;
         private readonly ILevelCompletedService _levelCompletedService;
         private readonly ISkinChangerService _skinChangerService;
+        private readonly IStickmanChangerService _stickmanChangerService;
         private readonly List<ITankEnemyView> _enemiesViews;
         private readonly IAudioService _audioService;
         private readonly IFocusService _focusService;
@@ -52,6 +53,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             CreateGameplaySceneService createGameplaySceneService,
             ILevelCompletedService levelCompletedService,
             ISkinChangerService skinChangerService,
+            IStickmanChangerService stickmanChangerService,
             List<ITankEnemyView> enemiesViews,
             LoadingCurtainView curtainView,
             IAudioService audioService,
@@ -72,6 +74,8 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             _levelCompletedService = levelCompletedService ?? 
                                      throw new ArgumentNullException(nameof(levelCompletedService));
             _skinChangerService = skinChangerService ?? throw new ArgumentNullException(nameof(skinChangerService));
+            _stickmanChangerService = stickmanChangerService ??
+                                      throw new ArgumentNullException(nameof(stickmanChangerService));
             _enemiesViews = enemiesViews ?? throw new ArgumentNullException(nameof(enemiesViews));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
@@ -95,6 +99,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
                 _audioService,
                 _focusService,
                 _skinChangerService,
+                _stickmanChangerService,
                 _formSignalController,
                 _buttonSignalController,
                 _curtainView);

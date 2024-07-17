@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.66621685, g: 0.8827709, b: 0.8857476, a: 1}
+  m_IndirectSpecularColor: {r: 0.66620904, g: 0.8827703, b: 0.88574874, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8163,6 +8163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletSpawnPoint: {fileID: 453956925}
+  _weaponType: 0
 --- !u!4 &1971953506
 Transform:
   m_ObjectHideFlags: 0
@@ -9281,6 +9282,14 @@ PrefabInstance:
     - target: {fileID: 3166292212194695059, guid: 9412f965ded53204790345861d7cb3f2, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000348129759907551, guid: 9412f965ded53204790345861d7cb3f2, type: 3}
+      propertyPath: Id.Name
+      value: Shoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000348129759907551, guid: 9412f965ded53204790345861d7cb3f2, type: 3}
+      propertyPath: Id.Category
+      value: Gameplay
       objectReference: {fileID: 0}
     - target: {fileID: 4117504240759469341, guid: 9412f965ded53204790345861d7cb3f2, type: 3}
       propertyPath: m_AnchorMax.y

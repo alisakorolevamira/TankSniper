@@ -150,7 +150,7 @@ MonoBehaviour:
   maxPieceToParentDistance: 1
   addRbToDetachedPieces: 1
   attachChildrenToPieces: 1
-  maxChildToPieceDistance: 0.8
+  maxChildToPieceDistance: 0.5
   addRbToDetachedChildren: 1
 --- !u!114 &1810292580812988986
 MonoBehaviour:
@@ -261,7 +261,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 500
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c552b9cad7195cc43b9cf0b1d8fb881e, type: 2}
   m_sharedMaterial: {fileID: 7282093256618782674, guid: c552b9cad7195cc43b9cf0b1d8fb881e, type: 2}
@@ -369,12 +369,12 @@ GameObject:
   - component: {fileID: 1365557265592155925}
   - component: {fileID: 1549627455609792560}
   - component: {fileID: 8367440908593199079}
-  - component: {fileID: 4798668176425006241}
-  - component: {fileID: 5078712833480917590}
-  - component: {fileID: 8454660409129241173}
-  - component: {fileID: 9206865953977365802}
-  - component: {fileID: 8706536652448089526}
   - component: {fileID: 7793436371866416770}
+  - component: {fileID: -2248862487603248715}
+  - component: {fileID: -7129365116037314756}
+  - component: {fileID: 2412705511880614174}
+  - component: {fileID: -5752920696042591516}
+  - component: {fileID: 4219917884205415232}
   m_Layer: 0
   m_Name: TankEnemyView
   m_TagString: Untagged
@@ -483,7 +483,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!33 &4798668176425006241
+--- !u!114 &7793436371866416770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3414925319192649251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e91c045298145fea8e21f88215cc74f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!33 &-2248862487603248715
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -491,7 +503,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3414925319192649251}
   m_Mesh: {fileID: 2959467708922500008, guid: 5a66bf954173dfb4f85911ebfd402246, type: 3}
---- !u!114 &5078712833480917590
+--- !u!114 &-7129365116037314756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -510,7 +522,35 @@ MonoBehaviour:
   sendPreSplitMessage: 1
   sendPostSplitMessage: 1
   internalHullType: 0
---- !u!114 &8454660409129241173
+--- !u!114 &2412705511880614174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3414925319192649251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ceaafd4a0e046ca9489b463b31d416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startAtGeneration: 2
+  timeDelay: 5
+  whenOutOfViewOnly: 0
+--- !u!114 &-5752920696042591516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3414925319192649251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ffc51ee67eb749739cd646e30301d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scale: {x: 1, y: 1}
+--- !u!114 &4219917884205415232
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -528,46 +568,6 @@ MonoBehaviour:
   attachChildrenToPieces: 1
   maxChildToPieceDistance: 0.8
   addRbToDetachedChildren: 1
---- !u!114 &9206865953977365802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3414925319192649251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ffc51ee67eb749739cd646e30301d94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scale: {x: 1, y: 1}
---- !u!114 &8706536652448089526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3414925319192649251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ceaafd4a0e046ca9489b463b31d416, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startAtGeneration: 2
-  timeDelay: 3
-  whenOutOfViewOnly: 0
---- !u!114 &7793436371866416770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3414925319192649251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e91c045298145fea8e21f88215cc74f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4018126567908276222
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,7 +595,7 @@ Transform:
   m_GameObject: {fileID: 4018126567908276222}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.8, z: 0.36400002}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0.627}
   m_LocalScale: {x: 0.020000003, y: 0.020000001, z: 0.020000001}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -685,8 +685,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0.5
+      scalar: 0.5
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -720,7 +720,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 50
+      scalar: 25
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -820,8 +820,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 5
-      minScalar: 1
+      scalar: 3
+      minScalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1083,7 +1083,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 500
+    maxNumParticles: 100
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -1459,7 +1459,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 50
+        scalar: 30
         minScalar: 50
         maxCurve:
           serializedVersion: 2
@@ -5531,8 +5531,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 3
-      minScalar: 1
+      scalar: 1
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5666,8 +5666,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 3
-      minScalar: 1
+      scalar: 1.5
+      minScalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10232,7 +10232,7 @@ MonoBehaviour:
   maxPieceToParentDistance: 1
   addRbToDetachedPieces: 1
   attachChildrenToPieces: 1
-  maxChildToPieceDistance: 0.8
+  maxChildToPieceDistance: 0.5
   addRbToDetachedChildren: 1
 --- !u!114 &1243299440097361477
 MonoBehaviour:

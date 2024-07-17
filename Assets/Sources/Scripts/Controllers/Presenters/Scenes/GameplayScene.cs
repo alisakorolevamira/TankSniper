@@ -32,6 +32,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         private readonly IAudioService _audioService;
         private readonly IFocusService _focusService;
         private readonly ISkinChangerService _skinChangerService;
+        private readonly IStickmanChangerService _stickmanChangerService;
         private readonly IButtonSignalController _buttonSignalController;
         private readonly IFormSignalController _formSignalController;
         //private readonly IAdvertisingService _advertisingService;
@@ -49,6 +50,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             IAudioService audioService,
             IFocusService focusService,
             ISkinChangerService skinChangerService,
+            IStickmanChangerService stickmanChangerService,
             IFormSignalController formSignalController,
             IButtonSignalController buttonSignalController,
             //IAdvertisingService advertisingService)
@@ -59,6 +61,8 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _cameraService = cameraService ?? throw new ArgumentNullException(nameof(cameraService));
             _skinChangerService = skinChangerService ??
                                    throw new ArgumentNullException(nameof(skinChangerService));
+            _stickmanChangerService = stickmanChangerService ??
+                                      throw new ArgumentNullException(nameof(stickmanChangerService));
             _loadSceneService = loadSceneService ?? throw new ArgumentNullException(nameof(loadSceneService));
             _gameOverService = gameOverService ?? throw new ArgumentNullException(nameof(gameOverService));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
@@ -84,6 +88,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _gameOverService.Enter();
             _levelCompletedService.Enable();
             _skinChangerService.Enable();
+            _stickmanChangerService.Enable();
             _buttonSignalController.Initialize();
             _formSignalController.Initialize();
             _audioService.Enter();

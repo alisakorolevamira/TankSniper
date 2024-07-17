@@ -2,6 +2,7 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sources.Scripts.Domain.Models.Constants;
+using Sources.Scripts.Infrastructure.Services.InputServices;
 using Sources.Scripts.Infrastructure.Services.ObjectPool;
 using Sources.Scripts.InfrastructureInterfaces.Services.ObjectPool;
 using Sources.Scripts.PresentationsInterfaces.Views.Bullets;
@@ -11,47 +12,45 @@ using UnityEngine;
 
 namespace Sources.Scripts.Presentations.Views.Bullets
 {
-    public class BulletView : View, IBulletView
+    public class DronBulletView : View, IBulletView
     {
         [SerializeField] private ParticleSystem _onDestroyEffect;
+        [SerializeField] private Rigidbody _rigidbody;
 
         private IPoolableObjectDestroyerService _poolableObjectDestroyerService = 
             new PoolableObjectDestroyerService();
         
         private IWeaponView _weaponView;
         private bool _isDisposed;
+        private CancellationTokenSource _cancellationTokenSource;
+        private GameplayInputService _inputService;
+        private float _horizontal;
+        private float _vertical;
         private float _distance = Mathf.Infinity;
         private readonly TimeSpan _delay = TimeSpan.FromMilliseconds(BulletConst.Delay);
-
+        
         public void Construct(IWeaponView weaponView) =>
             _weaponView = weaponView ?? throw new ArgumentNullException(nameof(weaponView));
-
+        
         public void Move(Vector3 direction)
         {
-            Ray ray = new Ray(transform.position, direction);
+            _cancellationTokenSource = new CancellationTokenSource();
 
-            if (Physics.Raycast(ray, out RaycastHit hit, _distance))
-            {
-                Vector3 endPoint = hit.point;
-
-                ChangePosition(endPoint);
-            }
+            ChangePosition(_cancellationTokenSource.Token);
+            
+            _cancellationTokenSource.Cancel();
         }
 
-        private async void ChangePosition(Vector3 endPoint)
+        private async void ChangePosition(CancellationToken token)
         {
-            float step =  BulletConst.Step * Time.deltaTime;
-            
             try
             {
-                while (Vector3.Distance(transform.position, endPoint) > BulletConst.MinDistance)
+                while (_isDisposed == false)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, endPoint, step);
+                    _rigidbody.velocity = transform.forward * 10;
 
-                    await UniTask.Delay(_delay);
+                    await UniTask.Delay(_delay, cancellationToken: token);
                 }
-                
-                SpawnEffectOnDestroy();
             }
             catch (OperationCanceledException)
             {

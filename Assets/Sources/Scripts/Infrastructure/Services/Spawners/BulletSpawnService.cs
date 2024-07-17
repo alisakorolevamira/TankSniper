@@ -1,4 +1,5 @@
 ﻿using System;
+using Sources.Scripts.Domain.Models.Weapons;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.Bullets;
 using Sources.Scripts.InfrastructureInterfaces.Services.ObjectPool.Generic;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
@@ -35,12 +36,16 @@ namespace Sources.Scripts.Infrastructure.Services.Spawners
 
         private IBulletView SpawnFromPool(IWeaponView weaponView)
         {
-            BulletView bulletView = _objectPool.Get<BulletView>();
+            if (weaponView.WeaponType == WeaponType.Tank)
+            {
+                BulletView view = _objectPool.Get<BulletView>();
 
-            if (bulletView == null)
-                return null;
-            
-            return _bulletViewFactory.Create(bulletView, weaponView);
+                return view == null ? null : _bulletViewFactory.CreateTankBullet(view, weaponView);
+            }
+
+            DronBulletView bulletView = _objectPool.Get<DronBulletView>();
+
+            return bulletView == null ? null : _bulletViewFactory.CreateDronBullet(bulletView, weaponView);
         }
     }
 }

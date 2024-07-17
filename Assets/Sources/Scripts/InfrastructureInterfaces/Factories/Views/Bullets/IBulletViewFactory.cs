@@ -7,6 +7,7 @@ namespace Sources.Scripts.InfrastructureInterfaces.Factories.Views.Bullets
     public interface IBulletViewFactory
     {
         IBulletView Create(IWeaponView weaponView);
-        IBulletView Create(BulletView bulletView, IWeaponView weaponView);
+        IBulletView CreateTankBullet(BulletView bulletView, IWeaponView weaponView);
+        IBulletView CreateDronBullet(DronBulletView bulletView, IWeaponView weaponView);
     }
 }

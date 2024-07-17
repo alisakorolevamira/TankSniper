@@ -1,5 +1,7 @@
 ﻿using System;
 using Sources.Scripts.Domain.Models.Constants;
+using Sources.Scripts.Domain.Models.Weapons;
+using Sources.Scripts.Infrastructure.Services.InputServices;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.Bullets;
 using Sources.Scripts.InfrastructureInterfaces.Services.ObjectPool.Generic;
 using Sources.Scripts.Presentations.Views.Bullets;
@@ -23,12 +25,25 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Bullets
 
         public IBulletView Create(IWeaponView weaponView)
         {
-            BulletView bulletView = CreateView();
+            if (weaponView.WeaponType == WeaponType.Dron)
+            {
+                DronBulletView view = CreateDronView();
+                return CreateDronBullet(view, weaponView);
+            }
 
-            return Create(bulletView, weaponView);
+            BulletView bulletView = CreateTankView();
+            return CreateTankBullet(bulletView, weaponView);
         }
 
-        public IBulletView Create(BulletView bulletView, IWeaponView weaponView)
+        public IBulletView CreateTankBullet(BulletView bulletView, IWeaponView weaponView)
+        {
+            bulletView.Construct(weaponView);
+            bulletView.SetParent(null);
+            
+            return bulletView;
+        }
+        
+        public IBulletView CreateDronBullet(DronBulletView bulletView, IWeaponView weaponView)
         {
             bulletView.Construct(weaponView);
             bulletView.SetParent(null);
@@ -36,10 +51,22 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Bullets
             return bulletView;
         }
 
-        private BulletView CreateView()
+        private BulletView CreateTankView()
         {
             BulletView bulletView = Object.Instantiate(
-                Resources.Load<BulletView>(PrefabPath.Bullet));
+                Resources.Load<BulletView>(PrefabPath.TankBullet));
+
+            bulletView
+                .AddComponent<PoolableObject>()
+                .SetPool(_objectPool);
+
+            return bulletView;
+        }
+        
+        private DronBulletView CreateDronView()
+        {
+            DronBulletView bulletView = Object.Instantiate(
+                Resources.Load<DronBulletView>(PrefabPath.DronBullet));
 
             bulletView
                 .AddComponent<PoolableObject>()

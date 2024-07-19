@@ -10,5 +10,8 @@
         Pumpkin = 5,
         Ghost = 6,
         Clansman = 7,
+        Prisoner = 8,
+        Boxer = 9,
+        Police = 10
     }
 }

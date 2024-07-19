@@ -17,9 +17,7 @@ namespace Sources.Scripts.Presentations.Views.Cameras
             transform.position = Vector3.MoveTowards(transform.position, position, step);
         }
 
-        public void SetRotation(Vector3 rotation)
-        {
+        public void SetRotation(Vector3 rotation) => 
             transform.eulerAngles = rotation;
-        }
     }
 }

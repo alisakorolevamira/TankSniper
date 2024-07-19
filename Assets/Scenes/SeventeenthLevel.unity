@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.66988647, g: 0.52395535, b: 0.53324133, a: 1}
+  m_IndirectSpecularColor: {r: 0.66988456, g: 0.5239552, b: 0.53324145, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3443,6 +3443,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1952904256428459587, guid: 9412f965ded53204790345861d7cb3f2, type: 3}
+      propertyPath: _weaponType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1952904256428459587, guid: 9412f965ded53204790345861d7cb3f2, type: 3}
+      propertyPath: _bulletSpawnPoint
+      value: 
+      objectReference: {fileID: 1569217238}
     - target: {fileID: 2012196125331757049, guid: 9412f965ded53204790345861d7cb3f2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4664,7 +4672,7 @@ MonoBehaviour:
   - {fileID: 0}
   _enemySpawnerView: {fileID: 675894737}
   _playerView: {fileID: 801170380}
-  _weaponView: {fileID: 1532434022}
+  _weaponView: {fileID: 0}
   _skinChangerView: {fileID: 1768814225}
   _stickmanChangerView: {fileID: 68457932}
 --- !u!4 &730177469
@@ -4687,7 +4695,6 @@ Transform:
   - {fileID: 1935674198}
   - {fileID: 716888100}
   - {fileID: 2019885282}
-  - {fileID: 1532434023}
   - {fileID: 774435407}
   - {fileID: 2125578607}
   m_Father: {fileID: 0}
@@ -4902,7 +4909,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerHealthView: {fileID: 1612479828}
   _playerAttackerView: {fileID: 685162919}
-  _level: 0
 --- !u!4 &801170381
 Transform:
   m_ObjectHideFlags: 0
@@ -7236,51 +7242,6 @@ Transform:
   - {fileID: 115793739}
   - {fileID: 1897170187}
   - {fileID: 1776933092}
-  m_Father: {fileID: 730177469}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1532434021
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1532434023}
-  - component: {fileID: 1532434022}
-  m_Layer: 0
-  m_Name: WeaponView
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1532434022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1532434021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d34c51d1c0743988593ca68b61f477d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bulletSpawnPoint: {fileID: 1569217238}
---- !u!4 &1532434023
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1532434021}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
   m_Father: {fileID: 730177469}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1533205201

@@ -278,6 +278,7 @@ MonoBehaviour:
   - {fileID: 3947562109317681650}
   - {fileID: 2126348101940494754}
   _lightningAim: {fileID: 6043629362218689430}
+  _weaponView: {fileID: 1952904256428459587}
 --- !u!223 &2631462265706517606
 Canvas:
   m_ObjectHideFlags: 0
@@ -5046,8 +5047,8 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 3302370558662488710}
     Selectable: {fileID: 2609406309843542580}
-  Cooldown: 2
-  DisableWhenInCooldown: 0
+  Cooldown: 5
+  DisableWhenInCooldown: 1
   Id:
     Category: Gameplay
     Name: Aim
@@ -10352,8 +10353,8 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 7138631367191707132}
     Selectable: {fileID: 4517258668539207460}
-  Cooldown: 2
-  DisableWhenInCooldown: 0
+  Cooldown: 5
+  DisableWhenInCooldown: 1
   Id:
     Category: Gameplay
     Name: Aim
@@ -12175,6 +12176,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _killedEnemiesUIText: {fileID: 1024623234724354432}
+--- !u!1 &8406185300656963755
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6489724762806792957}
+  - component: {fileID: 1952904256428459587}
+  m_Layer: 0
+  m_Name: WeaponView
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6489724762806792957
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406185300656963755}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -540, y: -960, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 952391333408210188}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1952904256428459587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406185300656963755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d34c51d1c0743988593ca68b61f477d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletSpawnPoint: {fileID: 0}
+  _weaponType: 0
 --- !u!1 &8567093350134014672
 GameObject:
   m_ObjectHideFlags: 0
@@ -13167,6 +13214,7 @@ RectTransform:
   - {fileID: 1747880668861287979}
   - {fileID: 1561902267826380097}
   - {fileID: 3850573152718652770}
+  - {fileID: 6489724762806792957}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.66988647, g: 0.52395535, b: 0.53324133, a: 1}
+  m_IndirectSpecularColor: {r: 0.66988456, g: 0.5239552, b: 0.53324145, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -436,7 +436,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerHealthView: {fileID: 1670593084}
   _playerAttackerView: {fileID: 629266110}
-  _level: 0
 --- !u!1 &96021233
 GameObject:
   m_ObjectHideFlags: 0
@@ -4117,51 +4116,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 914328976}
   m_Mesh: {fileID: -5411057813236041312, guid: a0c6986c657f9e347b3e2269e88595e2, type: 3}
---- !u!1 &1023590683
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1023590684}
-  - component: {fileID: 1023590685}
-  m_Layer: 0
-  m_Name: WeaponView
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1023590684
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1023590683}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1899470149}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1023590685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1023590683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d34c51d1c0743988593ca68b61f477d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bulletSpawnPoint: {fileID: 1682755529}
 --- !u!1001 &1027108532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8432,6 +8386,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1952904256428459587, guid: 9412f965ded53204790345861d7cb3f2, type: 3}
+      propertyPath: _weaponType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1952904256428459587, guid: 9412f965ded53204790345861d7cb3f2, type: 3}
+      propertyPath: _bulletSpawnPoint
+      value: 
+      objectReference: {fileID: 1682755529}
     - target: {fileID: 2012196125331757049, guid: 9412f965ded53204790345861d7cb3f2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -9123,6 +9085,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d9f298131d4fc99fa19d27720b2020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1857162777 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1952904256428459587, guid: 9412f965ded53204790345861d7cb3f2, type: 3}
+  m_PrefabInstance: {fileID: 1857162774}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d34c51d1c0743988593ca68b61f477d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1899470148
 GameObject:
   m_ObjectHideFlags: 0
@@ -9161,7 +9134,6 @@ Transform:
   - {fileID: 41034427}
   - {fileID: 1188588600}
   - {fileID: 599286736}
-  - {fileID: 1023590684}
   - {fileID: 901906845}
   - {fileID: 640315126}
   - {fileID: 1584344893}
@@ -9187,7 +9159,7 @@ MonoBehaviour:
   - {fileID: 1180579019}
   _enemySpawnerView: {fileID: 198774978}
   _playerView: {fileID: 85571715}
-  _weaponView: {fileID: 1023590685}
+  _weaponView: {fileID: 1857162777}
   _skinChangerView: {fileID: 816555757}
   _stickmanChangerView: {fileID: 1624670452}
 --- !u!1 &1910266264

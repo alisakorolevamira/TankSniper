@@ -4,12 +4,14 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using Doozy.Runtime.Signals;
 using Sources.Scripts.Domain.Models.Constants;
+using Sources.Scripts.Domain.Models.Weapons;
 using Sources.Scripts.InfrastructureInterfaces.Services.InputServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
 using Sources.Scripts.InfrastructureInterfaces.Services.Players;
 using Sources.Scripts.PresentationsInterfaces.Views.Bullets;
 using Sources.Scripts.PresentationsInterfaces.Views.Lightnings;
 using Sources.Scripts.PresentationsInterfaces.Views.Players;
+using UnityEngine;
 
 namespace Sources.Scripts.Controllers.Presenters.Players
 {
@@ -51,12 +53,18 @@ namespace Sources.Scripts.Controllers.Presenters.Players
 
         private void OnAttackInputReceived()
         {
+            if (_uiAttackerView.WeaponView.WeaponType == WeaponType.Dron)
+            {
+                Signal.Send(StreamId.Gameplay.ReturnToHud);
+                return;
+            }
+            
             IBulletUIView bulletUI = _uiAttackerView.BulletViews.First(x => x.IsShowed);
             bulletUI.Hide();
 
             ILightningView lightningView = _uiAttackerView.LightningViews.FirstOrDefault(x => x.IsShowed == false);
             lightningView?.Show();
-
+            
             _amountOfShoots++;
 
             CheckLightnings();
@@ -80,7 +88,7 @@ namespace Sources.Scripts.Controllers.Presenters.Players
                         lightningView.Hide();
                     
                     await UniTask.Delay(_delay, cancellationToken: _cancellationTokenSource.Token, ignoreTimeScale: true);
-
+                    
                     _amountOfShoots = AttackConst.DefaultShoots;
 
                     foreach (IBulletUIView bulletView in _uiAttackerView.BulletViews)
@@ -107,7 +115,10 @@ namespace Sources.Scripts.Controllers.Presenters.Players
 
         private void CheckLightnings()
         {
-            if(_amountOfShoots == AttackConst.MaxLightnings)
+            if (_uiAttackerView.WeaponView.WeaponType == WeaponType.Dron)
+                return;
+            
+            if (_amountOfShoots == AttackConst.MaxLightnings)
                 _uiAttackerView.LightningAim.ShowImage();
 
             else

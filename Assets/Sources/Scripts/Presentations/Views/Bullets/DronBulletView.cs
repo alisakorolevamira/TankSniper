@@ -31,25 +31,41 @@ namespace Sources.Scripts.Presentations.Views.Bullets
         
         public void Construct(IWeaponView weaponView) =>
             _weaponView = weaponView ?? throw new ArgumentNullException(nameof(weaponView));
+
+        public void SetInput(GameplayInputService inputService)
+        {
+            _inputService = inputService;
+            _inputService.RotationInputReceived += Rotate;
+        }
+
+        private void Rotate(Vector2 delta)
+        {
+            _vertical -= 2 * delta.y * Time.deltaTime;
+            _horizontal += 2 * delta.x * Time.deltaTime;
+            
+            _vertical = Mathf.Clamp(_vertical, CameraConst.MinVerticalAngle, CameraConst.MaxVerticalAngle);
+            _horizontal = Mathf.Clamp(_horizontal, CameraConst.MinHorizontalAngle, CameraConst.MaxHorizontalAngle);
+
+            Vector3 rotation = new Vector3(_vertical, _horizontal, 0);
+            
+            SetRotation(rotation);
+        }
         
         public void Move(Vector3 direction)
         {
-            _cancellationTokenSource = new CancellationTokenSource();
-
-            ChangePosition(_cancellationTokenSource.Token);
-            
-            _cancellationTokenSource.Cancel();
+            ChangePosition();
         }
 
-        private async void ChangePosition(CancellationToken token)
+        private async void ChangePosition()
         {
             try
             {
                 while (_isDisposed == false)
                 {
-                    _rigidbody.velocity = transform.forward * 10;
+                    var forward = transform.forward;
+                    _rigidbody.velocity = new Vector3(forward.x, forward.y, forward.z) * 3.5f;
 
-                    await UniTask.Delay(_delay, cancellationToken: token);
+                    await UniTask.Delay(_delay);
                 }
             }
             catch (OperationCanceledException)
@@ -76,6 +92,7 @@ namespace Sources.Scripts.Presentations.Views.Bullets
         
         private void SpawnEffectOnDestroy()
         {
+            _inputService.RotationInputReceived -= Rotate;
             ParticleSystem effect = Instantiate(_onDestroyEffect, transform.position, Quaternion.identity);
             effect.Play();
             Destroy(effect.gameObject, BulletConst.EffectDelay);

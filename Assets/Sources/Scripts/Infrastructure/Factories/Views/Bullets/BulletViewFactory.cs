@@ -17,10 +17,12 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Bullets
     public class BulletViewFactory : IBulletViewFactory
     {
         private readonly IObjectPool<BulletView> _objectPool;
+        private readonly GameplayInputService _inputService;
 
-        public BulletViewFactory(IObjectPool<BulletView> objectPool)
+        public BulletViewFactory(IObjectPool<BulletView> objectPool, GameplayInputService inputService)
         {
             _objectPool = objectPool ?? throw new ArgumentNullException(nameof(objectPool));
+            _inputService = inputService ?? throw new ArgumentNullException(nameof(inputService));
         }
 
         public IBulletView Create(IWeaponView weaponView)
@@ -47,6 +49,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Bullets
         {
             bulletView.Construct(weaponView);
             bulletView.SetParent(null);
+            bulletView.SetInput(_inputService);
             
             return bulletView;
         }

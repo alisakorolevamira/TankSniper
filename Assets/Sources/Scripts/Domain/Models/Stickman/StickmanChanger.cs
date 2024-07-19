@@ -13,10 +13,12 @@ namespace Sources.Scripts.Domain.Models.Stickman
         {
             Id = id;
             CurrentStickman = StickmanType.Default;
+            Level = 0;
         }
 
         public StickmanType CurrentStickman { get; private set; }
         public string Id { get; }
+        public int Level { get; private set; }
         
         public event Action CurrentStickmanChanged;
         
@@ -24,6 +26,7 @@ namespace Sources.Scripts.Domain.Models.Stickman
         {
             _data.Id = Id;
             _data.CurrentStickmanType = CurrentStickman;
+            _data.Level = Level;
             
             _data.Save(Id);
         }
@@ -32,12 +35,21 @@ namespace Sources.Scripts.Domain.Models.Stickman
         {
             _data = _data.Load(Id);
             CurrentStickman = _data.CurrentStickmanType;
+            Level = _data.Level;
         }
 
         public void ChangeStickman(StickmanType stickmanType)
         {
             CurrentStickman = stickmanType;
             CurrentStickmanChanged?.Invoke();
+        }
+
+        public void EnableNewStickman()
+        {
+            Level++;
+            StickmanType stickmanType = (StickmanType)Level;
+            
+            ChangeStickman(stickmanType);
         }
     }
 }

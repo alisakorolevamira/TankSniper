@@ -32,6 +32,7 @@ namespace Sources.Scripts.Infrastructure.Services.InputServices
         {
             _inputMap = new InputMap();
             _cancellationTokenSource = new CancellationTokenSource();
+            _isAimButtonAvailable = true;
         
             _inputMap.Enable();
 

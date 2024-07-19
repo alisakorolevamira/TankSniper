@@ -12,6 +12,9 @@ namespace Sources.Scripts.Domain.Models.Data
         [JsonProperty("id")]
         public string Id { get; set; }
         
+        [JsonProperty("level")]
+        public int Level { get; set; }
+        
         [JsonConverter(typeof(StringEnumConverter))]
         public StickmanType CurrentStickmanType { get; set; }
         

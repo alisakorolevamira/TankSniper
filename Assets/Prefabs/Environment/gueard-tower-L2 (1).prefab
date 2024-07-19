@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8615786270829296739}
   - component: {fileID: 8747649595398019870}
   - component: {fileID: 941079370920582187}
-  - component: {fileID: 4706362237919841516}
+  - component: {fileID: -7823494434236572582}
   m_Layer: 0
   m_Name: gueard-tower-L2 (1)
   m_TagString: Untagged
@@ -118,7 +118,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6796213957577617327}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 4
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -171,7 +171,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.028967544, y: 0.031652294, z: 0.033166308}
   m_Center: {x: 0.0012961734, y: -0.0012260169, z: 0.016160404}
---- !u!114 &4706362237919841516
+--- !u!114 &-7823494434236572582
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

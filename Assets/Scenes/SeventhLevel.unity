@@ -532,7 +532,7 @@ MonoBehaviour:
   - {fileID: 0}
   _enemySpawnerView: {fileID: 541964468}
   _playerView: {fileID: 1623963638}
-  _weaponView: {fileID: 0}
+  _weaponView: {fileID: 807927804}
   _skinChangerView: {fileID: 720912588}
   _stickmanChangerView: {fileID: 356267121}
 --- !u!4 &87035210
@@ -3856,6 +3856,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54d9f298131d4fc99fa19d27720b2020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &807927804 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1952904256428459587, guid: 9412f965ded53204790345861d7cb3f2, type: 3}
+  m_PrefabInstance: {fileID: 807927801}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d34c51d1c0743988593ca68b61f477d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &809210689

@@ -21,6 +21,8 @@ namespace Sources.Scripts.Infrastructure.Services.Shop
             _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
         }
 
+        public event Action<int> StickmanOpened;
+
         public void Enable() =>
             ShowStickmanForDron();
 
@@ -29,6 +31,17 @@ namespace Sources.Scripts.Infrastructure.Services.Shop
         
         public void ChangeStickman(StickmanType stickmanType) => 
             _stickmanChanger.ChangeStickman(stickmanType);
+
+        public void OpenNewStickman()
+        {
+            int newLevel = _stickmanChanger.Level + 1;
+
+            if (newLevel <= 10)
+            {
+                StickmanOpened?.Invoke(newLevel);
+                _stickmanChanger.EnableNewStickman();
+            }
+        }
 
         private void ShowStickmanForDron()
         {

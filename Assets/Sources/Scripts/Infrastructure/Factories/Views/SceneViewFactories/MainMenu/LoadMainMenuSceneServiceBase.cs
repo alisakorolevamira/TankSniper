@@ -1,5 +1,4 @@
 ﻿using System;
-using JetBrains.Annotations;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
@@ -127,7 +126,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             
             _stickmanChangerService.Construct(models.StickmanChanger);
 
-            _shopViewFactory.Create(_mainMenuHud.ShopView, models.Upgrader, models.Shop);
+            _shopViewFactory.Create(_mainMenuHud.ShopView, models.Upgrader, models.StickmanChanger, models.Shop);
 
             _mainMenuViewFactory.Create(_mainMenuHud.MainMenuView, models.MainMenuAppearance);
 

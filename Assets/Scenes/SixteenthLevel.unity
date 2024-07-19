@@ -3965,6 +3965,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d9f298131d4fc99fa19d27720b2020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &757225329 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1952904256428459587, guid: 9412f965ded53204790345861d7cb3f2, type: 3}
+  m_PrefabInstance: {fileID: 757225326}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d34c51d1c0743988593ca68b61f477d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &778747945
 GameObject:
   m_ObjectHideFlags: 0
@@ -10077,7 +10088,7 @@ MonoBehaviour:
   - {fileID: 883019736}
   _enemySpawnerView: {fileID: 1183426487}
   _playerView: {fileID: 92971405}
-  _weaponView: {fileID: 0}
+  _weaponView: {fileID: 757225329}
   _skinChangerView: {fileID: 971512156}
   _stickmanChangerView: {fileID: 2030837543}
 --- !u!1 &2009926651

@@ -6,5 +6,6 @@
         SetCameraToShootPosition = 2,
         SetCameraToMainPosition = 3,
         ReloadWeapon = 4,
+        OpenNewStickman = 5
     }
 }

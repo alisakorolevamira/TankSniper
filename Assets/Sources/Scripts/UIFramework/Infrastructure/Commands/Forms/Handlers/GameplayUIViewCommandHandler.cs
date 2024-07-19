@@ -14,12 +14,14 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Forms.Handlers
             PauseCommand pauseCommand,
             SetCameraToShootPositionCommand setCameraToShootPositionCommand,
             SetCameraToMainPositionCommand setCameraToMainPositionCommand,
-            ReloadWeaponCommand reloadWeaponCommand)
+            ReloadWeaponCommand reloadWeaponCommand,
+            OpenNewStickmanCommand openNewStickmanCommand)
         {
             _commands[pauseCommand.Id] = pauseCommand;
             _commands[setCameraToShootPositionCommand.Id] = setCameraToShootPositionCommand;
             _commands[setCameraToMainPositionCommand.Id] = setCameraToMainPositionCommand;
             _commands[reloadWeaponCommand.Id] = reloadWeaponCommand;
+            _commands[openNewStickmanCommand.Id] = openNewStickmanCommand;
         }
 
         public void Handle(FormCommandId formCommandId)

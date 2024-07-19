@@ -25,6 +25,7 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
             Container.Bind<SetCameraToShootPositionCommand>().AsSingle();
             Container.Bind<SetCameraToMainPositionCommand>().AsSingle();
             Container.Bind<ReloadWeaponCommand>().AsSingle();
+            Container.Bind<OpenNewStickmanCommand>().AsSingle();
         }
     }
 }

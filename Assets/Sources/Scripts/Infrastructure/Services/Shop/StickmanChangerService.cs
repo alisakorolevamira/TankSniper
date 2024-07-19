@@ -36,7 +36,7 @@ namespace Sources.Scripts.Infrastructure.Services.Shop
         {
             int newLevel = _stickmanChanger.Level + 1;
 
-            if (newLevel <= 10)
+            if (newLevel <= StickmanConst.MaxStickmen)
             {
                 StickmanOpened?.Invoke(newLevel);
                 _stickmanChanger.EnableNewStickman();
@@ -45,16 +45,22 @@ namespace Sources.Scripts.Infrastructure.Services.Shop
 
         private void ShowStickmanForDron()
         {
-           // SavedLevel savedLevel = _entityRepository.Get<SavedLevel>(ModelId.SavedLevel);
-//
-           // switch (savedLevel.CurrentLevelId)
-           // {
-           //     case LevelConst.FifthLevel:
-           //         ChangeStickman(_stickmanChanger.CurrentStickman == StickmanType.Default
-           //             ? StickmanType.Doctor
-           //             : _stickmanChanger.CurrentStickman);
-           //         break;
-           // }
+            SavedLevel savedLevel = _entityRepository.Get<SavedLevel>(ModelId.SavedLevel);
+
+            switch (savedLevel.CurrentLevelId)
+            {
+                case LevelConst.EleventhLevel:
+                    ChangeStickman(_stickmanChanger.CurrentStickman == StickmanType.Default
+                        ? StickmanType.Doctor
+                        : _stickmanChanger.CurrentStickman);
+                    break;
+                
+                case LevelConst.SeventeenthLevel:
+                    ChangeStickman(_stickmanChanger.CurrentStickman == StickmanType.Default
+                        ? StickmanType.Doctor
+                        : _stickmanChanger.CurrentStickman);
+                    break;
+            }
         }
     }
 }

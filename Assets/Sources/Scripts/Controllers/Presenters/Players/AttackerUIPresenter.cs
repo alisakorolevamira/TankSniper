@@ -21,8 +21,8 @@ namespace Sources.Scripts.Controllers.Presenters.Players
         private readonly IInputService _inputService;
         private readonly ILevelCompletedService _levelCompletedService;
         private readonly IPlayerAttackService _playerAttackService;
-        private readonly TimeSpan _delay = TimeSpan.FromSeconds(2);
-        private readonly TimeSpan _lightningsDelay = TimeSpan.FromSeconds(1);
+        private readonly TimeSpan _delay = TimeSpan.FromSeconds(AttackConst.AttackDelay);
+        private readonly TimeSpan _lightningsDelay = TimeSpan.FromSeconds(AttackConst.LightningDelay);
 
         private CancellationTokenSource _cancellationTokenSource;
         private int _amountOfShoots = AttackConst.DefaultShoots;
@@ -55,7 +55,7 @@ namespace Sources.Scripts.Controllers.Presenters.Players
         {
             if (_uiAttackerView.WeaponView.WeaponType == WeaponType.Dron)
             {
-                Signal.Send(StreamId.Gameplay.ReturnToHud);
+                Signal.Send(StreamId.Gameplay.Empty);
                 return;
             }
             
@@ -80,14 +80,20 @@ namespace Sources.Scripts.Controllers.Presenters.Players
             {
                 if (_amountOfShoots == AttackConst.MaxShoots)
                 {
-                    await UniTask.Delay(_lightningsDelay, cancellationToken: _cancellationTokenSource.Token, ignoreTimeScale: true);
+                    await UniTask.Delay(
+                        _lightningsDelay,
+                        cancellationToken: _cancellationTokenSource.Token,
+                        ignoreTimeScale: true);
                     
                     _playerAttackService.EnableDoubleAttack();
 
                     foreach (ILightningView lightningView in _uiAttackerView.LightningViews)
                         lightningView.Hide();
                     
-                    await UniTask.Delay(_delay, cancellationToken: _cancellationTokenSource.Token, ignoreTimeScale: true);
+                    await UniTask.Delay(
+                        _delay,
+                        cancellationToken: _cancellationTokenSource.Token,
+                        ignoreTimeScale: true);
                     
                     _amountOfShoots = AttackConst.DefaultShoots;
 

@@ -39,6 +39,7 @@ namespace Doozy.Runtime.Signals
     {
         public enum Gameplay
         {
+            Empty,
             GameOver,
             LevelCompleted,
             ReloadWeapon,

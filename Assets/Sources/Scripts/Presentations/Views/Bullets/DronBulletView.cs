@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Doozy.Runtime.Signals;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Infrastructure.Services.InputServices;
 using Sources.Scripts.Infrastructure.Services.ObjectPool;
@@ -93,7 +94,10 @@ namespace Sources.Scripts.Presentations.Views.Bullets
         private void SpawnEffectOnDestroy()
         {
             _inputService.RotationInputReceived -= Rotate;
+            
             ParticleSystem effect = Instantiate(_onDestroyEffect, transform.position, Quaternion.identity);
+            
+            Signal.Send(StreamId.Gameplay.ReturnToHud);
             effect.Play();
             Destroy(effect.gameObject, BulletConst.EffectDelay);
             _poolableObjectDestroyerService.Destroy(this);

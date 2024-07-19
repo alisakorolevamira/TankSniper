@@ -34,6 +34,7 @@ namespace Doozy.Runtime.UIManager
     {
         public enum Gameplay
         {
+            Empty,
             Entry,
             GameOver,
             Hud,

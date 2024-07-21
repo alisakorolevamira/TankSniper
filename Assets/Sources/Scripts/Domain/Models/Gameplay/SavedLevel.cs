@@ -29,5 +29,8 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             _data = _data.Load(Id);
             CurrentLevelId = _data.SavedLevelId;
         }
+
+        public void Clear() => 
+            CurrentLevelId = LevelConst.FirstLevel;
     }
 }

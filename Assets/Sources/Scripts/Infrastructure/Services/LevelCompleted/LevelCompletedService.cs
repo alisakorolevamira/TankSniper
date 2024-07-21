@@ -73,9 +73,12 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
             
             level.Complete();
             CheckMenuIndex(level);
-            
-            if (level.Id == LevelConst.EighteenthLevel) 
+
+            if (level.Id == LevelConst.EighteenthLevel)
+            {
                 gameLevels.SetClearLevels();
+                savedLevel.Clear();
+            }
             
             _loadService.SaveAll();
             

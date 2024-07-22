@@ -73,7 +73,7 @@ namespace Sources.Scripts.Infrastructure.Services.InputServices
             if (_isAimButtonAvailable == false)
                 return;
             
-            SetTimer(_cancellationTokenSource.Token);
+            //SetTimer(_cancellationTokenSource.Token);
 
             if (_currentLevel == LevelConst.EleventhLevel || _currentLevel == LevelConst.SeventeenthLevel)
                 return;

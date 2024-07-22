@@ -2,23 +2,19 @@
 using Doozy.Runtime.Signals;
 using Sources.Scripts.DomainInterfaces.Models.Common;
 using Sources.Scripts.InfrastructureInterfaces.Services.GameOver;
-using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
+using Sources.Scripts.InfrastructureInterfaces.Services.Yandex;
 
 namespace Sources.Scripts.Infrastructure.Services.GameOver
 {
     public class GameOverService : IGameOverService
     {
-        private readonly ILoadService _loadService;
-        //private readonly IInterstitialAdService _interstitialAdService;
+        private readonly IStickyAdService _stickyAdService;
         private ICharacterHealth _characterHealth;
         private bool _isGameOver;
 
-        public GameOverService(ILoadService loadService)
-            //IInterstitialAdService interstitialAdService)
+        public GameOverService(IStickyAdService stickyAdService)
         {
-            _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
-            //_interstitialAdService = interstitialAdService ?? 
-            //                         throw new ArgumentNullException(nameof(interstitialAdService));
+            _stickyAdService = stickyAdService ?? throw new ArgumentNullException(nameof(stickyAdService));
         }
 
         public void Enter(object payload = null)
@@ -42,7 +38,7 @@ namespace Sources.Scripts.Infrastructure.Services.GameOver
             
             _isGameOver = true;
             Signal.Send(StreamId.Gameplay.GameOver);
-            //_interstitialAdService.ShowInterstitial();
+            _stickyAdService.ShowStickyAd();
         }
     }
 }

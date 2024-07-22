@@ -29,7 +29,7 @@ namespace Sources.Scripts.Controllers.Presenters.Common
         private void OnHealthChanged()
         {
             float percent = _health.CurrentHealth.FloatToPercent(_health.MaxHealth);
-            float fillAmount = percent * MathConst.UnitMultiplier;
+            float fillAmount = percent * MathConst.Epsilon;
             
             _healthBarUI.HealthImage.SetFillAmount(fillAmount);
         }

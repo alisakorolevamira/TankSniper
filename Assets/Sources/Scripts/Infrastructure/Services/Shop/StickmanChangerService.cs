@@ -6,7 +6,6 @@ using Sources.Scripts.Domain.Models.Stickman;
 using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
 using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
 using Sources.Scripts.Presentations.Views.Stickman;
-using UnityEngine;
 
 namespace Sources.Scripts.Infrastructure.Services.Shop
 {

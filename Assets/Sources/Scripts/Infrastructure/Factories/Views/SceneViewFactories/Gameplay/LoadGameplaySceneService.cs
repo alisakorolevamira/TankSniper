@@ -55,7 +55,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             ISkinChangerService skinChangerService,
             IStickmanChangerService stickmanChangerService,
             ILevelCompletedService levelCompletedService)
-            //IAdvertisingService advertisingService,
             : base(
                 gameplayHud, 
                 gameplayRootGameObject, 
@@ -75,7 +74,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 skinChangerService,
                 stickmanChangerService,
                 levelCompletedService)
-                //advertisingService,
         {
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
             _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));

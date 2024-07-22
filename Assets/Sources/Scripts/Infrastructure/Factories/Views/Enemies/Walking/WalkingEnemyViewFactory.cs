@@ -1,14 +1,13 @@
 ﻿using System;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base;
 using Sources.Scripts.Domain.Models.Enemies.Base;
-using Sources.Scripts.Domain.Models.Enemies.Moving;
 using Sources.Scripts.Domain.Models.Gameplay;
-using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Moving;
+using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Walking;
 using Sources.Scripts.Infrastructure.Factories.Views.Common;
 using Sources.Scripts.Presentations.Views.Enemies.WalkingEnemy;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.MovingEnemy;
 
-namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Moving
+namespace Sources.Scripts.Infrastructure.Factories.Views.Enemies.Walking
 {
     public class WalkingEnemyViewFactory
     {

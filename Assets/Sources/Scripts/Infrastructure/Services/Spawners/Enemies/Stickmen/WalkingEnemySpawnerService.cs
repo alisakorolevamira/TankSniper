@@ -2,9 +2,8 @@
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Enemies;
 using Sources.Scripts.Domain.Models.Enemies.Base;
-using Sources.Scripts.Domain.Models.Enemies.Moving;
 using Sources.Scripts.Domain.Models.Gameplay;
-using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Moving;
+using Sources.Scripts.Infrastructure.Factories.Views.Enemies.Walking;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies.Stickmen;
 using Sources.Scripts.Presentations.Views.Enemies.WalkingEnemy;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.MovingEnemy;

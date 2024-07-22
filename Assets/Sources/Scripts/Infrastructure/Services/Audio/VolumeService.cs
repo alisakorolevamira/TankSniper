@@ -1,4 +1,5 @@
 ﻿using System;
+using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Settings;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 
@@ -23,11 +24,11 @@ namespace Sources.Scripts.Infrastructure.Services.Audio
 
         public void SetVolume()
         {
-            if (_volume.AudioVolume == 0)
-                _volume.AudioVolume = 1;
+            if (_volume.AudioVolume == VolumeConst.OffAudioValue)
+                _volume.AudioVolume = VolumeConst.BaseAudioValue;
 
             else
-                _volume.AudioVolume = 0;
+                _volume.AudioVolume = VolumeConst.OffAudioValue;
             
             VolumeChanged?.Invoke(Volume);
         }

@@ -27,6 +27,7 @@ namespace Sources.Scripts.Controllers.Presenters.Cameras
         public override void Enable()
         {
             _cancellationTokenSource = new CancellationTokenSource();
+            
             _cameraService.PositionChanged += OnChangedPosition;
             _cameraService.RotationChanged += OnChangedRotation;
         }
@@ -35,6 +36,7 @@ namespace Sources.Scripts.Controllers.Presenters.Cameras
         {
             _cameraService.PositionChanged -= OnChangedPosition;
             _cameraService.RotationChanged -= OnChangedRotation;
+            
             _cancellationTokenSource.Cancel();
         }
 
@@ -42,7 +44,7 @@ namespace Sources.Scripts.Controllers.Presenters.Cameras
         {
             try
             {
-                while (Vector3.Distance(_cameraView.CurrentPosition, position.Position) > 0.001f)
+                while (Vector3.Distance(_cameraView.CurrentPosition, position.Position) > MathConst.MinDistance)
                 {
                     _cameraView.SetPosition(position.Position);
 

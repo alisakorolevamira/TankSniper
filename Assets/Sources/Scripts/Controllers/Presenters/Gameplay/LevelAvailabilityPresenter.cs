@@ -56,10 +56,8 @@ namespace Sources.Scripts.Controllers.Presenters.Gameplay
 
         private void HideAllLevels()
         {
-            foreach (ILevelView levelView in _levelAvailabilityView.Levels)
-            {
+            foreach (ILevelView levelView in _levelAvailabilityView.Levels) 
                 levelView.ImageView.SetColor(Color.blue);
-            }
         }
     }
 }

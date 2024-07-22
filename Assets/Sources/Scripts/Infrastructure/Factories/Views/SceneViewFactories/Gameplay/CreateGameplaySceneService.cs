@@ -55,7 +55,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             ISkinChangerService skinChangerService,
             IStickmanChangerService stickmanChangerService,
             ILevelCompletedService levelCompletedService)
-            //IAdvertisingService advertisingService,
             : base(
                 gameplayHud,
                 gameplayRootGameObject,
@@ -75,7 +74,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
                 skinChangerService,
                 stickmanChangerService,
                 levelCompletedService)
-                //advertisingService,
         {
             _loadService = loadService;
             _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
@@ -117,7 +115,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             StickmanChanger stickmanChanger = new StickmanChanger(ModelId.StickmanChanger);
             _entityRepository.Add(stickmanChanger);
             
-            PlayerAttacker playerAttacker = new PlayerAttacker(weapon); //переделать
+            PlayerAttacker playerAttacker = new PlayerAttacker(weapon);
             
             GameplayPlayer player = new GameplayPlayer(playerWallet, characterHealth, playerAttacker, weapon);
 

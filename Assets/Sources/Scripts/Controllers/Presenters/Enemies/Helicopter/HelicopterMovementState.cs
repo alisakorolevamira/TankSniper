@@ -1,4 +1,5 @@
 ﻿using System;
+using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.States;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Helicopters;
@@ -29,7 +30,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Helicopter
             ChangeRotation();
             _enemyView.RotateRotor();
             
-            if (Vector3.Distance(_enemyView.Position, currentTarget) < 0.1f)
+            if (Vector3.Distance(_enemyView.Position, currentTarget) < EnemyConst.MinDistance)
                 ChangeCurrentTargetPoint();
         }
 

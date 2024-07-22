@@ -26,9 +26,9 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         {
             MainMenuAppearance = mainMenuAppearance;
             Volume = volume;
-            Levels = levels;
+            //Levels = levels;
             LevelAvailability = levelAvailability;
-            GameData = gameData;
+            //GameData = gameData;
             Tutorial = tutorial;
             Player = player;
             Upgrader = upgrader;
@@ -40,9 +40,9 @@ namespace Sources.Scripts.Domain.Models.Gameplay
         }
 
         public Volume Volume { get; }
-        public GameLevels Levels { get; }
+        //public GameLevels Levels { get; }
         public LevelAvailability LevelAvailability { get; }
-        public GameData GameData { get; }
+        //public GameData GameData { get; }
         public Tutorial Tutorial { get; }
         public Player Player { get; }
         public SavedLevel SavedLevel { get; }

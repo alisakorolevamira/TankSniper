@@ -1,6 +1,4 @@
-﻿using Sources.Scripts.Domain.Models.Constants;
-
-namespace Sources.Scripts.Utils.Extentions
+﻿namespace Sources.Scripts.Utils.Extentions
 {
     public static class PercentExtension
     {
@@ -18,11 +16,5 @@ namespace Sources.Scripts.Utils.Extentions
 
             return currentPercents;
         }
-        
-        public static int IntToPercent(this int value, int max) =>
-            (int)FloatToPercent((int)value, (int)max);
-
-        public static float FloatPercentToUnitPercent(this float value) =>
-            value * MathConst.UnitMultiplier;
     }
 }

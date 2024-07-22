@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading;
-using JetBrains.Annotations;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners.Enemies.Boat;

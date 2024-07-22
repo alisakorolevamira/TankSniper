@@ -1,6 +1,7 @@
 ﻿using System;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base;
 using Sources.Scripts.Controllers.Presenters.Enemies.Bosses.States;
+using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Enemies.Base;
 using Sources.Scripts.Domain.Models.Enemies.Boss;
 using Sources.Scripts.Domain.Models.Gameplay;
@@ -30,7 +31,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
             RobotBossDieState dieState = new RobotBossDieState(killedEnemiesCounter, enemyView, enemyAnimation);
 
             FiniteTransition toDieTransition = new FiniteTransitionBase(
-                dieState, () => enemy.EnemyHealth.CurrentHealth <= 0);
+                dieState, () => enemy.EnemyHealth.CurrentHealth <= EnemyConst.MinHealth);
             attackState.AddTransition(toDieTransition);
 
             return new EnemyPresenter(attackState, _updateRegister);

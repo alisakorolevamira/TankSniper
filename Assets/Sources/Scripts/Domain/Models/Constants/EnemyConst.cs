@@ -18,5 +18,7 @@
         public const int StandingDamage = 20;
         public const int HelicopterDamage = 70;
         public const int BoatDamage = 80;
+        public const int MinHealth = 0;
+        public const float MinDistance = 0.1f;
     }
 }

@@ -97,8 +97,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
         {
             MainMenuModels models = LoadModels(scenePayload);
             
-            SavedLevel savedLevel = models.SavedLevel;
-            
             _volumeService.Register(models.Volume);
             _volumeViewFactory.Create(_volumeService, _mainMenuHud.VolumeView);
 

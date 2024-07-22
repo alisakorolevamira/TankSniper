@@ -13,8 +13,8 @@ namespace Sources.Scripts.Infrastructure.Services.Yandex
         private readonly IInventoryTankSpawnerService _spawnerService;
         private readonly IPauseService _pauseService;
 
-        private bool _isContinue = false;
-        private bool _isContinueSound = false;
+        private bool _isContinue;
+        private bool _isContinueSound;
 
         public RewardedAdService(
             IInventoryTankSpawnerService spawnerService,

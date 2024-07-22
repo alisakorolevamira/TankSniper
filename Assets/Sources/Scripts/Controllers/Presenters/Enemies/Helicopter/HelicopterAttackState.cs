@@ -47,7 +47,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Helicopter
             ChangeRotation();
             _enemyView.RotateRotor();
             
-            if (Vector3.Distance(_enemyView.Position, currentTarget) < 0.1f)
+            if (Vector3.Distance(_enemyView.Position, currentTarget) < EnemyConst.MinDistance)
                 ChangeCurrentTargetPoint();
         }
 

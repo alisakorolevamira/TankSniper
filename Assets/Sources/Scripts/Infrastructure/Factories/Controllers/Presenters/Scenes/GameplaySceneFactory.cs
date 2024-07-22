@@ -40,7 +40,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
         private readonly IFocusService _focusService;
         private readonly IFormSignalController _formSignalController;
         private readonly IButtonSignalController _buttonSignalController;
-        //private readonly IAdvertisingService _advertisingService;
         private readonly LoadingCurtainView _curtainView;
 
         public GameplaySceneFactory(
@@ -60,7 +59,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             IFormSignalController formSignalController,
             IButtonSignalController buttonSignalController,
             IFocusService focusService)
-            //IAdvertisingService advertisingService) 
         {
             _updateService = updateService ?? throw new ArgumentNullException(nameof(updateService));
             _inputService = inputService ?? throw new ArgumentNullException(nameof(inputService));
@@ -81,7 +79,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             _formSignalController = formSignalController ?? throw new ArgumentNullException(nameof(formSignalController));
             _buttonSignalController = buttonSignalController ?? throw new ArgumentNullException(nameof(buttonSignalController));
-            //_advertisingService = advertisingService ?? throw new ArgumentNullException(nameof(advertisingService));
             _curtainView = curtainView ? curtainView : throw new ArgumentNullException(nameof(curtainView));
         }
 
@@ -103,7 +100,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
                 _formSignalController,
                 _buttonSignalController,
                 _curtainView);
-            //_advertisingService);
         }
 
         private ILoadSceneService CreateLoadSceneService(object payload)

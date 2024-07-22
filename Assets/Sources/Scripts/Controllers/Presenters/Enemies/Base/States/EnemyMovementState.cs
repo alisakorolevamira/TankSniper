@@ -1,4 +1,5 @@
 ﻿using System;
+using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.States;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using UnityEngine;
@@ -31,7 +32,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Base.States
             _enemyView.MoveToPoint(currentTarget);
             ChangeRotation();
             
-            if (Vector3.Distance(_enemyView.Position, currentTarget) < 0.1f)
+            if (Vector3.Distance(_enemyView.Position, currentTarget) < EnemyConst.MinDistance)
                 ChangeCurrentTargetPoint();
         }
 

@@ -3,7 +3,6 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Enemies.Base;
-using Sources.Scripts.Domain.Models.Enemies.Boss;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.States;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Base;
 using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Bosses;
@@ -51,7 +50,7 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Bosses.States
             _enemyView.MoveToPoint(currentTarget);
             ChangeRotation();
             
-            if (Vector3.Distance(_enemyView.Position, currentTarget) < 0.1f)
+            if (Vector3.Distance(_enemyView.Position, currentTarget) < EnemyConst.MinDistance)
                 ChangeCurrentTargetPoint();
         }
 

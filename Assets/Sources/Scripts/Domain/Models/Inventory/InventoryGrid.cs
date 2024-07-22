@@ -9,7 +9,7 @@ namespace Sources.Scripts.Domain.Models.Inventory
 {
     public class InventoryGrid : IEntity
     {
-        private readonly Vector2Int _size = new(3, 3);
+        private readonly Vector2Int _size = new(InventoryGridConst.HorizontalSize, InventoryGridConst.VerticalSize);
         
         private Dictionary<Vector2Int, InventorySlot> _slots;
         private InventoryGridData _data = new ();

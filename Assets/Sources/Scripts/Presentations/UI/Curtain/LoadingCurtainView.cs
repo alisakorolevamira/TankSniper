@@ -33,7 +33,7 @@ namespace Sources.Scripts.Presentations.UI.Curtain
         {
             IsInProgress = true;
             Show();
-            //await Fade(0, LoadingCurtainConst.Max, _cancellationTokenSource.Token);
+            await Fade(0, LoadingCurtainConst.Max, _cancellationTokenSource.Token);
         }
 
         public async UniTask HideCurtain()

@@ -5,7 +5,6 @@ using Sources.Scripts.Domain.Models.Upgrades;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Yandex;
 using Sources.Scripts.PresentationsInterfaces.Views.Inventory;
-using UnityEngine;
 
 namespace Sources.Scripts.Controllers.Presenters.Inventory
 {

@@ -7,7 +7,6 @@ namespace Sources.Scripts.Presentations.Views.BossPeaces
 {
     public class RobotBossPieceView : View, IBossPieceView
     {
-        //[SerializeField] private Collider _collider;
         [SerializeField] private ShatterTool _shatter;
         [SerializeField] private PieceRemover _pieceRemover;
 

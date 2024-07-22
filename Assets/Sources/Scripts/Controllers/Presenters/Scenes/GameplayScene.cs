@@ -35,7 +35,6 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         private readonly IStickmanChangerService _stickmanChangerService;
         private readonly IButtonSignalController _buttonSignalController;
         private readonly IFormSignalController _formSignalController;
-        //private readonly IAdvertisingService _advertisingService;
         private readonly LoadingCurtainView _curtainView;
 
         public GameplayScene(
@@ -53,7 +52,6 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             IStickmanChangerService stickmanChangerService,
             IFormSignalController formSignalController,
             IButtonSignalController buttonSignalController,
-            //IAdvertisingService advertisingService)
             LoadingCurtainView curtainView)
         {
             _updateService = updateService ?? throw new ArgumentNullException(nameof(updateService));
@@ -74,8 +72,6 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             _buttonSignalController = buttonSignalController ?? throw new ArgumentNullException(nameof(buttonSignalController));
             _formSignalController = formSignalController ?? throw new ArgumentNullException(nameof(formSignalController));
-            //_advertisingService = advertisingService ??
-            //                      throw new ArgumentNullException(nameof(advertisingService));
             _curtainView = curtainView ? curtainView : throw new ArgumentNullException(nameof(curtainView));
         }
 
@@ -83,7 +79,6 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         {
             _focusService.Enable();
             _loadSceneService.Load(payload as IScenePayload);
-            //_advertisingService.Enable();
             _volumeService.Enter();
             _gameOverService.Enter();
             _levelCompletedService.Enable();
@@ -100,7 +95,6 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         public void Exit()
         {
             _focusService.Disable();
-            //_advertisingService.Disable();
             _updateService.UnregisterAll();
             _gameOverService.Exit();
             _volumeService.Exit();
@@ -113,10 +107,8 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _formSignalController.Destroy();
         }
 
-        public void Update(float deltaTime)
-        {
+        public void Update(float deltaTime) => 
             _updateService.Update(deltaTime);
-        }
 
         public void UpdateLate(float deltaTime)
         {

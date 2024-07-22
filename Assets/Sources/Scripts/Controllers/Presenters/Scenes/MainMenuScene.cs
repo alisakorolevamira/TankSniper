@@ -104,8 +104,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         {
             if (payload.CanFromGameplay)
                 return UniTask.CompletedTask;
-
-            //_stickyAdService.ShowStickyAd();
+            
             _sdkInitializeService.GameReady();
 
             return UniTask.CompletedTask;

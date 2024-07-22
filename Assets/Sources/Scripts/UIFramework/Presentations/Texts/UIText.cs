@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Presentations.Views;
 using Sources.Scripts.PresentationsInterfaces.UI.Texts;
 using TMPro;
@@ -36,7 +37,7 @@ namespace Sources.Scripts.UIFramework.Presentations.Texts
                 while (_tmpText.color.a > 0)
                 {
                     _tmpText.color = Vector4.MoveTowards(
-                        _tmpText.color, Vector4.zero, 0.01f);
+                        _tmpText.color, Vector4.zero, MathConst.Epsilon);
 
                     await UniTask.Yield(cancellationToken);
                 }

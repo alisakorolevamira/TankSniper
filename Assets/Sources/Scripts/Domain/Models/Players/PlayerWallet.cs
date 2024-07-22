@@ -36,7 +36,7 @@ namespace Sources.Scripts.Domain.Models.Players
 
         public void AddMoney (int amount)
         {
-            if (amount < 0)
+            if (amount < PlayerConst.MinMoney)
                 return;
             
             Money += amount;

@@ -28,20 +28,20 @@ namespace Sources.Scripts.Domain.Models.Common
             private set
             {
                 _currentHealth = value;
-                _currentHealth = Mathf.Clamp(value, 0, MaxHealth);
+                _currentHealth = Mathf.Clamp(value, PlayerConst.MinHealth, MaxHealth);
                 HealthChanged?.Invoke();
             }
         }
 
         public void TakeDamage(float damage)
         {
-            if(CurrentHealth <= 0)
+            if(CurrentHealth <= PlayerConst.MinHealth)
                 return;
             
             CurrentHealth -= damage;
             DamageReceived?.Invoke(damage);
 
-            if (CurrentHealth > 0)
+            if (CurrentHealth > PlayerConst.MinHealth)
                 return;
 
             IsDied = true;

@@ -1,7 +1,6 @@
 ﻿using System;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base;
 using Sources.Scripts.Domain.Models.Enemies.Base;
-using Sources.Scripts.Domain.Models.Enemies.Jeep;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemies.Jeep;
 using Sources.Scripts.Infrastructure.Factories.Views.Common;

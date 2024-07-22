@@ -21,12 +21,14 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Base
         public void Enable()
         {
             Start(_firstState);
+            
             _updateRegister.UpdateChanged += Update;
         }
 
         public void Disable()
         {
             Stop();
+            
             _updateRegister.UpdateChanged -= Update;
         }
     }

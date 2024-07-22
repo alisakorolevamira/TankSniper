@@ -2,6 +2,7 @@
 using Sources.Scripts.Controllers.Presenters.Enemies.Base;
 using Sources.Scripts.Controllers.Presenters.Enemies.Base.States;
 using Sources.Scripts.Controllers.Presenters.Enemies.Jeep;
+using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Enemies.Base;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.Transitions;
@@ -38,7 +39,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Enemie
             idleState.AddTransition(toAttackTransition);
 
             FiniteTransition toDieTransition = new FiniteTransitionBase(
-                dieState, () => enemy.EnemyHealth.CurrentHealth <= 0);
+                dieState, () => enemy.EnemyHealth.CurrentHealth <= EnemyConst.MinHealth);
             attackState.AddTransition(toDieTransition);
 
             return new EnemyPresenter(idleState, _updateRegister);

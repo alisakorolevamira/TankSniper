@@ -25,7 +25,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.Players
             GameplayHud gameplayHud,
             PlayerAttackerViewFactory playerAttackerViewFactory,
             CharacterHealthViewFactory characterHealthViewFactory,
-            PlayerWalletViewFactory playerWalletViewFactory,
             HealthBarUIFactory healthBarUIFactory,
             WalletUIFactory walletUIFactory,
             WeaponViewFactory weaponViewFactory,

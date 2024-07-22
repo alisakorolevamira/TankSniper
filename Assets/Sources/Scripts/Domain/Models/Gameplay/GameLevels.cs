@@ -2,7 +2,6 @@
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Data;
 using Sources.Scripts.DomainInterfaces.Models.Entities;
-using UnityEngine;
 
 namespace Sources.Scripts.Domain.Models.Gameplay
 {

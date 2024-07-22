@@ -26,34 +26,34 @@ namespace Sources.Scripts.Domain.Models.Gameplay
             SavedLevel savedLevel)
         {
             CharacterHealth = characterHealth;
-            PlayerWallet = playerWallet;
-            PlayerAttacker = playerAttacker;
+            //PlayerWallet = playerWallet;
+            //PlayerAttacker = playerAttacker;
             Volume = volume;
-            Level = level;
+            //Level = level;
             Player = player;
             KilledEnemiesCounter = killedEnemiesCounter;
             EnemySpawner = enemySpawner;
             SavedLevel = savedLevel;
             SkinChanger = skinChanger;
             StickmanChanger = stickmanChanger;
-            Upgrader = upgrader;
+            //Upgrader = upgrader;
             LevelAvailability = levelAvailability;
-            MainMenu = mainMenu;
+            //MainMenu = mainMenu;
         }
 
         public CharacterHealth CharacterHealth { get; }
-        public PlayerWallet PlayerWallet { get; }
-        public PlayerAttacker PlayerAttacker { get; }
+        //public PlayerWallet PlayerWallet { get; }
+        //public PlayerAttacker PlayerAttacker { get; }
         public Volume Volume { get; }
-        public Level Level { get; }
+        //public Level Level { get; }
         public GameplayPlayer Player { get; }
         public KilledEnemiesCounter KilledEnemiesCounter { get; }
         public EnemySpawner EnemySpawner { get; }
         public SavedLevel SavedLevel { get; }
-        public Upgrader Upgrader { get; }
+        //public Upgrader Upgrader { get; }
         public SkinChanger SkinChanger { get; }
         public LevelAvailability LevelAvailability { get; }
-        public MainMenuAppearance MainMenu { get; }
+        //public MainMenuAppearance MainMenu { get; }
         public StickmanChanger StickmanChanger { get; }
     }
 }

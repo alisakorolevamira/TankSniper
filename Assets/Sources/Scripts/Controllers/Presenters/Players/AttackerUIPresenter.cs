@@ -11,7 +11,6 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Players;
 using Sources.Scripts.PresentationsInterfaces.Views.Bullets;
 using Sources.Scripts.PresentationsInterfaces.Views.Lightnings;
 using Sources.Scripts.PresentationsInterfaces.Views.Players;
-using UnityEngine;
 
 namespace Sources.Scripts.Controllers.Presenters.Players
 {

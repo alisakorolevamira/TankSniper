@@ -6,7 +6,7 @@ namespace Sources.Scripts.Infrastructure.Services.UpdateServices
 {
     public class UpdateService : IUpdateRegister, IUpdateService
     {
-        private readonly List<Action<float>> _actions = new List<Action<float>>();
+        private readonly List<Action<float>> _actions = new ();
 
         public event Action<float> UpdateChanged;
 

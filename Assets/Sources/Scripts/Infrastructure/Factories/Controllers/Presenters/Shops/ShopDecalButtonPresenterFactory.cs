@@ -6,7 +6,7 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
 using Sources.Scripts.InfrastructureInterfaces.Services.Yandex;
 using Sources.Scripts.PresentationsInterfaces.Views.Shops;
 
-namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Shop
+namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Shops
 {
     public class ShopDecalButtonPresenterFactory
     {

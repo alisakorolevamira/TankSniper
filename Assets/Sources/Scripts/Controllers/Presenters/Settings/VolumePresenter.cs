@@ -1,4 +1,5 @@
 ﻿using System;
+using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.InfrastructureInterfaces.Services.Audio;
 using Sources.Scripts.PresentationsInterfaces.Views.Settings;
 
@@ -22,6 +23,6 @@ namespace Sources.Scripts.Controllers.Presenters.Settings
             _volumeService.VolumeChanged -= SetVolume;
 
         private void SetVolume(int volume) => 
-            _volumeView.ImageView.SetSprite(volume == 0 ? _volumeView.VolumeOffSprite : _volumeView.VolumeOnSprite);
+            _volumeView.ImageView.SetSprite(volume == VolumeConst.OffAudioValue ? _volumeView.VolumeOffSprite : _volumeView.VolumeOnSprite);
     }
 }

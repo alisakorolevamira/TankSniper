@@ -45,7 +45,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
         private readonly ISkinChangerService _skinChangerService;
         private readonly IStickmanChangerService _stickmanChangerService;
         private readonly ILevelCompletedService _levelCompletedService;
-        //private readonly IAdvertisingService _advertisingService;
 
         protected LoadGameplaySceneServiceBase(
             GameplayHud gameplayHud,
@@ -66,7 +65,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             ISkinChangerService skinChangerService,
             IStickmanChangerService stickmanChangerService,
             ILevelCompletedService levelCompletedService)
-            //IAdvertisingService advertisingService,
         {
             _gameplayHud = gameplayHud ? gameplayHud : throw new ArgumentNullException(nameof(gameplayHud));
             _playerViewFactory = playerViewFactory ?? throw new ArgumentNullException(nameof(playerViewFactory));
@@ -95,15 +93,11 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
             _stickmanChangerService = stickmanChangerService ??
                                       throw new ArgumentNullException(nameof(stickmanChangerService));
             _levelCompletedService = levelCompletedService ?? 
-                                     throw new ArgumentNullException(nameof(levelCompletedService));
-            //_advertisingService = advertisingService ?? throw new ArgumentNullException(nameof(advertisingService));
-        }
+                                     throw new ArgumentNullException(nameof(levelCompletedService)); }
 
         public void Load(IScenePayload scenePayload)
         {
             GameModels gameModels = LoadModels(scenePayload);
-            
-            //_advertisingService.Construct(gameModels.PlayerWallet);
             
             _levelCompletedService.Register(gameModels.KilledEnemiesCounter, gameModels.EnemySpawner);
 

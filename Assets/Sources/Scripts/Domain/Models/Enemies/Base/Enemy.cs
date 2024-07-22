@@ -10,7 +10,7 @@ namespace Sources.Scripts.Domain.Models.Enemies.Base
             EnemyAttacker = enemyAttacker;
         }
 
-        public EnemyHealth EnemyHealth { get; set; }
+        public EnemyHealth EnemyHealth { get; }
 
         public EnemyAttacker EnemyAttacker { get; }
     }

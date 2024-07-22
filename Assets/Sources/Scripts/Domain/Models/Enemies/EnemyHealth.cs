@@ -1,4 +1,5 @@
 ﻿using System;
+using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.DomainInterfaces.Models.Healths;
 using UnityEngine;
 
@@ -26,7 +27,7 @@ namespace Sources.Scripts.Domain.Models.Enemies
             private set
             {
                 _currentHealth = value;
-                _currentHealth = Mathf.Clamp(value, 0, MaxHealth);
+                _currentHealth = Mathf.Clamp(value, EnemyConst.MinHealth, MaxHealth);
                 HealthChanged?.Invoke();
             }
         }

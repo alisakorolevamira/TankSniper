@@ -1,7 +1,7 @@
 ﻿using System;
 using Sources.Scripts.Controllers.Presenters.Shops;
 using Sources.Scripts.Domain.Models.Players;
-using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Shop;
+using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Shops;
 using Sources.Scripts.Presentations.Views.Shops;
 using Sources.Scripts.PresentationsInterfaces.Views.Shops;
 

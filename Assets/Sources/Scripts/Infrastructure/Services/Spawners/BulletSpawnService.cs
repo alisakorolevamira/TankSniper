@@ -1,6 +1,5 @@
 ﻿using System;
 using Sources.Scripts.Domain.Models.Weapons;
-using Sources.Scripts.Infrastructure.Services.InputServices;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.Bullets;
 using Sources.Scripts.InfrastructureInterfaces.Services.ObjectPool.Generic;
 using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;

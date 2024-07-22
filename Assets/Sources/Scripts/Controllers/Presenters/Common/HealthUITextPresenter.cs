@@ -24,12 +24,14 @@ namespace Sources.Scripts.Controllers.Presenters.Common
             _cancellationTokenSource = new CancellationTokenSource();
             
             _healthUIText.DamageText.SetText(string.Empty);
+            
             _health.DamageReceived += OnDamageReceived;
         }
 
         public override void Disable()
         {
             _health.DamageReceived -= OnDamageReceived;
+            
             _cancellationTokenSource.Cancel();
         }
 

@@ -1,4 +1,5 @@
-﻿using Agava.YandexGames;
+﻿using Agava.WebUtility;
+using Agava.YandexGames;
 using Sources.Scripts.InfrastructureInterfaces.Services.Yandex;
 
 namespace Sources.Scripts.Infrastructure.Services.Yandex
@@ -7,8 +8,8 @@ namespace Sources.Scripts.Infrastructure.Services.Yandex
     {
         public void ShowStickyAd()
         {
-           // if (WebApplication.IsRunningOnWebGL == false)
-           //     return;
+            if (WebApplication.IsRunningOnWebGL == false)
+                return;
 
             StickyAd.Show();
         }

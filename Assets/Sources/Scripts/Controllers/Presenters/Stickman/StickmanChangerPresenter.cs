@@ -2,7 +2,6 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sources.Scripts.Domain.Models.Constants;
-using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Stickman;
 using Sources.Scripts.Presentations.Views.Stickman;
 using Sources.Scripts.PresentationsInterfaces.Views.Stickman;

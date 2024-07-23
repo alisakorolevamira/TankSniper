@@ -63,7 +63,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _shopSignalController.Initialize();
             _buttonSignalController.Initialize();
             _volumeService.Enter();
-            _audioService.Enter();
+            //_audioService.Enter();
             _skinChangerService.Enable();
             await _curtainView.HideCurtain();
             _tutorialService.Enable();

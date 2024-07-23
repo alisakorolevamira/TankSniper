@@ -86,7 +86,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _stickmanChangerService.Enable();
             _buttonSignalController.Initialize();
             _formSignalController.Initialize();
-            _audioService.Enter();
+            //_audioService.Enter();
             _inputService.Enter();
             _cameraService.Enter();
             await _curtainView.HideCurtain(); 

@@ -3,6 +3,7 @@ using Sources.Scripts.Presentations.Views;
 using Sources.Scripts.Presentations.Views.Gameplay;
 using Sources.Scripts.Presentations.Views.Inventory;
 using Sources.Scripts.Presentations.Views.MainMenu;
+using Sources.Scripts.Presentations.Views.Music;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.Presentations.Views.Players.Skins;
 using Sources.Scripts.Presentations.Views.Settings;
@@ -17,8 +18,9 @@ namespace Sources.Scripts.Presentations.UI.Huds
     public class MainMenuHud : View, IHud
     {
         [Header("Audio")]
-        [SerializeField] private List<UIAudioSource> _uiAudioSources;
+        [SerializeField] private UIAudioSource _uiAudioSource;
         [SerializeField] private VolumeView _volumeView;
+        [SerializeField] private BackgroundMusicView _backgroundMusicView;
         
         [Header("Levels")]
         [SerializeField] private List<LevelAvailabilityView> _levelAvailabilityViews;
@@ -40,9 +42,10 @@ namespace Sources.Scripts.Presentations.UI.Huds
         [Header("Appearance")]
         [SerializeField] private MainMenuView _mainMenuView;
         
-        public IReadOnlyList<IUIAudioSource> UIAudioSources => _uiAudioSources;
+        public IUIAudioSource UIAudioSource => _uiAudioSource;
         public IReadOnlyList<LevelAvailabilityView> LevelAvailabilityViews => _levelAvailabilityViews;
         public VolumeView VolumeView => _volumeView;
+        public BackgroundMusicView BackgroundMusicView => _backgroundMusicView;
         public IReadOnlyList<WalletUI> WalletsUI => _walletsUI;
         public InventoryGridView InventoryGridView => _gridView;
         public IReadOnlyList<SkinChangerView> SkinChangerViews => _skinChangerViews;

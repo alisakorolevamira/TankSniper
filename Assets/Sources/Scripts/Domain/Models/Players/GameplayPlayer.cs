@@ -13,13 +13,13 @@ namespace Sources.Scripts.Domain.Models.Players
             Weapon weapon)
         : base(playerWallet)
         {
-            PlayerWallet = playerWallet ?? throw new ArgumentNullException(nameof(playerWallet));
+            //PlayerWallet = playerWallet ?? throw new ArgumentNullException(nameof(playerWallet));
             CharacterHealth = characterHealth ?? throw new ArgumentNullException(nameof(characterHealth));
             PlayerAttacker = playerAttacker ?? throw new ArgumentNullException(nameof(playerAttacker));
             Weapon = weapon ?? throw new ArgumentNullException(nameof(weapon));
         }
 
-        public PlayerWallet PlayerWallet { get; }
+        //public PlayerWallet PlayerWallet { get; }
 
         public CharacterHealth CharacterHealth { get; }
         

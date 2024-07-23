@@ -21,7 +21,6 @@ using Sources.Scripts.Presentations.Views.Gameplay;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.Presentations.Views.RootGameObjects;
 using Sources.Scripts.Presentations.Views.Spawners;
-using Sources.Scripts.Presentations.Views.Stickman;
 
 namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Gameplay
 {
@@ -45,7 +44,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Game
         private readonly ISkinChangerService _skinChangerService;
         private readonly IStickmanChangerService _stickmanChangerService;
         private readonly ILevelCompletedService _levelCompletedService;
-
+        
         protected LoadGameplaySceneServiceBase(
             GameplayHud gameplayHud,
             GameplayRootGameObject gameplayRootGameObject,

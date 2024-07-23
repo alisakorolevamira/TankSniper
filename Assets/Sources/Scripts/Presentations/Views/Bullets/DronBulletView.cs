@@ -27,7 +27,6 @@ namespace Sources.Scripts.Presentations.Views.Bullets
         private GameplayInputService _inputService;
         private float _horizontal;
         private float _vertical;
-        private float _distance = Mathf.Infinity;
         private readonly TimeSpan _delay = TimeSpan.FromMilliseconds(BulletConst.Delay);
         
         public void Construct(IWeaponView weaponView) =>

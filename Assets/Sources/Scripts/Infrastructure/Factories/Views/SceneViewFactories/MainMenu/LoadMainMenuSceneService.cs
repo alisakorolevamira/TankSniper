@@ -12,6 +12,7 @@ using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.Inventory;
 using Sources.Scripts.Infrastructure.Factories.Views.MainMenu;
+using Sources.Scripts.Infrastructure.Factories.Views.Music;
 using Sources.Scripts.Infrastructure.Factories.Views.Players;
 using Sources.Scripts.Infrastructure.Factories.Views.Settings;
 using Sources.Scripts.Infrastructure.Factories.Views.Shops;
@@ -48,6 +49,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
             WalletUIFactory walletUIFactory,
             InventoryTankButtonViewFactory inventoryTankButtonViewFactory,
             MainMenuViewFactory mainMenuViewFactory,
+            BackgroundMusicViewFactory backgroundMusicViewFactory,
             IVolumeService volumeService,
             ITutorialService tutorialService,
             IInventoryTankSpawnerService inventoryTankSpawnerService,
@@ -67,6 +69,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.Main
                 walletUIFactory,
                 inventoryTankButtonViewFactory,
                 mainMenuViewFactory,
+                backgroundMusicViewFactory,
                 volumeService, 
                 tutorialService,
                 inventoryTankSpawnerService,

@@ -4,6 +4,7 @@ using Sources.Scripts.Presentations.Views;
 using Sources.Scripts.Presentations.Views.Cameras;
 using Sources.Scripts.Presentations.Views.Common;
 using Sources.Scripts.Presentations.Views.Gameplay;
+using Sources.Scripts.Presentations.Views.Music;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.Presentations.Views.Settings;
 using Sources.Scripts.Presentations.Views.Weapons;
@@ -16,7 +17,7 @@ namespace Sources.Scripts.Presentations.UI.Huds
     public class GameplayHud : View, IHud
     {
         [Header("Audio")]
-        [SerializeField] private List<UIAudioSource> _uiAudioSources;
+        [SerializeField] private UIAudioSource _uiAudioSource;
         [SerializeField] private VolumeView _volumeView;
         
         [Header("Camera")]
@@ -38,7 +39,7 @@ namespace Sources.Scripts.Presentations.UI.Huds
         [Header("Levels")]
         [SerializeField] private LevelAvailabilityView _levelAvailabilityView;
         
-        public IReadOnlyList<IUIAudioSource> UIAudioSources => _uiAudioSources;
+        public IUIAudioSource UIAudioSource => _uiAudioSource;
         
         public CameraView CameraView => cameraView;
         public IReadOnlyList<UIButton> ShootButtons => _shootButtons;

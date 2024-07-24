@@ -12,7 +12,7 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Common
         {
             Container.Bind<IPlayerAccountAuthorizeService>().To<PlayerAccountAuthorizeService>().AsSingle();
             Container.Bind<ISDKInitializeService>().To<SDKInitializeService>().AsSingle();
-            Container.Bind<IStickyAdService>().To<StickyAdService>().AsSingle();
+            Container.Bind<IInterstitialAdService>().To<InterstitialAdService>().AsSingle();
             Container.Bind<IRewardedAdService>().To<RewardedAdService>().AsSingle();
         }
     }

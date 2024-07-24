@@ -1,5 +1,4 @@
-﻿using System;
-using Sources.Scripts.Domain.Models.Constants;
+﻿using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Data;
 using Sources.Scripts.DomainInterfaces.Models.Entities;
 
@@ -16,16 +15,10 @@ namespace Sources.Scripts.Domain.Models.Settings
             _audioVolume = VolumeConst.BaseAudioValue;
         }
         
-        public event Action AudioVolumeChanged;
-        
         public int AudioVolume
         {
             get => _audioVolume;
-            set
-            {
-                _audioVolume = value;
-                AudioVolumeChanged?.Invoke();
-            }
+            set => _audioVolume = value;
         }
 
         public string Id { get; }

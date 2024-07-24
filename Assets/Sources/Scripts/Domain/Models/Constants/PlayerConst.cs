@@ -10,6 +10,6 @@
         public const int MinMoney = 0;
         public const int MaxLevel = 8;
         public const int RewardCoefficient = 100;
-        public const int RewardIndex = 1; //изменить
+        public const int RewardIndex = 100; //изменить
     }
 }

@@ -24,12 +24,9 @@ namespace Sources.Scripts.Infrastructure.Services.Audio
 
         public void SetVolume()
         {
-            if (_volume.AudioVolume == VolumeConst.OffAudioValue)
-                _volume.AudioVolume = VolumeConst.BaseAudioValue;
+            _volume.AudioVolume = _volume.AudioVolume == VolumeConst.OffAudioValue ?
+                VolumeConst.BaseAudioValue : VolumeConst.OffAudioValue;
 
-            else
-                _volume.AudioVolume = VolumeConst.OffAudioValue;
-            
             VolumeChanged?.Invoke(Volume);
         }
 

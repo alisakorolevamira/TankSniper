@@ -70,12 +70,12 @@ namespace Sources.Scripts.Infrastructure.Services.InputServices
 
         private void OnAimButtonDown()
         {
-            if (_isAimButtonAvailable == false)
-                return;
-            
+            //if (_isAimButtonAvailable == false)
+            //    return;
+            //
             //SetTimer(_cancellationTokenSource.Token);
 
-            if (_currentLevel == LevelConst.EleventhLevel || _currentLevel == LevelConst.SeventeenthLevel)
+            if (_currentLevel is LevelConst.EleventhLevel or LevelConst.SeventeenthLevel)
                 return;
             
             Signal.Send(StreamId.Gameplay.Shoot);

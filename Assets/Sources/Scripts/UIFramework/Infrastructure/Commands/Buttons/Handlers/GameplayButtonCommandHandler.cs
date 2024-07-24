@@ -13,15 +13,15 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons.Handlers
             LoadMainMenuSceneCommand loadMainMenuSceneCommand,
             LoadGameCommand loadGameCommand,
             UnpauseCommand unpauseCommand,
-            ChangeVolumeCommand changeVolumeCommand)
-            //ShowRewardedAdvertisingButtonCommand showRewardedAdvertisingButtonCommand,
+            ChangeVolumeCommand changeVolumeCommand,
+            ShowInterstitialAdCommand showInterstitialAdCommand)
 
         {
             _commands[loadMainMenuSceneCommand.Id] = loadMainMenuSceneCommand;
             _commands[loadGameCommand.Id] = loadGameCommand;
             _commands[unpauseCommand.Id] = unpauseCommand;
             _commands[changeVolumeCommand.Id] = changeVolumeCommand;
-            //_commands[showRewardedAdvertisingButtonCommand.Id] = showRewardedAdvertisingButtonCommand;
+            _commands[showInterstitialAdCommand.Id] = showInterstitialAdCommand;
         }
 
         public void Handle(ButtonCommandId buttonCommandId)

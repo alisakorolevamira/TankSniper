@@ -16,7 +16,7 @@ namespace Sources.Scripts.UIFramework.Services.AudioSources
             IVolumeService volumeService)
         {
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
-            _audioSource = hud.UIAudioSource;
+            _audioSource = hud.UIAudioSource ?? throw new ArgumentNullException(nameof(hud));
         }
 
         public void Enter(object payload = null)

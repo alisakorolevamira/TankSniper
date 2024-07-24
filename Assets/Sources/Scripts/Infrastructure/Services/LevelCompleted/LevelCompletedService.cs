@@ -11,7 +11,6 @@ using Sources.Scripts.DomainInterfaces.Models.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
 using Sources.Scripts.InfrastructureInterfaces.Services.LoadServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
-using Sources.Scripts.InfrastructureInterfaces.Services.Yandex;
 
 namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
 {
@@ -19,7 +18,6 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
     {
         private readonly IEntityRepository _entityRepository;
         private readonly ILoadService _loadService;
-        private readonly IStickyAdService _stickyAdService;
         private IKilledEnemiesCounter _killedEnemiesCounter;
         private IEnemySpawner _enemySpawner;
         private CancellationTokenSource _cancellationTokenSource;
@@ -27,12 +25,10 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
         
         public LevelCompletedService(
             IEntityRepository entityRepository,
-            ILoadService loadService,
-            IStickyAdService stickyAdService)
+            ILoadService loadService)
         {
             _entityRepository = entityRepository ?? throw new ArgumentNullException(nameof(entityRepository));
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
-            _stickyAdService = stickyAdService ?? throw new ArgumentNullException(nameof(stickyAdService));
         }
 
         public event Action<int> LevelCompleted;
@@ -82,7 +78,6 @@ namespace Sources.Scripts.Infrastructure.Services.LevelCompleted
             _loadService.SaveAll();
             
             StartTimer(_cancellationTokenSource.Token);
-            _stickyAdService.ShowStickyAd();
         }
 
         private async void StartTimer(CancellationToken cancellationToken)

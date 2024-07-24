@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Inventory;
@@ -25,7 +24,6 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Spawners;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpgradeServices;
 using Sources.Scripts.Presentations.UI.Huds;
-using UnityEngine;
 
 namespace Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.MainMenu
 {

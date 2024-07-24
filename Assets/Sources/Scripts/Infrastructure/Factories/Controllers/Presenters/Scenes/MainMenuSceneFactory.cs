@@ -25,7 +25,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
         private readonly LoadMainMenuSceneService _loadMainMenuSceneService;
         private readonly IVolumeService _volumeService;
         private readonly ILoadService _loadService;
-        private readonly IStickyAdService _stickyAdService;
+        private readonly IInterstitialAdService interstitialAdService;
         private readonly IAudioService _audioService;
         private readonly IFocusService _focusService;
         private readonly ITutorialService _tutorialService;
@@ -41,7 +41,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             IVolumeService volumeService,
             ILoadService loadService,
             LoadingCurtainView curtainView,
-            IStickyAdService stickyAdService,
+            IInterstitialAdService interstitialAdService,
             IAudioService audioService,
             ITutorialService tutorialService,
             ISkinChangerService skinChangerService,
@@ -56,7 +56,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
                                         throw new ArgumentNullException(nameof(loadMainMenuSceneService));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
-            _stickyAdService = stickyAdService ?? throw new ArgumentNullException(nameof(stickyAdService));
+            this.interstitialAdService = interstitialAdService ?? throw new ArgumentNullException(nameof(interstitialAdService));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
             _skinChangerService = skinChangerService ?? throw new ArgumentNullException(nameof(skinChangerService));
@@ -76,7 +76,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
                 CreateLoadSceneService(payload),
                 _volumeService,
                 _curtainView,
-                _stickyAdService,
+                interstitialAdService,
                 _audioService,
                 _tutorialService,
                 _sdkInitializeService,

@@ -35,13 +35,16 @@ namespace Sources.Scripts.Controllers.Presenters.Inventory
 
         public override void Enable()
         {
+            _upgrader.LevelChanged += SetPriceText;
+            _playerWallet.MoneyChanged += SetPriceText;
             _tankButtonView.Button.onClickEvent.AddListener(OnButtonClick);
             SetPriceText();
-            
         }
 
         public override void Disable()
         {
+            _upgrader.LevelChanged -= SetPriceText;
+            _playerWallet.MoneyChanged -= SetPriceText;
             _tankButtonView.Button.onClickEvent.RemoveListener(OnButtonClick);
         }
 

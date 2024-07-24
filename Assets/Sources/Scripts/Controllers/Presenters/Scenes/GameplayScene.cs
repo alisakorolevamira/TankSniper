@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Sources.Scripts.ControllersInterfaces.Scenes;
 using Sources.Scripts.DomainInterfaces.Models.Payloads;
 using Sources.Scripts.InfrastructureInterfaces.Factories.Views.SceneViewFactories;
@@ -11,7 +10,6 @@ using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
 using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpdateServices;
 using Sources.Scripts.Presentations.UI.Curtain;
-using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tanks;
 using Sources.Scripts.UIFramework.ControllerInterfaces.Buttons;
 using Sources.Scripts.UIFramework.ControllerInterfaces.Forms;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
@@ -28,7 +26,6 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         private readonly IGameOverService _gameOverService;
         private readonly IVolumeService _volumeService;
         private readonly ILevelCompletedService _levelCompletedService;
-        private List<ITankEnemyView> _enemiesViews;
         private readonly IAudioService _audioService;
         private readonly IFocusService _focusService;
         private readonly ISkinChangerService _skinChangerService;
@@ -45,7 +42,6 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             IGameOverService gameOverService,
             IVolumeService volumeService,
             ILevelCompletedService levelCompletedService,
-            List<ITankEnemyView> enemiesViews,
             IAudioService audioService,
             IFocusService focusService,
             ISkinChangerService skinChangerService,
@@ -66,8 +62,6 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
             _levelCompletedService = levelCompletedService ??
                                      throw new ArgumentNullException(nameof(levelCompletedService));
-            _enemiesViews = enemiesViews ??
-                                   throw new ArgumentNullException(nameof(enemiesViews));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             _buttonSignalController = buttonSignalController ?? throw new ArgumentNullException(nameof(buttonSignalController));
@@ -86,7 +80,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _stickmanChangerService.Enable();
             _buttonSignalController.Initialize();
             _formSignalController.Initialize();
-            //_audioService.Enter();
+            _audioService.Enter();
             _inputService.Enter();
             _cameraService.Enter();
             await _curtainView.HideCurtain(); 
@@ -102,7 +96,6 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _audioService.Exit();
             _inputService.Exit();
             _cameraService.Exit();
-            _enemiesViews.Clear();
             _buttonSignalController.Destroy();
             _formSignalController.Destroy();
         }

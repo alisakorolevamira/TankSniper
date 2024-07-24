@@ -1044,7 +1044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 2216517628979319372}
-  _onClickCommandId: 0300000001000000
+  _onClickCommandId: 030000000600000001000000
 --- !u!1 &613031311151450471
 GameObject:
   m_ObjectHideFlags: 0
@@ -2891,7 +2891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 4618068063077493133}
-  _onClickCommandId: 0300000001000000
+  _onClickCommandId: 030000000600000001000000
 --- !u!1 &1908528296073728210
 GameObject:
   m_ObjectHideFlags: 0
@@ -10006,6 +10006,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3652469276544155443}
   - component: {fileID: 3952534893206942560}
+  - component: {fileID: 752327242234625068}
   m_Layer: 5
   m_Name: Sound_Button
   m_TagString: Untagged
@@ -10127,12 +10128,26 @@ MonoBehaviour:
     Behaviours: []
     SignalSource: {fileID: 7018943628524957824}
     Selectable: {fileID: 3952534893206942560}
-  Cooldown: 1
+  Cooldown: 0
   DisableWhenInCooldown: 0
   Id:
     Category: Gameplay
     Name: Audio
     Custom: 0
+--- !u!114 &752327242234625068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7018943628524957824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1451db867f4148d69154881e10b28c02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 3952534893206942560}
+  _onClickCommandId: 05000000
 --- !u!1 &7108415652847545272
 GameObject:
   m_ObjectHideFlags: 0

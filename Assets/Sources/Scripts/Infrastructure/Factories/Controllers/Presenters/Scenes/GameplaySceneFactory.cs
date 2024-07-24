@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Sources.Scripts.Controllers.Presenters.Scenes;
 using Sources.Scripts.ControllersInterfaces.Scenes;
@@ -15,7 +14,6 @@ using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
 using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpdateServices;
 using Sources.Scripts.Presentations.UI.Curtain;
-using Sources.Scripts.PresentationsInterfaces.Views.Enemies.Tanks;
 using Sources.Scripts.UIFramework.ControllerInterfaces.Buttons;
 using Sources.Scripts.UIFramework.ControllerInterfaces.Forms;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
@@ -35,7 +33,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
         private readonly ILevelCompletedService _levelCompletedService;
         private readonly ISkinChangerService _skinChangerService;
         private readonly IStickmanChangerService _stickmanChangerService;
-        private readonly List<ITankEnemyView> _enemiesViews;
         private readonly IAudioService _audioService;
         private readonly IFocusService _focusService;
         private readonly IFormSignalController _formSignalController;
@@ -53,7 +50,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             ILevelCompletedService levelCompletedService,
             ISkinChangerService skinChangerService,
             IStickmanChangerService stickmanChangerService,
-            List<ITankEnemyView> enemiesViews,
             LoadingCurtainView curtainView,
             IAudioService audioService,
             IFormSignalController formSignalController,
@@ -74,7 +70,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             _skinChangerService = skinChangerService ?? throw new ArgumentNullException(nameof(skinChangerService));
             _stickmanChangerService = stickmanChangerService ??
                                       throw new ArgumentNullException(nameof(stickmanChangerService));
-            _enemiesViews = enemiesViews ?? throw new ArgumentNullException(nameof(enemiesViews));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             _formSignalController = formSignalController ?? throw new ArgumentNullException(nameof(formSignalController));
@@ -92,7 +87,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
                 _gameOverService,
                 _volumeService,
                 _levelCompletedService,
-                _enemiesViews,
                 _audioService,
                 _focusService,
                 _skinChangerService,

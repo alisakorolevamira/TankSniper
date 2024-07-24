@@ -17,9 +17,6 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
             
             Container.Bind<KilledEnemiesCounterPresenterFactory>().AsSingle();
             Container.Bind<KilledEnemiesCounterViewFactory>().AsSingle();
-
-            //Container.Bind<InterstitialShowerPresenterFactory>().AsSingle();
-            //Container.Bind<InterstitialShowerViewFactory>().AsSingle();
         }
     }
 }

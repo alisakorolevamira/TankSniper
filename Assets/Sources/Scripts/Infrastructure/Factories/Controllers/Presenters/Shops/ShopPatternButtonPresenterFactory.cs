@@ -10,21 +10,21 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Shops
 {
     public class ShopPatternButtonPresenterFactory
     {
-        private readonly IStickyAdService _stickyAdService;
+        private readonly IRewardedAdService _rewardedAdService;
         private readonly ISkinChangerService _skinChangerService;
         private readonly ILoadService _loadService;
 
         public ShopPatternButtonPresenterFactory(
-            IStickyAdService stickyAdService,
+            IRewardedAdService rewardedAdService,
             ISkinChangerService skinChangerService,
             ILoadService loadService)
         {
-            _stickyAdService = stickyAdService ?? throw new ArgumentNullException(nameof(stickyAdService));
+            _rewardedAdService = rewardedAdService ?? throw new ArgumentNullException(nameof(rewardedAdService));
             _skinChangerService = skinChangerService ?? throw new ArgumentNullException(nameof(skinChangerService));
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
         }
         
         public ShopPatternButtonPresenter Create(IShopPatternButtonView view, PlayerWallet playerWallet) => 
-            new (view, _stickyAdService, _skinChangerService, _loadService, playerWallet);
+            new (view, _rewardedAdService, _skinChangerService, _loadService, playerWallet);
     }
 }

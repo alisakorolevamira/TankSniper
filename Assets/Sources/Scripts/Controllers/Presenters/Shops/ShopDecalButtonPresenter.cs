@@ -12,20 +12,20 @@ namespace Sources.Scripts.Controllers.Presenters.Shops
     public class ShopDecalButtonPresenter : PresenterBase
     {
         private readonly IShopDecalButtonView _view;
-        private readonly IStickyAdService _stickyAdService;
+        private readonly IRewardedAdService _rewardedAdService;
         private readonly ISkinChangerService _skinChangerService;
         private readonly ILoadService _loadService;
         private readonly PlayerWallet _playerWallet;
 
         public ShopDecalButtonPresenter(
             IShopDecalButtonView view,
-            IStickyAdService stickyAdService,
+            IRewardedAdService rewardedAdService,
             ISkinChangerService skinChangerService,
             ILoadService loadService,
             PlayerWallet playerWallet)
         {
             _view = view ?? throw new ArgumentNullException(nameof(view));
-            _stickyAdService = stickyAdService ?? throw new ArgumentNullException(nameof(stickyAdService));
+            _rewardedAdService = rewardedAdService ?? throw new ArgumentNullException(nameof(rewardedAdService));
             _skinChangerService = skinChangerService ?? throw new ArgumentNullException(nameof(skinChangerService));
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
             _playerWallet = playerWallet ?? throw new ArgumentNullException(nameof(playerWallet));
@@ -56,7 +56,7 @@ namespace Sources.Scripts.Controllers.Presenters.Shops
         private void OnBuyButtonClick()
         {
             if (_playerWallet.TryRemoveMoney(ShopConst.Price) == false)
-                _stickyAdService.ShowStickyAd();
+                _rewardedAdService.ShowRewardedAd();
 
             _view.Show();
             _view.Button.SetState(UISelectionState.Pressed);

@@ -19,7 +19,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
     {
         private readonly ILoadSceneService _loadSceneService;
         private readonly IVolumeService _volumeService;
-        private readonly IStickyAdService _stickyAdService;
+        private readonly IInterstitialAdService interstitialAdService;
         private readonly IAudioService _audioService;
         private readonly IFocusService _focusService;
         private readonly ITutorialService _tutorialService;
@@ -33,7 +33,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             ILoadSceneService loadSceneService,
             IVolumeService volumeService,
             LoadingCurtainView curtainView,
-            IStickyAdService stickyAdService,
+            IInterstitialAdService interstitialAdService,
             IAudioService audioService,
             ITutorialService tutorialService,
             ISDKInitializeService sdkInitializeService,
@@ -44,7 +44,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         {
             _loadSceneService = loadSceneService ?? throw new ArgumentNullException(nameof(loadSceneService));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
-            _stickyAdService = stickyAdService ?? throw new ArgumentNullException(nameof(stickyAdService));
+            this.interstitialAdService = interstitialAdService ?? throw new ArgumentNullException(nameof(interstitialAdService));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));

@@ -7,6 +7,7 @@
         LoadGame = 2,
         UnPause = 3,
         AddTank = 4,
-        ChangeVolume = 5
+        ChangeVolume = 5,
+        ShowAd = 6
     }
 }

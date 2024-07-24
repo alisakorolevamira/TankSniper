@@ -1,5 +1,4 @@
 ﻿using System;
-using Doozy.Runtime.UIManager.Components;
 using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Payloads;
@@ -31,9 +30,6 @@ namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
             
             _sceneService.ChangeSceneAsync(
                 ModelId.MainMenu, new ScenePayload(savedLevel.CurrentLevelId, false, true));
-            
-            //_sceneService.ChangeSceneAsync(
-            //    ModelId.MainMenu, new ScenePayload(ModelId.MainMenu, true, true));
         }
     }
 }

@@ -41,8 +41,6 @@ namespace Sources.Scripts.Controllers.Presenters.Enemies.Dron.States
 
         public override void Update(float deltaTime)
         {
-            _enemyView.RotateRotors();
-            
             if (_isAttacking)
                 return;
             

@@ -9456,6 +9456,22 @@ PrefabInstance:
       propertyPath: _movementPoints.Array.data[2]
       value: 
       objectReference: {fileID: 369107876}
+    - target: {fileID: 481244755621695972, guid: a3fee32f0fe7d914ba67dad76a02c9e0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1482766926644186992, guid: a3fee32f0fe7d914ba67dad76a02c9e0, type: 3}
+      propertyPath: _movementPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1193864803}
+    - target: {fileID: 1482766926644186992, guid: a3fee32f0fe7d914ba67dad76a02c9e0, type: 3}
+      propertyPath: _movementPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1699810875}
+    - target: {fileID: 1482766926644186992, guid: a3fee32f0fe7d914ba67dad76a02c9e0, type: 3}
+      propertyPath: _movementPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 369107876}
     - target: {fileID: 1766499110268312511, guid: a3fee32f0fe7d914ba67dad76a02c9e0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.051607
@@ -9505,14 +9521,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3fee32f0fe7d914ba67dad76a02c9e0, type: 3}
---- !u!4 &1860672392 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1766499110268312511, guid: a3fee32f0fe7d914ba67dad76a02c9e0, type: 3}
-  m_PrefabInstance: {fileID: 1860672391}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1860672393 stripped
+--- !u!114 &1860672392 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 461745759094589007, guid: a3fee32f0fe7d914ba67dad76a02c9e0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1482766926644186992, guid: a3fee32f0fe7d914ba67dad76a02c9e0, type: 3}
   m_PrefabInstance: {fileID: 1860672391}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -9521,6 +9532,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a69b011549847daa899493fb4025493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1860672393 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 481244755621695972, guid: a3fee32f0fe7d914ba67dad76a02c9e0, type: 3}
+  m_PrefabInstance: {fileID: 1860672391}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1871283321
 GameObject:
   m_ObjectHideFlags: 0
@@ -9899,7 +9915,7 @@ MonoBehaviour:
   - {fileID: 869007025}
   _jeeps: []
   _drons:
-  - {fileID: 1860672393}
+  - {fileID: 1860672392}
   _walkings: []
   _standingTanks:
   - {fileID: 4296123493243342010}
@@ -9923,7 +9939,7 @@ Transform:
   - {fileID: 916257023}
   - {fileID: 6796223465140430939}
   - {fileID: 723634797}
-  - {fileID: 1860672392}
+  - {fileID: 1860672393}
   - {fileID: 869007026}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -7,13 +7,12 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Dron
     public class DronEnemyAnimation : View, IEnemyAnimation
     {
         [SerializeField] private ParticleSystem _attackParticle;
-        [SerializeField] private Collider _collider;
-        [SerializeField] private List<Rigidbody> _rigidbodies;
+        [SerializeField] private List<GameObject> _pieces;
 
         public void PlayIdle()
         {
-            foreach (Rigidbody rigidbody in _rigidbodies) 
-                rigidbody.isKinematic = true;
+            foreach (GameObject piece in _pieces) 
+                piece.SetActive(false);
         }
 
         public void PlayAttack() => 
@@ -22,11 +21,13 @@ namespace Sources.Scripts.Presentations.Views.Enemies.Dron
         public void PlayDying()
         {
             _attackParticle.Stop();
-            
-            foreach (Rigidbody rigidbody in _rigidbodies)
-                rigidbody.isKinematic = false;
-            
-            _collider.SendMessage("Shatter", transform.position, SendMessageOptions.DontRequireReceiver);
+
+           foreach (GameObject piece in _pieces)
+           {
+               piece.transform.SetParent(null);
+               piece.SetActive(true);
+           }
+
             Hide();
         }
     }

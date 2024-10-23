@@ -15,9 +15,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Invent
             _spawnerService = spawnerService ?? throw new ArgumentNullException(nameof(spawnerService));
         }
         
-        public InventoryGridPresenter Create(InventoryGrid grid, IInventoryGridView view)
-        {
-            return new InventoryGridPresenter(grid, view, _spawnerService);
-        }
+        public InventoryGridPresenter Create(InventoryGrid grid, IInventoryGridView view) => 
+            new(grid, view, _spawnerService);
     }
 }

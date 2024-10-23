@@ -8,13 +8,6 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Gameplay
     {
         public override void InstallBindings()
         {
-            //Container
-            //    .Bind<EnemySpawnerConfigContainer>()
-            //    .FromResource(PrefabPath.EnemySpawnerConfigContainer)
-            //    .AsSingle();
-
-           // Container.Bind<IEnemySpawnerConfigCollectionService>().To<EnemySpawnerConfigCollectionService>().AsSingle();
-
             Container.Bind<EnemySpawnerPresenterFactory>().AsSingle();
             Container.Bind<EnemySpawnerViewFactory>().AsSingle();
         }

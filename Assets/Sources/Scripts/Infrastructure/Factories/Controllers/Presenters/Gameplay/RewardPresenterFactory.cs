@@ -6,9 +6,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Gamepl
 {
     public class RewardPresenterFactory
     {
-        public RewardPresenter Create(ILevelCompletedService levelCompletedService, IRewardView view)
-        {
-            return new RewardPresenter(levelCompletedService, view);
-        }
+        public RewardPresenter Create(ILevelCompletedService levelCompletedService, IRewardView view) => 
+            new(levelCompletedService, view);
     }
 }

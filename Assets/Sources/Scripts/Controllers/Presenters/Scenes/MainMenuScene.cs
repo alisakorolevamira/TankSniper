@@ -11,7 +11,6 @@ using Sources.Scripts.Presentations.UI.Curtain;
 using Sources.Scripts.UIFramework.ControllerInterfaces.Buttons;
 using Sources.Scripts.UIFramework.ControllerInterfaces.Shop;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
-using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;
 
 namespace Sources.Scripts.Controllers.Presenters.Scenes
 {
@@ -19,9 +18,7 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
     {
         private readonly ILoadSceneService _loadSceneService;
         private readonly IVolumeService _volumeService;
-        private readonly IInterstitialAdService interstitialAdService;
         private readonly IAudioService _audioService;
-        private readonly IFocusService _focusService;
         private readonly ITutorialService _tutorialService;
         private readonly ISDKInitializeService _sdkInitializeService;
         private readonly ISkinChangerService _skinChangerService;
@@ -33,20 +30,16 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             ILoadSceneService loadSceneService,
             IVolumeService volumeService,
             LoadingCurtainView curtainView,
-            IInterstitialAdService interstitialAdService,
             IAudioService audioService,
             ITutorialService tutorialService,
             ISDKInitializeService sdkInitializeService,
             ISkinChangerService skinChangerService,
             IButtonSignalController buttonSignalController,
-            IShopSignalController shopSignalController,
-            IFocusService focusService)
+            IShopSignalController shopSignalController)
         {
             _loadSceneService = loadSceneService ?? throw new ArgumentNullException(nameof(loadSceneService));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
-            this.interstitialAdService = interstitialAdService ?? throw new ArgumentNullException(nameof(interstitialAdService));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
-            _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
             _sdkInitializeService = sdkInitializeService ?? throw new ArgumentNullException(nameof(sdkInitializeService));
             _skinChangerService = skinChangerService ?? throw new ArgumentNullException(nameof(skinChangerService));
@@ -58,12 +51,11 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         public async void Enter(object payload = null)
         {
             await Initialize(payload as IScenePayload);
-            _focusService.Enable();
             _loadSceneService.Load(payload as IScenePayload);
             _shopSignalController.Initialize();
             _buttonSignalController.Initialize();
             _volumeService.Enter();
-            //_audioService.Enter();
+            _audioService.Enter();
             _skinChangerService.Enable();
             await _curtainView.HideCurtain();
             _tutorialService.Enable();
@@ -72,7 +64,6 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
 
         public void Exit()
         {
-            _focusService.Disable();
             _volumeService.Exit();
             _audioService.Exit();
             _buttonSignalController.Destroy();

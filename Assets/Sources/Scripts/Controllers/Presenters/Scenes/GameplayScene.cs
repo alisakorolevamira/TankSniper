@@ -13,7 +13,6 @@ using Sources.Scripts.Presentations.UI.Curtain;
 using Sources.Scripts.UIFramework.ControllerInterfaces.Buttons;
 using Sources.Scripts.UIFramework.ControllerInterfaces.Forms;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
-using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;
 
 namespace Sources.Scripts.Controllers.Presenters.Scenes
 {
@@ -27,7 +26,6 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
         private readonly IVolumeService _volumeService;
         private readonly ILevelCompletedService _levelCompletedService;
         private readonly IAudioService _audioService;
-        private readonly IFocusService _focusService;
         private readonly ISkinChangerService _skinChangerService;
         private readonly IStickmanChangerService _stickmanChangerService;
         private readonly IButtonSignalController _buttonSignalController;
@@ -43,7 +41,6 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             IVolumeService volumeService,
             ILevelCompletedService levelCompletedService,
             IAudioService audioService,
-            IFocusService focusService,
             ISkinChangerService skinChangerService,
             IStickmanChangerService stickmanChangerService,
             IFormSignalController formSignalController,
@@ -63,7 +60,6 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
             _levelCompletedService = levelCompletedService ??
                                      throw new ArgumentNullException(nameof(levelCompletedService));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
-            _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             _buttonSignalController = buttonSignalController ?? throw new ArgumentNullException(nameof(buttonSignalController));
             _formSignalController = formSignalController ?? throw new ArgumentNullException(nameof(formSignalController));
             _curtainView = curtainView ? curtainView : throw new ArgumentNullException(nameof(curtainView));
@@ -71,7 +67,6 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
 
         public async void Enter(object payload = null)
         {
-            _focusService.Enable();
             _loadSceneService.Load(payload as IScenePayload);
             _volumeService.Enter();
             _gameOverService.Enter();
@@ -88,7 +83,6 @@ namespace Sources.Scripts.Controllers.Presenters.Scenes
 
         public void Exit()
         {
-            _focusService.Disable();
             _updateService.UnregisterAll();
             _gameOverService.Exit();
             _volumeService.Exit();

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading;
-using Cysharp.Threading.Tasks;
 using Doozy.Runtime.Signals;
 using Doozy.Runtime.UIManager.Components;
 using Sources.Scripts.Domain.Models.Constants;
@@ -70,11 +69,6 @@ namespace Sources.Scripts.Infrastructure.Services.InputServices
 
         private void OnAimButtonDown()
         {
-            //if (_isAimButtonAvailable == false)
-            //    return;
-            //
-            //SetTimer(_cancellationTokenSource.Token);
-
             if (_currentLevel is LevelConst.EleventhLevel or LevelConst.SeventeenthLevel)
                 return;
             
@@ -83,20 +77,5 @@ namespace Sources.Scripts.Infrastructure.Services.InputServices
 
         private void OnAimButtonUp() => 
             AttackInputReceived?.Invoke();
-
-        private async UniTask SetTimer(CancellationToken cancellationToken)
-        {
-            try
-            {
-                _isAimButtonAvailable = false;
-                
-                await UniTask.Delay(_delay, cancellationToken: cancellationToken);
-
-                _isAimButtonAvailable = true;
-            }
-            catch (OperationCanceledException)
-            {
-            }
-        }
     }
 }

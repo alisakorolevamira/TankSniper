@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Domain.Models.Inventory;

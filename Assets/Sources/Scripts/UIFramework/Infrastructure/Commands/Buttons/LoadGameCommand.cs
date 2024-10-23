@@ -8,7 +8,6 @@ using Sources.Scripts.InfrastructureInterfaces.Services.Repositories;
 using Sources.Scripts.InfrastructureInterfaces.Services.SceneServices;
 using Sources.Scripts.UIFramework.Domain.Commands;
 using Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Buttons;
-using UnityEngine;
 
 namespace Sources.Scripts.UIFramework.Infrastructure.Commands.Buttons
 {

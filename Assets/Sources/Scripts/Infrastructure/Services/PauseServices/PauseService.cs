@@ -40,9 +40,6 @@ namespace Sources.Scripts.Infrastructure.Services.PauseServices
             if (PauseListenersCount > 0)
                 return;
 
-            if (PauseListenersCount < 0)
-                //throw new IndexOutOfRangeException(nameof(PauseListenersCount));
-
             IsPaused = false;
             ContinueActivated?.Invoke();
             Time.timeScale = TimeScaleConst.Max;
@@ -62,9 +59,6 @@ namespace Sources.Scripts.Infrastructure.Services.PauseServices
         public void Pause()
         {
             PauseListenersCount++;
-
-            if (PauseListenersCount < 0)
-                //throw new IndexOutOfRangeException(nameof(PauseListenersCount));
 
             IsPaused = true;
             PauseActivated?.Invoke();

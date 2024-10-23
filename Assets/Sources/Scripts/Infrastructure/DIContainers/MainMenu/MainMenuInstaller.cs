@@ -1,16 +1,12 @@
 ﻿using Sources.Scripts.Domain.Models.Gameplay.Configs;
-using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.MainMenu;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes;
-using Sources.Scripts.Infrastructure.Factories.Views.Gameplay;
 using Sources.Scripts.Infrastructure.Factories.Views.MainMenu;
 using Sources.Scripts.Infrastructure.Factories.Views.SceneViewFactories.MainMenu;
 using Sources.Scripts.Infrastructure.Services.PauseServices;
-using Sources.Scripts.Infrastructure.Services.Shop;
 using Sources.Scripts.Infrastructure.Services.Tutorials;
 using Sources.Scripts.Infrastructure.Services.UpgradeServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.PauseServices;
-using Sources.Scripts.InfrastructureInterfaces.Services.Shop;
 using Sources.Scripts.InfrastructureInterfaces.Services.Tutorials;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpgradeServices;
 using Sources.Scripts.Presentations.UI.Huds;
@@ -43,7 +39,6 @@ namespace Sources.Scripts.Infrastructure.DIContainers.MainMenu
         private void BindServices()
         {
             Container.Bind<IPauseService>().To<PauseService>().AsSingle();
-            //Container.Bind<IStickyService>().To<StickyService>().AsSingle();
             Container.Bind<ITutorialService>().To<TutorialService>().AsSingle();
             Container.Bind<IUpgradeService>().To<UpgradeService>().AsSingle();
         }

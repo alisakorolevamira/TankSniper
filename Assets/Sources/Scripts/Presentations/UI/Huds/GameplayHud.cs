@@ -4,7 +4,6 @@ using Sources.Scripts.Presentations.Views;
 using Sources.Scripts.Presentations.Views.Cameras;
 using Sources.Scripts.Presentations.Views.Common;
 using Sources.Scripts.Presentations.Views.Gameplay;
-using Sources.Scripts.Presentations.Views.Music;
 using Sources.Scripts.Presentations.Views.Players;
 using Sources.Scripts.Presentations.Views.Settings;
 using Sources.Scripts.Presentations.Views.Weapons;

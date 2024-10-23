@@ -1,5 +1,4 @@
 ﻿using System;
-using JetBrains.Annotations;
 using Sources.Scripts.InfrastructureInterfaces.Services.PauseServices;
 using Sources.Scripts.UIFramework.Domain.Commands;
 using Sources.Scripts.UIFramework.InfrastructureInterfaces.Commands.Buttons;

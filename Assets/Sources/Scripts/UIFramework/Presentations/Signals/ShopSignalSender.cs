@@ -3,7 +3,6 @@ using Doozy.Runtime.Signals;
 using Doozy.Runtime.UIManager.Components;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Presentations.Views;
-using Sources.Scripts.Presentations.Views.Players.Skins.MaterialTypes;
 using Sources.Scripts.Presentations.Views.Players.Skins.SkinTypes;
 using Sources.Scripts.Presentations.Views.Stickman;
 using Sources.Scripts.UIFramework.Domain.Commands;

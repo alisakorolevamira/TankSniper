@@ -18,9 +18,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Weapon
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
         }
 
-        public WeaponPresenter Create(Weapon weapon, IWeaponView weaponView)
-        {
-            return new WeaponPresenter(weapon, weaponView, _bulletSpawnService, _audioService);
-        }
+        public WeaponPresenter Create(Weapon weapon, IWeaponView weaponView) => 
+            new(weapon, weaponView, _bulletSpawnService, _audioService);
     }
 }

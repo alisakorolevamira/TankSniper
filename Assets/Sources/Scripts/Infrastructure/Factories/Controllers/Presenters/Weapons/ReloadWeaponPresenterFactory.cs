@@ -6,9 +6,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Weapon
 {
     public class ReloadWeaponPresenterFactory
     {
-        public ReloadWeaponPresenter Create(IReloadWeaponView view, IReloadWeaponService reloadWeaponService)
-        {
-            return new ReloadWeaponPresenter(view, reloadWeaponService);
-        }
+        public ReloadWeaponPresenter Create(IReloadWeaponView view, IReloadWeaponService reloadWeaponService) => 
+            new(view, reloadWeaponService);
     }
 }

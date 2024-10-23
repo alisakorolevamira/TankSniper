@@ -5,9 +5,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Player
 {
     public class PlayerWalletPresenterFactory
     { 
-        public PlayerWalletPresenter Create(PlayerWallet playerWallet)
-        {
-            return new PlayerWalletPresenter(playerWallet);
-        }
+        public PlayerWalletPresenter Create(PlayerWallet playerWallet) => 
+            new(playerWallet);
     }
 }

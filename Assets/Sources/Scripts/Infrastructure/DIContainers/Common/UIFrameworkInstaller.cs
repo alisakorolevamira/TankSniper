@@ -5,9 +5,7 @@ using Sources.Scripts.UIFramework.Controllers.Buttons;
 using Sources.Scripts.UIFramework.Controllers.Forms;
 using Sources.Scripts.UIFramework.Controllers.Shop;
 using Sources.Scripts.UIFramework.Services.AudioSources;
-using Sources.Scripts.UIFramework.Services.Focus;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
-using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;
 using Zenject;
 
 namespace Sources.Scripts.Infrastructure.DIContainers.Common
@@ -20,7 +18,6 @@ namespace Sources.Scripts.Infrastructure.DIContainers.Common
             Container.Bind<IButtonSignalController>().To<ButtonCommandSignalController>().AsSingle();
             Container.Bind<IFormSignalController>().To<FormCommandSignalController>().AsSingle();
             Container.Bind<IShopSignalController>().To<ShopCommandSignalController>().AsSingle();
-            Container.Bind<IFocusService>().To<FocusService>().AsSingle();
         }
     }
 }

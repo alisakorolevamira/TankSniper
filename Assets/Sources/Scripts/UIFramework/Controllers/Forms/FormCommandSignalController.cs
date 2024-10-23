@@ -37,7 +37,7 @@ namespace Sources.Scripts.UIFramework.Controllers.Forms
         private void Handle(Signal signal)
         {
             if (signal.TryGetValue(out FormCommandSignal value) == false)
-                throw new InvalidOperationException("Signal valueAsObject is not ButtonCommandSignal");
+                throw new InvalidOperationException("Signal valueAsObject is not FormCommandSignal");
 
             foreach (FormCommandId commandId in value.FormCommandIds)
                 _uiViewCommandHandler.Handle(commandId);

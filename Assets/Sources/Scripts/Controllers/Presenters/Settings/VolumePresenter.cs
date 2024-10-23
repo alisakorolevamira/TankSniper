@@ -23,6 +23,7 @@ namespace Sources.Scripts.Controllers.Presenters.Settings
             _volumeService.VolumeChanged -= SetVolume;
 
         private void SetVolume(int volume) => 
-            _volumeView.ImageView.SetSprite(volume == VolumeConst.OffAudioValue ? _volumeView.VolumeOffSprite : _volumeView.VolumeOnSprite);
+            _volumeView.ImageView.SetSprite(
+                volume == VolumeConst.OffAudioValue ? _volumeView.VolumeOffSprite : _volumeView.VolumeOnSprite);
     }
 }

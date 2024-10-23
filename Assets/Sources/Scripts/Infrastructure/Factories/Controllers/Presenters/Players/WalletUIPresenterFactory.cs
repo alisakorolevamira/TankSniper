@@ -6,9 +6,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Player
 {
     public class WalletUIPresenterFactory
     {
-        public WalletUIPresenter Create(IPlayerWallet playerWallet, IWalletUI walletUI)
-        {
-            return new WalletUIPresenter(playerWallet, walletUI);
-        }
+        public WalletUIPresenter Create(IPlayerWallet playerWallet, IWalletUI walletUI) => 
+            new(playerWallet, walletUI);
     }
 }

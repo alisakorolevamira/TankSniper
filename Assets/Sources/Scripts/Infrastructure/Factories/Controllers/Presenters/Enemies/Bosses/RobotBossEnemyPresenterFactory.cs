@@ -3,7 +3,6 @@ using Sources.Scripts.Controllers.Presenters.Enemies.Base;
 using Sources.Scripts.Controllers.Presenters.Enemies.Bosses.States;
 using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Enemies.Base;
-using Sources.Scripts.Domain.Models.Enemies.Boss;
 using Sources.Scripts.Domain.Models.Gameplay;
 using Sources.Scripts.Infrastructure.StateMachines.FiniteStateMachines.Transitions;
 using Sources.Scripts.InfrastructureInterfaces.Services.UpdateServices;

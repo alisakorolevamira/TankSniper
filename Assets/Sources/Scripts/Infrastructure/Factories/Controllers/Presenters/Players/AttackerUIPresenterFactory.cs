@@ -1,5 +1,4 @@
 ﻿using System;
-using JetBrains.Annotations;
 using Sources.Scripts.Controllers.Presenters.Players;
 using Sources.Scripts.InfrastructureInterfaces.Services.InputServices;
 using Sources.Scripts.InfrastructureInterfaces.Services.LevelCompleted;
@@ -25,9 +24,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Player
             _playerAttackService = playerAttackService ?? throw new ArgumentNullException(nameof(playerAttackService));
         }
 
-        public AttackerUIPresenter Create(IAttackerUIView view)
-        {
-            return new AttackerUIPresenter(view, _inputService, _levelCompletedService, _playerAttackService);
-        }
+        public AttackerUIPresenter Create(IAttackerUIView view) => 
+            new(view, _inputService, _levelCompletedService, _playerAttackService);
     }
 }

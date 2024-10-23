@@ -1,5 +1,4 @@
-﻿using Sources.Scripts.Domain.Models.Players.Configs;
-using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Shops;
+﻿using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Shops;
 using Sources.Scripts.Infrastructure.Factories.Views.Shops;
 using Zenject;
 

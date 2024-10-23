@@ -1,7 +1,5 @@
 ﻿using Sources.Scripts.Infrastructure.Services.Yandex;
 using Sources.Scripts.InfrastructureInterfaces.Services.Yandex;
-using Sources.Scripts.UIFramework.Services.Focus;
-using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;
 using Zenject;
 
 namespace Sources.Scripts.Infrastructure.DIContainers.Common

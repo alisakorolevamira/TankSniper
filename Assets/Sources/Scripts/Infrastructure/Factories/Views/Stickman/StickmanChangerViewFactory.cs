@@ -1,6 +1,5 @@
 ﻿using System;
 using Sources.Scripts.Controllers.Presenters.Stickman;
-using Sources.Scripts.Domain.Models.Players;
 using Sources.Scripts.Domain.Models.Stickman;
 using Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Stickman;
 using Sources.Scripts.Presentations.Views.Stickman;

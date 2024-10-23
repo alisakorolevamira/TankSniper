@@ -15,7 +15,6 @@ using Sources.Scripts.Presentations.UI.Curtain;
 using Sources.Scripts.UIFramework.ControllerInterfaces.Buttons;
 using Sources.Scripts.UIFramework.ControllerInterfaces.Shop;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
-using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;
 
 namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
 {
@@ -25,9 +24,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
         private readonly LoadMainMenuSceneService _loadMainMenuSceneService;
         private readonly IVolumeService _volumeService;
         private readonly ILoadService _loadService;
-        private readonly IInterstitialAdService interstitialAdService;
         private readonly IAudioService _audioService;
-        private readonly IFocusService _focusService;
         private readonly ITutorialService _tutorialService;
         private readonly ISkinChangerService _skinChangerService;
         private readonly ISDKInitializeService _sdkInitializeService;
@@ -41,14 +38,12 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             IVolumeService volumeService,
             ILoadService loadService,
             LoadingCurtainView curtainView,
-            IInterstitialAdService interstitialAdService,
             IAudioService audioService,
             ITutorialService tutorialService,
             ISkinChangerService skinChangerService,
             ISDKInitializeService sdkInitializeService,
             IButtonSignalController buttonSignalController,
-            IShopSignalController shopSignalController,
-            IFocusService focusService)
+            IShopSignalController shopSignalController)
         {
             _createMainMenuSceneService = createMainMenuSceneService ?? 
                                           throw new ArgumentNullException(nameof(createMainMenuSceneService));
@@ -56,7 +51,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
                                         throw new ArgumentNullException(nameof(loadMainMenuSceneService));
             _volumeService = volumeService ?? throw new ArgumentNullException(nameof(volumeService));
             _loadService = loadService ?? throw new ArgumentNullException(nameof(loadService));
-            this.interstitialAdService = interstitialAdService ?? throw new ArgumentNullException(nameof(interstitialAdService));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
             _tutorialService = tutorialService ?? throw new ArgumentNullException(nameof(tutorialService));
             _skinChangerService = skinChangerService ?? throw new ArgumentNullException(nameof(skinChangerService));
@@ -66,7 +60,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
                                       throw new ArgumentNullException(nameof(buttonSignalController));
             _shopSignalController = shopSignalController ??
                                     throw new ArgumentNullException(nameof(shopSignalController));
-            _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             _curtainView = curtainView ? curtainView : throw new ArgumentNullException(nameof(curtainView));
         }
         
@@ -76,14 +69,12 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
                 CreateLoadSceneService(payload),
                 _volumeService,
                 _curtainView,
-                interstitialAdService,
                 _audioService,
                 _tutorialService,
                 _sdkInitializeService,
                 _skinChangerService,
                 _buttonSignalController,
-                _shopSignalController,
-                _focusService);
+                _shopSignalController);
         }
         
         private ILoadSceneService CreateLoadSceneService(object payload)

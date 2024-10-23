@@ -17,7 +17,6 @@ using Sources.Scripts.Presentations.UI.Curtain;
 using Sources.Scripts.UIFramework.ControllerInterfaces.Buttons;
 using Sources.Scripts.UIFramework.ControllerInterfaces.Forms;
 using Sources.Scripts.UIFramework.ServicesInterfaces.AudioSources;
-using Sources.Scripts.UIFramework.ServicesInterfaces.Focus;
 
 namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
 {
@@ -34,7 +33,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
         private readonly ISkinChangerService _skinChangerService;
         private readonly IStickmanChangerService _stickmanChangerService;
         private readonly IAudioService _audioService;
-        private readonly IFocusService _focusService;
         private readonly IFormSignalController _formSignalController;
         private readonly IButtonSignalController _buttonSignalController;
         private readonly LoadingCurtainView _curtainView;
@@ -53,8 +51,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             LoadingCurtainView curtainView,
             IAudioService audioService,
             IFormSignalController formSignalController,
-            IButtonSignalController buttonSignalController,
-            IFocusService focusService)
+            IButtonSignalController buttonSignalController)
         {
             _updateService = updateService ?? throw new ArgumentNullException(nameof(updateService));
             _inputService = inputService ?? throw new ArgumentNullException(nameof(inputService));
@@ -71,7 +68,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
             _stickmanChangerService = stickmanChangerService ??
                                       throw new ArgumentNullException(nameof(stickmanChangerService));
             _audioService = audioService ?? throw new ArgumentNullException(nameof(audioService));
-            _focusService = focusService ?? throw new ArgumentNullException(nameof(focusService));
             _formSignalController = formSignalController ?? throw new ArgumentNullException(nameof(formSignalController));
             _buttonSignalController = buttonSignalController ?? throw new ArgumentNullException(nameof(buttonSignalController));
             _curtainView = curtainView ? curtainView : throw new ArgumentNullException(nameof(curtainView));
@@ -88,7 +84,6 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Scenes
                 _volumeService,
                 _levelCompletedService,
                 _audioService,
-                _focusService,
                 _skinChangerService,
                 _stickmanChangerService,
                 _formSignalController,

@@ -28,8 +28,6 @@ namespace Sources.Scripts.Infrastructure.Factories.App
             
             projectContext.Container.Bind<LoadingCurtainView>().FromInstance(curtainView);
             
-            //curtainView.Hide();
-            
             Dictionary<string, Func<object, SceneContext, UniTask<IScene>>> sceneFactories =
                 new Dictionary<string, Func<object, SceneContext, UniTask<IScene>>>();
             SceneService sceneService = new SceneService(sceneFactories);

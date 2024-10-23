@@ -17,9 +17,7 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Player
             _playerAttackService = playerAttackService ?? throw new ArgumentNullException(nameof(playerAttackService));
         }
 
-        public PlayerAttackerPresenter Create(PlayerAttacker playerAttacker)
-        {
-            return new PlayerAttackerPresenter(playerAttacker, _playerAttackService, _inputService);
-        }
+        public PlayerAttackerPresenter Create(PlayerAttacker playerAttacker) => 
+            new(playerAttacker, _playerAttackService, _inputService);
     }
 }

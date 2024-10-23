@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Threading;
-using Cysharp.Threading.Tasks;
-using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.InfrastructureInterfaces.Services.Cameras;
 using Sources.Scripts.Presentations.Views.Cameras.Types;
 using Sources.Scripts.UIFramework.Domain.Commands;

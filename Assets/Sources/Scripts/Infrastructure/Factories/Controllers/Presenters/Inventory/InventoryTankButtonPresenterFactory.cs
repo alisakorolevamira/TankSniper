@@ -21,11 +21,13 @@ namespace Sources.Scripts.Infrastructure.Factories.Controllers.Presenters.Invent
             _spawnerService = spawnerService ?? throw new ArgumentNullException(nameof(spawnerService));
             _rewardedAdService = rewardedAdService ?? throw new ArgumentNullException(nameof(rewardedAdService));
         }
-        
+
         public InventoryTankButtonPresenter Create(
             IInventoryTankButtonView view,
             PlayerWallet playerWallet,
-            Upgrader upgrader) => 
-            new (view, _spawnerService, _rewardedAdService, playerWallet, upgrader);
+            Upgrader upgrader)
+        {
+            return new InventoryTankButtonPresenter(view, _spawnerService, _rewardedAdService, playerWallet, upgrader);
+        }
     }
 }

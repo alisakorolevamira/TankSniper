@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Sources.Scripts.Domain.Models.Data;
 using Sources.Scripts.DomainInterfaces.Models.Entities;
 using Sources.Scripts.Presentations.Views.Players.Skins.DecalsType;
@@ -38,46 +40,18 @@ namespace Sources.Scripts.Domain.Models.Shops
 
         private void AddPatterns()
         {
-            PatternButtons = new List<ShopPatternButton>
-            {
-                new (false, MaterialType.Green),
-                new (false, MaterialType.Red),
-                new (false, MaterialType.Grey),
-                new (false, MaterialType.Sky),
-                new (false, MaterialType.White),
-                new (false, MaterialType.Pink),
-                new (false, MaterialType.Yellow),
-                new (false, MaterialType.Purple),
-                new (false, MaterialType.PurpleDark),
-                new (false, MaterialType.Blue),
-                new (false, MaterialType.BlueDark),
-                new (false, MaterialType.Brown),
-                new (false, MaterialType.Orange),
-                new (false, MaterialType.BrightGreen),
-                new (false, MaterialType.BrightPink),
-            };
+            PatternButtons = Enum.GetValues(typeof(MaterialType))
+                .Cast<MaterialType>()
+                .Select(material => new ShopPatternButton(false, material))
+                .ToList();
         }
 
         private void AddDecals()
         {
-            DecalButtons = new List<ShopDecalButton>
-            {
-                new (false, DecalType.Cat),
-                new (false, DecalType.Bat),
-                new (false, DecalType.Scull),
-                new (false, DecalType.Bang),
-                new (false, DecalType.Duck),
-                new (false, DecalType.Ghost),
-                new (false, DecalType.Bomb),
-                new (false, DecalType.NuclearBomb),
-                new (false, DecalType.Rabbit),
-                new (false, DecalType.Shark),
-                new (false, DecalType.Unicorn),
-                new (false, DecalType.Wolf),
-                new (false, DecalType.Wednesday),
-                new (false, DecalType.Swords),
-                new (false, DecalType.Men),
-            };
+            DecalButtons = Enum.GetValues(typeof(DecalType))
+                .Cast<DecalType>()
+                .Select(decal => new ShopDecalButton(false, decal))
+                .ToList();
         }
     }
 }

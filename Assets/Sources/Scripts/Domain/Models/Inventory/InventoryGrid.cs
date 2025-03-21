@@ -18,18 +18,16 @@ namespace Sources.Scripts.Domain.Models.Inventory
         {
             Id = id;
 
-            _slots = new Dictionary<Vector2Int, InventorySlot>()
+            _slots = new Dictionary<Vector2Int, InventorySlot>();
+            
+            for(int i = 0; i < _size.x; i++)
             {
-                {new Vector2Int(0,0), new InventorySlot(true, InventoryTankConst.DefaultTankLevel)},
-                {new Vector2Int(0,1), new InventorySlot(true, InventoryTankConst.DefaultTankLevel)},
-                {new Vector2Int(0,2), new InventorySlot(true, InventoryTankConst.DefaultTankLevel)},
-                {new Vector2Int(1,0), new InventorySlot(true, InventoryTankConst.DefaultTankLevel)},
-                {new Vector2Int(1,1), new InventorySlot(false, InventoryTankConst.DefaultTankLevel)},
-                {new Vector2Int(1,2), new InventorySlot(true, InventoryTankConst.DefaultTankLevel)},
-                {new Vector2Int(2,0), new InventorySlot(true, InventoryTankConst.DefaultTankLevel)},
-                {new Vector2Int(2,1), new InventorySlot(true, InventoryTankConst.DefaultTankLevel)},
-                {new Vector2Int(2,2), new InventorySlot(true, InventoryTankConst.DefaultTankLevel)},
-            };
+                for(int j = 0; j < _size.y; j++)
+                {
+                    bool isEmpty = !(i == 1 && j == 1); 
+                    _slots[new Vector2Int(i, j)] = new InventorySlot(isEmpty, InventoryTankConst.DefaultTankLevel);
+                }
+            }
         }
 
         public Dictionary<Vector2Int, InventorySlot> Slots => _slots;

@@ -73,6 +73,7 @@ namespace Sources.Scripts.Controllers.Presenters.Players
         private async void CheckShoots()
         {
             _cancellationTokenSource.Cancel();
+            _cancellationTokenSource.Dispose();
             _cancellationTokenSource = new CancellationTokenSource();
 
             try

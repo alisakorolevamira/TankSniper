@@ -1,5 +1,4 @@
 ﻿using System;
-using Sources.Scripts.Domain.Models.Constants;
 using Sources.Scripts.Domain.Models.Data.Ids;
 using Sources.Scripts.Domain.Models.Payloads;
 using Sources.Scripts.InfrastructureInterfaces.Services.SceneServices;
@@ -20,7 +19,7 @@ namespace Sources.Scripts.App.Core
             {
                 await _sceneService.ChangeSceneAsync(
                     ModelId.MainMenu,
-                    new ScenePayload(ModelId.MainMenu, false, false));
+                    new ScenePayload(ModelId.MainMenu, true, false));
             }
             catch(ArgumentNullException)
             {

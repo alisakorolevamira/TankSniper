@@ -65,6 +65,7 @@ namespace Sources.Scripts.Controllers.Presenters.Players
         private async void PlayScaleAnimation()
         {
             _cancellationTokenSource.Cancel();
+            _cancellationTokenSource.Dispose();
             _cancellationTokenSource = new CancellationTokenSource();
 
             Vector3 currentScale = _skinChangerView.CurrentSkinView.CurrentScale;
